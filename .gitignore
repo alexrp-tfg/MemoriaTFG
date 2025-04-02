@@ -4,3 +4,5 @@ main.fls
 main.log
 main.pdf
 main.synctex.gz
+
+pdflatex*.fls
