@@ -6,3 +6,4 @@ main.pdf
 main.synctex.gz
 
 pdflatex*.fls
+main.toc
