@@ -7,3 +7,7 @@ main.synctex.gz
 
 pdflatex*.fls
 main.toc
+main.bbl
+main.bcf
+main.blg
+main.run.xml
