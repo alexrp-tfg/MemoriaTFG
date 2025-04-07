@@ -34,6 +34,14 @@ Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rus
 
 Como se puede ver en los benchmark hay frameworks de otros lenguajes que pueden parecer más sencillos que Rust que nos dan el mismo o mejor rendimiento, pero tal y como se ha comentado anteriormente, el punto principal de Rust no es únicamente su rendimiento, sino la seguridad que da el propio lenguaje y lo poco propenso que es a errores en tiempo de compilación, lo que hace de la aplicación mucho más robusta, segura y sostenible a largo plazo.
 
+
+Para el desarrollo de la aplicación móvil se ha optado por un nuevo framework de desarrollo multiplataforma, \textbf{Lynx.js}.
+
+Lynx.js es un framework inspirado en React Native. El desarrollo de la aplicación se hace con React el cual se compila a código nativo de la plataforma. El framework soporta componentes de cualquier framework de desarrollo web, aunque está pensado para usar React.
+
+Aunque pueda parecer igual que React Native, Lynx añade algunas cosas que le faltan a React Native. Uno de los mayores problemas de React Native es su rendimiento en algunas situaciones, ya que este solamente hace uso de un solo thread, lo cual no permite una buena gestión de las tareas. Por ejemplo, no puede obtener datos de una API mientras que se actualiza lo que se muestra al usuario.
+Sin embargo, Lynx tiene dos threads, un main thread y un background thread. Puedes especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API. Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \textit{Instant First-Frame Rendering (IFR)}\footnote{El \href{https://lynxjs.org/guide/interaction/ifr.html}{Instant First-Frame Rendering (IFR)} es una técnica de renderizado que permite mostrar el primer fotograma de una aplicación de manera instantánea, mejorando la experiencia del usuario al reducir el tiempo de espera para ver la interfaz.}.
+
 \subsection{Historias de usuario}
 En esta sección se detallan las historias de usuario de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
 
