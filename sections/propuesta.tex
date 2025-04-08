@@ -28,7 +28,9 @@ Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otr
 
 Haremos uso del framework de aplicaciones web \href{https://github.com/tokio-rs/axum?tab=readme-ov-file}{\textbf{Axum}}.
 
-Axum es un framework de aplicaciones web construido sobre Tokio, una biblioteca de programación asíncrona para Rust. Axum se centra en la simplicidad y la facilidad de uso, lo que lo convierte en una excelente opción para desarrollar aplicaciones web rápidas y eficientes. Aunque hay varios frameworks más eficientes en términos de velocidad a la hora de realizar benchmarks\footnote{\href{https://web-frameworks-benchmark.netlify.app/result?l=rust}{Comparativa frameworks de Rust}} \footnote{\href{https://www.techempower.com/benchmarks/\#section=data-r21&test=composite&hw=ph}{Comparativa con frameworks de otros lenguajes}}, algunos de ellos tienen un tiempo de compilación demasiado alto, por lo que puede llegar a hacer más lento el desarrollo. Además, ninguno de los demás tiene una comunidad tan activa como la de Axum ni una documentación tan completa.
+Axum es un framework de aplicaciones web construido sobre Tokio, una biblioteca de programación asíncrona para Rust. Axum se centra en la simplicidad y la facilidad de uso, lo que lo convierte en una excelente opción para desarrollar aplicaciones web rápidas y eficientes.
+Aunque hay varios frameworks más eficientes en términos de velocidad a la hora de realizar benchmarks\footnote{\href{https://web-frameworks-benchmark.netlify.app/result?l=rust}{Comparativa frameworks de Rust}} \footnote{\href{https://www.techempower.com/benchmarks/\#section=data-r21&test=composite&hw=ph}{Comparativa con frameworks de otros lenguajes}}, algunos de ellos tienen un tiempo de compilación demasiado alto, por lo que puede llegar a hacer más lento el desarrollo.
+Además, ninguno de los demás frameworks de Rust tiene una comunidad tan activa como la de Axum ni una documentación tan completa.
 
 Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rust más usada para la programación asíncrona}, garantiza un soporte a largo plazo que otros frameworks no garantizan. Además, es \href{https://lib.rs/crates/axum}{la librería más descargada }mensualmente para aplicaciones web en Rust.  
 
@@ -40,7 +42,37 @@ Para el desarrollo de la aplicación móvil se ha optado por un nuevo framework 
 Lynx.js es un framework inspirado en React Native. El desarrollo de la aplicación se hace con React el cual se compila a código nativo de la plataforma. El framework soporta componentes de cualquier framework de desarrollo web, aunque está pensado para usar React.
 
 Aunque pueda parecer igual que React Native, Lynx añade algunas cosas que le faltan a React Native. Uno de los mayores problemas de React Native es su rendimiento en algunas situaciones, ya que este solamente hace uso de un solo thread, lo cual no permite una buena gestión de las tareas. Por ejemplo, no puede obtener datos de una API mientras que se actualiza lo que se muestra al usuario.
-Sin embargo, Lynx tiene dos threads, un main thread y un background thread. Puedes especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API. Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \textit{Instant First-Frame Rendering (IFR)}\footnote{El \href{https://lynxjs.org/guide/interaction/ifr.html}{Instant First-Frame Rendering (IFR)} es una técnica de renderizado que permite mostrar el primer fotograma de una aplicación de manera instantánea, mejorando la experiencia del usuario al reducir el tiempo de espera para ver la interfaz.}.
+Sin embargo, Lynx tiene dos threads, un main thread y un background thread.
+Puedes especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API.
+Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \textit{Instant First-Frame Rendering (IFR)}\footnote{El \href{https://lynxjs.org/guide/interaction/ifr.html}{Instant First-Frame Rendering (IFR)} es una técnica de renderizado que permite mostrar el primer fotograma de una aplicación de manera instantánea, mejorando la experiencia del usuario al reducir el tiempo de espera para ver la interfaz.}.
+
+Dado que la aplicación necesitará hacer uso de módulos nativos de los teléfonos, necesitaremos implementar módulos nativos para cada plataforma.
+Esto se puede hacer de manera sencilla, ya que el framework permite la creación de módulos nativos los cuales se pueden llamar desde nuestro código escrito en React.
+Este es uno de los puntos fuertes de la aplicación, ya que nos va a permitir programar haciendo uso de React, el cual es un framework muy conocido y utilizado, pero a la vez nos va a permitir hacer uso de módulos nativos de cada plataforma, lo que nos da una gran flexibilidad a la hora de desarrollar la aplicación de forma nativa en todas las plataformas.
+
+Dado que para el desarrollo de aplicaciones en iOS es necesario tener un sistema de Apple, en la implementación de esta aplicación nos centraremos en la parte de Android, aunque el código de la aplicación será el mismo para ambas plataformas.
+La única diferencia será la implementación de los módulos nativos, que serán diferentes para cada plataforma.
+
+En resumen, las ventajas de usar este framework con respecto a otros son:
+\begin{itemize}
+    \item \textbf{Rendimiento}: al compilar a código nativo, el rendimiento es mucho mejor que el de otros frameworks como Flutter.
+    \item \textbf{Flexibilidad}: permite la creación de módulos nativos para cada plataforma, lo que da una gran flexibilidad a la hora de desarrollar la aplicación.
+    \item \textbf{Simplicidad}: la sintaxis es muy similar a la de React, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en este framework.
+    \item \textbf{Comunidad}: aunque es un framework nuevo, está creciendo rápidamente y tiene una comunidad activa.
+    \item \textbf{Documentación}: la documentación es muy completa y está en constante actualización.
+\end{itemize}
+
+¿Por qué no se ha optado por otras opciones como Flutter o Kotlin Multiplatform?
+\begin{itemize}
+    \item \textbf{Flutter}: aunque es un framework muy potente y con una comunidad muy activa, su rendimiento no es tan bueno como el de Lynx.js. 
+        Flutter lo que hace es renderizar lo que sería como un "canvas" que utiliza un motor gráfico parecido al de los juegos para renderizar la interfaz de usuario, haciendo que la experiencia de usuario no sea tan fluida como podría ser la de otro framework. 
+    \item \textbf{Kotlin Multiplatform}: aunque es una opción interesante, la comunidad y la documentación son mucho más limitadas que las de Lynx.js. La curva de aprendizaje es mucho más pronunciada, ya que se utiliza Kotlin junto con una gran cantidad de librerías las cuales necesitan de un estudio profundo para su uso.
+
+        Nos daría el mejor rendimiento sin tener que programar la aplicación de forma nativa para todos los dispositivos (los dispositivos comparten código pero hay que implementar la mayoría de forma nativa para las distintas plataformas), pero el desarrollo sería mucho más lento y tedioso, lo cual además complicaría la aportación al proyecto Open Source.
+    \item \textbf{React Native}: aunque es un framework muy conocido y utilizado, su rendimiento no es tan bueno como el de Lynx.js.
+        Es una opción muy parecida a Lynx.js, pero a largo plazo la aplicación podría verse afectada por el rendimiento.
+        Dada la similitud con Lynx.js y las ventajas que ofrece, se ha optado por este último.
+\end{itemize}
 
 \subsection{Historias de usuario}
 En esta sección se detallan las historias de usuario de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
