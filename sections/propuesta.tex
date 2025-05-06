@@ -46,7 +46,7 @@ Sin embargo, Lynx tiene dos threads, un main thread y un background thread.
 Puedes especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API.
 Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \textit{Instant First-Frame Rendering (IFR)}\footnote{El \href{https://lynxjs.org/guide/interaction/ifr.html}{Instant First-Frame Rendering (IFR)} es una técnica de renderizado que permite mostrar el primer fotograma de una aplicación de manera instantánea, mejorando la experiencia del usuario al reducir el tiempo de espera para ver la interfaz.}.
 
-Dado que la aplicación necesitará hacer uso de módulos nativos de los teléfonos, necesitaremos implementar módulos nativos para cada plataforma.
+Dado que la aplicación necesitará hacer uso de módulos nativos de los teléfonos, necesitaremos implementarlos para cada plataforma.
 Esto se puede hacer de manera sencilla, ya que el framework permite la creación de módulos nativos los cuales se pueden llamar desde nuestro código escrito en React.
 Este es uno de los puntos fuertes de la aplicación, ya que nos va a permitir programar haciendo uso de React, el cual es un framework muy conocido y utilizado, pero a la vez nos va a permitir hacer uso de módulos nativos de cada plataforma, lo que nos da una gran flexibilidad a la hora de desarrollar la aplicación de forma nativa en todas las plataformas.
 
@@ -74,14 +74,14 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
         Dada la similitud con Lynx.js y las ventajas que ofrece, se ha optado por este último.
 \end{itemize}
 
-\subsection{Historias de usuario}
-En esta sección se detallan las historias de usuario de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
+\subsection{Historias de usuario / Historias técnicas}
+En esta sección se detallan las historias de usuario e historias técnicas de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
 
 Se ha considerado esta separación ya que la aplicación de servidor tiene un objetivo diferente al de la aplicación móvil, de esta manera conseguimos una mejor organización de las historias de usuario.
 
-Durante los primeros sprints se trabajará de manera principalmente separada, enfocándose en la parte correspondiente que se defina de la aplicación y en una fase más avanzada se trabajará de manera conjunta, integrando ambas aplicaciones.
+Durante los primeros sprints se trabajará de manera principalmente separada, enfocándose en la parte correspondiente que se defina de la aplicación y en una fase más avanzada se trabajará de manera conjunta, integrando ambas aplicaciones. Esto lo hacemos para para poder enfocarnos mejor en una sola parte del proyecto, de esta manera no tenemos que estar cambiando de contexto constantemente entre las dos aplicaciones, lo que podría hacer que el desarrollo fuera más lento y tedioso.
 
-Para la planificación del desarrollo se han utilizado puntos de historia, los cuales representan una estimación de lo que se considera que se tardará en implementar las historias de usuario. Esta estimación es relativa, es decir, no representa un tiempo real sino una estimación con respecto a todas las demás historias de usuario, siendo 1 punto de historia la historia de usuario más sencilla de implementar o que menos tiempo requiere.
+Para la planificación del desarrollo se han utilizado puntos de historia (PH), los cuales representan una estimación de lo que se considera que se tardará en implementar las historias de usuario. Esta estimación es relativa, es decir, no representa un tiempo real sino una estimación con respecto a todas las demás historias de usuario, siendo 1 punto de historia la historia de usuario más sencilla de implementar o que menos tiempo requiere.
 
 Este es un listado inicial de historias de usuario, durante los sprints se irá especificando si alguna historia de usuario ha cambiado, añadido o eliminado del product backlog\footnote{El product backlog es una lista priorizada de requisitos o tareas pendientes en un proyecto ágil.}.
 
@@ -94,15 +94,151 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 \renewcommand{\arraystretch}{1.3} % Increases row height for readability
 \rowcolors{2}{gray!15}{white} % Alternate row colors
 
-\begin{longtable}{|l|p{4cm}|>{\raggedright\arraybackslash}p{8cm}|}
+\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|p{2cm}|}
     \hline
-    \textbf{ID} & \textbf{Title} & \textbf{Description} \\ \hline
-    US1 & Upload Photos & As a user, I want to upload photos to the server so that I can back them up. \\ \hline
-    US2 & Sync Files & As a user, I want to sync my files automatically so that I don’t lose data. \\ \hline
-    US3 & Manage Users & As an admin, I want to manage users so that I can control access. \\ \hline
-\end{longtable}
+    \textbf{ID} & \textbf{Título} & \textbf{Descripción} & \textbf{Estimación (PH)} \\
+    \hline
+    HU01 & Subida de fotos & Como usuario, quiero subir varias fotos desde mi móvil para tener una copia de seguridad en mi servidor. & 5 \\
+    \hline
+    HU02 & Estado de sincronización & Como usuario, quiero ver qué fotos están subidas y cuáles no, para saber el estado de sincronización. & 3 \\
+    \hline
+    HU03 & Eliminar fotos & Como usuario, quiero eliminar fotos subidas desde la app, para liberar espacio en mi servidor. & 3 \\
+    \hline
+    HU04 & Subida de vídeos & Como usuario, quiero subir vídeos además de fotos, para guardar también mis recuerdos en vídeo. & 5 \\
+    \hline
+    HU05 & Inicio de sesión & Como usuario, quiero iniciar sesión con contraseña o clave, para evitar que otros accedan a mis archivos. & 5 \\
+    \hline
+    HU06 & Cerrar sesión & Como usuario, quiero poder cerrar sesión en un dispositivo, para proteger mis datos si pierdo el móvil. & 2 \\
+    \hline
+    HU07 & Descubrimiento automático & Como usuario, quiero que la app detecte automáticamente mi servidor en la red local, para no tener que configurarlo manualmente. & 8 \\
+    \hline
+    HU08 & Conexión remota & Como usuario, quiero poder conectarme remotamente si expongo mi servidor, para acceder a mis fotos desde fuera de casa. & 13 \\
+    \hline
+    HU09 & Galería visual & Como usuario, quiero ver una galería de las fotos subidas, para revisar mi contenido fácilmente. & 5 \\
+    \hline
+    HU10 & Espacio ocupado & Como usuario, quiero ver el espacio ocupado por mis archivos, para controlar el almacenamiento del servidor. & 3 \\
+    \hline
+    HU11 & Estadísticas de copia & Como usuario, quiero ver estadísticas de sincronización, para saber cuándo fue la última copia y cuántos archivos se han guardado. & 3 \\
+    \hline
+    HU12 & Cancelar sincronización & Como usuario, quiero cancelar una sincronización en curso. & 5 \\
+    \hline
+    HU13 & Crear cuentas & Como administrador, quiero crear cuentas de usuario con permisos, para que varias personas puedan usar el servidor. & 8 \\
+    \hline
+    HU14 & Galería privada & Como usuario, quiero tener mi propia galería separada de otros usuarios. & 5 \\
+    \hline
+    HU15 & Galería online & Como usuario, quiero poder ver todas las fotos que tengo en el servidor sin necesidad de tener que descargarlas en mi móvil, tanto las que he subido yo como las que han compartido conmigo. & 8 \\
+    \hline
+    HT01 & Hash de archivos & Implementar sistema de cálculo de hash para detectar duplicados. & 3 \\
+    \hline
+    HT02 & Sincronización incremental & Implementar sincronización basada en metadatos (fecha, tamaño, hash). & 5 \\
+    \hline
+    HT03 & API REST en Rust & Diseñar API RESTful para subida, borrado y consulta de archivos. & 13 \\
+    \hline
+    HT04 & Descubrimiento mDNS & Crear sistema de descubrimiento automático usando mDNS. & 8 \\
+    \hline
+    HT05 & Autenticación JWT & Implementar autenticación con JSON Web Tokens. & 5 \\
+    \hline
+    HT06 & HTTPS en servidor & Configurar comunicación segura con HTTPS. & 5 \\
+    \hline
+    HT07 & Estructura de almacenamiento & Definir carpetas y metadatos para organizar los archivos. & 5 \\
+    \hline
+    HT08 & Base de datos & Implementar SQLite o PostgreSQL para usuarios y archivos. & 8 \\
+    \hline
+    HT09 & Compresión de imágenes & Implementar compresión para optimizar el almacenamiento. & 5 \\
+    \hline
+    HT10 & Subida concurrente & Soporte para subida simultánea y manejo de errores. & 8 \\
+    \hline
+    HT11 & Tests en Rust & Añadir pruebas unitarias e integración en backend. & 5 \\
+    \hline
+    HT12 & CI/CD & Configurar pipelines de integración y despliegue. & 5 \\
+    \hline
+    HT13 & Logging & Implementar logs detallados para depuración. & 3 \\
+    \hline
+    HT14 & Cobertura de tests & Medir y asegurar la cobertura de pruebas. & 3 \\
+    \hline
+    HT15 & Interfaz Tauri & Crear interfaz gráfica del servidor con Tauri. & 8 \\
+    \hline
+    HT16 & Panel de control & Implementar visualización de archivos y uso del sistema. & 5 \\
+    \hline
+    HT17 & Notificaciones de progreso & Integrar notificaciones del sistema con progreso de subida. & 3 \\
+    \hline
+    HT18 & Binario y Tauri & Empaquetar servidor como CLI y app Tauri. & 5 \\
+    \hline
+    HT19 & Dockerización & Crear imagen Docker del servidor. & 3 \\
+    \hline
+    HT20 & Documentación & Documentar instalación y uso del sistema. & 13 \\
+    \hline
+    HT21 & Backups externos & Soporte para backups automáticos externos. & 8 \\
+    \hline
+    HT22 & Logs persistentes & Configurar sistema de logs persistentes y rotación. & 3 \\
+    \hline
+\end{tabularx}
 
 \subsubsection{Móvil} 
+\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|p{2cm}|}
+    \hline
+    ID & Título & Descripción & Estimación \\
+    \hline
+    HU01 & Seleccionar fotos & Como usuario, quiero seleccionar varias fotos desde mi galería para subirlas al servidor. & 3 \\
+    \hline
+    HU02 & Subir fotos automáticamente & Como usuario, quiero que se suban automáticamente las nuevas fotos que hago, sin tener que hacerlo manualmente. & 8 \\
+    \hline
+    HU03 & Ver progreso de subida & Como usuario, quiero ver el progreso de cada archivo que se está subiendo. & 8 \\
+    \hline
+    HU04 & Cancelar subida & Como usuario, quiero cancelar una subida en curso desde la interfaz. & 3 \\
+    \hline
+    HU05 & Ver archivos subidos & Como usuario, quiero ver una lista o galería de los archivos que ya están subidos. & 5 \\
+    \hline
+    HU06 & Conexión automática al servidor & Como usuario, quiero que la app detecte y se conecte automáticamente al servidor en mi red. & 5 \\
+    \hline
+    HU07 & Cambiar de servidor & Como usuario, quiero poder cambiar manualmente la dirección del servidor si quiero usar otro. & 3 \\
+    \hline
+    HU08 & Ver uso de almacenamiento & Como usuario, quiero ver cuánto espacio he usado en el servidor. & 3 \\
+    \hline
+    HU09 & Inicio y cierre de sesión & Como usuario, quiero iniciar y cerrar sesión para proteger mis datos. & 5 \\
+    \hline
+    HU10 & Gestión de permisos & Como usuario, quiero que la app me pida permisos de acceso solo cuando sea necesario. & 3 \\
+    \hline
+    HU11 & Notificaciones de subida & Como usuario, quiero recibir notificaciones cuando se complete la sincronización. & 5 \\
+    \hline
+    HU12 & Subir vídeos & Como usuario, quiero subir también vídeos de mi galería al servidor. & 5 \\
+    \hline
+    HU13 & Subida en segundo plano & Como usuario, quiero que las subidas continúen aunque cierre la app. & 8 \\
+    \hline
+    HU15 & Sincronización manual & Como usuario, quiero poder iniciar la sincronización manualmente. & 3 \\
+    \hline
+    HU16 & Galería online & Como usuario, quiero ver mis fotos en la app sin tener que descargarlas. & 5 \\
+    \hline
+    HT01 & Acceso a la galería & Implementar acceso seguro a la galería de fotos y vídeos. & 5 \\
+    \hline
+    HT02 & Comunicación con API & Integrar cliente HTTP que se comunique con el servidor. & 5 \\
+    \hline
+    HT03 & Almacenamiento local & Guardar estado de archivos subidos/no subidos de forma local. & 3 \\
+    \hline
+    HT04 & Manejo de errores de red & Implementar gestión de errores de red y reintentos automáticos. & 5 \\
+    \hline
+    HT05 & Subida concurrente & Soportar subida de varios archivos en paralelo con control de errores. & 5 \\
+    \hline
+    HT06 & Sincronización de fondo & Implementar sincronización en segundo plano. & 8 \\
+    \hline
+    HT07 & Pruebas unitarias & Añadir pruebas unitarias y de integración a la lógica común en React Native / Lynxjs & 13 \\
+    \hline
+    HT08 & CI/CD móvil & Pipeline de construcción y publicación para Android e iOS. & 5 \\
+    \hline
+    HT09 & Gestión de tokens & Almacenar y renovar tokens de autenticación de forma segura. & 3 \\
+    \hline
+    HT10 & Notificaciones locales & Integrar sistema de notificaciones locales en Android/iOS. & 3 \\
+    \hline
+    HT11 & Optimización de red & Reducir uso de red usando compresión. & 5 \\
+    \hline
+    HT12 & Localización & Soporte multilenguaje para la aplicación. & 8 \\
+    \hline
+    HT13 & Permisos condicionales & Solicitar permisos en tiempo de ejecución de forma contextual. & 3 \\
+    \hline
+    HT14 & UI responsive & Adaptar UI para distintos tamaños de pantalla (tablet, móvil). & 3 \\
+    \hline
+\end{tabularx}
+
 
 \subsection{Planificación inicial}
 
