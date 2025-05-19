@@ -2,16 +2,39 @@
 Ya que es un tfg de desarrollo describimos lo realizado y cómo, así como los resultados obtenidos.
 
 \subsection{Metodología}
+\label{sec:metodologia}
+% TODO: Explicar todo lo relacionado con la metodología en este apartado junto con la justificación de por qué se ha elegido.
+
 Para el desarrollo de este proyecto se va a hacer uso de la metodología ágil Scrum. Esta metodología se basa en el desarrollo iterativo e incremental, lo que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
+
+Se ha optado por el uso de Scrum en vez de otra metodología ágil como Kanban o XP (Extreme Programming) o alguna metodología tradicional ya que se ha utilizado anteriormente y se considera que es con la que más cómodo y eficaz se va trabajar.
+
+Tal y como se explica en la guía oficial de Scrum \cite{scrum-guide}, Scrum es un marco de trabajo ágil que se utiliza para gestionar proyectos complejos y adaptarse a los cambios de manera rápida y eficiente. Se basa en la colaboración entre equipos multidisciplinarios, la entrega continua de valor y la mejora continua.
+Scrum se centra en la entrega de incrementos de producto funcionales en ciclos cortos, lo que permite a los equipos recibir retroalimentación temprana y ajustar su enfoque según sea necesario. Esto es especialmente útil en proyectos donde los requisitos pueden cambiar con frecuencia o donde la incertidumbre es alta.
+
+Scrum se basa en una serie de roles, eventos y artefactos que ayudan a los equipos a organizar su trabajo y colaborar de manera efectiva. Los roles incluyen el Product Owner (responsable de la visión del producto), el Scrum Master (facilitador del proceso) y el equipo de desarrollo (responsable de la entrega del producto). Los eventos incluyen las reuniones diarias, las revisiones de sprint y las retrospectivas, que permiten a los equipos reflexionar sobre su trabajo y mejorar continuamente.
+
+Aunque, tal y como se ve, Scrum está muy enfocado a equipos, también es posible utilizarlo con un equipo muy pequeño o incluso con una sola persona, realizando los mismos eventos pero sin la necesidad de tener un equipo de desarrollo. Éste es el enfoque que se le va a dar a este proyecto. Una buena práctica de Scrum es documentar todas las reuniones y tomas de decisiones que se toman a lo largo de la vida del proyecto, ya que esto ayuda a tener una mejor organización y a poder ver cómo ha ido evolucionando el proyecto a lo largo del tiempo. Es por ello que se van a documentar todas las decisiones que se tomen y los cambios que se realicen en el desarrollo.
+
+Tal y como se comenta en la guía de Scrum, durante el desarrollo del proyecto se van a generar varios artefactos:
+\begin{itemize}
+    \item \textbf{Product Backlog}: es una lista priorizada de requisitos o tareas pendientes en un proyecto ágil. En este caso, el product backlog se va a utilizar para organizar todas las historias de usuario e historias técnicas que se van a implementar en el proyecto.
+    \item \textbf{Sprint Backlog}: es una lista de tareas (las cuales salen de las historias de usuario y técnicas) seleccionadas del product backlog que se van a realizar durante un sprint.
+    \item \textbf{Incremento}: es la suma de todos los elementos del product backlog completados durante un sprint y los incrementos de todos los sprints anteriores. En este caso, el incremento se va a utilizar para organizar todas las tareas que se han realizado durante cada sprint.
+\end{itemize}
+De esta manera buscamos al tener un objetivo de producto claro y definido en los sprints. Aunque el producto sufra cambios después, queremos intentar estimar lo mejor posible y, sobre todo, terminar los sprints con un producto con \textbf{valor}, tal y como se dice en la guía `\textit{A product is a vehicle to deliver value. It has a clear boundary, known stakeholders, well-defined users or customers. A product could be a service, a physical product, or something more abstract.}'
 
 Separaremos el desarrollo en distintos sprints, cada uno de ellos con una duración de dos semanas.
 
-Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint, se realizarán las tareas necesarias para completarlas y al final del sprint se realizará una revisión y una retrospectiva del mismo, donde se evaluará lo que se ha hecho, cómo se puede mejorar y se planificará el siguiente sprint dependiendo del estado del recién terminado.
+Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint generando así el Sprint Backlog correspondiente a ese sprint, se realizarán las tareas necesarias para completarlas y al final del sprint se realizará una revisión y una retrospectiva del mismo, donde se evaluará lo que se ha hecho, cómo se puede mejorar y se planificará el siguiente sprint dependiendo del estado del recién terminado.
 
 Gracias a esta metodología conseguimos tener una organización muy clara de lo que se va a hacer, cómo se va a hacer y cuándo se va a hacer.
 
 \subsection{Tecnologías}
-Para el desarrollo de este proyecto se van a utilizar distintas tecnologías, tanto para la parte de servidor como para la parte móvil.
+% TODO: Relacionar con los requisitos/objetivos.
+Para el desarrollo de este proyecto se ha buscado utilizar tecnologías que sean lo más eficientes y rápidas posibles, pero a la vez que sean seguras y escalables. Se ha buscado un equilibrio entre rendimiento y facilidad de uso, ya que el objetivo principal es conseguir un producto funcional y eficiente.
+
+\subsubsection{Servidor}
 Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerados en la actualidad en el mundo de la programación, \textbf{Rust}.
 
 Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
@@ -37,28 +60,46 @@ Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rus
 Como se puede ver en los benchmark hay frameworks de otros lenguajes que pueden parecer más sencillos que Rust que nos dan el mismo o mejor rendimiento, pero tal y como se ha comentado anteriormente, el punto principal de Rust no es únicamente su rendimiento, sino la seguridad que da el propio lenguaje y lo poco propenso que es a errores en tiempo de compilación, lo que hace de la aplicación mucho más robusta, segura y sostenible a largo plazo.
 
 
+\subsubsection{Móvil}
 Para el desarrollo de la aplicación móvil se ha optado por un nuevo framework de desarrollo multiplataforma, \textbf{Lynx.js}.
 
-Lynx.js es un framework inspirado en React Native. El desarrollo de la aplicación se hace con React el cual se compila a código nativo de la plataforma. El framework soporta componentes de cualquier framework de desarrollo web, aunque está pensado para usar React.
+Lynx.js es un framework inspirado en React Native. El desarrollo de la aplicación se hace con React el cual se compila a código nativo de la plataforma. El framework soporta componentes de cualquier framework de desarrollo web, aunque está pensado para usar React y es lo que usaremos nosotros.
 
 Aunque pueda parecer igual que React Native, Lynx añade algunas cosas que le faltan a React Native. Uno de los mayores problemas de React Native es su rendimiento en algunas situaciones, ya que este solamente hace uso de un solo thread, lo cual no permite una buena gestión de las tareas. Por ejemplo, no puede obtener datos de una API mientras que se actualiza lo que se muestra al usuario.
+
 Sin embargo, Lynx tiene dos threads, un main thread y un background thread.
-Puedes especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API.
+Gracias a esto, es posible especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API.
 Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \textit{Instant First-Frame Rendering (IFR)}\footnote{El \href{https://lynxjs.org/guide/interaction/ifr.html}{Instant First-Frame Rendering (IFR)} es una técnica de renderizado que permite mostrar el primer fotograma de una aplicación de manera instantánea, mejorando la experiencia del usuario al reducir el tiempo de espera para ver la interfaz.}.
+
+Para conseguir esto, Lynx altera el ciclo de vida de los componentes de React (figura \ref{fig:lynx-component-lifecycle}), consiguiendo deshacerse de cuellos de botella típicos que aparecen en los frameworks de desarrollo móvil asegurando un rendimiento óptimo y una experiencia de usuario fluida.
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=\textwidth]{lynx-lifecycle.png}
+    \end{center}
+    \caption{Ciclo de vida de los componentes en Lynxjs (\href{https://lynxjs.org/react/lifecycle.html}{Documentación})}
+    \label{fig:lynx-component-lifecycle}
+\end{figure}
+
 
 Dado que la aplicación necesitará hacer uso de módulos nativos de los teléfonos, necesitaremos implementarlos para cada plataforma.
 Esto se puede hacer de manera sencilla, ya que el framework permite la creación de módulos nativos los cuales se pueden llamar desde nuestro código escrito en React.
+
 Este es uno de los puntos fuertes de la aplicación, ya que nos va a permitir programar haciendo uso de React, el cual es un framework muy conocido y utilizado, pero a la vez nos va a permitir hacer uso de módulos nativos de cada plataforma, lo que nos da una gran flexibilidad a la hora de desarrollar la aplicación de forma nativa en todas las plataformas.
+
+Lynx usa una aplicación nativa \textit{Lynx Explorer}, con la cual podemos ver cómo se va a ver la aplicación en el dispositivo móvil. Esta aplicación es la que se encarga de compilar el código de Lynx a código nativo y de ejecutar la aplicación en el dispositivo móvil.
+Para poder hacer uso de los módulos nativos, tendremos que implementarlos en el Explorer, compilar el código del mismo y una vez tenemos la aplicación con nuestro módulo nativo, podemos ejecutar nuestra aplicación sobre el Explorer y hacer uso de nuestro módulo nativo.
+
+Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho por el equipo de Lynx \cite{lynx-native-modules}.
 
 Dado que para el desarrollo de aplicaciones en iOS es necesario tener un sistema de Apple, en la implementación de esta aplicación nos centraremos en la parte de Android, aunque el código de la aplicación será el mismo para ambas plataformas.
 La única diferencia será la implementación de los módulos nativos, que serán diferentes para cada plataforma.
 
 En resumen, las ventajas de usar este framework con respecto a otros son:
 \begin{itemize}
-    \item \textbf{Rendimiento}: al compilar a código nativo, el rendimiento es mucho mejor que el de otros frameworks como Flutter.
+    \item \textbf{Rendimiento}: al compilar a código nativo, el rendimiento es mucho mejor que el de otros frameworks como Flutter. Además, Lynx nos permite hacer uso de su tecnología de doble thread, haciendo que nuestra aplicación sea mucho más fluida y rápida en comparación con otras tecnologías.
     \item \textbf{Flexibilidad}: permite la creación de módulos nativos para cada plataforma, lo que da una gran flexibilidad a la hora de desarrollar la aplicación.
     \item \textbf{Simplicidad}: la sintaxis es muy similar a la de React, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en este framework.
-    \item \textbf{Comunidad}: aunque es un framework nuevo, está creciendo rápidamente y tiene una comunidad activa.
     \item \textbf{Documentación}: la documentación es muy completa y está en constante actualización.
 \end{itemize}
 
@@ -73,6 +114,8 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
         Es una opción muy parecida a Lynx.js, pero a largo plazo la aplicación podría verse afectada por el rendimiento.
         Dada la similitud con Lynx.js y las ventajas que ofrece, se ha optado por este último.
 \end{itemize}
+
+Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynxjs pasaba a ser Open-Source \cite{lynx-article}.
 
 \subsection{Historias de usuario / Historias técnicas}
 En esta sección se detallan las historias de usuario e historias técnicas de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
@@ -241,6 +284,11 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 
 
 \subsection{Planificación inicial}
+Este apartado se considera como el que sería el sprint 0. Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad.
+
+Se suele crear un sprint denominado ``0'' en el que se hace una planificación inicial, se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de las tareas que se van a realizar en todos los sprints.
+
+Además, en este sprint vamos a plantear una arquitectura inicial abstracta de nuestro sistema, la cual nos servirá como base para el desarrollo de la aplicación. Esta arquitectura se irá modificando e iterando a lo largo del desarrollo del proyecto, pero nos servirá como guía inicial para el desarrollo para definir nuestras historias de usuario y organizar de una manera correcta los sprints.
 
 \subsection{Presupuesto}
 

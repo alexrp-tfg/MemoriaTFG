@@ -7,6 +7,7 @@
 % Useful packages
 \usepackage{amsmath}
 \usepackage{graphicx}
+\graphicspath{ {./images/} }
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 \usepackage{titling}
 \usepackage{dirtree}
@@ -17,8 +18,8 @@
 \usepackage{colortbl} % For colored tables
 \usepackage{tabularx}
 \usepackage{ltablex}
+\usepackage{hyperref}
 
-\usepackage{natbib}
 
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -60,7 +61,7 @@ archivos multimedia}
   \maketitle
   \begin{figure}[!h]
     \centering
-    \includegraphics[width=200px]{images/logo-ugr.jpg}
+    \includegraphics[width=200px]{logo-ugr.jpg}
   \end{figure}
 \end{titlingpage}
 
@@ -70,8 +71,6 @@ archivos multimedia}
 \newpage
 
 \input{sections/agradecimientos}
-
-\input{sections/objetivos}
 
 \input{sections/introduccion}
 
@@ -84,6 +83,7 @@ archivos multimedia}
 \input{sections/bibliografia}
 
 
-\bibliographystyle{plainnat}
+\bibliographystyle{apalike}
 \bibliography{references}
+
 \end{document}
