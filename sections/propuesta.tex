@@ -1,3 +1,6 @@
+\newpage
+~
+\newpage
 \section{Propuesta}
 Ya que es un tfg de desarrollo describimos lo realizado y cómo, así como los resultados obtenidos.
 
@@ -284,11 +287,54 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 
 
 \subsection{Planificación inicial}
-Este apartado se considera como el que sería el sprint 0. Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad.
+Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad, las cuales tienen un inicio y un fin.
 
-Se suele crear un sprint denominado ``0'' en el que se hace una planificación inicial, se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de las tareas que se van a realizar en todos los sprints.
+Se suele crear un sprint denominado como ``Sprint 0'' en el que se hace una planificación inicial, se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de las tareas que se van a realizar en todos los sprints.
+Durante este spring no se va a desarrollar funcionalidad, si no que se van a asentar unas bases para todo el proyecto sobre las cuales se trabajará en los siguientes sprints.
+Los objetivos de este sprint son los siguientes:
 
-Además, en este sprint vamos a plantear una arquitectura inicial abstracta de nuestro sistema, la cual nos servirá como base para el desarrollo de la aplicación. Esta arquitectura se irá modificando e iterando a lo largo del desarrollo del proyecto, pero nos servirá como guía inicial para el desarrollo para definir nuestras historias de usuario y organizar de una manera correcta los sprints.
+\begin{itemize}
+    \item Definir diagrama de la arquitectura inicial del sistema.
+    \item Definir el product backlog inicial.
+    \item Realizar diagrama de Gantt para planificación de los sprints.
+    \item Definir el backlog de el primer sprint inicial.
+    \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
+    \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
+    \item Configurar el entorno de desarrollo.
+\end{itemize}
+
+\subsubsection{Diagrama de arquitectura}
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{images/diagrama-arquitectura.png}
+    \end{center}
+    \caption{Diagrama de la arquitectura del sistema. Representa las comunicaciones entre los distintos elementos del sistema}\label{fig:diagrama-arquitectura}
+\end{figure}
+
+Como podemos ver en la figura \ref{fig:diagrama-arquitectura}, el sistema va a estar compuesto por un cliente (móvil tanto en Android como iOS gracias a la multiplataforma que nos da Lynxjs) que se comunica con un servidor mediante peticiones HTTP.
+Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma desarrollado en Lynxjs (una tecnología muy nueva) y un servidor programado en Rust no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST. Además, tanto Lynxjs como Rust Native no tienen muy buena compatibilidad con gRPC.
+
+Todo esto hizo decidirse por una API REST, la cual es más sencilla de implementar y de mantener a largo plazo, además de ser más fácil de entender para cualquier desarrollador que quiera contribuir al proyecto.
+
+El servidor se comunicará de manera abstracta con un servicio de almacenamiento de datos. Para la primera versión de la aplicación haremos uso de MinIO, un software Open-Source que nos permite crear un servidor de almacenamiento de objetos compatible con la API de Amazon S3.
+Esto nos da la ventaja de poder utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage en el futuro sin necesidad de cambiar la aplicación, ya que la API es la misma.
+MinIO está diseñado para ser totalmente escalable y de alto rendimiento, lo que lo convierte en una excelente opción para almacenar grandes volúmenes de datos, como fotos y vídeos.
+
+Aunque para las primeras iteraciones hagamos uso de MinIO para almacenar los datos multimedia, en iteraciones más avanzadas se implementará un sistema de almacenamiento nativo en Rust, el cual nos permitirá tener un mayor control sobre los datos y una mejor integración con el resto del sistema.
+
+Gracias a la arquitectura hexagonal que se va a utilizar a la hora de implementar el sistema, conseguimos un desacople total de la capa de aplicación, dominio e infraestructura, brindando la posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, pudiendo de esta manera tener flexibilidad total a la hora de guardar nuestros datos y multimedia.
+
+Para el almacenaje de los datos de nuestra aplicación se ha optado por PostgreSQL.
+Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo plazo, nos da una gran cantidad de ventajas frente a las desventajas que tiene, como pueden ser:
+\begin{itemize}
+    \item \textbf{Integridad de los datos}: PostgreSQL es un sistema de gestión de bases de datos relacional, lo que significa que garantiza la integridad de los datos mediante el uso de transacciones y restricciones.
+    \item \textbf{Escalabilidad}: aunque no es tan escalable como otras soluciones noSQL, PostgreSQL es capaz de manejar grandes volúmenes de datos y puede escalar horizontalmente mediante particionamiento.
+    \item \textbf{Rendimiento}: PostgreSQL es conocido por su alto rendimiento y eficiencia en el manejo de consultas complejas y grandes volúmenes de datos.
+    \item \textbf{Comunidad activa}: PostgreSQL tiene una comunidad muy activa y una gran cantidad de documentación y recursos disponibles, lo que facilita su aprendizaje y uso.
+    \item \textbf{Open-Source}: al ser un software Open-Source, no tenemos que pagar por licencias y se alinea con el enfoque de nuestro proyecto que busca ser Open-Source.
+\end{itemize}
+
+Tal y como con la solución para el almacenaje de imágenes, seguir una arquitectura hexagonal nos da la posibilidad de cambiar el sistema de base de datos en el futuro sin afectar al resto del sistema.
 
 \subsection{Presupuesto}
 
