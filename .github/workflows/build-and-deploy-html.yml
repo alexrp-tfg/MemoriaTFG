@@ -1,4 +1,4 @@
-name: Build and Deploy LaTeX HTML
+name: Build and Deploy LaTeX HTML and PDF
 
 on:
   push:
@@ -23,26 +23,37 @@ jobs:
         run: |
           apt update && apt upgrade -y
 
-      - name: Install nodejs
+      - name: Install Node.js
         run: |
-
+          apt install -y nodejs npm
 
       - name: Build HTML from LaTeX
         run: |
           make4ht -c html.cfg -d html main.tex && mv html/main.html html/index.html
 
-      - name: Upload artifact
+      - name: Build PDF from LaTeX
+        run: |
+          mkdir pdf
+          pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf main.tex
+
+      - name: Upload HTML artifact
         uses: actions/upload-artifact@v4
         with:
           name: html
           path: html/
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf
+          path: pdf/main.pdf
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download artifact
+      - name: Download HTML artifact
         uses: actions/download-artifact@v4
         with:
           name: html
@@ -54,3 +65,27 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./html
           target_branch: gh-pages
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download PDF artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pdf
+          path: pdf/
+
+      - name: Create or update "continuous" release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: continuous
+          name: Continuous Release
+          draft: false
+          prerelease: true
+          files: pdf/main.pdf
+          overwrite: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
