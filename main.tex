@@ -18,7 +18,8 @@
 \usepackage{colortbl} % For colored tables
 \usepackage{tabularx}
 \usepackage{ltablex}
-\usepackage{hyperref}
+\usepackage[acronym]{glossaries}
+\makeglossaries
 
 
 
@@ -54,6 +55,7 @@
 archivos multimedia}
 \author{Alejandro Ramos Peña}
 
+
 \begin{document}
 
 
@@ -68,6 +70,24 @@ archivos multimedia}
 \input{sections/resumen}
 
 \tableofcontents
+
+\newpage
+\addcontentsline{toc}{section}{Lista de figuras}
+\listoffigures
+
+\newpage
+\addcontentsline{toc}{section}{Lista de tablas}
+\listoftables
+
+\newpage
+\input{glossary.tex}
+\addcontentsline{toc}{section}{Glosario}
+\printglossaries
+
+\newpage
+\input{acronyms.tex}
+\addcontentsline{toc}{section}{Lista de acrónimos}
+
 \newpage
 
 \input{sections/agradecimientos}
@@ -81,6 +101,7 @@ archivos multimedia}
 \input{sections/conclusiones}
 
 \input{sections/bibliografia}
+
 
 
 \bibliographystyle{apalike}

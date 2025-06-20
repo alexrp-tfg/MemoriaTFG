@@ -4,6 +4,20 @@
 \section{Propuesta}
 Ya que es un tfg de desarrollo describimos lo realizado y cómo, así como los resultados obtenidos.
 
+Una vez analizado el estado del arte y las tecnologías disponibles, se ha definido una propuesta de desarrollo que busca cumplir con los objetivos planteados en la introducción. Esta propuesta se basa en el uso de metodologías ágiles y tecnologías modernas para garantizar un desarrollo eficiente y escalable.
+
+Tal como se ha especificado en el apartado anterior, se desarrollará una solución que busca ofrecer:
+\begin{itemize}
+    \item Solución FOSS que permita una aportar al proyecto de manera sencilla, pudiendo entender rápida y fácilmente el código y la arquitectura del sistema.
+    \item Soluciones eficientes y rápidas. Para ello usaremos tecnologías lo más eficientes posibles, siempre buscando la seguridad y escalabilidad de la aplicación.
+    \item Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible a largo plazo, permitiendo añadir nuevas funcionalidades y mejoras de manera sencilla. Para ello se implementará una arquitectura limpia \cite{uncle-bob-clean-architecture}, lo que nos proporcionará una estructura del proyecto completamente desacoplada, facilitando la escalabilidad y mantenimiento.
+    \item Almacenamiento eficiente. Se busca que el almacenamiento de los archivos sea lo más eficiente posible, tanto en términos de espacio como de velocidad de acceso.
+        Para ello, primero se hará uso de un sistema de almacenamiento de objetos compatible con S3, lo que nos permitirá utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage y en nuestro caso, MinIO.
+        Más adelante, se implementará una solución de almacenamiento nativa que permita un acceso más rápido y eficiente a los archivos, además de una mejor gestión de los mismos.
+    \item Desarrollo ágil y flexible. Se busca que el desarrollo sea ágil y flexible, permitiendo adaptarse a los cambios y necesidades del proyecto de manera rápida y eficiente. Para ello se hará uso de la metodología ágil Scrum, lo que nos permitirá tener una organización clara del proyecto y una planificación adecuada de las tareas a realizar.
+        Seguir esta metodología nos ayudará a tener una mejor organización del proyecto y una planificación adecuada de las tareas a realizar, lo que aportará una buena organización en un futuro si se incorporan más personas al proyecto.
+\end{itemize}
+
 \subsection{Metodología}
 \label{sec:metodologia}
 % TODO: Explicar todo lo relacionado con la metodología en este apartado junto con la justificación de por qué se ha elegido.
@@ -29,7 +43,7 @@ De esta manera buscamos al tener un objetivo de producto claro y definido en los
 
 Separaremos el desarrollo en distintos sprints, cada uno de ellos con una duración de dos semanas.
 
-Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint generando así el Sprint Backlog correspondiente a ese sprint, se realizarán las tareas necesarias para completarlas y al final del sprint se realizará una revisión y una retrospectiva del mismo, donde se evaluará lo que se ha hecho, cómo se puede mejorar y se planificará el siguiente sprint dependiendo del estado del recién terminado.
+Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint y se desarrollarán (posible desglose en distintas historias de usuario, definición de tareas relacionadas con la HU junto con estimación de las mismas y definición de pruebas de aceptación) generando así el Sprint Backlog correspondiente a ese sprint, se completarán las tareas necesarias para completarlas y al final del sprint se realizará una revisión y una retrospectiva del mismo, donde se evaluará lo que se ha hecho, cómo se puede mejorar y se planificará el siguiente sprint dependiendo del estado del recién terminado.
 
 Gracias a esta metodología conseguimos tener una organización muy clara de lo que se va a hacer, cómo se va a hacer y cuándo se va a hacer.
 
@@ -38,19 +52,81 @@ Gracias a esta metodología conseguimos tener una organización muy clara de lo 
 Para el desarrollo de este proyecto se ha buscado utilizar tecnologías que sean lo más eficientes y rápidas posibles, pero a la vez que sean seguras y escalables. Se ha buscado un equilibrio entre rendimiento y facilidad de uso, ya que el objetivo principal es conseguir un producto funcional y eficiente.
 
 \subsubsection{Servidor}
-Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerados en la actualidad en el mundo de la programación, \textbf{Rust}.
+Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerados en la actualidad en el mundo de la programación: \textbf{Rust}.
 
 Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
 Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente. 
 
-¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización?
+¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? \cite{rust-for-safety-and-performance}
 \begin{itemize}
     \item \textbf{Rendimiento}: es conocido por su alto rendimiento, lo que lo convierte en una excelente opción para aplicaciones que requieren un procesamiento intensivo de datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para desarrollo web es muy bueno, como se puede ver en distintos benchmark \cite{rust-benchmark}.
     \item \textbf{Seguridad}: tiene un sistema de tipos y un modelo de propiedad que ayudan a prevenir errores comunes de programación, como desbordamientos de búfer y condiciones de carrera.
     \item \textbf{Concurrencia}: soporta de manera nativa y sencilla la escritura de código concurrente y paralelo, lo que es esencial para aplicaciones que manejan múltiples tareas al mismo tiempo.
+        Gracias a su implementación de \gls{fearless-concurrency}, Rust permite a los desarrolladores escribir código concurrente sin preocuparse por errores comunes como condiciones de carrera o deadlocks, lo que facilita la creación de aplicaciones altamente eficientes y escalables.
     \item \textbf{Manejo de errores}: tiene un enfoque único para el manejo de errores, utilizando tipos de datos como \texttt{Result} y \texttt{Option} para representar resultados exitosos y fallidos, lo que ayuda a evitar errores en tiempo de ejecución, consiguiendo de esta manera no encontrarnos con errores inesperados a la hora de ejecutar la aplicación.
     \item \textbf{Ecosistema}: cuenta con un ecosistema en crecimiento, con una amplia variedad de bibliotecas y herramientas que facilitan el desarrollo de aplicaciones.
 \end{itemize}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/rust-cpu-comparison.png}
+  \caption{Comparativa de uso de CPU entre Rust y otros lenguajes de programación (menos es mejor) \cite{rust-for-safety-and-performance}}
+  \label{fig:rust-cpu-comparison}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/rust-memory-comparison.png}
+  \caption{Comparativa de uso de memoria entre Rust y otros lenguajes de programación (menos es mejor) \cite{rust-for-safety-and-performance}}
+  \label{fig:rust-memory-comparison}
+\end{figure}
+
+Como se puede ver en las figuras \ref{fig:rust-cpu-comparison} y \ref{fig:rust-memory-comparison}, Rust tiene un rendimiento muy bueno en comparación con otros lenguajes de programación, tanto en uso de CPU como en uso de memoria.
+
+A partir de las figuras, podemos definir dos fórmulas para calcular el porcentaje de mejora con respecto a los otros lenguajes de programación:
+\[
+\text{Mejora}_{\text{CPU}} (\%) = \left( \frac{T_{\text{\textit{lenguaje}}} - T_{\text{Rust}}}{T_{\text{\textit{lenguaje}}}} \right) \times 100
+\]
+
+\[
+\text{Mejora}_{\text{Memoria}} (\%) = \left( \frac{M_{\text{\textit{lenguaje}}} - M_{\text{Rust}}}{M_{\text{\textit{lenguaje}}}} \right) \times 100
+\]
+
+Obteniendo las siguientes tablas de comparación:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Lenguaje} & \textbf{Bubble Sort} & \textbf{Monte Carlo Pi} & \textbf{Monte Carlo Pi (SimpleRNG)} \\
+\hline
+C      & 38.2\%  & 37.9\%  & -0.8\% \\
+C++    & 38.2\%  & 55.5\%  & -0.8\% \\
+Go     & 6.5\%   & 64.1\%  & 0.4\%           \\
+Java   & 17.0\%  & 59.6\%  & 19.4\%          \\
+Python & 98.0\%  & 99.3\%  & 99.4\%          \\
+\hline
+\end{tabular}
+\caption{Porcentaje de mejora de Rust con respecto a otros lenguajes de programación en términos de tiempo de CPU. (Mayor es mejor)}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Lenguaje} & \textbf{Bubble Sort} & \textbf{Monte Carlo Pi} & \textbf{Monte Carlo Pi (SimpleRNG)} \\
+\hline
+C      & 89.8\%  & 20.4\%  & 25.6\%  \\
+C++    & 45.1\%  & 45.3\%  & 45.9\%  \\
+Go     & 65.4\%  & 43.5\%  & 44.0\%  \\
+Java   & 97.8\%  & 95.4\%  & 95.4\%  \\
+Python & 89.7\%  & 78.4\%  & 78.2\%  \\
+\hline
+\end{tabular}
+\caption{Porcentaje de mejora de Rust con respecto a otros lenguajes de programación en términos de uso de memoria. (Mayor es mejor)}
+\end{table}
 
 Haremos uso del framework de aplicaciones web \href{https://github.com/tokio-rs/axum?tab=readme-ov-file}{\textbf{Axum}}.
 
@@ -80,7 +156,7 @@ Para conseguir esto, Lynx altera el ciclo de vida de los componentes de React (f
     \begin{center}
         \includegraphics[width=\textwidth]{lynx-lifecycle.png}
     \end{center}
-    \caption{Ciclo de vida de los componentes en Lynxjs (\href{https://lynxjs.org/react/lifecycle.html}{Documentación})}
+    \caption{Ciclo de vida de los componentes en Lynx.js (\href{https://lynxjs.org/react/lifecycle.html}{Documentación})}
     \label{fig:lynx-component-lifecycle}
 \end{figure}
 
@@ -109,7 +185,7 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
 ¿Por qué no se ha optado por otras opciones como Flutter o Kotlin Multiplatform?
 \begin{itemize}
     \item \textbf{Flutter}: aunque es un framework muy potente y con una comunidad muy activa, su rendimiento no es tan bueno como el de Lynx.js. 
-        Flutter lo que hace es renderizar lo que sería como un "canvas" que utiliza un motor gráfico parecido al de los juegos para renderizar la interfaz de usuario, haciendo que la experiencia de usuario no sea tan fluida como podría ser la de otro framework. 
+        Flutter lo que hace es renderizar lo que sería como un ``canvas'' que utiliza un motor gráfico parecido al de los juegos para renderizar la interfaz de usuario, haciendo que la experiencia de usuario no sea tan fluida como podría ser la de otro framework. 
     \item \textbf{Kotlin Multiplatform}: aunque es una opción interesante, la comunidad y la documentación son mucho más limitadas que las de Lynx.js. La curva de aprendizaje es mucho más pronunciada, ya que se utiliza Kotlin junto con una gran cantidad de librerías las cuales necesitan de un estudio profundo para su uso.
 
         Nos daría el mejor rendimiento sin tener que programar la aplicación de forma nativa para todos los dispositivos (los dispositivos comparten código pero hay que implementar la mayoría de forma nativa para las distintas plataformas), pero el desarrollo sería mucho más lento y tedioso, lo cual además complicaría la aportación al proyecto Open Source.
@@ -118,7 +194,7 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
         Dada la similitud con Lynx.js y las ventajas que ofrece, se ha optado por este último.
 \end{itemize}
 
-Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynxjs pasaba a ser Open-Source \cite{lynx-article}.
+Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \cite{lynx-article}.
 
 \subsection{Historias de usuario / Historias técnicas}
 En esta sección se detallan las historias de usuario e historias técnicas de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
@@ -267,7 +343,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HT06 & Sincronización de fondo & Implementar sincronización en segundo plano. & 8 \\
     \hline
-    HT07 & Pruebas unitarias & Añadir pruebas unitarias y de integración a la lógica común en React Native / Lynxjs & 13 \\
+    HT07 & Pruebas unitarias & Añadir pruebas unitarias y de integración a la lógica común en React Native / Lynx.js & 13 \\
     \hline
     HT08 & CI/CD móvil & Pipeline de construcción y publicación para Android e iOS. & 5 \\
     \hline
@@ -311,8 +387,8 @@ Los objetivos de este sprint son los siguientes:
     \caption{Diagrama de la arquitectura del sistema. Representa las comunicaciones entre los distintos elementos del sistema}\label{fig:diagrama-arquitectura}
 \end{figure}
 
-Como podemos ver en la figura \ref{fig:diagrama-arquitectura}, el sistema va a estar compuesto por un cliente (móvil tanto en Android como iOS gracias a la multiplataforma que nos da Lynxjs) que se comunica con un servidor mediante peticiones HTTP.
-Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma desarrollado en Lynxjs (una tecnología muy nueva) y un servidor programado en Rust no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST. Además, tanto Lynxjs como Rust Native no tienen muy buena compatibilidad con gRPC.
+Como podemos ver en la figura \ref{fig:diagrama-arquitectura}, el sistema va a estar compuesto por un cliente (móvil tanto en Android como iOS gracias a la multiplataforma que nos da Lynx.js) que se comunica con un servidor mediante peticiones HTTP.
+Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma desarrollado en Lynx.js (una tecnología muy nueva) y un servidor programado en Rust no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST. Además, tanto Lynx.js como Rust Native no tienen muy buena compatibilidad con gRPC.
 
 Todo esto hizo decidirse por una API REST, la cual es más sencilla de implementar y de mantener a largo plazo, además de ser más fácil de entender para cualquier desarrollador que quiera contribuir al proyecto.
 

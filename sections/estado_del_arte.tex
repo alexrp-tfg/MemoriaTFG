@@ -14,7 +14,7 @@ Qué se ha hecho hasta ahora en este campo, qué tecnologías se han utilizado, 
 % 3. **Medio plazo**: Desarrollar análisis de arquitecturas y contribución
 
 
-En este apartado se presenta un análisis del estado del arte en el ámbito de las bibliotecas de fotos de código abierto (FOSS).
+En este apartado se presenta un análisis del estado del arte en el ámbito de las bibliotecas de fotos de código abierto (\acrshort{foss}).
 Se examinan las principales soluciones disponibles, sus características técnicas, fortalezas y limitaciones, así como las tendencias actuales en el sector.
 Dado que uno de los objetivos del proyecto es desarrollar un producto que sea de código abierto, la comparación se centra en soluciones FOSS que ya están en el mercado y que han sido ampliamente adoptadas por la comunidad, lo cual nos va a permitir desarrollar una comparación mas extensa sobre cómo están organizados los proyectos para facilitar su mantenimiento y escalabilidad, así como las tecnologías que utilizan para ofrecer sus servicios.
 
@@ -37,14 +37,14 @@ Las soluciones analizadas se pueden clasificar en tres categorías principales:
 
 \subsubsection{Immich}
 
-Immich se posiciona como la solución más popular con 66,988 estrellas en GitHub. Desarrollado principalmente en TypeScript, utiliza una arquitectura de microservicios moderna que incluye:
+Immich se posiciona como la solución más popular con 66,988 estrellas en GitHub. Desarrollado principalmente en TypeScript, utiliza una arquitectura de \glspl{microservicios} moderna que incluye:
 
 \begin{itemize}
-    \item \textbf{Backend}: NestJS con Node.js
-    \item \textbf{Frontend}: SvelteKit para la interfaz web
-    \item \textbf{Móvil}: Aplicaciones nativas desarrolladas en Flutter
-    \item \textbf{Base de datos}: PostgreSQL con Redis para caché
-    \item \textbf{IA/ML}: TensorFlow para reconocimiento facial y de objetos
+    \item \textbf{Backend}: \gls{nestjs} con \gls{nodejs}
+    \item \textbf{Frontend}: \gls{sveltekit} para la interfaz web
+    \item \textbf{Móvil}: Aplicaciones nativas desarrolladas en \gls{flutter}
+    \item \textbf{Base de datos}: \gls{postgresql} con \gls{redis} para caché
+    \item \textbf{IA/ML}: \gls{tensorflow} para reconocimiento facial y de objetos
 \end{itemize}
 
 \textbf{Fortalezas técnicas}:
@@ -52,8 +52,8 @@ Immich se posiciona como la solución más popular con 66,988 estrellas en GitHu
     \item Arquitectura escalable horizontalmente
     \item Excelente experiencia móvil (8/10 según la evaluación)
     \item Capacidades avanzadas de búsqueda (9/10)
-    \item Soporte completo para LivePhotos (9/10)
-    \item Reconocimiento de imágenes con IA
+    \item Soporte completo para \gls{live-photos} (9/10)
+    \item Reconocimiento de imágenes con \acrshort{ia}
 \end{itemize}
 
 \textbf{Limitaciones}:
@@ -65,20 +65,20 @@ Immich se posiciona como la solución más popular con 66,988 estrellas en GitHu
 
 \subsubsection{PhotoPrism}
 
-PhotoPrism, con 37,499 estrellas en GitHub, representa la solución más madura del ecosistema. Desarrollado en Go, utiliza una arquitectura monolítica que ofrece:
+PhotoPrism, con 37,499 estrellas en GitHub, representa la solución más madura del ecosistema. Desarrollado en \gls{go}, utiliza una arquitectura monolítica que ofrece:
 
 \begin{itemize}
     \item \textbf{Backend}: Aplicación monolítica en Go
-    \item \textbf{Frontend}: Vue.js
-    \item \textbf{Móvil}: Progressive Web App (PWA)
-    \item \textbf{Base de datos}: SQLite, MariaDB
-    \item \textbf{Almacenamiento}: Sistema de archivos local con archivos sidecar
+    \item \textbf{Frontend}: \gls{vuejs}
+    \item \textbf{Móvil}: \acrfull{pwa}
+    \item \textbf{Base de datos}: \gls{sqlite}, \gls{mariadb}
+    \item \textbf{Almacenamiento}: Sistema de archivos local con archivos \gls{sidecar}
 \end{itemize}
 
 \textbf{Fortalezas técnicas}:
 \begin{itemize}
     \item Bajo consumo de memoria y recursos
-    \item Excelente manejo de metadatos EXIF (9/10)
+    \item Excelente manejo de metadatos \acrshort{exif} (9/10)
     \item Integración superior con carpetas existentes (9/10)
 \end{itemize}
 
@@ -118,14 +118,14 @@ Ente, con 19,431 estrellas en GitHub, se distingue por su enfoque en la privacid
 
 \subsection{Comparación Técnica Detallada}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|l|c|c|c|}
 \hline
 \textbf{Característica} & \textbf{Immich} & \textbf{PhotoPrism} & \textbf{Ente} \\
 \hline
 Estrellas GitHub & 66,988 & 37,499 & 19,431 \\
-Lenguaje Principal & TypeScript & Go & Dart \\
+Lenguaje Principal & TypeScript & Go & \gls{dart} \\
 Arquitectura & Microservicios & Monolítica & Cliente-Servidor \\
 Base de Datos & PostgreSQL & SQLite/MySQL & PostgreSQL \\
 Aplicación Móvil & Flutter (8/10) & PWA (4/10) & Flutter (8/10) \\
@@ -169,11 +169,11 @@ Esta diversidad de enfoques indica un mercado en maduración donde no existe una
 
 El análisis sugiere que el futuro del sector se dirigirá hacia la convergencia de estas características, buscando soluciones que combinen la escalabilidad de Immich, la eficiencia de PhotoPrism y la privacidad de Ente.
 
-Además, las nuevas tecnologías como pueden ser React Native o en este caso Lynxjs, pueden aportar un mejor desarrollo de una aplicación móvil nativa, que permita una mejor experiencia de usuario y un mejor rendimiento en dispositivos móviles sin perder características nativas de las plataformas.
+Además, las nuevas tecnologías como pueden ser \gls{react-native} o en este caso \gls{lynxjs}, pueden aportar un mejor desarrollo de una aplicación móvil nativa, que permita una mejor experiencia de usuario y un mejor rendimiento en dispositivos móviles sin perder características nativas de las plataformas.
 
-No se ve en ningún proyecto entre los más populares que haga uso de Rust. Aunque hay una tendencia a utilizar Go, el cual es un lenguaje que es más sencillo y proporciona un rendimiento muy bueno, Rust ofrece ventajas significativas en términos de seguridad y rendimiento, especialmente para aplicaciones que requieren un alto grado de concurrencia y eficiencia en el manejo de memoria. Esto sugiere una oportunidad para explorar Rust como una alternativa viable para el desarrollo de bibliotecas de fotos FOSS en el futuro.
+No se ve en ningún proyecto entre los más populares que haga uso de \gls{rust}. Aunque hay una tendencia a utilizar Go, el cual es un lenguaje que es más sencillo y proporciona un rendimiento muy bueno, Rust ofrece ventajas significativas en términos de seguridad y rendimiento, especialmente para aplicaciones que requieren un alto grado de concurrencia y eficiencia en el manejo de memoria. Esto sugiere una oportunidad para explorar Rust como una alternativa viable para el desarrollo de bibliotecas de fotos FOSS en el futuro.
 
-Por lo general, se suele hacer uso de un almacenamiento de objetos ya implementado, como puede ser MinIO, que es compatible con S3. Esto permite una mayor escalabilidad y flexibilidad en el almacenamiento de grandes volúmenes de datos, lo cual es esencial para aplicaciones que manejan grandes bibliotecas de fotos.
+Por lo general, se suele hacer uso de un almacenamiento de objetos ya implementado, como puede ser \gls{minio}, que es compatible con \gls{s3}. Esto permite una mayor escalabilidad y flexibilidad en el almacenamiento de grandes volúmenes de datos, lo cual es esencial para aplicaciones que manejan grandes bibliotecas de fotos.
 Aún así, sería interesante explorar la posibilidad de implementar un almacenamiento de objetos propio, ya que esto podría ofrecer ventajas en términos de personalización y optimización para casos de uso específicos como puede ser el caso en el que ya se tiene un almacenamiento de archivos en el servidor y se quiere aprovechar para almacenar las fotos.
 
 \subsection{Estudio de Tecnologías}
@@ -181,20 +181,20 @@ Aún así, sería interesante explorar la posibilidad de implementar un almacena
 Tal y como se puede ver en el apartado anterior, hay una tendencia general a usar Typescript o Go para el desarrollo de el servidor de sincronización de multimedia y Flutter o PWA para el desarrollo de aplicaciones móviles. Sin embargo, existen otras tecnologías que pueden ofrecer ventajas significativas en términos de rendimiento, seguridad y facilidad de desarrollo.
 
 En este caso, se va a estudiar el uso de Rust para el desarrollo del servidor de sincronización de multimedia, ya que ofrece un alto rendimiento y seguridad en la gestión de memoria, lo cual es crucial para aplicaciones que manejan grandes volúmenes de datos como las bibliotecas de fotos.
-La seguridad que nos da Rust con su modelo de errores antes de la compilación nos va a permitir desarrollar un proyecto de código abierto más robusto y menos propenso a errores, lo cual es esencial para mantener la confianza de los usuarios en la aplicación.
+La seguridad que nos da Rust con su modelo de errores antes de la compilación nos va a permitir desarrollar un proyecto de código abierto más robusto y menos propenso a errores.
 
-Se estudiarán las tecnologías disponibles para el desarrollo de la aplicación móvil, entre ellas React Native, Flutter, PWA's y Lynxjs. Cada una de estas tecnologías tiene sus propias ventajas y desventajas, y la elección de la tecnología adecuada dependerá de los requisitos específicos del proyecto, como la necesidad de una experiencia de usuario nativa, el rendimiento en dispositivos móviles y la facilidad de desarrollo.
+Se estudiarán las tecnologías disponibles para el desarrollo de la aplicación móvil, entre ellas React Native, Flutter, PWA y Lynx.js. Cada una de estas tecnologías tiene sus propias ventajas y desventajas, y la elección de la tecnología adecuada dependerá de los requisitos específicos del proyecto, como la necesidad de una experiencia de usuario nativa, el rendimiento en dispositivos móviles y la facilidad de desarrollo.
 
 \subsubsection{Servidor}
 El servidor de sincronización de multimedia es el componente central de la aplicación, encargado de gestionar la comunicación entre el cliente y el almacenamiento de fotos.
-Disponemos de una amplia variedad a la hora de elegir un lenguaje/framework para el desarrollo del servidor, cada uno con sus propias ventajas y desventajas.
+Disponemos de una amplia variedad a la hora de elegir un lenguaje/\gls{framework} para el desarrollo del servidor, cada uno con sus propias ventajas y desventajas.
 
 Las principales soluciones serían:
 \begin{itemize}
     \item \textbf{Node.js con TypeScript}: Muy popular, especialmente para aplicaciones web. Ofrece un ecosistema rico y una gran comunidad, siendo menos eficiente en términos de rendimiento y consumo de recursos con respecto a su competencia.
     \item \textbf{Go}: Conocido por su eficiencia y facilidad de uso en aplicaciones concurrentes. Es una opción sólida para aplicaciones que requieren alto rendimiento y escalabilidad.
     \item \textbf{Rust}: Ofrece un alto rendimiento y seguridad en la gestión de memoria. Aunque tiene una curva de aprendizaje más pronunciada, es ideal para aplicaciones que requieren alta concurrencia y eficiencia.
-    \item \textbf{Python}: Muy utilizado en el ámbito de la ciencia de datos y aprendizaje automático, pero menos eficiente en términos de rendimiento y escalabilidad para aplicaciones web, además de contar con un tipado dinámico que puede llevar a errores en tiempo de ejecución.
+    \item \textbf{Python}: Muy utilizado en el ámbito de la ciencia de datos y aprendizaje automático, pero menos eficiente en términos de rendimiento y escalabilidad para aplicaciones web, además de contar con un \gls{tipado-dinamico} que puede llevar a errores en tiempo de ejecución.
     \item \textbf{Java}: Aunque es robusto y escalable, su complejidad y consumo de recursos lo hacen menos atractivo para aplicaciones ligeras.
     \item \textbf{Ruby on Rails}: Muy popular para aplicaciones web, pero menos eficiente en términos de rendimiento y escalabilidad. No se ha trabajado mucho con esta tecnología, por lo que no se tiene una experiencia directa con ella.
 \end{itemize}
@@ -203,13 +203,13 @@ Dado que para nuestro proyecto buscamos la solución más eficiente (tanto en t�
 
 Rust y Go son dos lenguajes de programación modernos que han ganado una popularidad considerable en los últimos años, especialmente en el desarrollo de sistemas y aplicaciones de alto rendimiento. Aunque ambos comparten objetivos como la eficiencia y la concurrencia, sus filosofías de diseño y enfoques para resolver problemas difieren significativamente.
 
-\textbf{Rust} es un lenguaje de programación de sistemas enfocado en la seguridad de memoria y la concurrencia. Su principal objetivo es ofrecer el rendimiento de C/C++ sin los problemas comunes de gestión de memoria, como los punteros nulos o las carreras de datos, gracias a su sistema de propiedad (ownership) y préstamos (borrowing).
+\textbf{Rust} es un lenguaje de programación de sistemas enfocado en la seguridad de memoria y la concurrencia. Su principal objetivo es ofrecer el rendimiento de C/C++ sin los problemas comunes de gestión de memoria, como los punteros nulos o las \glspl{condicion-carrera}, gracias a su sistema de propiedad (\gls{rust-ownership}) y préstamos (\gls{rust-borrowing}).
 
 \textbf{Go} (también conocido como Golang) es un lenguaje desarrollado por Google, diseñado para ser simple, eficiente y productivo, especialmente para la programación concurrente y de redes. Prioriza la simplicidad en su sintaxis y herramientas, facilitando una curva de aprendizaje suave.
 
 \paragraph{Gestión de Memoria}
 \subparagraph{Rust}
-Rust implementa un sistema de gestión de memoria único basado en los conceptos de \textit{ownership}, \textit{borrowing} y \textit{lifetimes}. Este sistema garantiza la seguridad de memoria en tiempo de compilación sin necesidad de un recolector de basura (Garbage Collector - GC).
+Rust implementa un sistema de gestión de memoria único basado en los conceptos de \textit{ownership}, \textit{borrowing} y \textit{\glspl{rust-lifetimes}}. Este sistema garantiza la seguridad de memoria en tiempo de compilación sin necesidad de un \acrfull{gc}.
 
 El sistema de gestión de memoria de Rust se basa en las siguientes reglas:
 \begin{itemize}
@@ -246,37 +246,37 @@ En el rendimiento podemos distinguir entre dos aspectos:
 \subparagraph{Go}
 Go ofrece un buen rendimiento, aunque generalmente no alcanza el nivel de Rust o C++ en tareas que requieren máxima optimización a bajo nivel. Su compilador es notablemente rápido.
 
-Go utiliza un modelo de concurrencia basado en goroutines y canales, lo que permite un alto grado de paralelismo sin complicaciones adicionales. Esto lo hace ideal para aplicaciones que requieren manejar múltiples tareas simultáneamente, como servidores web o servicios de red.
+Go utiliza un modelo de concurrencia basado en \glspl{goroutine} y canales, lo que permite un alto grado de paralelismo sin complicaciones adicionales. Esto lo hace ideal para aplicaciones que requieren manejar múltiples tareas simultáneamente, como servidores web o servicios de red.
 
 \begin{itemize}
     \item \textbf{Compilación:} Tiempos de compilación muy rápidos, lo que agiliza el ciclo de desarrollo.
-    \item \textbf{Ejecución:} Buen rendimiento para la mayoría de las aplicaciones, especialmente en I/O y concurrencia. El GC\footnote{Garbage collector} puede impactar el rendimiento en ciertos escenarios.
+    \item \textbf{Ejecución:} Buen rendimiento para la mayoría de las aplicaciones, especialmente en \acrshort{i-o} y concurrencia. El GC puede impactar el rendimiento en ciertos escenarios.
 \end{itemize}
 
 \paragraph{Concurrencia}
 \subparagraph{Rust}
-Rust aborda la concurrencia con un enfoque en la seguridad ("fearless concurrency"). Su sistema de tipos y el modelo de propiedad previenen las carreras de datos en tiempo de compilación. Utiliza primitivas como \texttt{async/await} para la programación asíncrona, además de hilos de sistema operativo, consiguiendo paralelismo para la programación asíncrona.
+Rust aborda la concurrencia con un enfoque en la seguridad ("\gls{fearless-concurrency}"). Su sistema de tipos y el modelo de propiedad previenen las carreras de datos en tiempo de compilación. Utiliza primitivas como \texttt{async/await} para la programación asíncrona, además de hilos de sistema operativo, consiguiendo paralelismo para la programación asíncrona.
 
 Rust permite la creación de hilos seguros y eficientes, y su modelo de propiedad garantiza que no haya condiciones de carrera. El compilador verifica en tiempo de compilación que no se acceda a datos compartidos de forma insegura gracias a su modelo de propiedad de variables, lo que reduce significativamente los errores comunes en la programación concurrente.
 \begin{itemize}
-    \item \textbf{Ventajas:} Concurrencia segura sin carreras de datos garantizada por el compilador. Buen soporte para paralelismo.
+    \item \textbf{Ventajas:} Concurrencia segura sin condiciones de carrera garantizada por el compilador. Buen soporte para paralelismo.
     \item \textbf{Desventajas:} La programación concurrente puede ser más verbosa o compleja de configurar inicialmente en comparación con Go.
 \end{itemize}
 
 \subparagraph{Go}
-La concurrencia es una de las características estrella de Go. Se basa en \textit{goroutines} (hilos ligeros gestionados por el runtime de Go) y \textit{canales} (channels) para la comunicación entre goroutines, siguiendo el paradigma de "Comunicación Secuencial de Procesos" (CSP).
+La concurrencia es una de las características estrella de Go. Se basa en \textit{goroutines} y \textit{canales} (channels) para la comunicación entre goroutines, siguiendo el paradigma de \acrfull{csp}.
 Éste se basa en la idea de que las goroutines se comunican entre sí a través de canales sin acceder a las mismas posiciones de memoria (cada goroutine tiene su propia copia de el mensaje) y reduce el riesgo de condiciones de carrera.
-Si queremos tener una comunicación bidireccional, tendríamos que utilizar un enfoque más tradicional mediante mutexs o semáforos junto con locks, lo cual puede ser más complejo y propenso a errores.
+Si queremos tener una comunicación bidireccional, tendríamos que utilizar un enfoque más tradicional mediante \glspl{mutex} o \glspl{semaforo} junto con \glspl{lock}, lo cual puede ser más complejo y propenso a errores.
 \begin{itemize}
     \item \textbf{Ventajas:} Modelo de concurrencia muy simple y potente. Facilidad para escribir software concurrente y paralelo.
-    \item \textbf{Desventajas:} Aunque las goroutines son ligeras, una mala gestión puede llevar a problemas de rendimiento o fugas de goroutines. Las carreras de datos son posibles y deben ser manejadas por el desarrollador.
+    \item \textbf{Desventajas:} Aunque las goroutines son ligeras, una mala gestión puede llevar a problemas de rendimiento o fugas de goroutines. Las condiciones de carrera son posibles y deben ser manejadas por el desarrollador.
 \end{itemize}
 
 \paragraph{Sintaxis y Curva de Aprendizaje}
 \subparagraph{Rust}
 La sintaxis de Rust es moderna y expresiva, pero su sistema de tipos y el modelo de gestión de memoria (ownership y borrowing) introducen una curva de aprendizaje considerablemente más pronunciada que la de Go.
 Ya se ha trabajado anteriormente con Rust, lo cual facilita el aprendizaje de este lenguaje.
-Además, la documentación oficial de Rust es muy completa y está bien estructurada, lo que ayuda a los nuevos usuarios a familiarizarse con el lenguaje.
+Además, la documentación oficial de Rust es muy completa y está bien estructurada, contando con el libro oficial de rust \cite{rustbook2021}, que ayuda a los nuevos usuarios a familiarizarse con el lenguaje.
 \begin{itemize}
     \item \textbf{Ventajas:} Sintaxis potente que permite un control muy granular.
     \item \textbf{Desventajas:} Dificultad inicial alta para dominar los conceptos clave.
@@ -291,7 +291,7 @@ Go fue diseñado con la simplicidad como uno de sus principios fundamentales. Su
 
 \paragraph{Sistema de Tipos y Abstracciones}
 \subparagraph{Rust}
-Rust posee un sistema de tipos estático, fuerte y muy rico, inspirado en lenguajes como Haskell. Incluye \textit{traits} (similares a interfaces pero más potentes), genéricos avanzados, tipos de datos algebraicos (ADTs\footnote{Los ADTs (Algebraic Data Types) pueden ser de dos tipos: de Producto (combinación de varios valores en una sola variable) o de Suma (Representan valores que pueden ser de una de varias variantes)}) como \texttt{enum} y \texttt{struct} que, gracias a el pattern matching\footnote{El pattern matching en Rust es una forma de comparar y desestructurar valores usando la instrucción match. Permite ejecutar código según la forma y contenido de un valor, de manera segura y exhaustiva.}, y macros para metaprogramación.
+Rust posee un sistema de tipos estático, fuerte y muy rico, inspirado en lenguajes como \gls{haskell}. Incluye \textit{\gls{rust-traits}}, genéricos avanzados, \acrlong{adt} \gls{adt-gls} como \texttt{enum} y \texttt{struct} que, gracias a el \gls{pattern-matching}, y macros para \gls{metaprogramacion}.
 \begin{itemize}
     \item \textbf{Ventajas:} Gran expresividad, seguridad de tipos, permite abstracciones potentes y seguras.
     \item \textbf{Desventajas:} Puede resultar complejo para quienes vienen de lenguajes con sistemas de tipos más simples.
@@ -342,8 +342,8 @@ El manejo de errores en este caso no es exhaustivo.
 \begin{itemize}
     \item Programación de sistemas (sistemas operativos, navegadores web).
     \item Motores de videojuegos.
-    \item Herramientas de línea de comandos (CLI).
-    \item Desarrollo de WebAssembly (Wasm).
+    \item \acrfull{cli}.
+    \item Desarrollo en \gls{webassembly} (WASM).
     \item Sistemas embebidos.
     \item Aplicaciones que requieren alto rendimiento y seguridad de memoria.
 \end{itemize}
@@ -352,7 +352,7 @@ El manejo de errores en este caso no es exhaustivo.
 \begin{itemize}
     \item Servicios de backend y microservicios.
     \item Herramientas de red y servidores.
-    \item Herramientas de DevOps y CLI.
+    \item Herramientas de \gls{devops} y CLI.
     \item Bases de datos distribuidas.
     \item Aplicaciones concurrentes.
 \end{itemize}
@@ -402,13 +402,13 @@ En nuestro proyecto se busca alto rendimiento, seguridad, facilidad de contribui
 Es por esto que Rust es la mejor opción en nuestro caso.
 
 Tal como se ha comentado anteriormente, Rust nos facilita seguridad en la ejecución del código gracias a su estricto compilador.
-Nos ofrece una gran variedad de funcionalidades sin coste en rendimiento junto con su sistema de propiedad y préstamos que nos permite gestionar la memoria de forma segura y eficiente, evitando errores comunes como las carreras de datos o los punteros nulos sin necesidad de un recolector de basura (GC).
+Nos ofrece una gran variedad de funcionalidades sin coste en rendimiento junto con su sistema de propiedad y préstamos que nos permite gestionar la memoria de forma segura y eficiente, evitando errores comunes como las condiciones de carrera o los punteros nulos sin necesidad de un recolector de basura (GC).
 
 Aunque la curva de aprendizaje de Rust es más pronunciada, los beneficios a largo plazo en términos de seguridad y rendimiento justifican esta inversión inicial.
 
 Invertir en aprender este lenguaje no solo nos favorecerá para el desarrollo de este proyecto, sino que también nos proporcionará habilidades valiosas para futuros proyectos en el ámbito del desarrollo de software, el cual al final es uno de los objetivos de hacer un proyecto de este tamaño.
 
-Trabajar con tecnologías y paradigmas de programación con las que no estamos familiarizados nos va a ayudar a mejorar nuestras habilidades y ampliar nuestro conocimiento en el desarrollo de software, lo cual es esencial para nuestro crecimiento profesional.
+Trabajar con tecnologías y paradigmas de programación con las que no estamos familiarizados nos ayudará a mejorar nuestras habilidades y ampliar nuestro conocimiento en el desarrollo de software, lo cual es esencial para nuestro crecimiento profesional.
 
 \subsubsection{Aplicación Móvil}
 
@@ -420,7 +420,7 @@ React Native, desarrollado por Meta (Facebook), permite crear aplicaciones móvi
 
 \textbf{Arquitectura y Funcionamiento:}
 \begin{itemize}
-    \item Utiliza un bridge para comunicar JavaScript con componentes nativos
+    \item Utiliza un \gls{bridge} para comunicar JavaScript con componentes nativos
     \item Renderiza componentes nativos reales, no WebViews
     \item Permite integración de código nativo cuando es necesario
     \item Soporte para hot reload durante el desarrollo
@@ -445,22 +445,22 @@ React Native, desarrollado por Meta (Facebook), permite crear aplicaciones móvi
 
 \paragraph{Flutter}
 
-Flutter, desarrollado por Google, utiliza el lenguaje Dart y un enfoque único de renderizado que dibuja todos los componentes desde cero utilizando Skia.
+Flutter, desarrollado por Google, utiliza el lenguaje Dart y un enfoque único de renderizado que dibuja todos los componentes desde cero utilizando \gls{skia}.
 
 \textbf{Arquitectura y Funcionamiento:}
 \begin{itemize}
     \item Engine compilado en C++ que renderiza directamente con Skia
     \item Framework en Dart que gestiona widgets y estado
-    \item Compilación ahead-of-time (AOT) para producción
+    \item Compilación \gls{ahead-of-time} (AOT) para producción
     \item Hot reload y hot restart para desarrollo
 \end{itemize}
 
 \textbf{Ventajas:}
 \begin{itemize}
-    \item \textbf{Rendimiento consistente}: 60fps garantizados en la mayoría de dispositivos
+    \item \textbf{Rendimiento consistente}: 60\acrshort{fps} garantizados en la mayoría de dispositivos
     \item \textbf{UI personalizable}: Control total sobre cada píxel de la interfaz
     \item \textbf{Consistencia multiplataforma}: Misma apariencia en iOS y Android
-    \item \textbf{Desarrollo productivo}: Hot reload extremadamente rápido
+    \item \textbf{Desarrollo productivo}: \Gls{hot-reload} extremadamente rápido
     \item \textbf{Compilación nativa}: Sin bridge, comunicación directa con APIs nativas
 \end{itemize}
 
@@ -480,7 +480,7 @@ Las PWA representan una evolución de las aplicaciones web tradicionales, ofreci
 
 \textbf{Arquitectura y Funcionamiento:}
 \begin{itemize}
-    \item Service Workers para funcionalidad offline y caché
+    \item \Glspl{service-worker} para funcionalidad offline y caché
     \item Web App Manifest para instalación y apariencia nativa
     \item Responsive design para adaptación a diferentes dispositivos
     \item APIs web modernas para acceso a funcionalidades del dispositivo
@@ -504,9 +504,9 @@ Las PWA representan una evolución de las aplicaciones web tradicionales, ofreci
     \item \textbf{Distribución}: Menor visibilidad sin presencia en app stores
 \end{itemize}
 
-\paragraph{Lynxjs}
+\paragraph{Lynx.js}
 
-Lynxjs representa una tecnología emergente que promete combinar el desarrollo web con el rendimiento nativo, aunque su adopción y madurez son significativamente menores que las alternativas establecidas.
+Lynx.js representa una tecnología emergente que promete combinar el desarrollo web con el rendimiento nativo, aunque su adopción y madurez son significativamente menores que las alternativas establecidas.
 
 \textbf{Arquitectura y Funcionamiento:}
 \begin{itemize}
@@ -537,11 +537,11 @@ Lynxjs representa una tecnología emergente que promete combinar el desarrollo w
 
 \subsubsection{Comparación Técnica de Tecnologías Móviles}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|l|c|c|c|c|}
 \hline
-\textbf{Criterio} & \textbf{React Native} & \textbf{Flutter} & \textbf{PWA} & \textbf{Lynxjs} \\
+\textbf{Criterio} & \textbf{React Native} & \textbf{Flutter} & \textbf{PWA} & \textbf{Lynx.js} \\
 \hline
 Rendimiento & 7/10 & 9/10 & 5/10 & 8/10* \\
 Ecosistema & 9/10 & 8/10 & 8/10 & 3/10 \\
@@ -567,8 +567,8 @@ Para aplicaciones de gestión de fotos, ciertos aspectos del rendimiento son par
 \begin{itemize}
     \item \textbf{Flutter}: Excelente para manipulación de imágenes gracias a Skia
     \item \textbf{React Native}: Requiere bibliotecas nativas para procesamiento intensivo
-    \item \textbf{PWA}: Limitado a Canvas API y WebGL, rendimiento variable
-    \item \textbf{Lynxjs}: Promete buen rendimiento, pero sin datos empíricos
+    \item \textbf{PWA}: Limitado a Canvas API y \gls{webgl}, rendimiento variable
+    \item \textbf{Lynx.js}: Promete buen rendimiento, pero sin datos empíricos
 \end{itemize}
 
 \paragraph{Gestión de Memoria}
@@ -576,15 +576,15 @@ Para aplicaciones de gestión de fotos, ciertos aspectos del rendimiento son par
     \item \textbf{Flutter}: Control granular de memoria, garbage collection optimizado
     \item \textbf{React Native}: Dependiente de JavaScript GC, posibles memory leaks
     \item \textbf{PWA}: Gestión automática del navegador, limitaciones en dispositivos antiguos
-    \item \textbf{Lynxjs}: Optimizaciones prometidas pero no verificadas
+    \item \textbf{Lynx.js}: Optimizaciones prometidas pero no verificadas
 \end{itemize}
 
 \paragraph{Carga y Visualización}
 \begin{itemize}
-    \item \textbf{Flutter}: Lazy loading nativo y caching eficiente
+    \item \textbf{Flutter}: \Gls{lazy-loading} nativo y caching eficiente
     \item \textbf{React Native}: Buenas bibliotecas para lazy loading (react-native-fast-image)
     \item \textbf{PWA}: Service Workers para caching, pero limitaciones de almacenamiento
-    \item \textbf{Lynxjs}: Lazy loading integrado y optimizado mediante componente específico para carga de datos/imágenes
+    \item \textbf{Lynx.js}: Lazy loading integrado y optimizado mediante componente específico para carga de datos/imágenes
 \end{itemize}
 
 \subsubsection{Consideraciones Específicas para el Proyecto}
@@ -606,7 +606,7 @@ Basándose en el análisis comparativo y los requisitos específicos del proyect
 \begin{itemize}
     \item Consistencia multiplataforma ideal para FOSS
     \item Ecosistema maduro con soporte a largo plazo de Google
-    \item Buena integración con APIs, aunque integración con RPCs limitada
+    \item Buena integración con APIs, aunque integración con \acrfull{acr} limitada
     \item Comunidad activa en proyectos de código abierto
 \end{itemize}
 
@@ -624,30 +624,355 @@ Basándose en el análisis comparativo y los requisitos específicos del proyect
     \item Limitaciones en acceso a funcionalidades nativas del dispositivo
 \end{itemize}
 
-\textbf{Lynxjs es una opción arriesgada} aunque ofrece ventajas como:
+\textbf{Lynx.js es una opción arriesgada} aunque ofrece ventajas como:
 \begin{itemize}
     \item Rendimiento optimizado y menor tamaño de aplicación
     \item Desarrollo familiar con JavaScript/TypeScript
     \item Potencial para mejorar la experiencia de usuario en comparación con React Native
 \end{itemize}
 
-Para el desarrollo de este proyecto se va a optar por usar \textbf{Lynxjs}.
+Para el desarrollo de este proyecto se va a optar por usar \textbf{Lynx.js}.
 
 Aunque es una elección que puede parecer arriesgada, se ha considerado que el rendimiento optimizado y la familiaridad con JavaScript/TypeScript son factores clave para el éxito del proyecto.
-Además, el hecho de que Lynxjs esté respaldado por TikTok sugiere un compromiso a largo plazo con la tecnología, lo que puede ofrecer estabilidad y actualizaciones continuas.
+Además, el hecho de que Lynx.js esté respaldado por TikTok sugiere un compromiso a largo plazo con la tecnología, lo que puede ofrecer estabilidad y actualizaciones continuas.
 
-Se ha descartado React Native ya que Lynxjs ofrece prácticamente las mismas ventajas, pero con un rendimiento optimizado gracias a componentes específicos optimizados, un tamaño de aplicación más reducido y un acceso más directo a las APIs nativas del dispositivo.
+Se ha descartado React Native ya que Lynx.js ofrece prácticamente las mismas ventajas, pero con un rendimiento optimizado gracias a componentes específicos optimizados, un tamaño de aplicación más reducido y un acceso más directo a las APIs nativas del dispositivo.
 
 Flutter aun ofreciendo una gran cantidad de ventajas se ha descartado por lo siguiente:
 \begin{itemize}
-    \item El tamaño de la aplicación es significativamente mayor que el de Lynxjs, lo cual puede ser un inconveniente para los usuarios con dispositivos de gama baja.
+    \item El tamaño de la aplicación es significativamente mayor que el de Lynx.js, lo cual puede ser un inconveniente para los usuarios con dispositivos de gama baja.
     \item Aunque ofrece un rendimiento excelente, la curva de aprendizaje de Dart puede ser un obstáculo para algunos desarrolladores, especialmente si ya están familiarizados con JavaScript/TypeScript, lo cual afectaría a la facilidad de contribuir al proyecto.
     \item Para dispositivos de gama baja, además de el tamaño de la aplicación, el rendimiento puede verse afectado por el uso intensivo del motor gráfico de Flutter, lo que podría resultar en una experiencia de usuario deficiente.
-    \item El acceso a funcionalidades nativas puede ser más complicado en comparación con Lynxjs, que permite una integración más directa con el código nativo existente.
+    \item El acceso a funcionalidades nativas puede ser más complicado en comparación con Lynx.js, que permite una integración más directa con el código nativo existente.
 \end{itemize}
 Cabe destacar que Flutter habría sido la mejor elección si el objetivo del proyecto no fuera crear una aplicación FOSS, ya que el ecosistema de Typescript y JavaScript es más amplio y maduro, lo que facilita la integración con bibliotecas y herramientas existentes.
 
 \paragraph{Tecnologías no nombradas}
 Durante el análisis nos hemos centrado en aquellas tecnologías que son más populares y ampliamente utilizadas en la industria, pero existen otras opciones que podrían ser consideradas dependiendo de los requisitos específicos del proyecto como podría ser el desarrollo nativo (Kotlin/Java para Android y Swift/Objective-C para iOS) o Kotlin Multiplatform.
 
-Se han descartado debido a la alta curva de aprendizaje que tienen ambas soluciones en comparación con las anteriormente nombradas que usan lenguajes de programación más usados. Destacar que, aunque Kotlin Multiplaform nos ofrece una de las mejores alternativas para implementar en varias plataformas (ya que nos permite compartir código entre Android, iOS y web gracias a Jetpack Compose, implementando de forma sencilla y totalmente nativa funcionalidades específicas), la falta de madurez en su ecosistema y la complejidad de su implementación lo hacen menos atractivo para nuestro proyecto.
+Se han descartado debido a la alta curva de aprendizaje que tienen ambas soluciones en comparación con las anteriormente nombradas que usan lenguajes de programación más usados. Destacar que, aunque Kotlin Multiplaform nos ofrece una de las mejores alternativas para implementar en varias plataformas (ya que nos permite compartir código entre Android, iOS y web gracias a \gls{jetpack-compose}, implementando de forma sencilla y totalmente nativa funcionalidades específicas), la falta de madurez en su ecosistema y la complejidad de su implementación lo hacen menos atractivo para nuestro proyecto.
+
+\subsection{Análisis de Costes}
+
+El análisis de costes es un aspecto fundamental a la hora de evaluar las diferentes soluciones de bibliotecas de fotos FOSS. Este análisis abarca varios aspectos que impactan directamente en el coste total de implementación y mantenimiento.
+
+\subsubsection{Requisitos de Hardware}
+
+Los requisitos de hardware varían significativamente entre las diferentes soluciones:
+
+\begin{itemize}
+    \item \textbf{Immich}:
+    \begin{itemize}
+        \item Rendimiento óptimo con procesador moderno (por ejemplo, Intel NUC de 12ª generación)
+        \item Mínimo 16GB de RAM recomendado para bibliotecas grandes
+        \item Almacenamiento SSD para la base de datos y caché
+        \item Almacenamiento NAS/HDD para los archivos originales
+    \end{itemize}
+    
+    \item \textbf{PhotoPrism}:
+    \begin{itemize}
+        \item Requiere hardware más potente para un rendimiento similar
+        \item Mínimo 16GB de RAM, preferiblemente 32GB para bibliotecas grandes
+        \item GPU integrada recomendada para aceleración por hardware
+        \item SSD local para miniaturas y caché
+    \end{itemize}
+    
+    \item \textbf{Ente}:
+    \begin{itemize}
+        \item Requisitos moderados debido al cifrado client-side
+        \item 8-16GB de RAM suficientes para la mayoría de casos
+        \item Menor dependencia de GPU
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Consumo de Recursos}
+
+El consumo de recursos afecta directamente a los costes operativos:
+
+\begin{itemize}
+    \item \textbf{Almacenamiento}:
+    \begin{itemize}
+        \item Immich: Genera dos miniaturas por imagen, altamente configurable
+        \item PhotoPrism: Genera 8 miniaturas JPEG con diferentes relaciones de aspecto
+        \item Ente: Uso eficiente del almacenamiento debido al cifrado
+    \end{itemize}
+    
+    \item \textbf{Procesamiento}:
+    \begin{itemize}
+        \item Immich: Procesamiento paralelo eficiente, menor impacto en CPU
+        \item PhotoPrism: Mayor uso de CPU durante la indexación y procesamiento
+        \item Ente: Sobrecarga adicional debido al cifrado
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Costes de Mantenimiento}
+
+Los costes de mantenimiento incluyen:
+
+\begin{itemize}
+    \item \textbf{Actualizaciones y Parches}:
+    \begin{itemize}
+        \item Immich: Actualizaciones frecuentes, proceso automatizado
+        \item PhotoPrism: Desarrollo más lento, actualizaciones menos frecuentes
+        \item Ente: Ciclo de desarrollo moderado
+    \end{itemize}
+    
+    \item \textbf{Backup y Redundancia}:
+    \begin{itemize}
+        \item Todas las soluciones requieren estrategias de backup
+        \item Costes adicionales para almacenamiento redundante
+        \item Necesidad de monitorización y mantenimiento regular
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Costes de Escalabilidad}
+
+La escalabilidad impacta en los costes a largo plazo:
+
+\begin{itemize}
+    \item \textbf{Vertical}:
+    \begin{itemize}
+        \item Immich: Mejor rendimiento con hardware modesto
+        \item PhotoPrism: Puede requerir actualizaciones de hardware más frecuentes
+        \item Ente: Escalado limitado por el cifrado
+    \end{itemize}
+    
+    \item \textbf{Horizontal}:
+    \begin{itemize}
+        \item Immich: Arquitectura de microservicios facilita la escalabilidad
+        \item PhotoPrism: Limitaciones en escalabilidad horizontal
+        \item Ente: Diseño centrado en privacidad limita opciones de escalado
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Modelos de Monetización}
+
+Es importante considerar los diferentes modelos de monetización:
+
+\begin{itemize}
+    \item \textbf{Immich}: 
+    \begin{itemize}
+        \item Completamente gratuito y open source
+        \item Sin funciones premium o de pago
+        \item Financiado por donaciones y comunidad
+    \end{itemize}
+    
+    \item \textbf{PhotoPrism}:
+    \begin{itemize}
+        \item Modelo freemium
+        \item Algunas características avanzadas requieren suscripción
+        \item Membresías Plus y Pro disponibles
+    \end{itemize}
+    
+    \item \textbf{Ente}:
+    \begin{itemize}
+        \item Enfoque en privacidad y seguridad
+        \item Modelo de negocio basado en donaciones
+    \end{itemize}
+\end{itemize}
+
+\subsection{Análisis Comparativo de Métricas}
+
+A partir de pruebas realizadas por la comunidad y documentación oficial, se presenta un análisis detallado de las métricas de rendimiento y capacidades de las tres soluciones principales.
+
+\subsubsection{Rendimiento de Procesamiento}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Métrica} & \textbf{Immich} & \textbf{PhotoPrism} & \textbf{Ente} \\
+\hline
+Velocidad de Indexación & Alta & Media-Baja & Media \\
+Tiempo de Carga UI & $<$1s & 1-2s & $<$1s \\
+Procesamiento Paralelo & Sí & No & Parcial \\
+Uso de CPU & Moderado & Alto & Bajo \\
+\hline
+\end{tabular}
+\caption{Comparación de métricas de rendimiento}
+\label{tab:performance_metrics}
+\end{table}
+
+\subsubsection{Gestión de Almacenamiento}
+
+\begin{itemize}
+    \item \textbf{Miniaturas por Imagen}:
+    \begin{itemize}
+        \item Immich: 2 miniaturas configurables
+        \item PhotoPrism: 8 miniaturas JPEG (diferentes relaciones de aspecto)
+        \item Ente: Optimizado para cifrado, número variable
+    \end{itemize}
+    
+    \item \textbf{Espacio de Caché}:
+    \begin{itemize}
+        \item Immich: Aproximadamente 1.5x el tamaño original
+        \item PhotoPrism: 2-3x el tamaño original
+        \item Ente: 1-1.5x el tamaño original
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Precisión de Reconocimiento}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Característica} & \textbf{Immich} & \textbf{PhotoPrism} & \textbf{Ente} \\
+\hline
+Detección Facial & 90\% & 60\% & 85\% \\
+Reconocimiento de Objetos & 85\% & 70\% & No disponible \\
+Agrupación de Fotos & Excelente & Buena & Limitada \\
+Precisión de Búsqueda & Alta & Media & Media \\
+\hline
+\end{tabular}
+\caption{Comparación de precisión en características de IA}
+\label{tab:ai_accuracy}
+\end{table}
+
+\subsubsection{Tiempos de Procesamiento}
+
+Para una biblioteca de prueba de 40,000 imágenes (aproximadamente 1.6TB):
+
+\begin{itemize}
+    \item \textbf{Immich}:
+    \begin{itemize}
+        \item Importación inicial: 2-3 horas
+        \item Indexación completa: 4-6 horas
+        \item Generación de miniaturas: 3-4 horas
+        \item Procesamiento de IA: 6-8 horas
+    \end{itemize}
+    
+    \item \textbf{PhotoPrism}:
+    \begin{itemize}
+        \item Importación inicial: 4-5 horas
+        \item Indexación completa: 24-48 horas
+        \item Generación de miniaturas: 8-10 horas
+        \item Procesamiento de IA: 12-24 horas
+    \end{itemize}
+    
+    \item \textbf{Ente}:
+    \begin{itemize}
+        \item Importación inicial: 3-4 horas
+        \item Indexación completa: 8-10 horas
+        \item Generación de miniaturas: 4-5 horas
+        \item Procesamiento de IA: No aplicable
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Métricas de Escalabilidad}
+
+\begin{itemize}
+    \item \textbf{Límites de Biblioteca}:
+    \begin{itemize}
+        \item Immich: Probado con $>$1 millón de fotos
+        \item PhotoPrism: Recomendado hasta 500,000 fotos
+        \item Ente: Probado con $>$250,000 fotos
+    \end{itemize}
+    
+    \item \textbf{Rendimiento con Carga}:
+    \begin{itemize}
+        \item Immich: Mantiene rendimiento con múltiples usuarios
+        \item PhotoPrism: Degradación notable con múltiples usuarios
+        \item Ente: Rendimiento constante pero limitado
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Soporte de Formatos}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|c|}
+\hline
+\textbf{Formato} & \textbf{Immich} & \textbf{PhotoPrism} & \textbf{Ente} \\
+\hline
+JPEG & Sí & Sí & Sí \\
+RAW & Parcial & Completo & No \\
+HEIC & Sí & Sí & Parcial \\
+Videos & Sí & Sí & Limitado \\
+Live Photos & Sí & No & No \\
+\hline
+\end{tabular}
+\caption{Comparación de soporte de formatos}
+\label{tab:format_support}
+\end{table}
+
+\subsection{Interoperabilidad y Estándares Abiertos}
+
+La interoperabilidad y el uso de estándares abiertos son factores clave para la adopción y sostenibilidad de las bibliotecas de fotos FOSS. Permiten a los usuarios migrar fácilmente sus datos, integrar la aplicación con otros servicios y evitar el "vendor lock-in". A continuación se analiza cómo las principales soluciones abordan estos aspectos:
+
+\begin{itemize}
+    \item \textbf{Integración con servicios externos}: Immich y PhotoPrism ofrecen soporte para almacenamiento externo mediante protocolos como \gls{webdav} y S3 (Amazon Simple Storage Service o compatibles como MinIO), facilitando la integración con soluciones de almacenamiento en la nube o NAS. Ente, por su enfoque en privacidad, limita la integración a servicios que no comprometan la seguridad de los datos.
+    \item \textbf{Soporte de estándares de metadatos}: PhotoPrism destaca por su soporte completo de estándares como EXIF, \acrshort{iptc} y \acrshort{xmp} para metadatos, permitiendo una mejor interoperabilidad con otras aplicaciones de gestión de fotos. Immich y Ente ofrecen soporte parcial, centrado principalmente en EXIF.
+    \item \textbf{Exportación e importación}: Todas las soluciones permiten la exportación e importación de fotos y metadatos, aunque el grado de automatización y compatibilidad varía. PhotoPrism facilita la migración mediante herramientas específicas y documentación detallada. Immich permite la importación desde carpetas existentes, pero la exportación masiva puede requerir herramientas adicionales. Ente prioriza la exportación cifrada para mantener la privacidad.
+    \item \textbf{Federación y APIs}: Ninguna de las soluciones principales implementa actualmente protocolos de federación como \gls{activity-pub}, aunque existen discusiones en la comunidad sobre su posible adopción futura. Todas ofrecen APIs REST para integración con aplicaciones de terceros, aunque el grado de estabilidad y documentación varía (Immich tiene una API en evolución, PhotoPrism una API más estable).
+\end{itemize}
+
+La adopción de estándares abiertos y la interoperabilidad son aspectos en los que aún existe margen de mejora en el sector. Fomentar la compatibilidad con protocolos y formatos ampliamente aceptados facilitará la integración con otros sistemas y la migración de datos, beneficiando tanto a usuarios finales como a desarrolladores.
+
+
+\subsection{Conclusiones}
+\subsubsection{Conclusiones del Análisis de Métricas}
+
+El análisis de métricas revela que Immich destaca en varios aspectos clave:
+
+\begin{itemize}
+    \item Mayor eficiencia en procesamiento paralelo
+    \item Mejor equilibrio entre almacenamiento y funcionalidad
+    \item Superior precisión en reconocimiento facial y de objetos
+    \item Mejor escalabilidad para bibliotecas grandes
+\end{itemize}
+
+PhotoPrism, aunque más maduro, muestra limitaciones en rendimiento y escalabilidad, mientras que Ente destaca en privacidad pero con funcionalidades más limitadas. Estas métricas refuerzan la elección de tecnologías y arquitectura para nuestro proyecto, que busca combinar la eficiencia de Immich con mejoras adicionales en rendimiento y funcionalidad.
+
+\subsubsection{Conclusiones del Análisis de Costes}
+
+El análisis de costes revela que Immich ofrece la mejor relación coste-beneficio para la mayoría de los casos de uso:
+
+\begin{itemize}
+    \item Requisitos de hardware más moderados
+    \item Mejor eficiencia en el uso de recursos
+    \item Arquitectura que facilita la escalabilidad
+    \item Modelo completamente gratuito sin costes ocultos
+\end{itemize}
+
+Sin embargo, la elección final dependerá de factores específicos como:
+\begin{itemize}
+    \item Tamaño de la biblioteca de fotos
+    \item Recursos de hardware disponibles
+    \item Necesidades de escalabilidad
+    \item Presupuesto para mantenimiento
+\end{itemize}
+
+Para nuestro proyecto, el análisis de costes refuerza la decisión de utilizar tecnologías eficientes como Rust y Lynx.js, que permitirán minimizar los requisitos de hardware y los costes operativos mientras se mantiene un alto nivel de rendimiento.
+
+\subsubsection{Conclusiones Interoperabilidad y Estándares Abiertos}
+El análisis de interoperabilidad y estándares abiertos muestra que Immich y PhotoPrism son las soluciones más avanzadas en este aspecto, con un enfoque claro en la integración con servicios externos y el uso de metadatos estandarizados. Ente, aunque prioriza la privacidad, limita la interoperabilidad al restringir la integración con servicios externos.
+
+En nuestra propuesta buscamos fomentar la interoperabilidad mediante el uso de estándares abiertos y APIs bien documentadas, lo que permitirá a los usuarios migrar fácilmente sus datos y contribuir al proyecto. Esto es esencial para garantizar la sostenibilidad a largo plazo y la adopción por parte de la comunidad.
+Gracias a esto se busca que el proyecto no solo sea una solución de gestión de fotos, sino también un ecosistema abierto y colaborativo que permita a los usuarios y desarrolladores contribuir y beneficiarse mutuamente, además de poder integrar la aplicación con otros servicios y herramientas existentes.
+
+\subsection{Aportaciones de nuestro proyecto al estado del arte}
+Una vez realizado un estudio de las soluciones existentes y las tecnologías más utilizadas en el desarrollo de aplicaciones móviles y web, se ha identificado una clara oportunidad para mejorar la experiencia del usuario en la gestión de bibliotecas de fotos.
+
+Nuestro proyecto busca abordar las limitaciones actuales de las aplicaciones de fotos, especialmente en términos de rendimiento, usabilidad, facilidad de aportación al proyecto y características avanzadas.
+\subsubsection{Rendimiento}
+El rendimiento es un aspecto crítico en las aplicaciones de fotos, especialmente cuando se manejan grandes colecciones. Muchas aplicaciones existentes sufren de lentitud en la carga y visualización de imágenes, lo que afecta negativamente la experiencia del usuario.
+No solo se busca optimizar la carga de imágenes en la aplicación, sino mejorar la velocidad de respuesta que ofrece el servidor a la hora de recibir, procesar y responder a las peticiones de los usuarios.
+
+Todo esto lo conseguiremos gracias a: 
+\begin{itemize}
+    \item Aplicación móvil programada en Lynx.js, que permite un rendimiento optimizado mediante el uso de componentes específicos para la carga de datos e imágenes, así como un acceso más directo a las APIs nativas del dispositivo. Aunque es una tecnología emergente, utiliza JavaScript/TypeScript con su propia variante de React, lo que facilita la curva de aprendizaje para desarrolladores familiarizados con estas tecnologías.
+    \item Servidor programado en Rust, que ofrece alto rendimiento, eficiencia en la gestión de recursos y acceso a optimizaciones a bajo nivel, lo que se traduce en una respuesta más rápida a las peticiones de los usuarios. Usar Rust nos va a proporcionar un código más seguro y eficiente, evitando errores comunes como las condiciones de carrera o los punteros nulos sin necesidad de un recolector de basura (GC).
+\end{itemize}
+\subsubsection{Contribución al proyecto}
+Nuestro proyecto no solo se centrará en ofrecer una aplicación de fotos, sino que también se diseñará como un proyecto FOSS, lo que permitirá a la comunidad contribuir y mejorar la aplicación de manera continua.
+
+Para ello se hará uso de las mejoras prácticas de desarrollo de software:
+\begin{itemize}
+    \item Uso de control de versiones (\Gls{git}), documentación clara y accesible, y un proceso de revisión de código que fomente la colaboración y la calidad del código.
+    \item Se implementará una estructura de proyecto que facilite la incorporación de nuevos desarrolladores, con guías claras sobre cómo contribuir y estándares de codificación.
+    \item El uso de Rust también aporta valor a nuestro proyecto al ofrecer un lenguaje moderno y seguro que minimiza los errores comunes de programación, lo que facilita la colaboración y la contribución de nuevos desarrolladores, eliminando posibles errores en la aplicación incluso antes de que se ejecute.
+    \item Utilizaremos TypeScript en la aplicación móvil, lo que permitirá a los desarrolladores familiarizados con JavaScript contribuir fácilmente al proyecto, lo que facilitará la incorporación de nuevos colaboradores y fomentará una comunidad activa.
+    \item Implementación de pruebas unitarias y de integración para asegurar la calidad del código y la funcionalidad de la aplicación.
+\end{itemize}
+
