@@ -373,14 +373,14 @@ Los objetivos de este sprint son los siguientes:
     \item Definir diagrama de la arquitectura inicial del sistema.
     \item Definir el product backlog inicial.
     \item Realizar diagrama de Gantt para planificación de los sprints.
-    \item Definir el backlog de el primer sprint inicial.
+    \item Definir el backlog de el primer sprint.
     \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
     \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
-    \item Configurar el entorno de desarrollo.
+    \item Configurar el entorno de desarrollo tanto para el servidor como el cliente.
 \end{itemize}
 
 \subsubsection{Diagrama de arquitectura}
-\begin{figure}[h]
+\begin{figure}[H]
     \begin{center}
         \includegraphics[width=0.95\textwidth]{images/diagrama-arquitectura.png}
     \end{center}
@@ -388,17 +388,17 @@ Los objetivos de este sprint son los siguientes:
 \end{figure}
 
 Como podemos ver en la figura \ref{fig:diagrama-arquitectura}, el sistema va a estar compuesto por un cliente (móvil tanto en Android como iOS gracias a la multiplataforma que nos da Lynx.js) que se comunica con un servidor mediante peticiones HTTP.
-Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma desarrollado en Lynx.js (una tecnología muy nueva) y un servidor programado en Rust no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST. Además, tanto Lynx.js como Rust Native no tienen muy buena compatibilidad con gRPC.
+Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma desarrollado en Lynx.js (una tecnología muy nueva) y un servidor programado en Rust no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST. Además, tanto Lynx.js como React Native no tienen muy buena compatibilidad con gRPC.
 
 Todo esto hizo decidirse por una API REST, la cual es más sencilla de implementar y de mantener a largo plazo, además de ser más fácil de entender para cualquier desarrollador que quiera contribuir al proyecto.
 
 El servidor se comunicará de manera abstracta con un servicio de almacenamiento de datos. Para la primera versión de la aplicación haremos uso de MinIO, un software Open-Source que nos permite crear un servidor de almacenamiento de objetos compatible con la API de Amazon S3.
-Esto nos da la ventaja de poder utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage en el futuro sin necesidad de cambiar la aplicación, ya que la API es la misma.
+Esto nos da la ventaja de poder utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage en el futuro sin necesidad de cambiar la aplicación.
 MinIO está diseñado para ser totalmente escalable y de alto rendimiento, lo que lo convierte en una excelente opción para almacenar grandes volúmenes de datos, como fotos y vídeos.
 
 Aunque para las primeras iteraciones hagamos uso de MinIO para almacenar los datos multimedia, en iteraciones más avanzadas se implementará un sistema de almacenamiento nativo en Rust, el cual nos permitirá tener un mayor control sobre los datos y una mejor integración con el resto del sistema.
 
-Gracias a la arquitectura hexagonal que se va a utilizar a la hora de implementar el sistema, conseguimos un desacople total de la capa de aplicación, dominio e infraestructura, brindando la posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, pudiendo de esta manera tener flexibilidad total a la hora de guardar nuestros datos y multimedia.
+Gracias a la arquitectura hexagonal que se va a utilizar a la hora de implementar el sistema, conseguimos un desacople total de la capa de aplicación, dominio e infraestructura, brindando la posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, teniendo de esta manera flexibilidad sobre la solución que queramos usar para almacenar nuestros datos/multimedia.
 
 Para el almacenaje de los datos de nuestra aplicación se ha optado por PostgreSQL.
 Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo plazo, nos da una gran cantidad de ventajas frente a las desventajas que tiene, como pueden ser:
@@ -410,7 +410,35 @@ Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo pl
     \item \textbf{Open-Source}: al ser un software Open-Source, no tenemos que pagar por licencias y se alinea con el enfoque de nuestro proyecto que busca ser Open-Source.
 \end{itemize}
 
-Tal y como con la solución para el almacenaje de imágenes, seguir una arquitectura hexagonal nos da la posibilidad de cambiar el sistema de base de datos en el futuro sin afectar al resto del sistema.
+\subsubsection{Estructura de implementación}
+En un proyecto de este tipo es muy importante tener una buena estructura a la hora de implementar nuestras aplicaciones.
+Buscamos la separación de responsabilidades y una buena organización lo cual nos lleva a cumplir uno de nuestros objetivos generales (OG4): desarrollar un sistema fácilmente escalable.
+
+Para ello, se ha estudiado las distintas opciones que tenemos, tanto para el servidor como para la aplicación móvil, y principalmente se ha optado por una arquitectura limpia \cite{uncle-bob-clean-architecture}, cuyos principios son:
+\begin{itemize}
+    \item \textbf{Separación de responsabilidades}: cada capa del sistema tiene una responsabilidad clara y bien definida, lo que facilita el mantenimiento y la evolución del sistema.
+    \item \textbf{Independencia de la infraestructura}: las capas más internas del sistema no dependen de detalles de implementación de la infraestructura, lo que permite cambiar la infraestructura sin afectar al resto del sistema.
+    \item \textbf{Facilidad de pruebas}: al tener una separación clara de responsabilidades, es más fácil realizar pruebas unitarias e integración, lo que mejora la calidad del software.
+    \item \textbf{Escalabilidad}: al estar desacopladas las distintas capas del sistema, es más fácil escalar el sistema a medida que crece.
+\end{itemize}
+
+\paragraph{Arquitectura del servidor}
+\subparagraph{}
+Para el servidor se ha decidido usar una estructura monolítica modular.
+Este enfoque se acerca a lo que sería una estructura de microservicios, pero sin la complejidad que conlleva el uso de múltiples servicios.
+Siguiendo esta solución tenemos un solo binario que contiene todo el código del servidor, pero con una estructura modular, donde cada módulo tiene una responsabilidad clara y bien definida.
+Es la mejor solución para un equipo pequeño por el simple hecho de que no tenemos que preocuparnos por la comunicación entre distintos servicios, el despliegue de los mismos y la gestión de la infraestructura para cada uno de los servicios.
+
+Aún así, tenemos la gran mayoría de las ventajas que nos da una arquitectura de microservicios, como la separación de responsabilidades, la facilidad de pruebas y la escalabilidad.
+De esta manera, si en un futuro quisiéramos separar el servidor en microservicios, sería mucho más sencillo hacerlo, ya que ya tenemos una estructura modular que nos permite separar las distintas funcionalidades del servidor.
+
+\paragraph{Arquitectura del cliente}
+\subparagraph{}
+Tal y como se ha comentado anteriormente, la aplicación móvil también seguirá una arquitectura limpia, donde tendremos una capa de presentación, una capa de dominio y una capa de infraestructura.
+La capa de presentación se encargará de la interfaz de usuario y de la interacción con el usuario, la capa de dominio se encargará de la lógica de negocio y la capa de infraestructura se encargará de la comunicación con el servidor y el almacenamiento local.
+
+Tal como se comenta en el libro \textit{Clean Architecture} \cite{uncle-bob-clean-architecture}, esta arquitectura es como una cebolla, donde cada capa está separada por una interfaz y cada capa puede comunicarse con la capa inferior a través de esta interfaz, pero no al revés.
+Es decir, nuestra capa de dominio no se puede comunicar con ninguna de las otras capas, ya que esta es la capa más interna y no debe depender de ninguna otra capa.
 
 \subsection{Presupuesto}
 
