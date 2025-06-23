@@ -17,14 +17,14 @@
 de archivos multimedia</h2>
  <div class='author'><span class='cmr-12'>Alejandro Ramos Pe</span>ñ<span class='cmr-12'>a</span></div>
 <br />
-<div class='date'><span class='cmr-12'>20 de junio de 2025</span></div>
+<div class='date'><span class='cmr-12'>23 de junio de 2025</span></div>
 </div><figure class='figure'> 
 
                                                                                  
                                                                                  
                                                                                  
                                                                                  
-<!-- l. 66 --><p class='noindent'><img alt='PIC' src='./images/logo-ugr.jpg' style='width:47.04%' />
+<!-- l. 72 --><p class='noindent'><img alt='PIC' src='./images/logo-ugr.jpg' style='width:47.04%' />
                                                                                  
                                                                                  
 </p>
@@ -107,11 +107,12 @@ conclusiones a las que se llega. Esta sección tiene que estar en inglés y en e
 <br /><span class='subsubsectionToc'>5.3.2 <a href='#movil1' id='QQ2-1-107'>Móvil</a></span>
 <br /><span class='subsectionToc'>5.4 <a href='#planificacion-inicial' id='QQ2-1-108'>Planificación inicial</a></span>
 <br /><span class='subsubsectionToc'>5.4.1 <a href='#diagrama-de-arquitectura' id='QQ2-1-109'>Diagrama de arquitectura</a></span>
-<br /><span class='subsectionToc'>5.5 <a href='#presupuesto' id='QQ2-1-111'>Presupuesto</a></span>
-<br /><span class='sectionToc'>6 <a href='#conclusiones2' id='QQ2-1-112'>Conclusiones</a></span>
-<br /><span class='sectionToc'>7 <a href='#bibliografia' id='QQ2-1-113'>Bibliografía</a></span>
+<br /><span class='subsubsectionToc'>5.4.2 <a href='#estructura-de-implementacion' id='QQ2-1-111'>Estructura de implementación</a></span>
+<br /><span class='subsectionToc'>5.5 <a href='#presupuesto' id='QQ2-1-117'>Presupuesto</a></span>
+<br /><span class='sectionToc'>6 <a href='#conclusiones2' id='QQ2-1-118'>Conclusiones</a></span>
+<br /><span class='sectionToc'>7 <a href='#bibliografia' id='QQ2-1-119'>Bibliografía</a></span>
 </div>
-<!-- l. 74 --><p class='noindent' id='lista-de-figuras'>
+<!-- l. 80 --><p class='noindent' id='lista-de-figuras'>
                                                                                  
                                                                                  
 <a id='Q1-1-3'></a>
@@ -119,12 +120,15 @@ conclusiones a las que se llega. Esta sección tiene que estar en inglés y en e
 </p>
 <h3 class='likesectionHead' id='indice-de-figuras'><a id='x1-3000'></a>Índice de figuras</h3>
 <div class='tableofcontents'><span class='lofToc'>1 <a href='#comparativa-de-uso-de-cpu-entre-rust-y-otros-lenguajes-de-programacion-menos-es-mejor-rustforsafetyandperformance'>Comparativa de uso de CPU entre Rust y otros lenguajes de programación
-(menos es mejor) [<span class='cmbx-10x-x-109'>?</span>]</a></span><br /><span class='lofToc'>2 <a href='#comparativa-de-uso-de-memoria-entre-rust-y-otros-lenguajes-de-programacion-menos-es-mejor-rustforsafetyandperformance'>Comparativa de uso de memoria entre Rust y otros
-lenguajes de programación (menos es mejor) [<span class='cmbx-10x-x-109'>?</span>]</a></span><br /><span class='lofToc'>3 <a href='#ciclo-de-vida-de-los-componentes-en-lynxjs-httpslynxjsorgreactlifecyclehtmldocumentacion'>Ciclo de vida de los
+(menos es mejor) (<span class='cmbx-10x-x-109'>rust-for-safety-and-performance</span>)</a></span><br /><span class='lofToc'>2 <a href='#comparativa-de-uso-de-memoria-entre-rust-y-otros-lenguajes-de-programacion-menos-es-mejor-rustforsafetyandperformance'>Comparativa
+de uso de memoria entre Rust y otros lenguajes de programación (menos
+es mejor) (<span class='cmbx-10x-x-109'>rust-for-safety-and-performance</span>)</a></span><br /><span class='lofToc'>3 <a href='#ciclo-de-vida-de-los-componentes-en-lynxjs-httpslynxjsorgreactlifecyclehtmldocumentacion'>Ciclo de vida de los
 componentes en Lynx.js (Documentación)</a></span><br /><span class='lofToc'>4 <a href='#diagrama-de-la-arquitectura-del-sistema-representa-las-comunicaciones-entre-los-distintos-elementos-del-sistema'>Diagrama de la arquitectura del
-sistema. Representa las comunicaciones entre los distintos elementos del sistema</a></span><br />
+sistema. Representa las comunicaciones entre los distintos elementos del
+sistema</a></span><br /><span class='lofToc'>5 <a href='#comparativa-entre-una-arquitectura-monolitica-de-microservicios-y-monolitica-modular-tsechelidismodular'>Comparativa entre una arquitectura monolítica, de microservicios
+y monolítica modular. (<span class='cmbx-10x-x-109'>tsechelidis2023modular</span>)</a></span><br />
 </div>
-<!-- l. 78 --><p class='noindent' id='lista-de-tablas'>
+<!-- l. 84 --><p class='noindent' id='lista-de-tablas'>
                                                                                  
                                                                                  
 <a id='Q1-1-5'></a>
@@ -138,15 +142,15 @@ de mejora de Rust con respecto a otros lenguajes de programación en términos d
 tiempo de CPU. (Mayor es mejor)</a></span><br /><span class='lotToc'>7 <a href='#porcentaje-de-mejora-de-rust-con-respecto-a-otros-lenguajes-de-programacion-en-terminos-de-uso-de-memoria-mayor-es-mejor'>Porcentaje de mejora de Rust con respecto a
 otros lenguajes de programación en términos de uso de memoria. (Mayor es mejor)</a></span><br />
 </div>
-<!-- l. 82 --><p class='noindent' id='glosario'>
+<!-- l. 88 --><p class='noindent' id='glosario'>
                                                                                  
                                                                                  
 <a id='Q1-1-7'></a>
-</p><!-- l. 87 --><p class='noindent' id='lista-de-acronimos'>
+</p><!-- l. 93 --><p class='noindent' id='lista-de-acronimos'>
                                                                                  
                                                                                  
 <a id='Q1-1-8'></a>
-</p><!-- l. 91 --><p class='noindent'>
+</p><!-- l. 97 --><p class='noindent'>
                                                                                  
                                                                                  
 </p><!-- l. 1 --><p class='noindent'>
@@ -289,8 +293,8 @@ Ente.
 <!-- l. 27 --><p class='noindent'>El ecosistema de bibliotecas de fotos de código abierto ha experimentado un crecimiento
 significativo en los últimos años, impulsado por las crecientes preocupaciones sobre la privacidad de
 los datos y la dependencia de servicios en la nube propietarios. Según el análisis comparativo
-realizado por Meichthys <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span>, existen más de 16 proyectos activos que ofrecen diferentes enfoques y
-características.
+realizado por Meichthys (<span class='cmbx-10x-x-109'>meichthys2024</span>), existen más de 16 proyectos activos que ofrecen
+diferentes enfoques y características.
 </p><!-- l. 29 --><p class='noindent'>Las soluciones analizadas se pueden clasificar en tres categorías principales: </p>
      <ul class='itemize1'>
      <li class='itemize'><span class='cmbx-10x-x-109'>Soluciones escalables</span>: Enfocadas en escalabilidad y características avanzadas
@@ -684,12 +688,13 @@ comunicación bidireccional, tendríamos que utilizar un enfoque más tradiciona
 <!-- l. 275 --><p class='noindent'><span class='paragraphHead' id='sintaxis-y-curva-de-aprendizaje'><a id='x1-31000'></a><span class='cmbx-10x-x-109'>Sintaxis y Curva de Aprendizaje</span></span>
 
 </p>
-<!-- l. 276 --><p class='noindent'><span class='subparagraphHead' id='rust3'><a id='x1-32000'></a><span class='cmbx-10x-x-109'>Rust</span></span> La sintaxis de Rust es moderna y expresiva, pero su sistema de tipos y el modelo de gestión
-de memoria (ownership y borrowing) introducen una curva de aprendizaje considerablemente más
-pronunciada que la de Go. Ya se ha trabajado anteriormente con Rust, lo cual facilita el
-aprendizaje de este lenguaje. Además, la documentación oficial de Rust es muy completa y está bien
-estructurada, contando con el libro oficial de rust <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span>, que ayuda a los nuevos usuarios a
-familiarizarse con el lenguaje. </p>
+<!-- l. 276 --><p class='noindent'><span class='subparagraphHead' id='rust3'><a id='x1-32000'></a><span class='cmbx-10x-x-109'>Rust</span></span> La sintaxis de Rust es moderna y expresiva, pero su sistema de tipos y el modelo de
+gestión de memoria (ownership y borrowing) introducen una curva de aprendizaje
+considerablemente más pronunciada que la de Go. Ya se ha trabajado anteriormente con Rust,
+lo cual facilita el aprendizaje de este lenguaje. Además, la documentación oficial de
+Rust es muy completa y está bien estructurada, contando con el libro oficial de rust
+(<span class='cmbx-10x-x-109'>rustbook2021</span>), que ayuda a los nuevos usuarios a familiarizarse con el lenguaje.
+</p>
      <ul class='itemize1'>
      <li class='itemize'><span class='cmbx-10x-x-109'>Ventajas: </span>Sintaxis potente que permite un control muy granular.
      </li>
@@ -698,10 +703,10 @@ familiarizarse con el lenguaje. </p>
 <!-- l. 285 --><p class='noindent'><span class='subparagraphHead' id='go3'><a id='x1-33000'></a><span class='cmbx-10x-x-109'>Go</span></span> Go fue diseñado con la simplicidad como uno de sus principios fundamentales. Su sintaxis es
 minimalista y fácil de aprender, especialmente para programadores con experiencia en lenguajes
 tipo C. </p>
+                                                                                 
+                                                                                 
      <ul class='itemize1'>
      <li class='itemize'><span class='cmbx-10x-x-109'>Ventajas: </span>Curva de aprendizaje suave, alta legibilidad y productividad rápida.
-                                                                                 
-                                                                                 
      </li>
      <li class='itemize'><span class='cmbx-10x-x-109'>Desventajas: </span>La simplicidad puede llevar a cierta verbosidad en algunos casos (por
      ejemplo, el manejo de errores antes de la versión 1.13 con <span class='cmtt-10x-x-109'>wrap error</span>). Algunos
@@ -1710,9 +1715,9 @@ y escalable.
      </li>
      <li class='itemize'>Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible a
      largo plazo, permitiendo añadir nuevas funcionalidades y mejoras de manera sencilla.
-     Para ello se implementará una arquitectura limpia <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span>, lo que nos proporcionará una
-     estructura del proyecto completamente desacoplada, facilitando la escalabilidad y
-     mantenimiento.
+     Para ello se implementará una arquitectura limpia (<span class='cmbx-10x-x-109'>uncle-bob-clean-architecture</span>),
+     lo que nos proporcionará una estructura del proyecto completamente desacoplada,
+     facilitando la escalabilidad y mantenimiento.
      </li>
      <li class='itemize'>Almacenamiento eficiente. Se busca que el almacenamiento de los archivos sea lo más
      eficiente posible, tanto en términos de espacio como de velocidad de acceso. Para ello,
@@ -1739,7 +1744,7 @@ flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
 </p><!-- l. 27 --><p class='noindent'>Se ha optado por el uso de Scrum en vez de otra metodología ágil como Kanban o XP (Extreme
 Programming) o alguna metodología tradicional ya que se ha utilizado anteriormente y se
 considera que es con la que más cómodo y eficaz se va trabajar.
-</p><!-- l. 29 --><p class='noindent'>Tal y como se explica en la guía oficial de Scrum <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span>, Scrum es un marco de trabajo
+</p><!-- l. 29 --><p class='noindent'>Tal y como se explica en la guía oficial de Scrum (<span class='cmbx-10x-x-109'>scrum-guide</span>), Scrum es un marco de trabajo
 ágil que se utiliza para gestionar proyectos complejos y adaptarse a los cambios de
 manera rápida y eficiente. Se basa en la colaboración entre equipos multidisciplinarios, la
 entrega continua de valor y la mejora continua. Scrum se centra en la entrega de
@@ -1816,13 +1821,14 @@ para los programadores que ya tienen experiencia en estos lenguajes, permitiendo
 más seguro, rápido y eficiente.
                                                                                  
                                                                                  
-</p><!-- l. 60 --><p class='noindent'>¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span>
-</p>
+</p><!-- l. 60 --><p class='noindent'>¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización?
+(<span class='cmbx-10x-x-109'>rust-for-safety-and-performance</span>) </p>
      <ul class='itemize1'>
      <li class='itemize'><span class='cmbx-10x-x-109'>Rendimiento</span>: es conocido por su alto rendimiento, lo que lo convierte en una
-     excelente opción para aplicaciones que requieren un procesamiento intensivo de datos.
-     Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para
-     desarrollo web es muy bueno, como se puede ver en distintos benchmark <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span>.
+     excelente  opción  para  aplicaciones  que  requieren  un  procesamiento  intensivo  de
+     datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías
+     para  desarrollo  web  es  muy  bueno,  como  se  puede  ver  en  distintos  benchmark
+     (<span class='cmbx-10x-x-109'>rust-benchmark</span>).
      </li>
      <li class='itemize'><span class='cmbx-10x-x-109'>Seguridad</span>:  tiene  un  sistema  de  tipos  y  un  modelo  de  propiedad  que  ayudan
      a  prevenir  errores  comunes  de  programación,  como  desbordamientos  de  búfer  y
@@ -1852,7 +1858,7 @@ más seguro, rápido y eficiente.
 <!-- l. 73 --><p class='noindent'><img alt='PIC' src='assets/rust-cpu-comparison.png' style='width:80%' />
 </p>
 <figcaption class='caption'><span class='id'>Figura 1: </span><span class='content'>Comparativa de uso de CPU entre Rust y otros lenguajes de programación (menos
-es mejor) <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span></span></figcaption><!-- tex4ht:label?: x1-89001r1  -->
+es mejor) (<span class='cmbx-10x-x-109'>rust-for-safety-and-performance</span>)</span></figcaption><!-- tex4ht:label?: x1-89001r1  -->
                                                                                  
                                                                                  
 </figure>
@@ -1866,7 +1872,7 @@ es mejor) <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span></spa
 <!-- l. 81 --><p class='noindent'><img alt='PIC' src='assets/rust-memory-comparison.png' style='width:80%' />
 </p>
 <figcaption class='caption'><span class='id'>Figura 2: </span><span class='content'>Comparativa de uso de memoria entre Rust y otros lenguajes de programación
-(menos es mejor) <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span></span></figcaption><!-- tex4ht:label?: x1-89002r2  -->
+(menos es mejor) (<span class='cmbx-10x-x-109'>rust-for-safety-and-performance</span>)</span></figcaption><!-- tex4ht:label?: x1-89002r2  -->
                                                                                  
                                                                                  
 </figure>
@@ -2006,7 +2012,7 @@ compilar el código del mismo y una vez tenemos la aplicación con nuestro módu
 podemos ejecutar nuestra aplicación sobre el Explorer y hacer uso de nuestro módulo
 nativo.
 </p><!-- l. 172 --><p class='noindent'>Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho
-por el equipo de Lynx <span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span>.
+por el equipo de Lynx (<span class='cmbx-10x-x-109'>lynx-native-modules</span>).
 </p><!-- l. 174 --><p class='noindent'>Dado que para el desarrollo de aplicaciones en iOS es necesario tener un sistema de Apple, en la
 implementación de esta aplicación nos centraremos en la parte de Android, aunque el código de la
 aplicación será el mismo para ambas plataformas. La única diferencia será la implementación de los
@@ -2054,7 +2060,7 @@ el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser
 hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en
 aplicaciones como <span class='cmbx-10x-x-109'>TikTok Studio</span>, <span class='cmbx-10x-x-109'>Disney100 en TikTok</span>, <span class='cmbx-10x-x-109'>The Met Gala en TikTok </span>tal y
 como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source
-<span class='cite'>[<span class='cmbx-10x-x-109'>?</span>]</span>.
+(<span class='cmbx-10x-x-109'>lynx-article</span>).
 
 </p>
 <h4 class='subsectionHead' id='historias-de-usuario-historias-tecnicas'><span class='titlemark'>5.3.   </span> <a id='x1-910005.3'></a>Historias de usuario / Historias técnicas</h4>
@@ -2933,9 +2939,9 @@ etc.
 </table></div>
 
 <h4 class='subsectionHead' id='planificacion-inicial'><span class='titlemark'>5.4.   </span> <a id='x1-940005.4'></a>Planificación inicial</h4>
-<!-- l. 366 --><p class='noindent'>Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la <a href='#metodologia'>sección de
-metodología</a>, se usan <span class='cmbx-10x-x-109'>sprints </span>para dividir el desarrollo en partes organizadas y planificadas con
-anterioridad, las cuales tienen un inicio y un fin.
+<!-- l. 366 --><p class='noindent'>Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la <a href='#metodologia'>5.1<!-- tex4ht:ref: sec:metodologia  --></a>, se usan
+<span class='cmbx-10x-x-109'>sprints </span>para dividir el desarrollo en partes organizadas y planificadas con anterioridad, las
+cuales tienen un inicio y un fin.
 </p><!-- l. 368 --><p class='noindent'>Se suele crear un sprint denominado como “Sprint 0” en el que se hace una planificación inicial,
 se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de
 las tareas que se van a realizar en todos los sprints. Durante este spring no se va a
@@ -2952,13 +2958,13 @@ siguientes:
                                                                                  
                                                                                  
      </li>
-     <li class='itemize'>Definir el backlog de el primer sprint inicial.
+     <li class='itemize'>Definir el backlog de el primer sprint.
      </li>
      <li class='itemize'>Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
      </li>
      <li class='itemize'>Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
      </li>
-     <li class='itemize'>Configurar el entorno de desarrollo.</li></ul>
+     <li class='itemize'>Configurar el entorno de desarrollo tanto para el servidor como el cliente.</li></ul>
 
 <h5 class='subsubsectionHead' id='diagrama-de-arquitectura'><span class='titlemark'>5.4.1.   </span> <a id='x1-950005.4.1'></a>Diagrama de arquitectura</h5>
 <figure class='figure' id='x1-95001r4'><span id='diagrama-de-la-arquitectura-del-sistema-representa-las-comunicaciones-entre-los-distintos-elementos-del-sistema'></span> 
@@ -2976,14 +2982,14 @@ los distintos elementos del sistema</span></figcaption><!-- tex4ht:label?: x1-95
                                                                                  
                                                                                  
 </figure>
-<!-- l. 390 --><p class='noindent'>Como podemos ver en la figura 4, el sistema va a estar compuesto por un cliente (móvil
+<!-- l. 390 --><p class='noindent'>Como podemos ver en la figura <a href='#diagrama-de-la-arquitectura-del-sistema-representa-las-comunicaciones-entre-los-distintos-elementos-del-sistema'>4<!-- tex4ht:ref: fig:diagrama-arquitectura  --></a>, el sistema va a estar compuesto por un cliente (móvil
 tanto en Android como iOS gracias a la multiplataforma que nos da Lynx.js) que se
 comunica con un servidor mediante peticiones HTTP. Se estudió la posibilidad de la
 comunicación mediante gRPC (<span class='cmti-10x-x-109'>Google Remote Procedure Call</span>) pero se desechó ya que la
 compatibilidad entre un cliente multiplataforma desarrollado en Lynx.js (una tecnología
 muy nueva) y un servidor programado en Rust no permitía hacer uso de todas las
 ventajas que ofrecía frente a un método convencional como puede ser una API REST.
-Además, tanto Lynx.js como Rust Native no tienen muy buena compatibilidad con
+Además, tanto Lynx.js como React Native no tienen muy buena compatibilidad con
 gRPC.
 </p><!-- l. 393 --><p class='noindent'>Todo esto hizo decidirse por una API REST, la cual es más sencilla de implementar y de
 mantener a largo plazo, además de ser más fácil de entender para cualquier desarrollador que quiera
@@ -2992,10 +2998,10 @@ contribuir al proyecto.
 la primera versión de la aplicación haremos uso de MinIO, un software Open-Source que nos
 permite crear un servidor de almacenamiento de objetos compatible con la API de Amazon S3.
 Esto nos da la ventaja de poder utilizar cualquier servicio de almacenamiento compatible con S3
-como Amazon S3, Google Cloud Storage en el futuro sin necesidad de cambiar la aplicación, ya
-que la API es la misma. MinIO está diseñado para ser totalmente escalable y de alto rendimiento,
-lo que lo convierte en una excelente opción para almacenar grandes volúmenes de datos, como
-fotos y vídeos.
+como Amazon S3, Google Cloud Storage en el futuro sin necesidad de cambiar la
+aplicación. MinIO está diseñado para ser totalmente escalable y de alto rendimiento, lo que lo
+convierte en una excelente opción para almacenar grandes volúmenes de datos, como fotos y
+vídeos.
 </p><!-- l. 399 --><p class='noindent'>Aunque para las primeras iteraciones hagamos uso de MinIO para almacenar los datos
 multimedia, en iteraciones más avanzadas se implementará un sistema de almacenamiento nativo
 en Rust, el cual nos permitirá tener un mayor control sobre los datos y una mejor integración con
@@ -3003,8 +3009,8 @@ el resto del sistema.
 </p><!-- l. 401 --><p class='noindent'>Gracias a la arquitectura hexagonal que se va a utilizar a la hora de implementar el sistema,
 conseguimos un desacople total de la capa de aplicación, dominio e infraestructura, brindando la
 posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del
-sistema, pudiendo de esta manera tener flexibilidad total a la hora de guardar nuestros datos y
-multimedia.
+sistema, teniendo de esta manera flexibilidad sobre la solución que queramos usar para almacenar
+nuestros datos/multimedia.
 </p><!-- l. 403 --><p class='noindent'>Para el almacenaje de los datos de nuestra aplicación se ha optado por PostgreSQL. Aunque
 puede ser menos escalable comparado con otras soluciones noSQL a largo plazo, nos da
 una gran cantidad de ventajas frente a las desventajas que tiene, como pueden ser:
@@ -3029,12 +3035,90 @@ una gran cantidad de ventajas frente a las desventajas que tiene, como pueden se
      </li>
      <li class='itemize'><span class='cmbx-10x-x-109'>Open-Source</span>: al ser un software Open-Source, no tenemos que pagar por licencias
      y se alinea con el enfoque de nuestro proyecto que busca ser Open-Source.</li></ul>
-<!-- l. 413 --><p class='noindent'>Tal y como con la solución para el almacenaje de imágenes, seguir una arquitectura hexagonal nos
-da la posibilidad de cambiar el sistema de base de datos en el futuro sin afectar al resto del
-sistema.
+
+<h5 class='subsubsectionHead' id='estructura-de-implementacion'><span class='titlemark'>5.4.2.   </span> <a id='x1-960005.4.2'></a>Estructura de implementación</h5>
+<!-- l. 414 --><p class='noindent'>En un proyecto de este tipo es muy importante tener una buena estructura a la hora de
+implementar nuestras aplicaciones. Buscamos la separación de responsabilidades y una buena
+organización lo cual nos lleva a cumplir uno de nuestros objetivos generales (OG4): desarrollar un
+sistema fácilmente escalable.
+</p><!-- l. 417 --><p class='noindent'>Para ello, se ha estudiado las distintas opciones que tenemos, tanto para el servidor como
+para la aplicación móvil, y principalmente se ha optado por una arquitectura limpia
+(<span class='cmbx-10x-x-109'>uncle-bob-clean-architecture</span>), cuyos principios son: </p>
+     <ul class='itemize1'>
+     <li class='itemize'><span class='cmbx-10x-x-109'>Separaci</span>ó<span class='cmbx-10x-x-109'>n de responsabilidades</span>: cada capa del sistema tiene una responsabilidad
+     clara y bien definida, lo que facilita el mantenimiento y la evolución del sistema.
+     </li>
+     <li class='itemize'><span class='cmbx-10x-x-109'>Independencia  de  la  infraestructura</span>:  las  capas  más  internas  del  sistema  no
+     dependen de detalles de implementación de la infraestructura, lo que permite cambiar
+     la infraestructura sin afectar al resto del sistema.
+     </li>
+     <li class='itemize'><span class='cmbx-10x-x-109'>Facilidad de pruebas</span>: al tener una separación clara de responsabilidades, es más fácil
+     realizar pruebas unitarias e integración, lo que mejora la calidad del software.
+     </li>
+     <li class='itemize'><span class='cmbx-10x-x-109'>Escalabilidad</span>: al estar desacopladas las distintas capas del sistema, es más fácil escalar
+     el sistema a medida que crece.</li></ul>
+
+<!-- l. 425 --><p class='noindent'><span class='paragraphHead' id='arquitectura-del-servidor'><a id='x1-97000'></a><span class='cmbx-10x-x-109'>Arquitectura del servidor</span></span>
+
+                                                                                 
+                                                                                 
+</p>
+<!-- l. 426 --><p class='noindent'><span class='subparagraphHead' id='_1'><a id='x1-98000'></a></span> Para el servidor se ha decidido usar una estructura monolítica modular siguiendo
+los principios de una arquitectura limpia. Este enfoque se acerca a lo que sería una
+estructura de microservicios, pero sin la complejidad que conlleva el uso de múltiples
+servicios. Siguiendo esta solución tenemos un solo binario que contiene todo el código del
+servidor, pero con una estructura modular, donde cada módulo tiene una responsabilidad
+clara y bien definida. Es la mejor solución para un equipo pequeño por el simple hecho
+de que no tenemos que preocuparnos por la comunicación entre distintos servicios,
+el despliegue de los mismos y la gestión de la infraestructura para cada uno de los
+servicios.
+Aún así, tenemos la gran mayoría de las ventajas que nos da una arquitectura de microservicios,
+como la separación de responsabilidades, la facilidad de pruebas y la escalabilidad. De esta
+manera, si en un futuro quisiéramos separar el servidor en microservicios, sería mucho más sencillo
+hacerlo, ya que ya tenemos una estructura modular que nos permite separar las distintas
+funcionalidades del servidor.
+</p>
+<figure class='figure' id='x1-98001r5'><span id='comparativa-entre-una-arquitectura-monolitica-de-microservicios-y-monolitica-modular-tsechelidismodular'></span> 
+
+                                                                                 
+                                                                                 
+
+                                                                                 
+                                                                                 
+<!-- l. 438 --><p class='noindent'><img alt='PIC' src='assets/modular-monolith-comparison.png' style='width:80%' />
+</p>
+<figcaption class='caption'><span class='id'>Figura 5: </span><span class='content'>Comparativa entre una arquitectura monolítica, de microservicios y monolítica
+modular. (<span class='cmbx-10x-x-109'>tsechelidis2023modular</span>)</span></figcaption><!-- tex4ht:label?: x1-98001r5  -->
+                                                                                 
+                                                                                 
+</figure>
+<!-- l. 443 --><p class='noindent'>Como podemos ver en la figura <a href='#comparativa-entre-una-arquitectura-monolitica-de-microservicios-y-monolitica-modular-tsechelidismodular'>5<!-- tex4ht:ref: fig:modular-monolith-comparison  --></a>, la diferencia que vemos entre una arquitectura de
+microservicios y una monolítica modular es que los módulos comparten el mismo proceso y por
+ende la comunicación entre ellos cambiará y se hará de manera local mediante llamadas a funciones,
+mientras que en una arquitectura de microservicios la comunicación entre los distintos servicios se
+hace mediante peticiones a través de un protocolo de comunicación específico y cada módulo tendría
+su propia forma de administrar datos, lo que añade una capa de complejidad innecesaria para un
+proyecto de este tipo.
 
 </p>
-<h4 class='subsectionHead' id='presupuesto'><span class='titlemark'>5.5.   </span> <a id='x1-960005.5'></a>Presupuesto</h4>
+<!-- l. 445 --><p class='noindent'><span class='paragraphHead' id='arquitectura-del-cliente'><a id='x1-99000'></a><span class='cmbx-10x-x-109'>Arquitectura del cliente</span></span>
+
+</p>
+<!-- l. 446 --><p class='noindent'><span class='subparagraphHead' id='_2'><a id='x1-100000'></a></span> Tal y como se ha comentado anteriormente, la aplicación móvil también seguirá una arquitectura
+limpia, donde tendremos una capa de presentación, una capa de dominio y una capa de
+infraestructura. La capa de presentación se encargará de la interfaz de usuario y de la interacción
+con el usuario, la capa de dominio se encargará de la lógica de negocio y la capa de
+infraestructura se encargará de la comunicación con el servidor y el almacenamiento
+local.
+Tal como se comenta en el libro <span class='cmti-10x-x-109'>Clean Architecture </span>(<span class='cmbx-10x-x-109'>uncle-bob-clean-architecture</span>), esta
+arquitectura es como una cebolla, donde cada capa está separada por una interfaz y
+cada capa puede comunicarse con la capa inferior a través de esta interfaz, pero no al
+revés. Es decir, nuestra capa de dominio no se puede comunicar con ninguna de las
+otras capas, ya que esta es la capa más interna y no debe depender de ninguna otra
+capa.
+
+</p>
+<h4 class='subsectionHead' id='presupuesto'><span class='titlemark'>5.5.   </span> <a id='x1-1010005.5'></a>Presupuesto</h4>
 <!-- l. 1 --><p class='noindent'>
                                                                                  
                                                                                  
@@ -3043,7 +3127,7 @@ sistema.
                                                                                  
 
 </p>
-<h3 class='sectionHead' id='conclusiones2'><span class='titlemark'>6.   </span> <a id='x1-970006'></a>Conclusiones</h3>
+<h3 class='sectionHead' id='conclusiones2'><span class='titlemark'>6.   </span> <a id='x1-1020006'></a>Conclusiones</h3>
 <!-- l. 5 --><p class='noindent'>Reflejamos el problema, solución alcanzada y resultados. Leemos los objetivos y vemos si se han
 cumplido y el por qué no en el caso de no haberlos alcanzado. Maximizamos información, no
 queremos algo extenso, queremos algo resumido
@@ -3055,7 +3139,7 @@ queremos algo extenso, queremos algo resumido
                                                                                  
 
 </p>
-<h3 class='sectionHead' id='bibliografia'><span class='titlemark'>7.   </span> <a id='x1-980007'></a>Bibliografía</h3>
+<h3 class='sectionHead' id='bibliografia'><span class='titlemark'>7.   </span> <a id='x1-1030007'></a>Bibliografía</h3>
 <!-- l. 5 --><p class='noindent'>Referenciamos todo en lo que nos hemos apoyado a la hora de hacer el trabajo. Si tenemos links,
 queremos poner la fecha de última consulta. Queremos también poner las referencias básicas de la
 disciplina. Cada vez que consulte una página, queremos ponerla aquí con un pequeño párrafo de lo
