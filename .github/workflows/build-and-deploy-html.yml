@@ -25,7 +25,10 @@ jobs:
 
       - name: Build HTML from LaTeX
         run: |
-          make4ht -c html.cfg -d html main.tex && mv html/main.html html/index.html
+          make4ht -c html.cfg -d html main.tex
+          biber main
+          make4ht -c html.cfg -d html main.tex
+          mv html/main.html html/index.html
 
       - name: Build PDF from LaTeX
         run: |
