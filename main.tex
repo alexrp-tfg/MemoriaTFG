@@ -21,6 +21,12 @@
 \usepackage[acronym]{glossaries}
 \makeglossaries
 
+\usepackage{csquotes}
+\usepackage[backend=biber,style=apa,sorting=nyt,language=spanish]{biblatex}
+\addbibresource{references.bib}
+
+\setlength{\bibitemsep}{0.5em}
+
 
 
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -104,7 +110,6 @@ archivos multimedia}
 
 
 
-\bibliographystyle{apalike}
-\bibliography{references}
+\printbibliography[title=Bibliografía]
 
 \end{document}

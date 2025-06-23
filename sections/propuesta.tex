@@ -10,7 +10,7 @@ Tal como se ha especificado en el apartado anterior, se desarrollará una soluci
 \begin{itemize}
     \item Solución FOSS que permita una aportar al proyecto de manera sencilla, pudiendo entender rápida y fácilmente el código y la arquitectura del sistema.
     \item Soluciones eficientes y rápidas. Para ello usaremos tecnologías lo más eficientes posibles, siempre buscando la seguridad y escalabilidad de la aplicación.
-    \item Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible a largo plazo, permitiendo añadir nuevas funcionalidades y mejoras de manera sencilla. Para ello se implementará una arquitectura limpia \cite{uncle-bob-clean-architecture}, lo que nos proporcionará una estructura del proyecto completamente desacoplada, facilitando la escalabilidad y mantenimiento.
+    \item Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible a largo plazo, permitiendo añadir nuevas funcionalidades y mejoras de manera sencilla. Para ello se implementará una arquitectura limpia \parencite{uncle-bob-clean-architecture}, lo que nos proporcionará una estructura del proyecto completamente desacoplada, facilitando la escalabilidad y mantenimiento.
     \item Almacenamiento eficiente. Se busca que el almacenamiento de los archivos sea lo más eficiente posible, tanto en términos de espacio como de velocidad de acceso.
         Para ello, primero se hará uso de un sistema de almacenamiento de objetos compatible con S3, lo que nos permitirá utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage y en nuestro caso, MinIO.
         Más adelante, se implementará una solución de almacenamiento nativa que permita un acceso más rápido y eficiente a los archivos, además de una mejor gestión de los mismos.
@@ -26,7 +26,7 @@ Para el desarrollo de este proyecto se va a hacer uso de la metodología ágil S
 
 Se ha optado por el uso de Scrum en vez de otra metodología ágil como Kanban o XP (Extreme Programming) o alguna metodología tradicional ya que se ha utilizado anteriormente y se considera que es con la que más cómodo y eficaz se va trabajar.
 
-Tal y como se explica en la guía oficial de Scrum \cite{scrum-guide}, Scrum es un marco de trabajo ágil que se utiliza para gestionar proyectos complejos y adaptarse a los cambios de manera rápida y eficiente. Se basa en la colaboración entre equipos multidisciplinarios, la entrega continua de valor y la mejora continua.
+Tal y como se explica en la guía oficial de Scrum \parencite{scrum-guide}, Scrum es un marco de trabajo ágil que se utiliza para gestionar proyectos complejos y adaptarse a los cambios de manera rápida y eficiente. Se basa en la colaboración entre equipos multidisciplinarios, la entrega continua de valor y la mejora continua.
 Scrum se centra en la entrega de incrementos de producto funcionales en ciclos cortos, lo que permite a los equipos recibir retroalimentación temprana y ajustar su enfoque según sea necesario. Esto es especialmente útil en proyectos donde los requisitos pueden cambiar con frecuencia o donde la incertidumbre es alta.
 
 Scrum se basa en una serie de roles, eventos y artefactos que ayudan a los equipos a organizar su trabajo y colaborar de manera efectiva. Los roles incluyen el Product Owner (responsable de la visión del producto), el Scrum Master (facilitador del proceso) y el equipo de desarrollo (responsable de la entrega del producto). Los eventos incluyen las reuniones diarias, las revisiones de sprint y las retrospectivas, que permiten a los equipos reflexionar sobre su trabajo y mejorar continuamente.
@@ -57,9 +57,9 @@ Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerad
 Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
 Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente. 
 
-¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? \cite{rust-for-safety-and-performance}
+¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? \parencite{rust-for-safety-and-performance}
 \begin{itemize}
-    \item \textbf{Rendimiento}: es conocido por su alto rendimiento, lo que lo convierte en una excelente opción para aplicaciones que requieren un procesamiento intensivo de datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para desarrollo web es muy bueno, como se puede ver en distintos benchmark \cite{rust-benchmark}.
+    \item \textbf{Rendimiento}: es conocido por su alto rendimiento, lo que lo convierte en una excelente opción para aplicaciones que requieren un procesamiento intensivo de datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para desarrollo web es muy bueno, como se puede ver en distintos benchmark \parencite{rust-benchmark}.
     \item \textbf{Seguridad}: tiene un sistema de tipos y un modelo de propiedad que ayudan a prevenir errores comunes de programación, como desbordamientos de búfer y condiciones de carrera.
     \item \textbf{Concurrencia}: soporta de manera nativa y sencilla la escritura de código concurrente y paralelo, lo que es esencial para aplicaciones que manejan múltiples tareas al mismo tiempo.
         Gracias a su implementación de \gls{fearless-concurrency}, Rust permite a los desarrolladores escribir código concurrente sin preocuparse por errores comunes como condiciones de carrera o deadlocks, lo que facilita la creación de aplicaciones altamente eficientes y escalables.
@@ -71,7 +71,7 @@ Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otr
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{assets/rust-cpu-comparison.png}
-  \caption{Comparativa de uso de CPU entre Rust y otros lenguajes de programación (menos es mejor) \cite{rust-for-safety-and-performance}}
+  \caption{Comparativa de uso de CPU entre Rust y otros lenguajes de programación (menos es mejor) \parencite{rust-for-safety-and-performance}}
   \label{fig:rust-cpu-comparison}
 \end{figure}
 
@@ -79,7 +79,7 @@ Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otr
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{assets/rust-memory-comparison.png}
-  \caption{Comparativa de uso de memoria entre Rust y otros lenguajes de programación (menos es mejor) \cite{rust-for-safety-and-performance}}
+  \caption{Comparativa de uso de memoria entre Rust y otros lenguajes de programación (menos es mejor) \parencite{rust-for-safety-and-performance}}
   \label{fig:rust-memory-comparison}
 \end{figure}
 
@@ -169,7 +169,7 @@ Este es uno de los puntos fuertes de la aplicación, ya que nos va a permitir pr
 Lynx usa una aplicación nativa \textit{Lynx Explorer}, con la cual podemos ver cómo se va a ver la aplicación en el dispositivo móvil. Esta aplicación es la que se encarga de compilar el código de Lynx a código nativo y de ejecutar la aplicación en el dispositivo móvil.
 Para poder hacer uso de los módulos nativos, tendremos que implementarlos en el Explorer, compilar el código del mismo y una vez tenemos la aplicación con nuestro módulo nativo, podemos ejecutar nuestra aplicación sobre el Explorer y hacer uso de nuestro módulo nativo.
 
-Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho por el equipo de Lynx \cite{lynx-native-modules}.
+Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho por el equipo de Lynx \parencite{lynx-native-modules}.
 
 Dado que para el desarrollo de aplicaciones en iOS es necesario tener un sistema de Apple, en la implementación de esta aplicación nos centraremos en la parte de Android, aunque el código de la aplicación será el mismo para ambas plataformas.
 La única diferencia será la implementación de los módulos nativos, que serán diferentes para cada plataforma.
@@ -194,7 +194,7 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
         Dada la similitud con Lynx.js y las ventajas que ofrece, se ha optado por este último.
 \end{itemize}
 
-Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \cite{lynx-article}.
+Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \parencite{lynx-article}.
 
 \subsection{Historias de usuario / Historias técnicas}
 En esta sección se detallan las historias de usuario e historias técnicas de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
@@ -414,7 +414,7 @@ Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo pl
 En un proyecto de este tipo es muy importante tener una buena estructura a la hora de implementar nuestras aplicaciones.
 Buscamos la separación de responsabilidades y una buena organización lo cual nos lleva a cumplir uno de nuestros objetivos generales (OG4): desarrollar un sistema fácilmente escalable.
 
-Para ello, se ha estudiado las distintas opciones que tenemos, tanto para el servidor como para la aplicación móvil, y principalmente se ha optado por una arquitectura limpia \cite{uncle-bob-clean-architecture}, cuyos principios son:
+Para ello, se ha estudiado las distintas opciones que tenemos, tanto para el servidor como para la aplicación móvil, y principalmente se ha optado por una arquitectura limpia \parencite{uncle-bob-clean-architecture}, cuyos principios son:
 \begin{itemize}
     \item \textbf{Separación de responsabilidades}: cada capa del sistema tiene una responsabilidad clara y bien definida, lo que facilita el mantenimiento y la evolución del sistema.
     \item \textbf{Independencia de la infraestructura}: las capas más internas del sistema no dependen de detalles de implementación de la infraestructura, lo que permite cambiar la infraestructura sin afectar al resto del sistema.
@@ -424,7 +424,7 @@ Para ello, se ha estudiado las distintas opciones que tenemos, tanto para el ser
 
 \paragraph{Arquitectura del servidor}
 \subparagraph{}
-Para el servidor se ha decidido usar una estructura monolítica modular.
+Para el servidor se ha decidido usar una estructura monolítica modular siguiendo los principios de una arquitectura limpia.
 Este enfoque se acerca a lo que sería una estructura de microservicios, pero sin la complejidad que conlleva el uso de múltiples servicios.
 Siguiendo esta solución tenemos un solo binario que contiene todo el código del servidor, pero con una estructura modular, donde cada módulo tiene una responsabilidad clara y bien definida.
 Es la mejor solución para un equipo pequeño por el simple hecho de que no tenemos que preocuparnos por la comunicación entre distintos servicios, el despliegue de los mismos y la gestión de la infraestructura para cada uno de los servicios.
@@ -432,12 +432,22 @@ Es la mejor solución para un equipo pequeño por el simple hecho de que no tene
 Aún así, tenemos la gran mayoría de las ventajas que nos da una arquitectura de microservicios, como la separación de responsabilidades, la facilidad de pruebas y la escalabilidad.
 De esta manera, si en un futuro quisiéramos separar el servidor en microservicios, sería mucho más sencillo hacerlo, ya que ya tenemos una estructura modular que nos permite separar las distintas funcionalidades del servidor.
 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/modular-monolith-comparison.png}
+  \caption{Comparativa entre una arquitectura monolítica, de microservicios y monolítica modular. \parencite{tsechelidis2023modular}}
+  \label{fig:modular-monolith-comparison}
+\end{figure}
+
+Como podemos ver en la figura \ref{fig:modular-monolith-comparison}, la diferencia que vemos entre una arquitectura de microservicios y una monolítica modular es que los módulos comparten el mismo proceso y por ende la comunicación entre ellos cambiará y se hará de manera local mediante llamadas a funciones, mientras que en una arquitectura de microservicios la comunicación entre los distintos servicios se hace mediante peticiones a través de un protocolo de comunicación específico y cada módulo tendría su propia forma de administrar datos, lo que añade una capa de complejidad innecesaria para un proyecto de este tipo.
+
 \paragraph{Arquitectura del cliente}
 \subparagraph{}
 Tal y como se ha comentado anteriormente, la aplicación móvil también seguirá una arquitectura limpia, donde tendremos una capa de presentación, una capa de dominio y una capa de infraestructura.
 La capa de presentación se encargará de la interfaz de usuario y de la interacción con el usuario, la capa de dominio se encargará de la lógica de negocio y la capa de infraestructura se encargará de la comunicación con el servidor y el almacenamiento local.
 
-Tal como se comenta en el libro \textit{Clean Architecture} \cite{uncle-bob-clean-architecture}, esta arquitectura es como una cebolla, donde cada capa está separada por una interfaz y cada capa puede comunicarse con la capa inferior a través de esta interfaz, pero no al revés.
+Tal como se comenta en el libro \textit{Clean Architecture} \parencite{uncle-bob-clean-architecture}, esta arquitectura es como una cebolla, donde cada capa está separada por una interfaz y cada capa puede comunicarse con la capa inferior a través de esta interfaz, pero no al revés.
 Es decir, nuestra capa de dominio no se puede comunicar con ninguna de las otras capas, ya que esta es la capa más interna y no debe depender de ninguna otra capa.
 
 \subsection{Presupuesto}

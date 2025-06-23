@@ -35,7 +35,8 @@ jobs:
         run: |
           mkdir pdf
           pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf main.tex
-          bibtex pdf/main.aux
+          biber pdf/main.aux
+          biber pdf/main.aux
           pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf main.tex
           pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf main.tex
 
