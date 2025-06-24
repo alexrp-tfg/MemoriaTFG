@@ -86,13 +86,14 @@ Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otr
 Como se puede ver en las figuras \ref{fig:rust-cpu-comparison} y \ref{fig:rust-memory-comparison}, Rust tiene un rendimiento muy bueno en comparación con otros lenguajes de programación, tanto en uso de CPU como en uso de memoria.
 
 A partir de las figuras, podemos definir dos fórmulas para calcular el porcentaje de mejora con respecto a los otros lenguajes de programación:
-\[
-\text{Mejora}_{\text{CPU}} (\%) = \left( \frac{T_{\text{\textit{lenguaje}}} - T_{\text{Rust}}}{T_{\text{\textit{lenguaje}}}} \right) \times 100
-\]
+\begin{equation}
+    \text{Mejora}_{\text{CPU}} (\%) = \left( \frac{T_{\text{\textit{lenguaje}}} - T_{\text{Rust}}}{T_{\text{\textit{lenguaje}}}} \right) \times 100
+\end{equation}
 
-\[
-\text{Mejora}_{\text{Memoria}} (\%) = \left( \frac{M_{\text{\textit{lenguaje}}} - M_{\text{Rust}}}{M_{\text{\textit{lenguaje}}}} \right) \times 100
-\]
+\begin{equation}
+    \text{Mejora}_{\text{Memoria}} (\%) = \left( \frac{M_{\text{\textit{lenguaje}}} - M_{\text{Rust}}}{M_{\text{\textit{lenguaje}}}} \right) \times 100
+\end{equation}
+
 
 Obteniendo las siguientes tablas de comparación:
 
@@ -148,7 +149,7 @@ Aunque pueda parecer igual que React Native, Lynx añade algunas cosas que le fa
 
 Sin embargo, Lynx tiene dos threads, un main thread y un background thread.
 Gracias a esto, es posible especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API.
-Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \textit{Instant First-Frame Rendering (IFR)}\footnote{El \href{https://lynxjs.org/guide/interaction/ifr.html}{Instant First-Frame Rendering (IFR)} es una técnica de renderizado que permite mostrar el primer fotograma de una aplicación de manera instantánea, mejorando la experiencia del usuario al reducir el tiempo de espera para ver la interfaz.}.
+Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \gls{ifr} (\acrshort{ifracr}).
 
 Para conseguir esto, Lynx altera el ciclo de vida de los componentes de React (figura \ref{fig:lynx-component-lifecycle}), consiguiendo deshacerse de cuellos de botella típicos que aparecen en los frameworks de desarrollo móvil asegurando un rendimiento óptimo y una experiencia de usuario fluida.
 
@@ -236,7 +237,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HU08 & Conexión remota & Como usuario, quiero poder conectarme remotamente si expongo mi servidor, para acceder a mis fotos desde fuera de casa. & 13 \\
     \hline
-    HU09 & Galería visual & Como usuario, quiero ver una galería de las fotos subidas, para revisar mi contenido fácilmente. & 5 \\
+    HU09 & Galería visual & Como usuario, quiero ver una galería de las fotos y videos subidos, para revisar mi contenido fácilmente. & 5 \\
     \hline
     HU10 & Espacio ocupado & Como usuario, quiero ver el espacio ocupado por mis archivos, para controlar el almacenamiento del servidor. & 3 \\
     \hline
@@ -366,17 +367,19 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad, las cuales tienen un inicio y un fin.
 
 Se suele crear un sprint denominado como ``Sprint 0'' en el que se hace una planificación inicial, se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de las tareas que se van a realizar en todos los sprints.
-Durante este spring no se va a desarrollar funcionalidad, si no que se van a asentar unas bases para todo el proyecto sobre las cuales se trabajará en los siguientes sprints.
+Durante este sprint no se va a desarrollar funcionalidad, si no que se van a asentar unas bases para todo el proyecto sobre las cuales se trabajará en los siguientes sprints.
 Los objetivos de este sprint son los siguientes:
 
 \begin{itemize}
     \item Definir diagrama de la arquitectura inicial del sistema.
+    \item Estudiar la estructura de implementación del sistema.
+    \item Definir un presupuesto inicial para el proyecto.
     \item Definir el product backlog inicial.
-    \item Realizar diagrama de Gantt para planificación de los sprints.
-    \item Definir el backlog de el primer sprint.
+    \item Realizar diagrama de Gantt para el sprint inicial.
     \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
     \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
     \item Configurar el entorno de desarrollo tanto para el servidor como el cliente.
+    \item Definir el backlog de el primer sprint.
 \end{itemize}
 
 \subsubsection{Diagrama de arquitectura}
@@ -450,5 +453,103 @@ La capa de presentación se encargará de la interfaz de usuario y de la interac
 Tal como se comenta en el libro \textit{Clean Architecture} \parencite{uncle-bob-clean-architecture}, esta arquitectura es como una cebolla, donde cada capa está separada por una interfaz y cada capa puede comunicarse con la capa inferior a través de esta interfaz, pero no al revés.
 Es decir, nuestra capa de dominio no se puede comunicar con ninguna de las otras capas, ya que esta es la capa más interna y no debe depender de ninguna otra capa.
 
-\subsection{Presupuesto}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/clean-architecture-mobile.png}
+  \caption{Diagrama de arquitectura limpia en aplicación móvil.}
+  \label{fig:clean-architecture-mobile}
+\end{figure}
+
+En la imagen podemos ver el diagrama de una arquitectura limpia para nuestra aplicación móvil, donde cada capa tiene una responsabilidad clara y bien definida.
+
+Las flechas representan cómo accede cada capa a las demás.
+El acceso se hace de la capa más externa a la más interna, es decir, la capa de dominio (la más interna) no puede saber nada sobre las otras capas, pero la capa de presentación puede acceder a la capa de dominio y a la capa de aplicación. 
+
+Nuestra capa de aplicación no utiliza directamente la capa de infraestructura, sino que lo hace a través de interfaces que definimos en la capa de dominio. La capa de infraestructura se encarga de implementar estas interfaces, lo que nos permite cambiar la implementación de la capa de infraestructura sin afectar a la capa de dominio, de aplicación ni la de presentación.
+
+De esta manera conseguimos una separación de responsabilidades y una independencia de la infraestructura, lo que nos permite cambiar la implementación de cualquier capa sin afectar al resto del sistema.
+También nos permite hacer pruebas unitarias e integración de manera más sencilla, ya que podemos \gls{mockear} las interfaces de la capa de infraestructura y probar la lógica de negocio sin necesidad de depender de la implementación concreta de la capa de infraestructura.
+
+\subsection{Presupuesto}
+Para el cálculo y desglose del presupuesto total del proyecto se ha supuesto un equipo de una única persona a media jornada.
+
+Para el cálculo del presupuesto de personal hemos tenido en cuenta el salario medio de un ingeniero de software en España, que según el portal de empleo \href{https://www.glassdoor.es/Sueldos/granada-software-engineer-sueldo-SRCH_IL.0,7_IC2614045_KO8,25.htm}{Glassdoor} ronda entre los 24.000 y 33.000 euros brutos anuales, cogiendo el valor de 24000 euros brutos anuales como salario base dada la inexperiencia del trabajador.
+
+Para calcular el costo total mensual de un trabajador, tenemos que sumar a el salario base los costes de seguridad social, la cuota patronal y el \acrshort{irpf}, siguiendo la siguiente fórmula:
+\begin{equation}
+    \text{Coste total mensual} = \text{Salario base} + \text{Seguridad Social} + \text{Cuota patronal} + \text{IRPF}
+\end{equation}
+\begin{itemize}
+    \item Salario base: 12.000 euros brutos anuales / 12 meses = 1.000 euros brutos mensuales
+    \item Seguridad social: se entiende por seguridad social a la cuota obrera que debe de pagar el trabajador. En este caso se debe aplicar el 6.45\% sobre el salario bruto mensual. Por lo tanto:
+        \begin{equation}
+            \text{Seguridad Social} = 1000 \times 0.0645 = 64.5 \text{ euros mensuales}
+        \end{equation}
+    \item Cuota patronal: se entiende por cuota patronal a la cuota que debe de pagar la empresa por el trabajador.
+        Según la base mínima de cotización para 2024 de un ingeniero técnico (1.532,10 euros\footnote{Fuente: \href{https://www.cuestioneslaborales.es/porcentaje-de-cotizacion-a-la-seguridad-social-del-trabajador-y-empresa/}{Porcentaje de cotización a la Seguridad Social del trabajador y empresa} entre 2 ya que es media jornada\textit{ Última vez accedido el 20/06/2025 }}) se ha aplicado el porcentaje de cotización del 31,98\%.
+        Nuestro cálculo es el siguiente:
+        \begin{equation}
+            \text{Cuota patronal} = \dfrac{1532.10 \times 0.3198}{2} = 245.12 \text{ euros mensuales}
+        \end{equation}
+    \item IRPF: con un salario bruto anual de 12.000 euros, en 2024 el IRPF que aplica es del 19\% \footnote{Fuente: \href{https://www.bankinter.com/blog/finanzas-personales/como-calcular-retenciones-irpf-nomina\#tabla-retenciones}{Cómo calcular retenciones IRPF en la nómina}\textit{ Última vez accedido el 20/06/2025 }}.
+        Por lo tanto, el IRPF mensual sería:
+        \begin{equation}
+            \text{IRPF} = 1000 \times 0.19 = 190 \text{ euros mensuales}
+        \end{equation}
+\end{itemize}
+
+De esta manera, el coste total mensual del trabajador sería:
+\begin{equation}
+    \text{Coste total mensual} = 1000 + 64.5 + 245.12 + 190 = 1499.62 \text{ euros mensuales}
+\end{equation}
+
+Para el gasto de materiales solamente tendremos materiales inventables, concretamente el material de trabajo del trabajador.
+Dicho material de trabajo sería el siguiente:
+\begin{itemize}
+    \item Ordenador de sobremesa: 1.000 euros con vida estimada restante de 4 años, es decir, 250 euros al año.
+    \item Monitores: 300 euros con vida estimada restante de 6 años, es decir, 50 euros al año.
+    \item Teclado y ratón: 150 euros con vida estimada restante de 3 años, es decir, 50 euros al año.
+\end{itemize}
+La duración total del proyecto es de 3 meses, por lo que el coste total de materiales sería:
+\begin{equation}
+    \text{Coste total de materiales} = \dfrac{250 + 50 + 50}{12} \times 3 = 37.5 \text{ euros}
+\end{equation}
+
+Dado que uno de los objetivos principales del proyecto es la capacidad de alojar la aplicación en un servidor propio, no tenemos en cuenta el coste de un servidor.
+
+Dado que la aplicación se ha desarrollado usando Rust y Lynx.js, no se han tenido en cuenta los costes de licencias de software, ya que ambas tecnologías son Open-Source y no requieren de licencias para su uso.
+
+Para la formación del trabajador se han usado cursos gratuitos así como la documentación oficial de las tecnologías utilizadas, por lo que no se ha tenido en cuenta ningún coste adicional.
+
+De esta forma, tendríamos el siguiente desglose de costes:
+\begin{table}[H]
+    \caption{Tabla de presupuesto del proyecto}\label{tab:presupuesto}
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|X|c|c|c|}
+            \hline
+            \textbf{Gastos elegibles} & \textbf{Unidades} & \textbf{Coste por unidad} & \textbf{Importe solicitado} \\
+            \hline
+            \multicolumn{3}{|l|}{\textbf{GASTOS DE PERSONAL}} & \textbf{4.498.86\euro} \\
+            Total gastos de contratación de personal & 3 & 1.499,62\euro/mes & 4.498,86\euro \\
+            \hline
+            \multicolumn{3}{|l|}{\textbf{GASTOS DE EJECUCIÓN}} & \textbf{87.5\euro} \\
+            \multicolumn{3}{|l|}{Costes de adquisición de material inventariable} & 87.5\euro \\
+            \quad Ordenador & 1 & 62,50\euro & 62,50\euro \\
+            \quad Monitores & 1 & 12,50\euro & 12,50\euro \\
+            \quad Teclado y ratón & 1 & 12,50\euro & 12,50\euro \\
+            \multicolumn{3}{|l|}{Costes de adquisición de material fungible} & 0\euro \\
+            \multicolumn{3}{|l|}{Costes de consultoría, prestación de servicios, suministros, etc.} & 0\euro \\
+            \multicolumn{3}{|l|}{Costes de subcontratación} & 0\euro \\
+            \multicolumn{3}{|l|}{\textbf{GASTOS COMPLEMENTARIOS}} & \textbf{0\euro} \\
+            \multicolumn{3}{|l|}{Formación del equipo de desarrollo} & 0\euro \\
+            \multicolumn{3}{|l|}{Gastos de desplazamiento, viajes, estancias y dietas} & 0\euro \\
+            \multicolumn{3}{|l|}{Gastos de inscripción en congresos y seminarios} & 0\euro \\
+            \hline
+            \multicolumn{3}{|l|}{\textbf{COSTES DIRECTOS (10\% presupuesto total)}} & \textbf{458,64\euro} \\
+            \hline
+            \multicolumn{3}{|l|}{\textbf{TOTAL INCENTIVO SOLICITADO}} & \textbf{5.045,00\euro} \\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
