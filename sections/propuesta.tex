@@ -313,8 +313,9 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
 \end{tabularx}
 
+\newpage
 \subsubsection{Móvil} 
-\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|p{2cm}|}
+\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|l|}
     \hline
     ID & Título & Descripción & Estimación \\
     \hline
@@ -389,8 +390,8 @@ Los objetivos de este sprint son los siguientes:
 \begin{itemize}
     \item Definir diagrama de la arquitectura inicial del sistema.
     \item Estudiar la estructura de implementación del sistema.
-    \item Definir un presupuesto inicial para el proyecto.
-    \item Definir el product backlog inicial.
+    \item Definir un presupuesto para el proyecto.
+    \item Definir el product backlog inicial (ya se ha hecho en la sección \hyperref[sec:historias-de-usuario]{Historias de usuario}).
     \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
     \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
     \item Configurar el entorno de desarrollo tanto para el servidor como el cliente.
@@ -488,6 +489,125 @@ Nuestra capa de aplicación no utiliza directamente la capa de infraestructura, 
 
 De esta manera conseguimos una separación de responsabilidades y una independencia de la infraestructura, lo que nos permite cambiar la implementación de cualquier capa sin afectar al resto del sistema.
 También nos permite hacer pruebas unitarias e integración de manera más sencilla, ya que podemos \gls{mockear} las interfaces de la capa de infraestructura y probar la lógica de negocio sin necesidad de depender de la implementación concreta de la capa de infraestructura.
+
+\subsubsection{Inicialización del entorno de desarrollo}
+En esta sección se va a detallar cómo se ha procedido a la inicialización del entorno de desarrollo tanto para el servidor como para la aplicación móvil.
+\paragraph{Servidor}
+\subparagraph{}
+Para la inicialización del entorno de desarrollo del servidor nos hemos basado en la estructura de ejemplo que se puede encontrar en el artículo consultado sobre la arquitectura hexagonal en Rust \parencite{rust-hexagonal-architecture}. Éste quedaría de la siguiente manera:
+\dirtree{%
+.1 /.
+.2 migrations/.
+.3 20240603122606\_create\_authors.down.sql.
+.3 20240603122606\_create\_authors.up.sql.
+.2 src/.
+.3 bin/.
+.4 server/.
+.5 main.rs.
+.3 lib/.
+.4 domain/.
+.5 blog/.
+.6 models/.
+.7 author.rs.
+.6 models.rs.
+.6 ports.rs.
+.6 service.rs.
+.5 blog.rs.
+.4 inbound/.
+.5 http/.
+.6 handlers/.
+.7 create\_author.rs.
+.6 handlers.rs.
+.6 responses.rs.
+.5 http.rs.
+.4 outbound/.
+.5 email\_client.rs.
+.5 prometheus.rs.
+.5 sqlite.rs.
+.4 config.rs.
+.4 domain.rs.
+.4 inbound.rs.
+.4 lib.rs.
+.4 outbound.rs.
+.2 .env.template.
+.2 .gitignore.
+.2 Cargo.lock.
+.2 Cargo.toml.
+.2 LICENSE.
+.2 README.md.
+}
+
+Como podemos ver, tenemos la siguiente estructura:
+\begin{itemize}
+    \item \textbf{migrations}: esta carpeta contiene los archivos de migración de la base de datos, que se utilizan para crear y actualizar la estructura de la base de datos. En este caso, tenemos un archivo para crear la tabla de autores. Esta carpeta contiene todos los archivos necesarios para inicializar la base de datos y para borrarla si es necesario.
+    \item \textbf{src}: esta carpeta contiene todo el código fuente del servidor, con las siguientes subcarpetas:
+        \begin{itemize}
+            \item \textbf{bin}: contiene el código que se ejecuta al iniciar el servidor, el punto de entrada de la aplicación. En esta carpeta no vamos a tener ningún tipo de lógica implementada, tan solo inicializaremos el servidor, definiremos las implementaciones de las interfaces y arrancaremos el servidor con las dependencias que necesite.
+            \item \textbf{lib}: en esta carpeta tenemos todo el código de la aplicación, dividido siguiendo una filosofía hexagonal de la siguiente manera:
+                \begin{itemize}
+                    \item \textbf{domain}: contiene el código del dominio de la aplicación, es decir, la lógica de negocio. Aquí tenemos los modelos, definiciones de los puertos (interfaces) y servicios que se utilizan en la aplicación.
+                    \item \textbf{inbound}: contiene el código de la capa de entrada de la aplicación, es decir, las interfaces que se exponen al exterior. En este caso, tenemos un módulo HTTP que define los handlers (controladores) que se encargan de recibir las peticiones HTTP y devolver las respuestas correspondientes.
+                    \item \textbf{outbound}: contiene el código de la capa de salida de la aplicación, es decir, las implementaciones de las interfaces que se utilizan en la capa de dominio. En este caso, tenemos un cliente de correo electrónico, un cliente de Prometheus y un cliente SQLite que se encargan de enviar correos electrónicos, exponer métricas y acceder a la base de datos respectivamente.
+                    \item \textbf{config.rs}: contiene la configuración de la aplicación, como las variables de entorno y los parámetros de configuración.
+                    \item Los demás archivos definen los módulos de Rust.
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+Además de esos archivos, tenemos los archivos típicos de un proyecto de Rust, como son el \texttt{Cargo.toml} y el \texttt{Cargo.lock}, que definen las dependencias del proyecto y la versión de las mismas, así como el archivo \texttt{README.md} que contiene la documentación del proyecto y el archivo \texttt{LICENSE} que contiene la licencia del proyecto.
+
+En nuestro proyecto, tal y como se ha definido anteriormente, vamos a utilizar un enfoque de arquitectura monolítica modular siguiendo el patrón de código \acrshort{cqrs}.
+En este enfoque, los archivos van a estar organizados en módulos en vez de agrupados por capas, lo que nos va a permitir definir de una manera más clara y flexible las funcionalidades de cada módulo.
+Además, en la capa de aplicación se separan los casos de uso en comandos y consultas (las consultas son las que se encargan de obtener datos y los comandos son los que se encargan de modificar el estado del sistema), lo que nos permite tener una mejor organización del código y una mayor flexibilidad a la hora de añadir nuevas funcionalidades.
+
+Este es un enfoque común en aplicaciones web modernas, ya que gracias a esto podríamos conseguir funcionalidades como añadir caché a las consultas, realizar pruebas unitarias de los comandos y consultas de manera independiente, y tener una mejor organización del código en general.
+
+Si adaptáramos este proyecto de ejemplo a la estructura que vamos a utilizar, tendríamos una estructura de la siguiente manera:
+
+\newpage
+\dirtree{%
+.1 /.
+.2 migrations/.
+.3 20240603122606\_create\_authors.down.sql.
+.3 20240603122606\_create\_authors.up.sql.
+.2 src/.
+.3 bin/.
+.4 server/.
+.5 main.rs.
+.3 lib/.
+.4 blog/.
+.5 domain/.
+.6 models.rs.
+.6 models/.
+.7 author.rs.
+.6 ports.rs.
+.5 application/.
+.6 commands/.
+.7 create\_author.rs.
+.6 queries/.
+.7 get\_authors.rs.
+.5 infrastructure/.
+.6 sqlite.rs.
+.6 email\_client.rs.
+.5 interface/.
+.6 http/.
+.7 handlers.rs.
+.7 handlers/.
+.8 create\_author.rs.
+.7 responses.rs.
+.4 monitoring/.
+.5 infrastructure/.
+.6 prometheus.rs.
+.4 shared/.
+.5 config.rs.
+.5 lib.rs.
+.2 .env.template.
+.2 .gitignore.
+.2 Cargo.lock.
+.2 Cargo.toml.
+.2 LICENSE.
+.2 README.md.
+}
 
 \subsection{Presupuesto}
 Para el cálculo y desglose del presupuesto total del proyecto se ha supuesto un equipo de una única persona a media jornada.
