@@ -20,7 +20,6 @@ Tal como se ha especificado en el apartado anterior, se desarrollará una soluci
 
 \subsection{Metodología}
 \label{sec:metodologia}
-% TODO: Explicar todo lo relacionado con la metodología en este apartado junto con la justificación de por qué se ha elegido.
 
 Para el desarrollo de este proyecto se va a hacer uso de la metodología ágil Scrum. Esta metodología se basa en el desarrollo iterativo e incremental, lo que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
 
@@ -31,9 +30,21 @@ Scrum se centra en la entrega de incrementos de producto funcionales en ciclos c
 
 Scrum se basa en una serie de roles, eventos y artefactos que ayudan a los equipos a organizar su trabajo y colaborar de manera efectiva. Los roles incluyen el Product Owner (responsable de la visión del producto), el Scrum Master (facilitador del proceso) y el equipo de desarrollo (responsable de la entrega del producto). Los eventos incluyen las reuniones diarias, las revisiones de sprint y las retrospectivas, que permiten a los equipos reflexionar sobre su trabajo y mejorar continuamente.
 
-Aunque, tal y como se ve, Scrum está muy enfocado a equipos, también es posible utilizarlo con un equipo muy pequeño o incluso con una sola persona, realizando los mismos eventos pero sin la necesidad de tener un equipo de desarrollo. Éste es el enfoque que se le va a dar a este proyecto. Una buena práctica de Scrum es documentar todas las reuniones y tomas de decisiones que se toman a lo largo de la vida del proyecto, ya que esto ayuda a tener una mejor organización y a poder ver cómo ha ido evolucionando el proyecto a lo largo del tiempo. Es por ello que se van a documentar todas las decisiones que se tomen y los cambios que se realicen en el desarrollo.
+Aunque Scrum está muy enfocado a equipos, también es posible utilizarlo con un equipo muy pequeño o incluso con una sola persona, realizando los mismos eventos pero sin la necesidad de tener un equipo de desarrollo.
+Éste es el enfoque que se le va a dar a este proyecto. Una buena práctica de Scrum es documentar todas las reuniones y tomas de decisiones que se toman a lo largo de la vida del proyecto, ya que esto ayuda a tener una mejor organización y a poder ver cómo ha ido evolucionando el proyecto a lo largo del tiempo.
+Es por ello que se van a documentar todas las decisiones que se tomen y los cambios que se realicen en el desarrollo.
 
-Tal y como se comenta en la guía de Scrum, durante el desarrollo del proyecto se van a generar varios artefactos:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/scrum-diagram.png}
+  \caption{Diagrama del proceso completo de Scrum (\href{https://www.lecciones-aprendidas.info/2023/09/diagrama-explicativo-scrum-guia-2020.html}{Fuente})}
+  \label{fig:scrum-diagram}
+\end{figure}
+
+En esta imagen podemos ver definido todo el proceso que se sigue con una metodología Scrum, desde la planificación del producto hasta la entrega del mismo.
+
+Tal y como se comenta en la guía de Scrum y podemos ver en la imagen, durante el desarrollo del proyecto se van a generar varios artefactos:
 \begin{itemize}
     \item \textbf{Product Backlog}: es una lista priorizada de requisitos o tareas pendientes en un proyecto ágil. En este caso, el product backlog se va a utilizar para organizar todas las historias de usuario e historias técnicas que se van a implementar en el proyecto.
     \item \textbf{Sprint Backlog}: es una lista de tareas (las cuales salen de las historias de usuario y técnicas) seleccionadas del product backlog que se van a realizar durante un sprint.
@@ -43,7 +54,11 @@ De esta manera buscamos al tener un objetivo de producto claro y definido en los
 
 Separaremos el desarrollo en distintos sprints, cada uno de ellos con una duración de dos semanas.
 
-Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint y se desarrollarán (posible desglose en distintas historias de usuario, definición de tareas relacionadas con la HU junto con estimación de las mismas y definición de pruebas de aceptación) generando así el Sprint Backlog correspondiente a ese sprint, se completarán las tareas necesarias para completarlas y al final del sprint se realizará una revisión y una retrospectiva del mismo, donde se evaluará lo que se ha hecho, cómo se puede mejorar y se planificará el siguiente sprint dependiendo del estado del recién terminado.
+Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint y se desarrollarán (posible desglose en distintas historias de usuario, definición de tareas relacionadas con la HU junto con estimación de las mismas y definición de pruebas de aceptación) generando así el Sprint Backlog correspondiente a ese sprint, se completarán las tareas necesarias para completarlas.
+
+Al final del sprint se realizará una revisión en la que se analizará lo que se ha conseguido hacer y si hemos cumplido con lo que habíamos definido antes del sprint para adaptar el product backlog si fuera necesario y tenerlo en cuenta para el siguiente sprint. En la revisión participarán Product Owner, equipo de desarrollo, Scrum Master y los interesados en el proyecto (Stakeholders). Aquí es donde se presenta el incremento del producto a los interesados y se recibe retroalimentación sobre el trabajo realizado.
+
+Y por último se lleva a cabo una retrospectiva en el equipo, donde se reflexiona principalmente sobre el cómo se ha trabajado, qué se ha hecho bien, qué se ha hecho mal y qué se puede mejorar para el siguiente sprint. Esto es una parte fundamental de Scrum, ya que permite al equipo aprender de su experiencia y mejorar continuamente.
 
 Gracias a esta metodología conseguimos tener una organización muy clara de lo que se va a hacer, cómo se va a hacer y cuándo se va a hacer.
 
@@ -97,7 +112,7 @@ A partir de las figuras, podemos definir dos fórmulas para calcular el porcenta
 
 Obteniendo las siguientes tablas de comparación:
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -113,7 +128,7 @@ Python & 98.0\%  & 99.3\%  & 99.4\%          \\
 \caption{Porcentaje de mejora de Rust con respecto a otros lenguajes de programación en términos de tiempo de CPU. (Mayor es mejor)}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -198,6 +213,7 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
 Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \parencite{lynx-article}.
 
 \subsection{Historias de usuario / Historias técnicas}
+\label{sec:historias-de-usuario}
 En esta sección se detallan las historias de usuario e historias técnicas de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
 
 Se ha considerado esta separación ya que la aplicación de servidor tiene un objetivo diferente al de la aplicación móvil, de esta manera conseguimos una mejor organización de las historias de usuario.
@@ -217,9 +233,9 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 \renewcommand{\arraystretch}{1.3} % Increases row height for readability
 \rowcolors{2}{gray!15}{white} % Alternate row colors
 
-\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|p{2cm}|}
+\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|l|}
     \hline
-    \textbf{ID} & \textbf{Título} & \textbf{Descripción} & \textbf{Estimación (PH)} \\
+\textbf{ID} & \textbf{Título} & \textbf{Descripción} & \makecell{\textbf{Estimación}\\\textbf{(PH)}} \\
     \hline
     HU01 & Subida de fotos & Como usuario, quiero subir varias fotos desde mi móvil para tener una copia de seguridad en mi servidor. & 5 \\
     \hline
@@ -375,12 +391,14 @@ Los objetivos de este sprint son los siguientes:
     \item Estudiar la estructura de implementación del sistema.
     \item Definir un presupuesto inicial para el proyecto.
     \item Definir el product backlog inicial.
-    \item Realizar diagrama de Gantt para el sprint inicial.
     \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
     \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
     \item Configurar el entorno de desarrollo tanto para el servidor como el cliente.
     \item Definir el backlog de el primer sprint.
+    \item Realizar diagrama de Gantt para el primer sprint.
 \end{itemize}
+
+El product backlog inicial se ha definido en la \hyperref[sec:historias-de-usuario]{sección de historias de usuario} y se ha dividido en dos partes, una para el servidor y otra para el cliente móvil.
 
 \subsubsection{Diagrama de arquitectura}
 \begin{figure}[H]
