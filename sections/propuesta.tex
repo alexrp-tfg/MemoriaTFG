@@ -183,7 +183,12 @@ Esto se puede hacer de manera sencilla, ya que el framework permite la creación
 Este es uno de los puntos fuertes de la aplicación, ya que nos va a permitir programar haciendo uso de React, el cual es un framework muy conocido y utilizado, pero a la vez nos va a permitir hacer uso de módulos nativos de cada plataforma, lo que nos da una gran flexibilidad a la hora de desarrollar la aplicación de forma nativa en todas las plataformas.
 
 Lynx usa una aplicación nativa \textit{Lynx Explorer}, con la cual podemos ver cómo se va a ver la aplicación en el dispositivo móvil. Esta aplicación es la que se encarga de compilar el código de Lynx a código nativo y de ejecutar la aplicación en el dispositivo móvil.
-Para poder hacer uso de los módulos nativos, tendremos que implementarlos en el Explorer, compilar el código del mismo y una vez tenemos la aplicación con nuestro módulo nativo, podemos ejecutar nuestra aplicación sobre el Explorer y hacer uso de nuestro módulo nativo.
+Para poder hacer uso de los módulos nativos, tendremos que implementarlos en el Explorer, un proyecto que implementa el runtime que utiliza Lynxjs por debajo tanto en Android como iOS, compilar el código del mismo y una vez tenemos la aplicación con nuestro módulo nativo, podemos ejecutar nuestra aplicación sobre nuestro Explorer y hacer uso de nuestro módulo nativo.
+
+A la hora de compilar nuestra aplicación para ser usada en producción, Lynx se incorpora sobre un SDK de Android o iOS. Gracias a esto podemos incorporar nuestra aplicación en cualquier otra aplicación existente con tan solo compilar nuestro código y añadirlo con el SDK de Lynx en la plataforma que gustemos.
+En nuestro caso nos limitamos a usar una estructura de aplicación que proporcionan en \href{https://github.com/lynx-family/integrating-lynx-demo-projects}{su repositorio oficial de proyectos de ejemplo}, los cuales contienen proyectos vacíos que hacen uso de el SDK correspondiente en cada plataforma, por lo que tan solo tendremos que incorporar nuestra aplicación hecha con Lynx.js compilada y compilar el proyecto para cada plataforma.
+
+El proceso de compilación de una aplicación para producción sigue siendo complejo aún, ya que tal y como he comentado, Lynx.js no tiene aún una manera definitiva de compilar un proyecto sin tener que integrarlo mediante el SDK de Lynx en un proyecto nativo de Android o iOS. Aún así, el repositorio con los proyectos de ejemplo proporciona una buena base para empezar a trabajar con Lynx.js y nos permite centrarnos en el desarrollo de la aplicación sin tener que preocuparnos por la configuración del proyecto.
 
 Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho por el equipo de Lynx \parencite{lynx-native-modules}.
 
@@ -390,8 +395,8 @@ Los objetivos de este sprint son los siguientes:
 \begin{itemize}
     \item Definir diagrama de la arquitectura inicial del sistema.
     \item Estudiar la estructura de implementación del sistema.
-    \item Definir un presupuesto para el proyecto.
-    \item Definir el product backlog inicial (ya se ha hecho en la sección \hyperref[sec:historias-de-usuario]{Historias de usuario}).
+    \item Definir un presupuesto para el proyecto (sección \hyperref[sec:presupuesto]{Presupuesto}).
+    \item Definir el product backlog inicial (sección \hyperref[sec:historias-de-usuario]{Historias de usuario}).
     \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
     \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
     \item Configurar el entorno de desarrollo tanto para el servidor como el cliente.
@@ -609,7 +614,57 @@ Si adaptáramos este proyecto de ejemplo a la estructura que vamos a utilizar, t
 .2 README.md.
 }
 
+\paragraph{Cliente móvil}
+\subparagraph{}
+Viendo la estructura del servidor y la definición de la arquitectura limpia para una aplicación móvil que hemos definido en la figura \ref{fig:clean-architecture-mobile}, podemos ver que la estructura del cliente móvil es muy similar a la del servidor, pero con algunas diferencias.
+
+En este caso no vamos a utilizar el patrón de código \acrshort{cqrs}, ya que no es necesario en una aplicación móvil, pero sí vamos a utilizar una estructura modular similar a la del servidor, donde cada módulo tiene una responsabilidad clara y bien definida.
+La única adición que tendremos con respecto a la estructura del servidor es que en la aplicación móvil tenemos una capa de presentación que se encarga de la interfaz de usuario y de la interacción con el usuario, la cual sería la equivalente a la capa de interface que definimos en el servidor para la comunicación con el exterior (en el caso del servidor, mediante comunicación HTTP).
+
+Una estructura de ejemplo para una aplicación móvil que hace uso de el servidor de ejemplo que hemos definido anteriormente podría ser la siguiente:
+
+\dirtree{%
+.1 mobile-app/.
+.2 src/.
+.3 modules/.
+.4 blog/.
+.5 domain/.
+.5 application/.
+.6 services/.
+.7 authorService.ts.
+.7 blogService.ts.
+.5 infrastructure/.
+.5 presentation/.
+.4 monitoring/.
+.5 application/.
+.6 services/.
+.7 monitoringService.ts.
+.5 infrastructure/.
+.5 presentation/.
+.4 shared/.
+.5 config/.
+.5 application/.
+.6 services/.
+.7 httpService.ts.
+.7 storageService.ts.
+.5 infrastructure/.
+.5 presentation/.
+.5 types/.
+.3 navigation/.
+.3 App.tsx.
+.2 assets/.
+.2 \_\_tests\_\_/.
+.2 archivos de configuración del proyecto...
+}
+
+La principal diferencia que tenemos con respecto al servidor es que en la capa de aplicación no seguiremos un patrón CQRS y tendremos implementaciones de servicios que se encargan de toda la lógica.
+Además, la capa de interfaz se cambia por una capa de presentación, que se encargará de la interfaz de usuario y de la interacción con el usuario.
+
+Para la inicialización del entorno de desarrollo del cliente móvil, además de el directorio que implementa nuestra aplicación usando Lynx.js necesitaremos un directorio para el código de Lynx Explorer, puesto que tendremos que hacer una implementación de módulos nativos para acceder a funcionalidades como el acceso a imágenes en el dispositivo tanto como para gestionar los permisos necesarios de la aplicación.
+Toda la documentación que se ha utilizado se puede encontrar en la \href{https://lynxjs.org/guide/use-native-modules.html#platform=android}{documentación oficial de Lynx.js}.
+
 \subsection{Presupuesto}
+\label{sec:presupuesto}
 Para el cálculo y desglose del presupuesto total del proyecto se ha supuesto un equipo de una única persona a media jornada.
 
 Para el cálculo del presupuesto de personal hemos tenido en cuenta el salario medio de un ingeniero de software en España, que según el portal de empleo \href{https://www.glassdoor.es/Sueldos/granada-software-engineer-sueldo-SRCH_IL.0,7_IC2614045_KO8,25.htm}{Glassdoor} ronda entre los 24.000 y 33.000 euros brutos anuales, cogiendo el valor de 24000 euros brutos anuales como salario base dada la inexperiencia del trabajador.
