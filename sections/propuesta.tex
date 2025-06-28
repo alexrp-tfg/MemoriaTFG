@@ -276,7 +276,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HT02 & Sincronización incremental & Implementar sincronización basada en metadatos (fecha, tamaño, hash). & 5 \\
     \hline
-    HT03 & API REST en Rust & Diseñar API RESTful para subida, borrado y consulta de archivos. & 13 \\
+    HT03 & API REST en Rust & Desarrollar API RESTful usando Rust y Axum & 13 \\
     \hline
     HT04 & Descubrimiento mDNS & Crear sistema de descubrimiento automático usando mDNS. & 8 \\
     \hline
@@ -318,74 +318,110 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
 \end{tabularx}
 
+\paragraph{Historias que se han dividido}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|l|>{\raggedright}X|l|}
+            \hline
+            ID & Título & Descripción & Estimación \\
+            \hline
+            HT18 & Binario y Tauri & Empaquetar servidor como CLI y app Tauri. & 5 \\
+            \hline
+            HT18.1 & Binario & Empaquetar la aplicación como un solo binario & 2 \\
+            \hline
+            HT18.2 & Tauri & Empaquetar aplicación de escritorio con Tauri & 3 \\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|>{\raggedright\arraybackslash}X|l|}
+            \hline
+            ID & Título & Descripción & Estimación \\
+            \hline
+            HT20 & Documentación & Documentar instalación y uso del sistema. & 13 \\
+            \hline
+            HT20.1 & Documentación del proyecto en Github & Documentar la instalación y uso del proyecto en el repositorio de Github & 5 \\
+            \hline
+            HT20.2 &  Documentación de la API REST con OpenAPI & Documentar mediante la generación de una página web todos los endpoints de la API REST & 5 \\
+            \hline
+            HT20.3 & Documentación de la aplicación Tauri & Manual de usuario de la aplicación de escritorio desarrollada con Tauri & 3 \\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
 \newpage
 \subsubsection{Móvil} 
 \begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|l|}
     \hline
     ID & Título & Descripción & Estimación \\
     \hline
-    HU01 & Seleccionar fotos & Como usuario, quiero seleccionar varias fotos desde mi galería para subirlas al servidor. & 3 \\
+    HU16 & Seleccionar fotos & Como usuario, quiero seleccionar varias fotos desde mi galería para subirlas al servidor. & 3 \\
     \hline
-    HU02 & Subir fotos automáticamente & Como usuario, quiero que se suban automáticamente las nuevas fotos que hago, sin tener que hacerlo manualmente. & 8 \\
+    HU17 & Subir fotos automáticamente & Como usuario, quiero que se suban automáticamente las nuevas fotos que hago, sin tener que hacerlo manualmente. & 8 \\
     \hline
-    HU03 & Ver progreso de subida & Como usuario, quiero ver el progreso de cada archivo que se está subiendo. & 8 \\
+    HU18 & Ver progreso de subida & Como usuario, quiero ver el progreso de cada archivo que se está subiendo. & 8 \\
     \hline
-    HU04 & Cancelar subida & Como usuario, quiero cancelar una subida en curso desde la interfaz. & 3 \\
+    HU19 & Cancelar subida & Como usuario, quiero cancelar una subida en curso desde la interfaz. & 3 \\
     \hline
-    HU05 & Ver archivos subidos & Como usuario, quiero ver una lista o galería de los archivos que ya están subidos. & 5 \\
+    HU20 & Ver archivos subidos & Como usuario, quiero ver una lista o galería de los archivos que ya están subidos. & 5 \\
     \hline
-    HU06 & Conexión automática al servidor & Como usuario, quiero que la app detecte y se conecte automáticamente al servidor en mi red. & 5 \\
+    HU21 & Conexión automática al servidor & Como usuario, quiero que la app detecte y se conecte automáticamente al servidor en mi red. & 5 \\
     \hline
-    HU07 & Cambiar de servidor & Como usuario, quiero poder cambiar manualmente la dirección del servidor si quiero usar otro. & 3 \\
+    HU22 & Cambiar de servidor & Como usuario, quiero poder cambiar manualmente la dirección del servidor si quiero usar otro. & 3 \\
     \hline
-    HU08 & Ver uso de almacenamiento & Como usuario, quiero ver cuánto espacio he usado en el servidor. & 3 \\
+    HU23 & Ver uso de almacenamiento & Como usuario, quiero ver cuánto espacio he usado en el servidor. & 3 \\
     \hline
-    HU09 & Inicio y cierre de sesión & Como usuario, quiero iniciar y cerrar sesión para proteger mis datos. & 5 \\
+    HU24 & Inicio y cierre de sesión & Como usuario, quiero iniciar y cerrar sesión para proteger mis datos. & 5 \\
     \hline
-    HU10 & Gestión de permisos & Como usuario, quiero que la app me pida permisos de acceso solo cuando sea necesario. & 3 \\
+    HU25 & Gestión de permisos & Como usuario, quiero que la app me pida permisos de acceso solo cuando sea necesario. & 3 \\
     \hline
-    HU11 & Notificaciones de subida & Como usuario, quiero recibir notificaciones cuando se complete la sincronización. & 5 \\
+    HU26 & Notificaciones de subida & Como usuario, quiero recibir notificaciones cuando se complete la sincronización. & 5 \\
     \hline
-    HU12 & Subir vídeos & Como usuario, quiero subir también vídeos de mi galería al servidor. & 5 \\
+    HU27 & Subir vídeos & Como usuario, quiero subir también vídeos de mi galería al servidor. & 5 \\
     \hline
-    HU13 & Subida en segundo plano & Como usuario, quiero que las subidas continúen aunque cierre la app. & 8 \\
+    HU28 & Subida en segundo plano & Como usuario, quiero que las subidas continúen aunque cierre la app. & 8 \\
     \hline
-    HU15 & Sincronización manual & Como usuario, quiero poder iniciar la sincronización manualmente. & 3 \\
+    HU29 & Sincronización manual & Como usuario, quiero poder iniciar la sincronización manualmente. & 3 \\
     \hline
-    HU16 & Galería online & Como usuario, quiero ver mis fotos en la app sin tener que descargarlas. & 5 \\
+    HU30 & Galería online & Como usuario, quiero ver mis fotos en la app sin tener que descargarlas. & 5 \\
     \hline
-    HT01 & Acceso a la galería & Implementar acceso seguro a la galería de fotos y vídeos. & 5 \\
+    HT23 & Acceso a la galería & Implementar acceso seguro a la galería de fotos y vídeos. & 5 \\
     \hline
-    HT02 & Comunicación con API & Integrar cliente HTTP que se comunique con el servidor. & 5 \\
+    HT24 & Comunicación con API & Integrar cliente HTTP que se comunique con el servidor. & 5 \\
     \hline
-    HT03 & Almacenamiento local & Guardar estado de archivos subidos/no subidos de forma local. & 3 \\
+    HT25 & Almacenamiento local & Guardar estado de archivos subidos/no subidos de forma local. & 3 \\
     \hline
-    HT04 & Manejo de errores de red & Implementar gestión de errores de red y reintentos automáticos. & 5 \\
+    HT26 & Manejo de errores de red & Implementar gestión de errores de red y reintentos automáticos. & 5 \\
     \hline
-    HT05 & Subida concurrente & Soportar subida de varios archivos en paralelo con control de errores. & 5 \\
+    HT27 & Subida concurrente & Soportar subida de varios archivos en paralelo con control de errores. & 5 \\
     \hline
-    HT06 & Sincronización de fondo & Implementar sincronización en segundo plano. & 8 \\
+    HT28 & Sincronización de fondo & Implementar sincronización en segundo plano. & 8 \\
     \hline
-    HT07 & Pruebas unitarias & Añadir pruebas unitarias y de integración a la lógica común en React Native / Lynx.js & 13 \\
+    HT29 & Pruebas unitarias & Añadir pruebas unitarias y de integración a la lógica común en React Native / Lynx.js & 13 \\
     \hline
-    HT08 & CI/CD móvil & Pipeline de construcción y publicación para Android e iOS. & 5 \\
+    HT30 & CI/CD móvil & Pipeline de construcción y publicación para Android e iOS. & 5 \\
     \hline
-    HT09 & Gestión de tokens & Almacenar y renovar tokens de autenticación de forma segura. & 3 \\
+    HT31 & Gestión de tokens & Almacenar y renovar tokens de autenticación de forma segura. & 3 \\
     \hline
-    HT10 & Notificaciones locales & Integrar sistema de notificaciones locales en Android/iOS. & 3 \\
+    HT32 & Notificaciones locales & Integrar sistema de notificaciones locales en Android/iOS. & 3 \\
     \hline
-    HT11 & Optimización de red & Reducir uso de red usando compresión. & 5 \\
+    HT33 & Optimización de red & Reducir uso de red usando compresión. & 5 \\
     \hline
-    HT12 & Localización & Soporte multilenguaje para la aplicación. & 8 \\
+    HT34 & Localización & Soporte multilenguaje para la aplicación. & 8 \\
     \hline
-    HT13 & Permisos condicionales & Solicitar permisos en tiempo de ejecución de forma contextual. & 3 \\
+    HT35 & Permisos condicionales & Solicitar permisos en tiempo de ejecución de forma contextual. & 3 \\
     \hline
-    HT14 & UI responsive & Adaptar UI para distintos tamaños de pantalla (tablet, móvil). & 3 \\
+    HT36 & UI responsive & Adaptar UI para distintos tamaños de pantalla (tablet, móvil). & 3 \\
     \hline
 \end{tabularx}
 
-
 \subsection{Planificación inicial}
+\label{sec:planificacion-inicial}
 Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad, las cuales tienen un inicio y un fin.
 
 Se suele crear un sprint denominado como ``Sprint 0'' en el que se hace una planificación inicial, se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de las tareas que se van a realizar en todos los sprints.
@@ -399,7 +435,7 @@ Los objetivos de este sprint son los siguientes:
     \item Definir el product backlog inicial (sección \hyperref[sec:historias-de-usuario]{Historias de usuario}).
     \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
     \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
-    \item Configurar el entorno de desarrollo tanto para el servidor como el cliente.
+    \item Definir el entorno de desarrollo tanto para el servidor como el cliente.
     \item Definir el backlog de el primer sprint.
     \item Realizar diagrama de Gantt para el primer sprint.
 \end{itemize}
@@ -660,8 +696,40 @@ Una estructura de ejemplo para una aplicación móvil que hace uso de el servido
 La principal diferencia que tenemos con respecto al servidor es que en la capa de aplicación no seguiremos un patrón CQRS y tendremos implementaciones de servicios que se encargan de toda la lógica.
 Además, la capa de interfaz se cambia por una capa de presentación, que se encargará de la interfaz de usuario y de la interacción con el usuario.
 
-Para la inicialización del entorno de desarrollo del cliente móvil, además de el directorio que implementa nuestra aplicación usando Lynx.js necesitaremos un directorio para el código de Lynx Explorer, puesto que tendremos que hacer una implementación de módulos nativos para acceder a funcionalidades como el acceso a imágenes en el dispositivo tanto como para gestionar los permisos necesarios de la aplicación.
-Toda la documentación que se ha utilizado se puede encontrar en la \href{https://lynxjs.org/guide/use-native-modules.html#platform=android}{documentación oficial de Lynx.js}.
+Para la inicialización del entorno de desarrollo del cliente móvil, además del directorio que implementa nuestra aplicación usando Lynx.js necesitaremos un directorio para el código de Lynx Explorer, puesto que tendremos que hacer una implementación de módulos nativos para acceder a funcionalidades como el acceso a imágenes en el dispositivo tanto como para gestionar los permisos necesarios de la aplicación.
+Toda la documentación que se ha utilizado para inicializar el directorio con nuestra versión de Lynx Explorer se puede encontrar en la \href{https://lynxjs.org/guide/use-native-modules.html#platform=android}{documentación oficial de Lynx.js} sobre implementación de módulos nativos.
+
+\subsubsection{Desarrollo de artefactos del primer sprint}
+Tal y como se ha definido en la \hyperref[sec:metodologia]{sección de metodología}, cada sprint se va a enfocar en una parte del proyecto. En este caso, el primer sprint se va a centrar en historias de usuario del servidor solamente. El segundo sprint se centrará en las historias de usuario del cliente móvil y una vez analizado el estado de ambos productos, se decidirá si comenzar a tener sprints conjuntos.
+
+En la metodología Scrum se cogen historias de usuario hasta que la suma de las estimaciones de las historias de usuario sea menor o igual a la velocidad del equipo para ese sprint.
+La velocidad del equipo se define como la cantidad de puntos de historia que el equipo puede completar en un sprint, y se calcula a partir de los sprints anteriores.
+En este caso, como es el primer sprint y no tenemos una velocidad definida, se escogen historias de usuario fijándose en el tipo de tarea e intentando no tener una suma de puntos de historia muy alta.
+
+Una vez se termina el sprint, en el proceso de retrospectiva se analiza cuántas historias de usuario se han completado o cuantas se han quedado a medias, y se ajusta la velocidad del equipo para el siguiente sprint. Este proceso se repite en cada sprint hasta que el equipo tiene una velocidad estable y podemos tener una estimación más precisa de cuántas historias de usuario se pueden completar en cada sprint.
+
+Durante la especificación del sprint backlog se va a estudiar si hay historias de usuario que puedan ser divididas en distintas historias y una vez se hayan definido las historias de usuario que se van a implementar en el sprint, definiremos las tareas correspondientes a cada historia de usuario junto con su estimación en horas.
+En el momento que tenemos estimaciones en horas de tareas, podemos realizar un diagrama de Gantt para el sprint con las tareas y su duración estimada.
+
+\subsubsection{Planificación de entregas}
+En esta sección se va a definir los objetivos generales que tendremos para cada entrega en caga sprint. Estos objetivos son estimados y pueden variar dependiendo de la velocidad real del equipo, puede ser que se consiga más en un sprint o menos. Esta planificación se realiza para que, en el caso de que tuviéramos un cliente, se le pudiera dar una estimación del producto que va a ir recibiendo en cada entrega.
+
+En nuestro caso y en el tipo de proyecto que estamos realizando, nos sirve para tener un enfoque claro de lo que queremos conseguir en cada sprint y no desviarnos realizando otras tareas.
+Definir qué se va a entregar en cada sprint nos ayuda también a priorizar qué historias de usuario se van a realizar en cada sprint.
+
+Teniendo en cuenta que el desarrollo del proyecto comienza la última semana de junio de 2025, que cada sprint dura dos semanas y que la fecha límite de entrega del proyecto es el 5 de septiembre de 2025, tenemos un total de 11 semanas para el proyecto. Teniendo en cuenta que el sprint 0 tiene una duración de una semana, tenemos un total de 5 sprints para el desarrollo del proyecto.
+
+Los objetivos de cada sprint quedarían de la siguiente manera:
+\begin{itemize}
+    \item \textbf{Sprint 1}: Implementación de la API REST del servidor, incluyendo la gestión de usuarios, autenticación y autorización, así como la subida y descarga de archivos. Durante esta iteración se busca implementar una subida y descarga de archivos básica y genérica.
+    \item \textbf{Sprint 2}: Implementación de la aplicación móvil. Definición e implementación de módulos nativos para el acceso a archivos multimedia y permisos. Durante esta iteración se busca implementar una aplicación de gestión de galería básica sin funcionalidades de sincronización. 
+    \item \textbf{Sprint 3}: Implementación de todo el procesado multimedia en el servidor: generación de miniaturas, compresión de imágenes y vídeos, etiquetado basado en metadatos, etc. En el cliente se implementará la subida de archivos multimedia a el servidor y la visualización de los archivos subidos.
+    \item \textbf{Sprint 4}: Implementación de la sincronización automática de archivos multimedia en el cliente móvil tanto como la visualización del estado nuestra galería en el servidor. En esta iteración implementaremos principalmente toda la conexión automática entre el cliente y el servidor, así como la sincronización de archivos multimedia.
+    \item \textbf{Sprint 5}: Implementación de la gestión de usuarios desde el cliente móvil, incluyendo la gestión de permisos en las galerías, álbumes y archivos. Durante esta última iteración se implementará el uso compartido de galerías y álbumes entre usuarios.
+    \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia propio en el servidor. Éste último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto open-source.
+\end{itemize}
+
+Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint anterior.
 
 \subsection{Presupuesto}
 \label{sec:presupuesto}
@@ -746,3 +814,5 @@ De esta forma, tendríamos el siguiente desglose de costes:
         \end{tabularx}
     \end{center}
 \end{table}
+
+\input{sections/sprints/sprint1}
