@@ -1,4 +1,4 @@
-\subsection{Sprint 1}
+\section{Sprint 1}
 Tal y como se ha definido en la sección \ref{sec:planificacion-inicial}, el primer sprint se centra en la base de nuestra aplicación web, desarrollando la estructura inicial del servidor, gestión de usuarios y subida y descarga sencilla de archivos.
 Para ello, se han elegido las historias de usuario relacionadas con el objetivo de este sprint y se han desarrollado definiendo sub-historias de usuario si fueran necesarias, criterios de aceptación y las tareas necesarias para su implementación.
 
@@ -8,7 +8,7 @@ Cuando se termine el sprint, se calculará la velocidad del equipo la cual se ut
 
 Una vez definidas todas las tareas que se van a realizar en este sprint, se ha realizado un diagrama de Gantt para planificar el tiempo que se va a dedicar a cada una de ellas, teniendo en cuenta que el sprint tiene una duración de dos semanas, y se dará un orden de prioridad a las tareas que se consideren más importantes para llegar a el objetivo del sprint.
 
-\subsubsection{Historias de usuario}
+\subsection{Historias de usuario}
 En esta sección se detallan las historias de usuario y técnicas que se han elegido para este sprint. Se va a hacer una breve descripción de cada una de ellas, así como los criterios de aceptación y las tareas necesarias para su implementación. Si fuera necesario, se definirán sub-historias de usuario para facilitar su desarrollo.
 
 Las seleccionadas son las siguientes:
@@ -551,3 +551,25 @@ El total de horas estimadas para todas las tareas de desarrollo del Sprint 1 es 
 Esta estimación se ajusta perfectamente a la capacidad del sprint de 2 semanas con 4 horas diarias de dedicación (14 días × 4 horas = 56 horas totales).
 
 Se puede ver que hay historias de usuario con los mismos puntos de historia o parecidos pero con diferente número de horas estimadas. Esto es normal, ya que los puntos de historia representan la complejidad relativa y no el tiempo exacto de desarrollo. Por ejemplo, una historia de usuario puede ser más compleja pero requerir menos tiempo si se reutilizan componentes existentes o se aprovechan bibliotecas ya implementadas.
+
+\subsection{Diagrama de Gantt}
+Dada las estimaciones de las tareas, se han considerado el siguiente orden de prioridad de tareas en un diagrama de Gantt:
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{assets/sprint1/sprint1-week1.png}
+    \end{center}
+    \caption{Diagrama de Gantt de las tareas de la primera semana del sprint}\label{fig:sprint1-week1}
+\end{figure}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{assets/sprint1/sprint1-week2.png}
+    \end{center}
+    \caption{Diagrama de Gantt de las tareas de la segunda semana del sprint}\label{fig:sprint1-week2}
+\end{figure}
+
+Se ha seguido un orden lógico, en el que primero inicializaremos toda la capa de interfaz, en este caso nuestra API, junto con todas las dependencias que nos harán falta a la hora de documentar, errores no genéricos, variables de entorno, pruebas...
+
+Después, se implementará el diseño de la base de datos. Una vez tenemos esta base, se implementarán las primeras funcionalidades, que van a ser la del inicio de sesión seguro, seguido de la gestión de cuentas. Para finalizar el sprint, se documentará todo al completo.
+
+Para finalizar, configuraremos todo lo necesario para poder desplegar el servidor.
