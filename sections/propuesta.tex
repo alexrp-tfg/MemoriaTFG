@@ -20,7 +20,6 @@ Tal como se ha especificado en el apartado anterior, se desarrollará una soluci
 
 \subsection{Metodología}
 \label{sec:metodologia}
-% TODO: Explicar todo lo relacionado con la metodología en este apartado junto con la justificación de por qué se ha elegido.
 
 Para el desarrollo de este proyecto se va a hacer uso de la metodología ágil Scrum. Esta metodología se basa en el desarrollo iterativo e incremental, lo que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
 
@@ -31,9 +30,21 @@ Scrum se centra en la entrega de incrementos de producto funcionales en ciclos c
 
 Scrum se basa en una serie de roles, eventos y artefactos que ayudan a los equipos a organizar su trabajo y colaborar de manera efectiva. Los roles incluyen el Product Owner (responsable de la visión del producto), el Scrum Master (facilitador del proceso) y el equipo de desarrollo (responsable de la entrega del producto). Los eventos incluyen las reuniones diarias, las revisiones de sprint y las retrospectivas, que permiten a los equipos reflexionar sobre su trabajo y mejorar continuamente.
 
-Aunque, tal y como se ve, Scrum está muy enfocado a equipos, también es posible utilizarlo con un equipo muy pequeño o incluso con una sola persona, realizando los mismos eventos pero sin la necesidad de tener un equipo de desarrollo. Éste es el enfoque que se le va a dar a este proyecto. Una buena práctica de Scrum es documentar todas las reuniones y tomas de decisiones que se toman a lo largo de la vida del proyecto, ya que esto ayuda a tener una mejor organización y a poder ver cómo ha ido evolucionando el proyecto a lo largo del tiempo. Es por ello que se van a documentar todas las decisiones que se tomen y los cambios que se realicen en el desarrollo.
+Aunque Scrum está muy enfocado a equipos, también es posible utilizarlo con un equipo muy pequeño o incluso con una sola persona, realizando los mismos eventos pero sin la necesidad de tener un equipo de desarrollo.
+Éste es el enfoque que se le va a dar a este proyecto. Una buena práctica de Scrum es documentar todas las reuniones y tomas de decisiones que se toman a lo largo de la vida del proyecto, ya que esto ayuda a tener una mejor organización y a poder ver cómo ha ido evolucionando el proyecto a lo largo del tiempo.
+Es por ello que se van a documentar todas las decisiones que se tomen y los cambios que se realicen en el desarrollo.
 
-Tal y como se comenta en la guía de Scrum, durante el desarrollo del proyecto se van a generar varios artefactos:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/scrum-diagram.png}
+  \caption{Diagrama del proceso completo de Scrum (\href{https://www.lecciones-aprendidas.info/2023/09/diagrama-explicativo-scrum-guia-2020.html}{Fuente})}
+  \label{fig:scrum-diagram}
+\end{figure}
+
+En esta imagen podemos ver definido todo el proceso que se sigue con una metodología Scrum, desde la planificación del producto hasta la entrega del mismo.
+
+Tal y como se comenta en la guía de Scrum y podemos ver en la imagen, durante el desarrollo del proyecto se van a generar varios artefactos:
 \begin{itemize}
     \item \textbf{Product Backlog}: es una lista priorizada de requisitos o tareas pendientes en un proyecto ágil. En este caso, el product backlog se va a utilizar para organizar todas las historias de usuario e historias técnicas que se van a implementar en el proyecto.
     \item \textbf{Sprint Backlog}: es una lista de tareas (las cuales salen de las historias de usuario y técnicas) seleccionadas del product backlog que se van a realizar durante un sprint.
@@ -43,7 +54,11 @@ De esta manera buscamos al tener un objetivo de producto claro y definido en los
 
 Separaremos el desarrollo en distintos sprints, cada uno de ellos con una duración de dos semanas.
 
-Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint y se desarrollarán (posible desglose en distintas historias de usuario, definición de tareas relacionadas con la HU junto con estimación de las mismas y definición de pruebas de aceptación) generando así el Sprint Backlog correspondiente a ese sprint, se completarán las tareas necesarias para completarlas y al final del sprint se realizará una revisión y una retrospectiva del mismo, donde se evaluará lo que se ha hecho, cómo se puede mejorar y se planificará el siguiente sprint dependiendo del estado del recién terminado.
+Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint y se desarrollarán (posible desglose en distintas historias de usuario, definición de tareas relacionadas con la HU junto con estimación de las mismas y definición de pruebas de aceptación) generando así el Sprint Backlog correspondiente a ese sprint, se completarán las tareas necesarias para completarlas.
+
+Al final del sprint se realizará una revisión en la que se analizará lo que se ha conseguido hacer y si hemos cumplido con lo que habíamos definido antes del sprint para adaptar el product backlog si fuera necesario y tenerlo en cuenta para el siguiente sprint. En la revisión participarán Product Owner, equipo de desarrollo, Scrum Master y los interesados en el proyecto (Stakeholders). Aquí es donde se presenta el incremento del producto a los interesados y se recibe retroalimentación sobre el trabajo realizado.
+
+Y por último se lleva a cabo una retrospectiva en el equipo, donde se reflexiona principalmente sobre el cómo se ha trabajado, qué se ha hecho bien, qué se ha hecho mal y qué se puede mejorar para el siguiente sprint. Esto es una parte fundamental de Scrum, ya que permite al equipo aprender de su experiencia y mejorar continuamente.
 
 Gracias a esta metodología conseguimos tener una organización muy clara de lo que se va a hacer, cómo se va a hacer y cuándo se va a hacer.
 
@@ -86,17 +101,18 @@ Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otr
 Como se puede ver en las figuras \ref{fig:rust-cpu-comparison} y \ref{fig:rust-memory-comparison}, Rust tiene un rendimiento muy bueno en comparación con otros lenguajes de programación, tanto en uso de CPU como en uso de memoria.
 
 A partir de las figuras, podemos definir dos fórmulas para calcular el porcentaje de mejora con respecto a los otros lenguajes de programación:
-\[
-\text{Mejora}_{\text{CPU}} (\%) = \left( \frac{T_{\text{\textit{lenguaje}}} - T_{\text{Rust}}}{T_{\text{\textit{lenguaje}}}} \right) \times 100
-\]
+\begin{equation}
+    \text{Mejora}_{\text{CPU}} (\%) = \left( \frac{T_{\text{\textit{lenguaje}}} - T_{\text{Rust}}}{T_{\text{\textit{lenguaje}}}} \right) \times 100
+\end{equation}
 
-\[
-\text{Mejora}_{\text{Memoria}} (\%) = \left( \frac{M_{\text{\textit{lenguaje}}} - M_{\text{Rust}}}{M_{\text{\textit{lenguaje}}}} \right) \times 100
-\]
+\begin{equation}
+    \text{Mejora}_{\text{Memoria}} (\%) = \left( \frac{M_{\text{\textit{lenguaje}}} - M_{\text{Rust}}}{M_{\text{\textit{lenguaje}}}} \right) \times 100
+\end{equation}
+
 
 Obteniendo las siguientes tablas de comparación:
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -112,7 +128,7 @@ Python & 98.0\%  & 99.3\%  & 99.4\%          \\
 \caption{Porcentaje de mejora de Rust con respecto a otros lenguajes de programación en términos de tiempo de CPU. (Mayor es mejor)}
 \end{table}
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -148,7 +164,7 @@ Aunque pueda parecer igual que React Native, Lynx añade algunas cosas que le fa
 
 Sin embargo, Lynx tiene dos threads, un main thread y un background thread.
 Gracias a esto, es posible especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API.
-Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \textit{Instant First-Frame Rendering (IFR)}\footnote{El \href{https://lynxjs.org/guide/interaction/ifr.html}{Instant First-Frame Rendering (IFR)} es una técnica de renderizado que permite mostrar el primer fotograma de una aplicación de manera instantánea, mejorando la experiencia del usuario al reducir el tiempo de espera para ver la interfaz.}.
+Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \gls{ifr} (\acrshort{ifracr}).
 
 Para conseguir esto, Lynx altera el ciclo de vida de los componentes de React (figura \ref{fig:lynx-component-lifecycle}), consiguiendo deshacerse de cuellos de botella típicos que aparecen en los frameworks de desarrollo móvil asegurando un rendimiento óptimo y una experiencia de usuario fluida.
 
@@ -167,7 +183,12 @@ Esto se puede hacer de manera sencilla, ya que el framework permite la creación
 Este es uno de los puntos fuertes de la aplicación, ya que nos va a permitir programar haciendo uso de React, el cual es un framework muy conocido y utilizado, pero a la vez nos va a permitir hacer uso de módulos nativos de cada plataforma, lo que nos da una gran flexibilidad a la hora de desarrollar la aplicación de forma nativa en todas las plataformas.
 
 Lynx usa una aplicación nativa \textit{Lynx Explorer}, con la cual podemos ver cómo se va a ver la aplicación en el dispositivo móvil. Esta aplicación es la que se encarga de compilar el código de Lynx a código nativo y de ejecutar la aplicación en el dispositivo móvil.
-Para poder hacer uso de los módulos nativos, tendremos que implementarlos en el Explorer, compilar el código del mismo y una vez tenemos la aplicación con nuestro módulo nativo, podemos ejecutar nuestra aplicación sobre el Explorer y hacer uso de nuestro módulo nativo.
+Para poder hacer uso de los módulos nativos, tendremos que implementarlos en el Explorer, un proyecto que implementa el runtime que utiliza Lynxjs por debajo tanto en Android como iOS, compilar el código del mismo y una vez tenemos la aplicación con nuestro módulo nativo, podemos ejecutar nuestra aplicación sobre nuestro Explorer y hacer uso de nuestro módulo nativo.
+
+A la hora de compilar nuestra aplicación para ser usada en producción, Lynx se incorpora sobre un SDK de Android o iOS. Gracias a esto podemos incorporar nuestra aplicación en cualquier otra aplicación existente con tan solo compilar nuestro código y añadirlo con el SDK de Lynx en la plataforma que gustemos.
+En nuestro caso nos limitamos a usar una estructura de aplicación que proporcionan en \href{https://github.com/lynx-family/integrating-lynx-demo-projects}{su repositorio oficial de proyectos de ejemplo}, los cuales contienen proyectos vacíos que hacen uso de el SDK correspondiente en cada plataforma, por lo que tan solo tendremos que incorporar nuestra aplicación hecha con Lynx.js compilada y compilar el proyecto para cada plataforma.
+
+El proceso de compilación de una aplicación para producción sigue siendo complejo aún, ya que tal y como he comentado, Lynx.js no tiene aún una manera definitiva de compilar un proyecto sin tener que integrarlo mediante el SDK de Lynx en un proyecto nativo de Android o iOS. Aún así, el repositorio con los proyectos de ejemplo proporciona una buena base para empezar a trabajar con Lynx.js y nos permite centrarnos en el desarrollo de la aplicación sin tener que preocuparnos por la configuración del proyecto.
 
 Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho por el equipo de Lynx \parencite{lynx-native-modules}.
 
@@ -197,6 +218,7 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
 Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \parencite{lynx-article}.
 
 \subsection{Historias de usuario / Historias técnicas}
+\label{sec:historias-de-usuario}
 En esta sección se detallan las historias de usuario e historias técnicas de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
 
 Se ha considerado esta separación ya que la aplicación de servidor tiene un objetivo diferente al de la aplicación móvil, de esta manera conseguimos una mejor organización de las historias de usuario.
@@ -216,9 +238,9 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 \renewcommand{\arraystretch}{1.3} % Increases row height for readability
 \rowcolors{2}{gray!15}{white} % Alternate row colors
 
-\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|p{2cm}|}
+\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|l|}
     \hline
-    \textbf{ID} & \textbf{Título} & \textbf{Descripción} & \textbf{Estimación (PH)} \\
+\textbf{ID} & \textbf{Título} & \textbf{Descripción} & \makecell{\textbf{Estimación}\\\textbf{(PH)}} \\
     \hline
     HU01 & Subida de fotos & Como usuario, quiero subir varias fotos desde mi móvil para tener una copia de seguridad en mi servidor. & 5 \\
     \hline
@@ -236,7 +258,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HU08 & Conexión remota & Como usuario, quiero poder conectarme remotamente si expongo mi servidor, para acceder a mis fotos desde fuera de casa. & 13 \\
     \hline
-    HU09 & Galería visual & Como usuario, quiero ver una galería de las fotos subidas, para revisar mi contenido fácilmente. & 5 \\
+    HU09 & Galería visual & Como usuario, quiero ver una galería de las fotos y videos subidos, para revisar mi contenido fácilmente. & 5 \\
     \hline
     HU10 & Espacio ocupado & Como usuario, quiero ver el espacio ocupado por mis archivos, para controlar el almacenamiento del servidor. & 3 \\
     \hline
@@ -254,7 +276,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HT02 & Sincronización incremental & Implementar sincronización basada en metadatos (fecha, tamaño, hash). & 5 \\
     \hline
-    HT03 & API REST en Rust & Diseñar API RESTful para subida, borrado y consulta de archivos. & 13 \\
+    HT03 & API REST en Rust & Desarrollar API RESTful usando Rust y Axum & 13 \\
     \hline
     HT04 & Descubrimiento mDNS & Crear sistema de descubrimiento automático usando mDNS. & 8 \\
     \hline
@@ -296,88 +318,129 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
 \end{tabularx}
 
+\paragraph{Historias que se han dividido}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|l|>{\raggedright}X|l|}
+            \hline
+            ID & Título & Descripción & Estimación \\
+            \hline
+            HT18 & Binario y Tauri & Empaquetar servidor como CLI y app Tauri. & 5 \\
+            \hline
+            HT18.1 & Binario & Empaquetar la aplicación como un solo binario & 2 \\
+            \hline
+            HT18.2 & Tauri & Empaquetar aplicación de escritorio con Tauri & 3 \\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|>{\raggedright\arraybackslash}X|l|}
+            \hline
+            ID & Título & Descripción & Estimación \\
+            \hline
+            HT20 & Documentación & Documentar instalación y uso del sistema. & 13 \\
+            \hline
+            HT20.1 & Documentación del proyecto en Github & Documentar la instalación y uso del proyecto en el repositorio de Github & 5 \\
+            \hline
+            HT20.2 &  Documentación de la API REST con OpenAPI & Documentar mediante la generación de una página web todos los endpoints de la API REST & 5 \\
+            \hline
+            HT20.3 & Documentación de la aplicación Tauri & Manual de usuario de la aplicación de escritorio desarrollada con Tauri & 3 \\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+\newpage
 \subsubsection{Móvil} 
-\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|p{2cm}|}
+\begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|l|}
     \hline
     ID & Título & Descripción & Estimación \\
     \hline
-    HU01 & Seleccionar fotos & Como usuario, quiero seleccionar varias fotos desde mi galería para subirlas al servidor. & 3 \\
+    HU16 & Seleccionar fotos & Como usuario, quiero seleccionar varias fotos desde mi galería para subirlas al servidor. & 3 \\
     \hline
-    HU02 & Subir fotos automáticamente & Como usuario, quiero que se suban automáticamente las nuevas fotos que hago, sin tener que hacerlo manualmente. & 8 \\
+    HU17 & Subir fotos automáticamente & Como usuario, quiero que se suban automáticamente las nuevas fotos que hago, sin tener que hacerlo manualmente. & 8 \\
     \hline
-    HU03 & Ver progreso de subida & Como usuario, quiero ver el progreso de cada archivo que se está subiendo. & 8 \\
+    HU18 & Ver progreso de subida & Como usuario, quiero ver el progreso de cada archivo que se está subiendo. & 8 \\
     \hline
-    HU04 & Cancelar subida & Como usuario, quiero cancelar una subida en curso desde la interfaz. & 3 \\
+    HU19 & Cancelar subida & Como usuario, quiero cancelar una subida en curso desde la interfaz. & 3 \\
     \hline
-    HU05 & Ver archivos subidos & Como usuario, quiero ver una lista o galería de los archivos que ya están subidos. & 5 \\
+    HU20 & Ver archivos subidos & Como usuario, quiero ver una lista o galería de los archivos que ya están subidos. & 5 \\
     \hline
-    HU06 & Conexión automática al servidor & Como usuario, quiero que la app detecte y se conecte automáticamente al servidor en mi red. & 5 \\
+    HU21 & Conexión automática al servidor & Como usuario, quiero que la app detecte y se conecte automáticamente al servidor en mi red. & 5 \\
     \hline
-    HU07 & Cambiar de servidor & Como usuario, quiero poder cambiar manualmente la dirección del servidor si quiero usar otro. & 3 \\
+    HU22 & Cambiar de servidor & Como usuario, quiero poder cambiar manualmente la dirección del servidor si quiero usar otro. & 3 \\
     \hline
-    HU08 & Ver uso de almacenamiento & Como usuario, quiero ver cuánto espacio he usado en el servidor. & 3 \\
+    HU23 & Ver uso de almacenamiento & Como usuario, quiero ver cuánto espacio he usado en el servidor. & 3 \\
     \hline
-    HU09 & Inicio y cierre de sesión & Como usuario, quiero iniciar y cerrar sesión para proteger mis datos. & 5 \\
+    HU24 & Inicio y cierre de sesión & Como usuario, quiero iniciar y cerrar sesión para proteger mis datos. & 5 \\
     \hline
-    HU10 & Gestión de permisos & Como usuario, quiero que la app me pida permisos de acceso solo cuando sea necesario. & 3 \\
+    HU25 & Gestión de permisos & Como usuario, quiero que la app me pida permisos de acceso solo cuando sea necesario. & 3 \\
     \hline
-    HU11 & Notificaciones de subida & Como usuario, quiero recibir notificaciones cuando se complete la sincronización. & 5 \\
+    HU26 & Notificaciones de subida & Como usuario, quiero recibir notificaciones cuando se complete la sincronización. & 5 \\
     \hline
-    HU12 & Subir vídeos & Como usuario, quiero subir también vídeos de mi galería al servidor. & 5 \\
+    HU27 & Subir vídeos & Como usuario, quiero subir también vídeos de mi galería al servidor. & 5 \\
     \hline
-    HU13 & Subida en segundo plano & Como usuario, quiero que las subidas continúen aunque cierre la app. & 8 \\
+    HU28 & Subida en segundo plano & Como usuario, quiero que las subidas continúen aunque cierre la app. & 8 \\
     \hline
-    HU15 & Sincronización manual & Como usuario, quiero poder iniciar la sincronización manualmente. & 3 \\
+    HU29 & Sincronización manual & Como usuario, quiero poder iniciar la sincronización manualmente. & 3 \\
     \hline
-    HU16 & Galería online & Como usuario, quiero ver mis fotos en la app sin tener que descargarlas. & 5 \\
+    HU30 & Galería online & Como usuario, quiero ver mis fotos en la app sin tener que descargarlas. & 5 \\
     \hline
-    HT01 & Acceso a la galería & Implementar acceso seguro a la galería de fotos y vídeos. & 5 \\
+    HT23 & Acceso a la galería & Implementar acceso seguro a la galería de fotos y vídeos. & 5 \\
     \hline
-    HT02 & Comunicación con API & Integrar cliente HTTP que se comunique con el servidor. & 5 \\
+    HT24 & Comunicación con API & Integrar cliente HTTP que se comunique con el servidor. & 5 \\
     \hline
-    HT03 & Almacenamiento local & Guardar estado de archivos subidos/no subidos de forma local. & 3 \\
+    HT25 & Almacenamiento local & Guardar estado de archivos subidos/no subidos de forma local. & 3 \\
     \hline
-    HT04 & Manejo de errores de red & Implementar gestión de errores de red y reintentos automáticos. & 5 \\
+    HT26 & Manejo de errores de red & Implementar gestión de errores de red y reintentos automáticos. & 5 \\
     \hline
-    HT05 & Subida concurrente & Soportar subida de varios archivos en paralelo con control de errores. & 5 \\
+    HT27 & Subida concurrente & Soportar subida de varios archivos en paralelo con control de errores. & 5 \\
     \hline
-    HT06 & Sincronización de fondo & Implementar sincronización en segundo plano. & 8 \\
+    HT28 & Sincronización de fondo & Implementar sincronización en segundo plano. & 8 \\
     \hline
-    HT07 & Pruebas unitarias & Añadir pruebas unitarias y de integración a la lógica común en React Native / Lynx.js & 13 \\
+    HT29 & Pruebas unitarias & Añadir pruebas unitarias y de integración a la lógica común en React Native / Lynx.js & 13 \\
     \hline
-    HT08 & CI/CD móvil & Pipeline de construcción y publicación para Android e iOS. & 5 \\
+    HT30 & CI/CD móvil & Pipeline de construcción y publicación para Android e iOS. & 5 \\
     \hline
-    HT09 & Gestión de tokens & Almacenar y renovar tokens de autenticación de forma segura. & 3 \\
+    HT31 & Gestión de tokens & Almacenar y renovar tokens de autenticación de forma segura. & 3 \\
     \hline
-    HT10 & Notificaciones locales & Integrar sistema de notificaciones locales en Android/iOS. & 3 \\
+    HT32 & Notificaciones locales & Integrar sistema de notificaciones locales en Android/iOS. & 3 \\
     \hline
-    HT11 & Optimización de red & Reducir uso de red usando compresión. & 5 \\
+    HT33 & Optimización de red & Reducir uso de red usando compresión. & 5 \\
     \hline
-    HT12 & Localización & Soporte multilenguaje para la aplicación. & 8 \\
+    HT34 & Localización & Soporte multilenguaje para la aplicación. & 8 \\
     \hline
-    HT13 & Permisos condicionales & Solicitar permisos en tiempo de ejecución de forma contextual. & 3 \\
+    HT35 & Permisos condicionales & Solicitar permisos en tiempo de ejecución de forma contextual. & 3 \\
     \hline
-    HT14 & UI responsive & Adaptar UI para distintos tamaños de pantalla (tablet, móvil). & 3 \\
+    HT36 & UI responsive & Adaptar UI para distintos tamaños de pantalla (tablet, móvil). & 3 \\
     \hline
 \end{tabularx}
 
-
 \subsection{Planificación inicial}
+\label{sec:planificacion-inicial}
 Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad, las cuales tienen un inicio y un fin.
 
 Se suele crear un sprint denominado como ``Sprint 0'' en el que se hace una planificación inicial, se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de las tareas que se van a realizar en todos los sprints.
-Durante este spring no se va a desarrollar funcionalidad, si no que se van a asentar unas bases para todo el proyecto sobre las cuales se trabajará en los siguientes sprints.
+Durante este sprint no se va a desarrollar funcionalidad, si no que se van a asentar unas bases para todo el proyecto sobre las cuales se trabajará en los siguientes sprints.
 Los objetivos de este sprint son los siguientes:
 
 \begin{itemize}
     \item Definir diagrama de la arquitectura inicial del sistema.
-    \item Definir el product backlog inicial.
-    \item Realizar diagrama de Gantt para planificación de los sprints.
-    \item Definir el backlog de el primer sprint.
+    \item Estudiar la estructura de implementación del sistema.
+    \item Definir un presupuesto para el proyecto (sección \hyperref[sec:presupuesto]{Presupuesto}).
+    \item Definir el product backlog inicial (sección \hyperref[sec:historias-de-usuario]{Historias de usuario}).
     \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
     \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
-    \item Configurar el entorno de desarrollo tanto para el servidor como el cliente.
+    \item Definir el entorno de desarrollo tanto para el servidor como el cliente.
+    \item Definir el backlog de el primer sprint.
+    \item Realizar diagrama de Gantt para el primer sprint.
 \end{itemize}
+
+El product backlog inicial se ha definido en la \hyperref[sec:historias-de-usuario]{sección de historias de usuario} y se ha dividido en dos partes, una para el servidor y otra para el cliente móvil.
 
 \subsubsection{Diagrama de arquitectura}
 \begin{figure}[H]
@@ -450,5 +513,306 @@ La capa de presentación se encargará de la interfaz de usuario y de la interac
 Tal como se comenta en el libro \textit{Clean Architecture} \parencite{uncle-bob-clean-architecture}, esta arquitectura es como una cebolla, donde cada capa está separada por una interfaz y cada capa puede comunicarse con la capa inferior a través de esta interfaz, pero no al revés.
 Es decir, nuestra capa de dominio no se puede comunicar con ninguna de las otras capas, ya que esta es la capa más interna y no debe depender de ninguna otra capa.
 
-\subsection{Presupuesto}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/clean-architecture-mobile.png}
+  \caption{Diagrama de arquitectura limpia en aplicación móvil.}
+  \label{fig:clean-architecture-mobile}
+\end{figure}
+
+En la imagen podemos ver el diagrama de una arquitectura limpia para nuestra aplicación móvil, donde cada capa tiene una responsabilidad clara y bien definida.
+
+Las flechas representan cómo accede cada capa a las demás.
+El acceso se hace de la capa más externa a la más interna, es decir, la capa de dominio (la más interna) no puede saber nada sobre las otras capas, pero la capa de presentación puede acceder a la capa de dominio y a la capa de aplicación. 
+
+Nuestra capa de aplicación no utiliza directamente la capa de infraestructura, sino que lo hace a través de interfaces que definimos en la capa de dominio. La capa de infraestructura se encarga de implementar estas interfaces, lo que nos permite cambiar la implementación de la capa de infraestructura sin afectar a la capa de dominio, de aplicación ni la de presentación.
+
+De esta manera conseguimos una separación de responsabilidades y una independencia de la infraestructura, lo que nos permite cambiar la implementación de cualquier capa sin afectar al resto del sistema.
+También nos permite hacer pruebas unitarias e integración de manera más sencilla, ya que podemos \gls{mockear} las interfaces de la capa de infraestructura y probar la lógica de negocio sin necesidad de depender de la implementación concreta de la capa de infraestructura.
+
+\subsubsection{Inicialización del entorno de desarrollo}
+En esta sección se va a detallar cómo se ha procedido a la inicialización del entorno de desarrollo tanto para el servidor como para la aplicación móvil.
+\paragraph{Servidor}
+\subparagraph{}
+Para la inicialización del entorno de desarrollo del servidor nos hemos basado en la estructura de ejemplo que se puede encontrar en el artículo consultado sobre la arquitectura hexagonal en Rust \parencite{rust-hexagonal-architecture}. Éste quedaría de la siguiente manera:
+\dirtree{%
+.1 /.
+.2 migrations/.
+.3 20240603122606\_create\_authors.down.sql.
+.3 20240603122606\_create\_authors.up.sql.
+.2 src/.
+.3 bin/.
+.4 server/.
+.5 main.rs.
+.3 lib/.
+.4 domain/.
+.5 blog/.
+.6 models/.
+.7 author.rs.
+.6 models.rs.
+.6 ports.rs.
+.6 service.rs.
+.5 blog.rs.
+.4 inbound/.
+.5 http/.
+.6 handlers/.
+.7 create\_author.rs.
+.6 handlers.rs.
+.6 responses.rs.
+.5 http.rs.
+.4 outbound/.
+.5 email\_client.rs.
+.5 prometheus.rs.
+.5 sqlite.rs.
+.4 config.rs.
+.4 domain.rs.
+.4 inbound.rs.
+.4 lib.rs.
+.4 outbound.rs.
+.2 .env.template.
+.2 .gitignore.
+.2 Cargo.lock.
+.2 Cargo.toml.
+.2 LICENSE.
+.2 README.md.
+}
+
+Como podemos ver, tenemos la siguiente estructura:
+\begin{itemize}
+    \item \textbf{migrations}: esta carpeta contiene los archivos de migración de la base de datos, que se utilizan para crear y actualizar la estructura de la base de datos. En este caso, tenemos un archivo para crear la tabla de autores. Esta carpeta contiene todos los archivos necesarios para inicializar la base de datos y para borrarla si es necesario.
+    \item \textbf{src}: esta carpeta contiene todo el código fuente del servidor, con las siguientes subcarpetas:
+        \begin{itemize}
+            \item \textbf{bin}: contiene el código que se ejecuta al iniciar el servidor, el punto de entrada de la aplicación. En esta carpeta no vamos a tener ningún tipo de lógica implementada, tan solo inicializaremos el servidor, definiremos las implementaciones de las interfaces y arrancaremos el servidor con las dependencias que necesite.
+            \item \textbf{lib}: en esta carpeta tenemos todo el código de la aplicación, dividido siguiendo una filosofía hexagonal de la siguiente manera:
+                \begin{itemize}
+                    \item \textbf{domain}: contiene el código del dominio de la aplicación, es decir, la lógica de negocio. Aquí tenemos los modelos, definiciones de los puertos (interfaces) y servicios que se utilizan en la aplicación.
+                    \item \textbf{inbound}: contiene el código de la capa de entrada de la aplicación, es decir, las interfaces que se exponen al exterior. En este caso, tenemos un módulo HTTP que define los handlers (controladores) que se encargan de recibir las peticiones HTTP y devolver las respuestas correspondientes.
+                    \item \textbf{outbound}: contiene el código de la capa de salida de la aplicación, es decir, las implementaciones de las interfaces que se utilizan en la capa de dominio. En este caso, tenemos un cliente de correo electrónico, un cliente de Prometheus y un cliente SQLite que se encargan de enviar correos electrónicos, exponer métricas y acceder a la base de datos respectivamente.
+                    \item \textbf{config.rs}: contiene la configuración de la aplicación, como las variables de entorno y los parámetros de configuración.
+                    \item Los demás archivos definen los módulos de Rust.
+                \end{itemize}
+        \end{itemize}
+\end{itemize}
+
+Además de esos archivos, tenemos los archivos típicos de un proyecto de Rust, como son el \texttt{Cargo.toml} y el \texttt{Cargo.lock}, que definen las dependencias del proyecto y la versión de las mismas, así como el archivo \texttt{README.md} que contiene la documentación del proyecto y el archivo \texttt{LICENSE} que contiene la licencia del proyecto.
+
+En nuestro proyecto, tal y como se ha definido anteriormente, vamos a utilizar un enfoque de arquitectura monolítica modular siguiendo el patrón de código \acrshort{cqrs}.
+En este enfoque, los archivos van a estar organizados en módulos en vez de agrupados por capas, lo que nos va a permitir definir de una manera más clara y flexible las funcionalidades de cada módulo.
+Además, en la capa de aplicación se separan los casos de uso en comandos y consultas (las consultas son las que se encargan de obtener datos y los comandos son los que se encargan de modificar el estado del sistema), lo que nos permite tener una mejor organización del código y una mayor flexibilidad a la hora de añadir nuevas funcionalidades.
+
+Este es un enfoque común en aplicaciones web modernas, ya que gracias a esto podríamos conseguir funcionalidades como añadir caché a las consultas, realizar pruebas unitarias de los comandos y consultas de manera independiente, y tener una mejor organización del código en general.
+
+Si adaptáramos este proyecto de ejemplo a la estructura que vamos a utilizar, tendríamos una estructura de la siguiente manera:
+
+\newpage
+\dirtree{%
+.1 /.
+.2 migrations/.
+.3 20240603122606\_create\_authors.down.sql.
+.3 20240603122606\_create\_authors.up.sql.
+.2 src/.
+.3 bin/.
+.4 server/.
+.5 main.rs.
+.3 lib/.
+.4 blog/.
+.5 domain/.
+.6 models.rs.
+.6 models/.
+.7 author.rs.
+.6 ports.rs.
+.5 application/.
+.6 commands/.
+.7 create\_author.rs.
+.6 queries/.
+.7 get\_authors.rs.
+.5 infrastructure/.
+.6 sqlite.rs.
+.6 email\_client.rs.
+.5 interface/.
+.6 http/.
+.7 handlers.rs.
+.7 handlers/.
+.8 create\_author.rs.
+.7 responses.rs.
+.4 monitoring/.
+.5 infrastructure/.
+.6 prometheus.rs.
+.4 shared/.
+.5 config.rs.
+.5 lib.rs.
+.2 .env.template.
+.2 .gitignore.
+.2 Cargo.lock.
+.2 Cargo.toml.
+.2 LICENSE.
+.2 README.md.
+}
+
+\paragraph{Cliente móvil}
+\subparagraph{}
+Viendo la estructura del servidor y la definición de la arquitectura limpia para una aplicación móvil que hemos definido en la figura \ref{fig:clean-architecture-mobile}, podemos ver que la estructura del cliente móvil es muy similar a la del servidor, pero con algunas diferencias.
+
+En este caso no vamos a utilizar el patrón de código \acrshort{cqrs}, ya que no es necesario en una aplicación móvil, pero sí vamos a utilizar una estructura modular similar a la del servidor, donde cada módulo tiene una responsabilidad clara y bien definida.
+La única adición que tendremos con respecto a la estructura del servidor es que en la aplicación móvil tenemos una capa de presentación que se encarga de la interfaz de usuario y de la interacción con el usuario, la cual sería la equivalente a la capa de interface que definimos en el servidor para la comunicación con el exterior (en el caso del servidor, mediante comunicación HTTP).
+
+Una estructura de ejemplo para una aplicación móvil que hace uso de el servidor de ejemplo que hemos definido anteriormente podría ser la siguiente:
+
+\dirtree{%
+.1 mobile-app/.
+.2 src/.
+.3 modules/.
+.4 blog/.
+.5 domain/.
+.5 application/.
+.6 services/.
+.7 authorService.ts.
+.7 blogService.ts.
+.5 infrastructure/.
+.5 presentation/.
+.4 monitoring/.
+.5 application/.
+.6 services/.
+.7 monitoringService.ts.
+.5 infrastructure/.
+.5 presentation/.
+.4 shared/.
+.5 config/.
+.5 application/.
+.6 services/.
+.7 httpService.ts.
+.7 storageService.ts.
+.5 infrastructure/.
+.5 presentation/.
+.5 types/.
+.3 navigation/.
+.3 App.tsx.
+.2 assets/.
+.2 \_\_tests\_\_/.
+.2 archivos de configuración del proyecto...
+}
+
+La principal diferencia que tenemos con respecto al servidor es que en la capa de aplicación no seguiremos un patrón CQRS y tendremos implementaciones de servicios que se encargan de toda la lógica.
+Además, la capa de interfaz se cambia por una capa de presentación, que se encargará de la interfaz de usuario y de la interacción con el usuario.
+
+Para la inicialización del entorno de desarrollo del cliente móvil, además del directorio que implementa nuestra aplicación usando Lynx.js necesitaremos un directorio para el código de Lynx Explorer, puesto que tendremos que hacer una implementación de módulos nativos para acceder a funcionalidades como el acceso a imágenes en el dispositivo tanto como para gestionar los permisos necesarios de la aplicación.
+Toda la documentación que se ha utilizado para inicializar el directorio con nuestra versión de Lynx Explorer se puede encontrar en la \href{https://lynxjs.org/guide/use-native-modules.html#platform=android}{documentación oficial de Lynx.js} sobre implementación de módulos nativos.
+
+\subsubsection{Desarrollo de artefactos del primer sprint}
+Tal y como se ha definido en la \hyperref[sec:metodologia]{sección de metodología}, cada sprint se va a enfocar en una parte del proyecto. En este caso, el primer sprint se va a centrar en historias de usuario del servidor solamente. El segundo sprint se centrará en las historias de usuario del cliente móvil y una vez analizado el estado de ambos productos, se decidirá si comenzar a tener sprints conjuntos.
+
+En la metodología Scrum se cogen historias de usuario hasta que la suma de las estimaciones de las historias de usuario sea menor o igual a la velocidad del equipo para ese sprint.
+La velocidad del equipo se define como la cantidad de puntos de historia que el equipo puede completar en un sprint, y se calcula a partir de los sprints anteriores.
+En este caso, como es el primer sprint y no tenemos una velocidad definida, se escogen historias de usuario fijándose en el tipo de tarea e intentando no tener una suma de puntos de historia muy alta.
+
+Una vez se termina el sprint, en el proceso de retrospectiva se analiza cuántas historias de usuario se han completado o cuantas se han quedado a medias, y se ajusta la velocidad del equipo para el siguiente sprint. Este proceso se repite en cada sprint hasta que el equipo tiene una velocidad estable y podemos tener una estimación más precisa de cuántas historias de usuario se pueden completar en cada sprint.
+
+Durante la especificación del sprint backlog se va a estudiar si hay historias de usuario que puedan ser divididas en distintas historias y una vez se hayan definido las historias de usuario que se van a implementar en el sprint, definiremos las tareas correspondientes a cada historia de usuario junto con su estimación en horas.
+En el momento que tenemos estimaciones en horas de tareas, podemos realizar un diagrama de Gantt para el sprint con las tareas y su duración estimada.
+
+\subsubsection{Planificación de entregas}
+En esta sección se va a definir los objetivos generales que tendremos para cada entrega en caga sprint. Estos objetivos son estimados y pueden variar dependiendo de la velocidad real del equipo, puede ser que se consiga más en un sprint o menos. Esta planificación se realiza para que, en el caso de que tuviéramos un cliente, se le pudiera dar una estimación del producto que va a ir recibiendo en cada entrega.
+
+En nuestro caso y en el tipo de proyecto que estamos realizando, nos sirve para tener un enfoque claro de lo que queremos conseguir en cada sprint y no desviarnos realizando otras tareas.
+Definir qué se va a entregar en cada sprint nos ayuda también a priorizar qué historias de usuario se van a realizar en cada sprint.
+
+Teniendo en cuenta que el desarrollo del proyecto comienza la última semana de junio de 2025, que cada sprint dura dos semanas y que la fecha límite de entrega del proyecto es el 5 de septiembre de 2025, tenemos un total de 11 semanas para el proyecto. Teniendo en cuenta que el sprint 0 tiene una duración de una semana, tenemos un total de 5 sprints para el desarrollo del proyecto.
+
+Los objetivos de cada sprint quedarían de la siguiente manera:
+\begin{itemize}
+    \item \textbf{Sprint 1}: Implementación de la API REST del servidor, incluyendo la gestión de usuarios, autenticación y autorización, así como la subida y descarga de archivos. Durante esta iteración se busca implementar una subida y descarga de archivos básica y genérica.
+    \item \textbf{Sprint 2}: Implementación de la aplicación móvil. Definición e implementación de módulos nativos para el acceso a archivos multimedia y permisos. Durante esta iteración se busca implementar una aplicación de gestión de galería básica sin funcionalidades de sincronización. 
+    \item \textbf{Sprint 3}: Implementación de todo el procesado multimedia en el servidor: generación de miniaturas, compresión de imágenes y vídeos, etiquetado basado en metadatos, etc. En el cliente se implementará la subida de archivos multimedia a el servidor y la visualización de los archivos subidos.
+    \item \textbf{Sprint 4}: Implementación de la sincronización automática de archivos multimedia en el cliente móvil tanto como la visualización del estado nuestra galería en el servidor. En esta iteración implementaremos principalmente toda la conexión automática entre el cliente y el servidor, así como la sincronización de archivos multimedia.
+    \item \textbf{Sprint 5}: Implementación de la gestión de usuarios desde el cliente móvil, incluyendo la gestión de permisos en las galerías, álbumes y archivos. Durante esta última iteración se implementará el uso compartido de galerías y álbumes entre usuarios.
+    \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia propio en el servidor. Éste último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto open-source.
+\end{itemize}
+
+Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint anterior.
+
+\subsection{Presupuesto}
+\label{sec:presupuesto}
+Para el cálculo y desglose del presupuesto total del proyecto se ha supuesto un equipo de una única persona a media jornada.
+
+Para el cálculo del presupuesto de personal hemos tenido en cuenta el salario medio de un ingeniero de software en España, que según el portal de empleo \href{https://www.glassdoor.es/Sueldos/granada-software-engineer-sueldo-SRCH_IL.0,7_IC2614045_KO8,25.htm}{Glassdoor} ronda entre los 24.000 y 33.000 euros brutos anuales, cogiendo el valor de 24000 euros brutos anuales como salario base dada la inexperiencia del trabajador.
+
+Para calcular el costo total mensual de un trabajador, tenemos que sumar a el salario base los costes de seguridad social, la cuota patronal y el \acrshort{irpf}, siguiendo la siguiente fórmula:
+\begin{equation}
+    \text{Coste total mensual} = \text{Salario base} + \text{Seguridad Social} + \text{Cuota patronal} + \text{IRPF}
+\end{equation}
+\begin{itemize}
+    \item Salario base: 12.000 euros brutos anuales / 12 meses = 1.000 euros brutos mensuales
+    \item Seguridad social: se entiende por seguridad social a la cuota obrera que debe de pagar el trabajador. En este caso se debe aplicar el 6.45\% sobre el salario bruto mensual. Por lo tanto:
+        \begin{equation}
+            \text{Seguridad Social} = 1000 \times 0.0645 = 64.5 \text{ euros mensuales}
+        \end{equation}
+    \item Cuota patronal: se entiende por cuota patronal a la cuota que debe de pagar la empresa por el trabajador.
+        Según la base mínima de cotización para 2024 de un ingeniero técnico (1.532,10 euros\footnote{Fuente: \href{https://www.cuestioneslaborales.es/porcentaje-de-cotizacion-a-la-seguridad-social-del-trabajador-y-empresa/}{Porcentaje de cotización a la Seguridad Social del trabajador y empresa} entre 2 ya que es media jornada\textit{ Última vez accedido el 20/06/2025 }}) se ha aplicado el porcentaje de cotización del 31,98\%.
+        Nuestro cálculo es el siguiente:
+        \begin{equation}
+            \text{Cuota patronal} = \dfrac{1532.10 \times 0.3198}{2} = 245.12 \text{ euros mensuales}
+        \end{equation}
+    \item IRPF: con un salario bruto anual de 12.000 euros, en 2024 el IRPF que aplica es del 19\% \footnote{Fuente: \href{https://www.bankinter.com/blog/finanzas-personales/como-calcular-retenciones-irpf-nomina\#tabla-retenciones}{Cómo calcular retenciones IRPF en la nómina}\textit{ Última vez accedido el 20/06/2025 }}.
+        Por lo tanto, el IRPF mensual sería:
+        \begin{equation}
+            \text{IRPF} = 1000 \times 0.19 = 190 \text{ euros mensuales}
+        \end{equation}
+\end{itemize}
+
+De esta manera, el coste total mensual del trabajador sería:
+\begin{equation}
+    \text{Coste total mensual} = 1000 + 64.5 + 245.12 + 190 = 1499.62 \text{ euros mensuales}
+\end{equation}
+
+Para el gasto de materiales solamente tendremos materiales inventables, concretamente el material de trabajo del trabajador.
+Dicho material de trabajo sería el siguiente:
+\begin{itemize}
+    \item Ordenador de sobremesa: 1.000 euros con vida estimada restante de 4 años, es decir, 250 euros al año.
+    \item Monitores: 300 euros con vida estimada restante de 6 años, es decir, 50 euros al año.
+    \item Teclado y ratón: 150 euros con vida estimada restante de 3 años, es decir, 50 euros al año.
+\end{itemize}
+La duración total del proyecto es de 3 meses, por lo que el coste total de materiales sería:
+\begin{equation}
+    \text{Coste total de materiales} = \dfrac{250 + 50 + 50}{12} \times 3 = 37.5 \text{ euros}
+\end{equation}
+
+Dado que uno de los objetivos principales del proyecto es la capacidad de alojar la aplicación en un servidor propio, no tenemos en cuenta el coste de un servidor.
+
+Dado que la aplicación se ha desarrollado usando Rust y Lynx.js, no se han tenido en cuenta los costes de licencias de software, ya que ambas tecnologías son Open-Source y no requieren de licencias para su uso.
+
+Para la formación del trabajador se han usado cursos gratuitos así como la documentación oficial de las tecnologías utilizadas, por lo que no se ha tenido en cuenta ningún coste adicional.
+
+De esta forma, tendríamos el siguiente desglose de costes:
+\begin{table}[H]
+    \caption{Tabla de presupuesto del proyecto}\label{tab:presupuesto}
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|X|c|c|c|}
+            \hline
+            \textbf{Gastos elegibles} & \textbf{Unidades} & \textbf{Coste por unidad} & \textbf{Importe solicitado} \\
+            \hline
+            \multicolumn{3}{|l|}{\textbf{GASTOS DE PERSONAL}} & \textbf{4.498.86\euro} \\
+            Total gastos de contratación de personal & 3 & 1.499,62\euro/mes & 4.498,86\euro \\
+            \hline
+            \multicolumn{3}{|l|}{\textbf{GASTOS DE EJECUCIÓN}} & \textbf{87.5\euro} \\
+            \multicolumn{3}{|l|}{Costes de adquisición de material inventariable} & 87.5\euro \\
+            \quad Ordenador & 1 & 62,50\euro & 62,50\euro \\
+            \quad Monitores & 1 & 12,50\euro & 12,50\euro \\
+            \quad Teclado y ratón & 1 & 12,50\euro & 12,50\euro \\
+            \multicolumn{3}{|l|}{Costes de adquisición de material fungible} & 0\euro \\
+            \multicolumn{3}{|l|}{Costes de consultoría, prestación de servicios, suministros, etc.} & 0\euro \\
+            \multicolumn{3}{|l|}{Costes de subcontratación} & 0\euro \\
+            \multicolumn{3}{|l|}{\textbf{GASTOS COMPLEMENTARIOS}} & \textbf{0\euro} \\
+            \multicolumn{3}{|l|}{Formación del equipo de desarrollo} & 0\euro \\
+            \multicolumn{3}{|l|}{Gastos de desplazamiento, viajes, estancias y dietas} & 0\euro \\
+            \multicolumn{3}{|l|}{Gastos de inscripción en congresos y seminarios} & 0\euro \\
+            \hline
+            \multicolumn{3}{|l|}{\textbf{COSTES DIRECTOS (10\% presupuesto total)}} & \textbf{458,64\euro} \\
+            \hline
+            \multicolumn{3}{|l|}{\textbf{TOTAL INCENTIVO SOLICITADO}} & \textbf{5.045,00\euro} \\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+\input{sections/sprints/sprint1}
