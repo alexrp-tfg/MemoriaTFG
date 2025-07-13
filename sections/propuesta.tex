@@ -595,7 +595,7 @@ Como podemos ver, tenemos la siguiente estructura:
         \end{itemize}
 \end{itemize}
 
-Además de esos archivos, tenemos los archivos típicos de un proyecto de Rust, como son el \texttt{Cargo.toml} y el \texttt{Cargo.lock}, que definen las dependencias del proyecto y la versión de las mismas, así como el archivo \texttt{README.md} que contiene la documentación del proyecto y el archivo \texttt{LICENSE} que contiene la licencia del proyecto.
+Además de esos archivos, tenemos los archivos típicos de un proyecto de Rust, como son el \texttt{Cargo.toml} y el \texttt{Cargo.lock}, que definen las dependencias del proyecto y la versión de las mismas, así como el archivo \texttt{README.md} que contiene la documentación del proyecto y el archivo \texttt{LICENSE} que contiene la licencia del proyecto. Tanto el archivo \texttt{README.md} como el \texttt{LICENSE} se han redactado en inglés al igual que todo el código, puesto que el proyecto está pensado para ser Open-Source y se busca que cualquier persona pueda entenderlo y contribuir al mismo.
 
 En nuestro proyecto, tal y como se ha definido anteriormente, vamos a utilizar un enfoque de arquitectura monolítica modular siguiendo el patrón de código \acrshort{cqrs}.
 En este enfoque, los archivos van a estar organizados en módulos en vez de agrupados por capas, lo que nos va a permitir definir de una manera más clara y flexible las funcionalidades de cada módulo.
@@ -721,13 +721,14 @@ Teniendo en cuenta que el desarrollo del proyecto comienza la última semana de 
 
 Los objetivos de cada sprint quedarían de la siguiente manera:
 \begin{itemize}
-    \item \textbf{Sprint 1}: Implementación de la API REST del servidor, incluyendo la gestión de usuarios, autenticación y autorización, así como la subida y descarga de archivos. Durante esta iteración se busca implementar una subida y descarga de archivos básica y genérica.
+    \item \textbf{Sprint 1}: Implementación de la API REST del servidor, incluyendo la gestión de usuarios, autenticación y autorización. Durante esta iteración se busca implementar una gestión de usuarios simple junto con toda la estructura base del proyecto.
     \item \textbf{Sprint 2}: Implementación de la aplicación móvil. Definición e implementación de módulos nativos para el acceso a archivos multimedia y permisos. Durante esta iteración se busca implementar una aplicación de gestión de galería básica sin funcionalidades de sincronización. 
-    \item \textbf{Sprint 3}: Implementación de todo el procesado multimedia en el servidor: generación de miniaturas, compresión de imágenes y vídeos, etiquetado basado en metadatos, etc. En el cliente se implementará la subida de archivos multimedia a el servidor y la visualización de los archivos subidos.
+    \item \textbf{Sprint 3}: Implementación de todo el procesado multimedia en el servidor: generación de miniaturas, subida y compresión de imágenes y vídeos, etiquetado basado en metadatos, etc. En el cliente se implementará la subida de archivos multimedia a el servidor y la visualización de los archivos subidos.
     \item \textbf{Sprint 4}: Implementación de la sincronización automática de archivos multimedia en el cliente móvil tanto como la visualización del estado nuestra galería en el servidor. En esta iteración implementaremos principalmente toda la conexión automática entre el cliente y el servidor, así como la sincronización de archivos multimedia.
     \item \textbf{Sprint 5}: Implementación de la gestión de usuarios desde el cliente móvil, incluyendo la gestión de permisos en las galerías, álbumes y archivos. Durante esta última iteración se implementará el uso compartido de galerías y álbumes entre usuarios.
-    \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia propio en el servidor. Éste último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto open-source.
+    \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia propio en el servidor. 
 \end{itemize}
+Este último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto open-source.
 
 Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint anterior.
 
@@ -816,3 +817,4 @@ De esta forma, tendríamos el siguiente desglose de costes:
 \end{table}
 
 \input{sections/sprints/sprint1}
+\input{sections/sprints/sprint2}
