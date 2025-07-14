@@ -1,3 +1,4 @@
+# Gantt diagrams for Sprint 1 tasks
 ```mermaid
 gantt
     title Sprint 1 - Semana 1
@@ -70,4 +71,54 @@ gantt
     Crear Dockerfile para el servidor (1.5h)          :dockerfile, after verify-binary, 9h
     Configurar variables y volúmenes Docker (1h)      :docker-config, after dockerfile, 6h
     Probar despliegue local (0.5h)                    :docker-test, after docker-config, 3h
+```
+
+# Component's relationships diagram
+```mermaid
+flowchart TD
+    subgraph Dominio
+        TraitUserRepository["Trait: UserRepository"]
+        UserRepositoryError["Enum: UserRepositoryError"]
+        User
+    end
+
+    subgraph Infraestructura
+        DieselUserRepository["Struct: DieselUserRepository<br/>impl UserRepository"]
+    end
+
+    subgraph Aplicación
+        CreateUserHandler["create_user_command_handler<UR: UserRepository>"]
+    end
+
+    subgraph Interfaz Axum
+        HttpServer["HttpServer::new(user_repository: UserRepository)"]
+        RouteCreateUser["Route: create_user<UR: UserRepository>"]
+        AppState["AppState<UR>"]
+    end
+
+    %% Relaciones
+    
+    DieselUserRepository -->|Implementa|TraitUserRepository
+
+    CreateUserHandler -->|Usa| TraitUserRepository
+
+    RouteCreateUser -->|Extrae del estado global| AppState
+    RouteCreateUser -->|Recibe comando y llama con el repositorio del estado| CreateUserHandler
+
+    TraitUserRepository -->|Puede devolver| UserRepositoryError
+    TraitUserRepository -->|Puede devolver| User
+    HttpServer -->|Recibe las implementaciones al inicializar e inyecta| AppState
+    AppState -->|Contiene| TraitUserRepository
+
+    %% Estilos
+    classDef trait fill:#f9f,stroke:#333,stroke-width:1px;
+    classDef struct fill:#bbf,stroke:#333,stroke-width:1px;
+    classDef function fill:#bfb,stroke:#333,stroke-width:1px;
+    classDef error fill:#fdd,stroke:#333,stroke-width:1px;
+
+    class TraitUserRepository trait;
+    class DieselUserRepository,AppState,User,NewUser,DBConnectionPool struct;
+    class CreateUserHandler,RouteCreateUser,HttpServer function;
+    class UserRepositoryError error;
+
 ```
