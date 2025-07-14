@@ -6,7 +6,7 @@
 <meta content='width=device-width,initial-scale=1' name='viewport' /> 
 <link href='main.css' rel='stylesheet' type='text/css' /> 
 <meta content='main.tex' name='src' /> 
-</head><body>
+</head><body id='trait-de-repositorio-de-usuarios'><span id='inyeccion-del-repositorio-en-el-estado-global-y-uso-en-el-comando-para-crear-un-usuario'></span><span id='implementacion-del-repositorio-de-usuarios'></span>
 <div class='maketitle'>
                                                                                  
                                                                                  
@@ -17,14 +17,14 @@
 de archivos multimedia</h2>
  <div class='author'><span class='cmr-12'>Alejandro Ramos Pe</span>ñ<span class='cmr-12'>a</span></div>
 <br />
-<div class='date'><span class='cmr-12'>2 de julio de 2025</span></div>
+<div class='date'><span class='cmr-12'>14 de julio de 2025</span></div>
 </div><figure class='figure'> 
 
                                                                                  
                                                                                  
                                                                                  
                                                                                  
-<!-- l. 74 --><p class='noindent'><img alt='PIC' src='./images/logo-ugr.jpg' style='width:47.04%' />
+<!-- l. 84 --><p class='noindent'><img alt='PIC' src='./images/logo-ugr.jpg' style='width:47.04%' />
                                                                                  
                                                                                  
 </p>
@@ -115,31 +115,33 @@ conclusiones a las que se llega. Esta sección tiene que estar en inglés y en e
 <br /><span class='sectionToc'>6 <a href='#sprint-' id='QQ2-1-129'>Sprint 1</a></span>
 <br /><span class='subsectionToc'>6.1 <a href='#historias-de-usuario' id='QQ2-1-130'>Historias de usuario</a></span>
 <br /><span class='subsectionToc'>6.2 <a href='#diagrama-de-gantt' id='QQ2-1-133'>Diagrama de Gantt</a></span>
-<br /><span class='sectionToc'>7 <a href='#conclusiones2' id='QQ2-1-136'>Conclusiones</a></span>
-<br /><span class='sectionToc'>8 <a href='#bibliografia' id='QQ2-1-137'>Bibliografía</a></span>
-<br /><span class='sectionToc'><a href='#bibliografia1' id='QQ2-1-138'>Bibliografía</a></span>
+<br /><span class='subsectionToc'>6.3 <a href='#detalles-de-implementacion' id='QQ2-1-136'>Detalles de implementación</a></span>
+<br /><span class='sectionToc'>7 <a href='#conclusiones2' id='QQ2-1-151'>Conclusiones</a></span>
+<br /><span class='sectionToc'>8 <a href='#bibliografia' id='QQ2-1-152'>Bibliografía</a></span>
+<br /><span class='sectionToc'><a href='#bibliografia1' id='QQ2-1-153'>Bibliografía</a></span>
+                                                                                 
+                                                                                 
 </div>
-                                                                                 
-                                                                                 
-<!-- l. 82 --><p class='noindent' id='lista-de-figuras'>
+<!-- l. 92 --><p class='noindent' id='lista-de-figuras'>
                                                                                  
                                                                                  
 <a id='Q1-1-3'></a>
 
 </p>
 <h3 class='likesectionHead' id='indice-de-figuras'><a id='x1-3000'></a>Índice de figuras</h3>
-<div class='tableofcontents'><span class='lofToc'>1 <a href='#diagrama-del-proceso-completo-de-scrum-httpswwwleccionesaprendidasinfodiagramaexplicativoscrumguiahtmlfuente'>Diagrama del proceso completo de Scrum (Fuente)</a></span><br /><span class='lofToc'>2 <a href='#comparativa-de-uso-de-cpu-entre-rust-y-otros-lenguajes-de-programacion-menos-es-mejor-rustforsafetyandperformance'>Comparativa de uso de
-CPU entre Rust y otros lenguajes de programación (menos es mejor) (Bugden &amp;
-Alahmar, 2022)</a></span><br /><span class='lofToc'>3 <a href='#comparativa-de-uso-de-memoria-entre-rust-y-otros-lenguajes-de-programacion-menos-es-mejor-rustforsafetyandperformance'>Comparativa de uso de memoria entre Rust y otros lenguajes
-de programación (menos es mejor) (Bugden &amp; Alahmar, 2022)</a></span><br /><span class='lofToc'>4 <a href='#ciclo-de-vida-de-los-componentes-en-lynxjs-httpslynxjsorgreactlifecyclehtmldocumentacion'>Ciclo de vida
-de los componentes en Lynx.js (Documentación)</a></span><br /><span class='lofToc'>5 <a href='#diagrama-de-la-arquitectura-del-sistema-representa-las-comunicaciones-entre-los-distintos-elementos-del-sistema'>Diagrama de la arquitectura
-del sistema. Representa las comunicaciones entre los distintos elementos del
-sistema</a></span><br /><span class='lofToc'>6 <a href='#comparativa-entre-una-arquitectura-monolitica-de-microservicios-y-monolitica-modular-tsechelidismodular'>Comparativa entre una arquitectura monolítica, de microservicios y
-monolítica modular. (Tsechelidis et al., 2023)</a></span><br /><span class='lofToc'>7 <a href='#diagrama-de-arquitectura-limpia-en-aplicacion-movil'>Diagrama de arquitectura limpia
-en aplicación móvil.</a></span><br /><span class='lofToc'>8 <a href='#diagrama-de-gantt-de-las-tareas-de-la-primera-semana-del-sprint'>Diagrama de Gantt de las tareas de la primera semana
-del sprint</a></span><br /><span class='lofToc'>9 <a href='#diagrama-de-gantt-de-las-tareas-de-la-segunda-semana-del-sprint'>Diagrama de Gantt de las tareas de la segunda semana del sprint</a></span><br />
+<div class='tableofcontents'><span class='lofToc'>1 <a href='#diagrama-del-proceso-completo-de-scrum-httpswwwleccionesaprendidasinfodiagramaexplicativoscrumguiahtmlfuente'>Diagrama del proceso completo de Scrum (Fuente)</a></span><br /><span class='lofToc'>2 <a href='#comparativa-de-uso-de-cpu-entre-rust-y-otros-lenguajes-de-programacion-menos-es-mejor-rustforsafetyandperformance'>Comparativa de uso de CPU
+entre Rust y otros lenguajes de programación (menos es mejor) (Bugden &amp; Alahmar,
+<a id='page.7'></a>2022)</a></span><br /><span class='lofToc'>3 <a href='#comparativa-de-uso-de-memoria-entre-rust-y-otros-lenguajes-de-programacion-menos-es-mejor-rustforsafetyandperformance'>Comparativa de uso de memoria entre Rust y otros lenguajes de programación
+(menos es mejor) (Bugden &amp; Alahmar, 2022)</a></span><br /><span class='lofToc'>4 <a href='#ciclo-de-vida-de-los-componentes-en-lynxjs-httpslynxjsorgreactlifecyclehtmldocumentacion'>Ciclo de vida de los componentes
+en Lynx.js (Documentación)</a></span><br /><span class='lofToc'>5 <a href='#diagrama-de-la-arquitectura-del-sistema-representa-las-comunicaciones-entre-los-distintos-elementos-del-sistema'>Diagrama de la arquitectura del sistema. Representa
+las comunicaciones entre los distintos elementos del sistema</a></span><br /><span class='lofToc'>6 <a href='#comparativa-entre-una-arquitectura-monolitica-de-microservicios-y-monolitica-modular-tsechelidismodular'>Comparativa
+entre una arquitectura monolítica, de microservicios y monolítica modular.
+(Tsechelidis et al., 2023)</a></span><br /><span class='lofToc'>7 <a href='#diagrama-de-arquitectura-limpia-en-aplicacion-movil'>Diagrama de arquitectura limpia en aplicación
+móvil.</a></span><br /><span class='lofToc'>8 <a href='#diagrama-de-gantt-de-las-tareas-de-la-primera-semana-del-sprint'>Diagrama de Gantt de las tareas de la primera semana del sprint</a></span><br /><span class='lofToc'>9 <a href='#diagrama-de-gantt-de-las-tareas-de-la-segunda-semana-del-sprint'>Diagrama
+de Gantt de las tareas de la segunda semana del sprint</a></span><br /><span class='lofToc'>10 <a href='#diagrama-que-muestra-relaciones-entre-las-capas-para-nuestra-implementacion'>Diagrama
+que muestra relaciones entre las capas para nuestra implementación.</a></span><br />
 </div>
-<!-- l. 86 --><p class='noindent' id='lista-de-tablas'>
+<!-- l. 96 --><p class='noindent' id='lista-de-tablas'>
                                                                                  
                                                                                  
 <a id='Q1-1-5'></a>
@@ -154,15 +156,15 @@ términos de tiempo de CPU. (Mayor es mejor)</a></span><br /><span class='lotToc
 de Rust con respecto a otros lenguajes de programación en términos de
 uso de memoria. (Mayor es mejor)</a></span><br /><span class='lotToc'>12 <a href='#tabla-de-presupuesto-del-proyecto'>Tabla de presupuesto del proyecto</a></span><br />
 </div>
-<!-- l. 90 --><p class='noindent' id='glosario'>
+<!-- l. 100 --><p class='noindent' id='glosario'>
                                                                                  
                                                                                  
 <a id='Q1-1-7'></a>
-</p><!-- l. 95 --><p class='noindent' id='lista-de-acronimos'>
+</p><!-- l. 105 --><p class='noindent' id='lista-de-acronimos'>
                                                                                  
                                                                                  
 <a id='Q1-1-8'></a>
-</p><!-- l. 99 --><p class='noindent'>
+</p><!-- l. 109 --><p class='noindent'>
                                                                                  
                                                                                  
 </p><!-- l. 1 --><p class='noindent'>
@@ -302,7 +304,7 @@ Ente.
 <!-- l. 27 --><p class='noindent'>El ecosistema de bibliotecas de fotos de código abierto ha experimentado un crecimiento
 significativo en los últimos años, impulsado por las crecientes preocupaciones sobre la privacidad de
 los datos y la dependencia de servicios en la nube propietarios. Según el análisis comparativo
-realizado por Meichthys (<a id='x1-11001'></a>meichthys, <a href='#cite.0_meichthys2024'>2025</a>), existen más de 16 proyectos activos que ofrecen
+realizado por Meichthys (<a id='x1-11001'></a>meichthys, <a id='page.18'></a><a href='main.html#X0-meichthys2024'>2025</a>), existen más de 16 proyectos activos que ofrecen
 diferentes enfoques y características.
 </p><!-- l. 29 --><p class='noindent'>Las soluciones analizadas se pueden clasificar en tres categorías principales: </p>
      <ul class='itemize1'>
@@ -702,7 +704,7 @@ de memoria (ownership y borrowing) introducen una curva de aprendizaje considera
 más pronunciada que la de Go. Ya se ha trabajado anteriormente con Rust, lo cual
 facilita el aprendizaje de este lenguaje. Además, la documentación oficial de Rust es
 muy completa y está bien estructurada, contando con el libro oficial de rust (<a id='x1-32001'></a>Klabnik
-&amp; Nichols, <a href='#cite.0_rustbook2021'>2021</a>), que ayuda a los nuevos usuarios a familiarizarse con el lenguaje.
+&amp; Nichols, <a id='page.31'></a><a href='main.html#X0-rustbook2021'>2021</a>), que ayuda a los nuevos usuarios a familiarizarse con el lenguaje.
 </p>
      <ul class='itemize1'>
      <li class='itemize'><span class='cmbx-10x-x-109'>Ventajas: </span>Sintaxis potente que permite un control muy granular.
@@ -1724,7 +1726,7 @@ y escalable.
      </li>
      <li class='itemize'>Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible
      a  largo  plazo,  permitiendo  añadir  nuevas  funcionalidades  y  mejoras  de  manera
-     sencilla. Para ello se implementará una arquitectura limpia (<a id='x1-86001'></a>Martin, <a href='#cite.0_uncle-bob-clean-architecture'>2017</a>), lo que nos
+     sencilla. Para ello se implementará una arquitectura limpia (<a id='x1-86001'></a>Martin, <a id='page.72'></a><a href='main.html#X0-uncle-bob-clean-architecture'>2017</a>), lo que nos
      proporcionará una estructura del proyecto completamente desacoplada, facilitando la
      escalabilidad y mantenimiento.
      </li>
@@ -1753,7 +1755,7 @@ flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
 </p><!-- l. 26 --><p class='noindent'>Se ha optado por el uso de Scrum en vez de otra metodología ágil como Kanban o XP (Extreme
 Programming) o alguna metodología tradicional ya que se ha utilizado anteriormente y se
 considera que es con la que más cómodo y eficaz se va trabajar.
-</p><!-- l. 28 --><p class='noindent'>Tal y como se explica en la guía oficial de Scrum (<a id='x1-87001'></a>Schwaber &amp; Sutherland, <a href='#cite.0_scrum-guide'>2020</a>), Scrum es un
+</p><!-- l. 28 --><p class='noindent'>Tal y como se explica en la guía oficial de Scrum (<a id='x1-87001'></a>Schwaber &amp; Sutherland, <a id='page.73'></a><a href='main.html#X0-scrum-guide'>2020</a>), Scrum es un
 marco de trabajo ágil que se utiliza para gestionar proyectos complejos y adaptarse a los cambios
 de manera rápida y eficiente. Se basa en la colaboración entre equipos multidisciplinarios, la
 entrega continua de valor y la mejora continua. Scrum se centra en la entrega de
@@ -1852,13 +1854,13 @@ similar a la de otros lenguajes de programación como C++ o Java, lo que facilit
 para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo
 más seguro, rápido y eficiente.
 </p><!-- l. 75 --><p class='noindent'>¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? (<a id='x1-89001'></a>Bugden &amp;
-Alahmar, <a href='#cite.0_rust-for-safety-and-performance'>2022</a>) </p>
+Alahmar, <a id='page.77'></a><a href='main.html#X0-rust-for-safety-and-performance'>2022</a>) </p>
      <ul class='itemize1'>
      <li class='itemize'><span class='cmbx-10x-x-109'>Rendimiento</span>: es conocido por su alto rendimiento, lo que lo convierte en una
      excelente  opción  para  aplicaciones  que  requieren  un  procesamiento  intensivo  de
      datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías
      para  desarrollo  web  es  muy  bueno,  como  se  puede  ver  en  distintos  benchmark
-     (<a id='x1-89002'></a>Techempower, <a href='#cite.0_rust-benchmark'>2022</a>).
+     (<a id='x1-89002'></a>Techempower, <a href='main.html#X0-rust-benchmark'>2022</a>).
      </li>
      <li class='itemize'><span class='cmbx-10x-x-109'>Seguridad</span>:  tiene  un  sistema  de  tipos  y  un  modelo  de  propiedad  que  ayudan
      a  prevenir  errores  comunes  de  programación,  como  desbordamientos  de  búfer  y
@@ -1890,7 +1892,7 @@ Alahmar, <a href='#cite.0_rust-for-safety-and-performance'>2022</a>) </p>
 <!-- l. 88 --><p class='noindent'><img alt='PIC' src='assets/rust-cpu-comparison.png' style='width:80%' />
 </p>
 <figcaption class='caption'><span class='id'>Figura 2: </span><span class='content'>Comparativa de uso de CPU entre Rust y otros lenguajes de programación (menos
-es mejor) (<a id='x1-89004'></a>Bugden &amp; Alahmar, <a href='#cite.0_rust-for-safety-and-performance'>2022</a>)</span></figcaption><!-- tex4ht:label?: x1-89003r2  -->
+es mejor) (<a id='x1-89004'></a>Bugden &amp; Alahmar, <a id='page.80'></a><a href='main.html#X0-rust-for-safety-and-performance'>2022</a>)</span></figcaption><!-- tex4ht:label?: x1-89003r2  -->
                                                                                  
                                                                                  
 </figure>
@@ -1904,7 +1906,7 @@ es mejor) (<a id='x1-89004'></a>Bugden &amp; Alahmar, <a href='#cite.0_rust-for-
 <!-- l. 96 --><p class='noindent'><img alt='PIC' src='assets/rust-memory-comparison.png' style='width:80%' />
 </p>
 <figcaption class='caption'><span class='id'>Figura 3: </span><span class='content'>Comparativa de uso de memoria entre Rust y otros lenguajes de programación
-(menos es mejor) (<a id='x1-89006'></a>Bugden &amp; Alahmar, <a href='#cite.0_rust-for-safety-and-performance'>2022</a>)</span></figcaption><!-- tex4ht:label?: x1-89005r3  -->
+(menos es mejor) (<a id='x1-89006'></a>Bugden &amp; Alahmar, <a id='page.83'></a><a href='main.html#X0-rust-for-safety-and-performance'>2022</a>)</span></figcaption><!-- tex4ht:label?: x1-89005r3  -->
                                                                                  
                                                                                  
 </figure>
@@ -2063,7 +2065,7 @@ repositorio con los proyectos de ejemplo proporciona una buena base para empezar
 con Lynx.js y nos permite centrarnos en el desarrollo de la aplicación sin tener que preocuparnos
 por la configuración del proyecto.
 </p><!-- l. 193 --><p class='noindent'>Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho
-por el equipo de Lynx (<a id='x1-90002'></a>Lynx-Team, <a href='#cite.0_lynx-native-modules'>2025</a>).
+por el equipo de Lynx (<a id='x1-90002'></a>Lynx-Team, <a id='page.94'></a><a href='main.html#X0-lynx-native-modules'>2025</a>).
 </p><!-- l. 195 --><p class='noindent'>Dado que para el desarrollo de aplicaciones en iOS es necesario tener un sistema de Apple, en la
 implementación de esta aplicación nos centraremos en la parte de Android, aunque el código de la
 aplicación será el mismo para ambas plataformas. La única diferencia será la implementación de los
@@ -2113,7 +2115,7 @@ el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser
 hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en
 aplicaciones como <span class='cmbx-10x-x-109'>TikTok Studio</span>, <span class='cmbx-10x-x-109'>Disney100 en TikTok</span>, <span class='cmbx-10x-x-109'>The Met Gala en TikTok </span>tal y
 como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source
-(<a id='x1-90003'></a>Huang &amp; Team, <a href='#cite.0_lynx-article'>2025</a>).
+(<a id='x1-90003'></a>Huang &amp; Team, <a id='page.95'></a><a href='main.html#X0-lynx-article'>2025</a>).
 
 </p>
 <h4 class='subsectionHead' id='historias-de-usuario-historias-tecnicas'><span class='titlemark'>5.3.   </span> <a id='x1-910005.3'></a>Historias de usuario / Historias técnicas</h4>
@@ -3214,7 +3216,7 @@ implementar nuestras aplicaciones. Buscamos la separación de responsabilidades 
 organización lo cual nos lleva a cumplir uno de nuestros objetivos generales (OG4): desarrollar un
 sistema fácilmente escalable.
 </p><!-- l. 480 --><p class='noindent'>Para ello, se ha estudiado las distintas opciones que tenemos, tanto para el servidor como para la
-aplicación móvil, y principalmente se ha optado por una arquitectura limpia (<a id='x1-97001'></a>Martin, <a href='#cite.0_uncle-bob-clean-architecture'>2017</a>), cuyos
+aplicación móvil, y principalmente se ha optado por una arquitectura limpia (<a id='x1-97001'></a>Martin, <a id='page.122'></a><a href='main.html#X0-uncle-bob-clean-architecture'>2017</a>), cuyos
 principios son: </p>
      <ul class='itemize1'>
      <li class='itemize'><span class='cmbx-10x-x-109'>Separaci</span>ó<span class='cmbx-10x-x-109'>n de responsabilidades</span>: cada capa del sistema tiene una responsabilidad
@@ -3260,7 +3262,7 @@ funcionalidades del servidor.
 <!-- l. 501 --><p class='noindent'><img alt='PIC' src='assets/modular-monolith-comparison.png' style='width:80%' />
 </p>
 <figcaption class='caption'><span class='id'>Figura 6: </span><span class='content'>Comparativa entre una arquitectura monolítica, de microservicios y monolítica
-modular. (<a id='x1-99002'></a>Tsechelidis et al., <a href='#cite.0_tsechelidis2023modular'>2023</a>)</span></figcaption><!-- tex4ht:label?: x1-99001r6  -->
+modular. (<a id='x1-99002'></a>Tsechelidis et al., <a id='page.125'></a><a href='main.html#X0-tsechelidis2023modular'>2023</a>)</span></figcaption><!-- tex4ht:label?: x1-99001r6  -->
                                                                                  
                                                                                  
 </figure>
@@ -3282,7 +3284,7 @@ infraestructura. La capa de presentación se encargará de la interfaz de usuari
 con el usuario, la capa de dominio se encargará de la lógica de negocio y la capa de
 infraestructura se encargará de la comunicación con el servidor y el almacenamiento
 local.
-Tal como se comenta en el libro <span class='cmti-10x-x-109'>Clean Architecture </span>(<a id='x1-101001'></a>Martin, <a href='#cite.0_uncle-bob-clean-architecture'>2017</a>), esta arquitectura es como
+Tal como se comenta en el libro <span class='cmti-10x-x-109'>Clean Architecture </span>(<a id='x1-101001'></a>Martin, <a id='page.126'></a><a href='main.html#X0-uncle-bob-clean-architecture'>2017</a>), esta arquitectura es como
 una cebolla, donde cada capa está separada por una interfaz y cada capa puede comunicarse con
 la capa inferior a través de esta interfaz, pero no al revés. Es decir, nuestra capa de dominio no se
 puede comunicar con ninguna de las otras capas, ya que esta es la capa más interna y no debe
@@ -3329,7 +3331,7 @@ tanto para el servidor como para la aplicación móvil.
 </p>
 <!-- l. 537 --><p class='noindent'><span class='subparagraphHead' id='_3'><a id='x1-104000'></a></span> Para la inicialización del entorno de desarrollo del servidor nos hemos basado en la estructura de
 ejemplo que se puede encontrar en el artículo consultado sobre la arquitectura hexagonal en Rust
-(<a id='x1-104001'></a>Morrison, <a href='#cite.0_rust-hexagonal-architecture'>2024</a>). Éste quedaría de la siguiente manera:
+(<a id='x1-104001'></a>Morrison, <a id='page.129'></a><a href='main.html#X0-rust-hexagonal-architecture'>2024</a>). Éste quedaría de la siguiente manera:
 </p><!-- l. 579 --><p class='noindent'>   <span class='cmtt-10x-x-109'>/</span>
 </p><!-- l. 579 --><p class='noindent'>   __</p><!-- l. 579 --><p class='noindent'><span class='cmtt-10x-x-109'>migrations/</span>
 </p><!-- l. 579 --><p class='noindent'>      __</p><!-- l. 579 --><p class='noindent'><span class='cmtt-10x-x-109'>20240603122606_create_authors.down.sql</span>
@@ -3417,7 +3419,10 @@ ejemplo que se puede encontrar en el artículo consultado sobre la arquitectura 
 <!-- l. 598 --><p class='noindent'>Además de esos archivos, tenemos los archivos típicos de un proyecto de Rust, como son el
 <span class='cmtt-10x-x-109'>Cargo.toml </span>y el <span class='cmtt-10x-x-109'>Cargo.lock</span>, que definen las dependencias del proyecto y la versión de las
 mismas, así como el archivo <span class='cmtt-10x-x-109'>README.md </span>que contiene la documentación del proyecto y el archivo
-<span class='cmtt-10x-x-109'>LICENSE </span>que contiene la licencia del proyecto.
+<span class='cmtt-10x-x-109'>LICENSE </span>que contiene la licencia del proyecto. Tanto el archivo <span class='cmtt-10x-x-109'>README.md </span>como el <span class='cmtt-10x-x-109'>LICENSE </span>se
+han redactado en inglés al igual que todo el código, puesto que el proyecto está pensado para
+ser Open-Source y se busca que cualquier persona pueda entenderlo y contribuir al
+mismo.
 </p><!-- l. 600 --><p class='noindent'>En nuestro proyecto, tal y como se ha definido anteriormente, vamos a utilizar un enfoque de
 arquitectura monolítica modular siguiendo el patrón de código <a class='glossary' href='#glo_cqrs'>CQRS</a>. En este enfoque, los
 archivos van a estar organizados en módulos en vez de agrupados por capas, lo que nos
@@ -3590,9 +3595,8 @@ proyecto.
 </p><!-- l. 722 --><p class='noindent'>Los objetivos de cada sprint quedarían de la siguiente manera: </p>
      <ul class='itemize1'>
      <li class='itemize'><span class='cmbx-10x-x-109'>Sprint 1</span>: Implementación de la API REST del servidor, incluyendo la gestión de
-     usuarios,  autenticación  y  autorización,  así  como  la  subida  y  descarga  de  archivos.
-     Durante esta iteración se busca implementar una subida y descarga de archivos básica
-     y genérica.
+     usuarios, autenticación y autorización. Durante esta iteración se busca implementar una
+     gestión de usuarios simple junto con toda la estructura base del proyecto.
      </li>
      <li class='itemize'><span class='cmbx-10x-x-109'>Sprint 2</span>: Implementación de la aplicación móvil. Definición e implementación de módulos
      nativos para el acceso a archivos multimedia y permisos. Durante esta iteración se
@@ -3600,9 +3604,9 @@ proyecto.
      sincronización.
      </li>
      <li class='itemize'><span class='cmbx-10x-x-109'>Sprint 3</span>: Implementación de todo el procesado multimedia en el servidor: generación
-     de miniaturas, compresión de imágenes y vídeos, etiquetado basado en metadatos, etc.
-     En el cliente se implementará la subida de archivos multimedia a el servidor y la
-     visualización de los archivos subidos.
+     de  miniaturas,  subida  y  compresión  de  imágenes  y  vídeos,  etiquetado  basado  en
+     metadatos, etc. En el cliente se implementará la subida de archivos multimedia a el
+     servidor y la visualización de los archivos subidos.
      </li>
      <li class='itemize'><span class='cmbx-10x-x-109'>Sprint 4</span>: Implementación de la sincronización automática de archivos multimedia en
      el cliente móvil tanto como la visualización del estado nuestra galería en el servidor.
@@ -3615,11 +3619,12 @@ proyecto.
      </li>
      <li class='itemize'><span class='cmbx-10x-x-109'>Sprint 6</span>: Implementación de interfaz de usuario para gestión de configuración del
      servidor.  Implementación  de  servicio  de  almacenamiento  de  archivos  multimedia
-     propio en el servidor. Éste último sprint, aunque no entra en el plazo de entrega del
-     proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro,
-     poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y
-     facilitar contribuciones al proyecto open-source.</li></ul>
-<!-- l. 732 --><p class='noindent'>Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la
+     propio en el servidor.</li></ul>
+<!-- l. 731 --><p class='noindent'>Este último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener
+una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más
+clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto
+open-source.
+</p><!-- l. 733 --><p class='noindent'>Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la
 naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al
 final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y
 objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint
@@ -3629,13 +3634,13 @@ anterior.
                                                                                  
 </p>
 <h4 class='subsectionHead' id='presupuesto'><span class='titlemark'>5.5.   </span> <a id='x1-1090005.5'></a>Presupuesto</h4>
-<!-- l. 736 --><p class='noindent'>Para el cálculo y desglose del presupuesto total del proyecto se ha supuesto un equipo de una única
+<!-- l. 737 --><p class='noindent'>Para el cálculo y desglose del presupuesto total del proyecto se ha supuesto un equipo de una única
 persona a media jornada.
-</p><!-- l. 738 --><p class='noindent'>Para el cálculo del presupuesto de personal hemos tenido en cuenta el salario medio de un
+</p><!-- l. 739 --><p class='noindent'>Para el cálculo del presupuesto de personal hemos tenido en cuenta el salario medio de un
 ingeniero de software en España, que según el portal de empleo <a href='https://www.glassdoor.es/Sueldos/granada-software-engineer-sueldo-SRCH_IL.0,7_IC2614045_KO8,25.htm'>Glassdoor</a> ronda entre los 24.000 y
 33.000 euros brutos anuales, cogiendo el valor de 24000 euros brutos anuales como salario base
 dada la inexperiencia del trabajador.
-</p><!-- l. 740 --><p class='noindent'>Para calcular el costo total mensual de un trabajador, tenemos que sumar a el salario base
+</p><!-- l. 741 --><p class='noindent'>Para calcular el costo total mensual de un trabajador, tenemos que sumar a el salario base
 los costes de seguridad social, la cuota patronal y el <a class='glossary' href='#glo_irpf'>IRPF</a>, siguiendo la siguiente
 fórmula:
 </p>
@@ -3643,12 +3648,12 @@ fórmula:
 <div class='math-display'>
 <img alt='Coste total mensual = Salario base+ Seguridad Social+ Cuota patronal+ IRPF' class='math-display' src='main2x.png' /><a id='x1-109001r3'></a></div>
 </td><td class='equation-label'>(3)</td></tr></table>
-<!-- l. 743 --><p class='nopar'></p>
+<!-- l. 744 --><p class='nopar'></p>
      <ul class='itemize1'>
      <li class='itemize'>Salario base: 12.000 euros brutos anuales / 12 meses = 1.000 euros brutos mensuales
      </li>
      <li class='itemize'>
-     <!-- l. 746 --><p class='noindent'>Seguridad social: se entiende por seguridad social a la cuota obrera que debe de pagar el
+     <!-- l. 747 --><p class='noindent'>Seguridad social: se entiende por seguridad social a la cuota obrera que debe de pagar el
      trabajador. En este caso se debe aplicar el 6.45% sobre el salario bruto mensual. Por lo
      tanto:
 </p>
@@ -3658,10 +3663,10 @@ fórmula:
                                                                                  
                                                                                  
      </td><td class='equation-label'>(4)</td></tr></table>
-     <!-- l. 749 --><p class='nopar'>
+     <!-- l. 750 --><p class='nopar'>
      </p></li>
      <li class='itemize'>
-     <!-- l. 750 --><p class='noindent'>Cuota patronal: se entiende por cuota patronal a la cuota que debe de pagar la empresa por el
+     <!-- l. 751 --><p class='noindent'>Cuota patronal: se entiende por cuota patronal a la cuota que debe de pagar la empresa por el
      trabajador. Según la base mínima de cotización para 2024 de un ingeniero técnico (1.532,10
      euros<span class='footnote-mark'><a href='main8.html#fn7x0'><sup class='textsuperscript'>7</sup></a></span><a id='x1-109003f7'></a> )
      se ha aplicado el porcentaje de cotización del 31,98%. Nuestro cálculo es el siguiente:
@@ -3671,10 +3676,10 @@ fórmula:
 <img alt='                 1532,10-×-0,3198-
 Cuota  patronal =        2        = 245,12 euros mensuales' class='math-display' src='main4x.png' /><a id='x1-109005r5'></a></div>
      </td><td class='equation-label'>(5)</td></tr></table>
-     <!-- l. 755 --><p class='nopar'>
+     <!-- l. 756 --><p class='nopar'>
      </p></li>
      <li class='itemize'>
-     <!-- l. 756 --><p class='noindent'>IRPF: con un salario bruto anual de 12.000 euros, en 2024 el IRPF que aplica es del 19%
+     <!-- l. 757 --><p class='noindent'>IRPF: con un salario bruto anual de 12.000 euros, en 2024 el IRPF que aplica es del 19%
      <span class='footnote-mark'><a href='main9.html#fn8x0'><sup class='textsuperscript'>8</sup></a></span><a id='x1-109006f8'></a>.
      Por lo tanto, el IRPF mensual sería:
 </p>
@@ -3682,17 +3687,17 @@ Cuota  patronal =        2        = 245,12 euros mensuales' class='math-display'
 <div class='math-display'>
 <img alt='IRPF  =  1000× 0,19 = 190 euros mensuales' class='math-display' src='main5x.png' /><a id='x1-109008r6'></a></div>
      </td><td class='equation-label'>(6)</td></tr></table>
-     <!-- l. 760 --><p class='nopar'></p></li></ul>
+     <!-- l. 761 --><p class='nopar'></p></li></ul>
                                                                                  
                                                                                  
-<!-- l. 763 --><p class='noindent'>De esta manera, el coste total mensual del trabajador sería:
+<!-- l. 764 --><p class='noindent'>De esta manera, el coste total mensual del trabajador sería:
 </p>
 <table class='equation'><tr><td>
 <div class='math-display'>
 <img alt='Coste total mensual = 1000 + 64,5+ 245,12 + 190 = 1499,62 euros mensuales' class='math-display' src='main6x.png' /><a id='x1-109009r7'></a></div>
 </td><td class='equation-label'>(7)</td></tr></table>
-<!-- l. 766 --><p class='nopar'>
-</p><!-- l. 768 --><p class='noindent'>Para el gasto de materiales solamente tendremos materiales inventables, concretamente
+<!-- l. 767 --><p class='nopar'>
+</p><!-- l. 769 --><p class='noindent'>Para el gasto de materiales solamente tendremos materiales inventables, concretamente
 el material de trabajo del trabajador. Dicho material de trabajo sería el siguiente:
 </p>
      <ul class='itemize1'>
@@ -3703,7 +3708,7 @@ el material de trabajo del trabajador. Dicho material de trabajo sería el sigui
      </li>
      <li class='itemize'>Teclado y ratón: 150 euros con vida estimada restante de 3 años, es decir, 50 euros al
      año.</li></ul>
-<!-- l. 775 --><p class='noindent'>La duración total del proyecto es de 3 meses, por lo que el coste total de materiales
+<!-- l. 776 --><p class='noindent'>La duración total del proyecto es de 3 meses, por lo que el coste total de materiales
 sería:
 </p>
 <table class='equation'><tr><td>
@@ -3712,28 +3717,28 @@ sería:
 Coste total de materiales =-------------× 3 = 37,5 euros
                                12' class='math-display' src='main7x.png' /><a id='x1-109010r8'></a></div>
 </td><td class='equation-label'>(8)</td></tr></table>
-<!-- l. 778 --><p class='nopar'>
+<!-- l. 779 --><p class='nopar'>
                                                                                  
                                                                                  
-</p><!-- l. 780 --><p class='noindent'>Dado que uno de los objetivos principales del proyecto es la capacidad de alojar la aplicación en
+</p><!-- l. 781 --><p class='noindent'>Dado que uno de los objetivos principales del proyecto es la capacidad de alojar la aplicación en
 un servidor propio, no tenemos en cuenta el coste de un servidor.
-</p><!-- l. 782 --><p class='noindent'>Dado que la aplicación se ha desarrollado usando Rust y Lynx.js, no se han tenido en cuenta los
+</p><!-- l. 783 --><p class='noindent'>Dado que la aplicación se ha desarrollado usando Rust y Lynx.js, no se han tenido en cuenta los
 costes de licencias de software, ya que ambas tecnologías son Open-Source y no requieren de
 licencias para su uso.
-</p><!-- l. 784 --><p class='noindent'>Para la formación del trabajador se han usado cursos gratuitos así como la documentación
+</p><!-- l. 785 --><p class='noindent'>Para la formación del trabajador se han usado cursos gratuitos así como la documentación
 oficial de las tecnologías utilizadas, por lo que no se ha tenido en cuenta ningún coste
 adicional.
-</p><!-- l. 786 --><p class='noindent'>De esta forma, tendríamos el siguiente desglose de costes: </p><div class='table'>
+</p><!-- l. 787 --><p class='noindent'>De esta forma, tendríamos el siguiente desglose de costes: </p><div class='table'>
                                                                                  
                                                                                  
-<!-- l. 787 --><p class='noindent' id='tabla-de-presupuesto-del-proyecto'><a id='x1-109011r12'></a></p><figure class='float'>
+<!-- l. 788 --><p class='noindent' id='tabla-de-presupuesto-del-proyecto'><a id='x1-109011r12'></a></p><figure class='float'>
                                                                                  
                                                                                  
 <figcaption class='caption'><span class='id'>Cuadro 12: </span><span class='content'>Tabla de presupuesto del proyecto</span></figcaption><!-- tex4ht:label?: x1-109011r12  -->
 <div class='center'>
-<!-- l. 789 --><p class='noindent'>
+<!-- l. 790 --><p class='noindent'>
 </p>
-<a id='x1-109012r13'></a><!-- l. 814 --><div class='longtable'> <table class='longtable' id='TBL-31'><colgroup id='TBL-31-1g'><col id='TBL-31-1' /></colgroup><colgroup id='TBL-31-2g'><col id='TBL-31-2' /></colgroup><colgroup id='TBL-31-3g'><col id='TBL-31-3' /></colgroup><colgroup id='TBL-31-4g'><col id='TBL-31-4' /></colgroup>
+<a id='x1-109012r13'></a><!-- l. 815 --><div class='longtable'> <table class='longtable' id='TBL-31'><colgroup id='TBL-31-1g'><col id='TBL-31-1' /></colgroup><colgroup id='TBL-31-2g'><col id='TBL-31-2' /></colgroup><colgroup id='TBL-31-3g'><col id='TBL-31-3' /></colgroup><colgroup id='TBL-31-4g'><col id='TBL-31-4' /></colgroup>
 <tr class='hline' style='border-top:1px solid #000'><td></td><td></td><td></td><td></td></tr><tr id='TBL-31-1-' style='vertical-align:baseline;'><td class='td11' id='TBL-31-1-1' style='white-space:normal; text-align:left;'> <span class='cmbx-10x-x-109'>Gastos
  elegibles</span>         </td><td class='td11' id='TBL-31-1-2' style='white-space:nowrap; text-align:center;'> <span class='cmbx-10x-x-109'>Unidades </span></td><td class='td11' id='TBL-31-1-3' style='white-space:nowrap; text-align:center;'>   <span class='cmbx-10x-x-109'>Coste por unidad    </span></td><td class='td11' id='TBL-31-1-4' style='white-space:nowrap; text-align:center;'> <span class='cmbx-10x-x-109'>Importe solicitado </span></td>
 
@@ -4335,6 +4340,344 @@ errores no genéricos, variables de entorno, pruebas...
 implementarán las primeras funcionalidades, que van a ser la del inicio de sesión seguro, seguido de
 la gestión de cuentas. Para finalizar el sprint, se documentará todo al completo.
 </p><!-- l. 575 --><p class='noindent'>Para finalizar, configuraremos todo lo necesario para poder desplegar el servidor.
+
+</p>
+<h4 class='subsectionHead' id='detalles-de-implementacion'><span class='titlemark'>6.3.   </span> <a id='x1-1150006.3'></a>Detalles de implementación</h4>
+
+<!-- l. 579 --><p class='noindent'><span class='paragraphHead' id='acceso-a-datos'><a id='x1-116000'></a><span class='cmbx-10x-x-109'>Acceso a datos</span></span>
+
+</p>
+<!-- l. 580 --><p class='noindent'><span class='subparagraphHead' id='_5'><a id='x1-117000'></a></span> Se ha optado por usar el <a class='glossary' href='#glo_orm'>ORM</a> <span class='cmbx-10x-x-109'>Diesel </span>para el acceso a datos, ya que es uno de los más populares
+y robustos en el ecosistema de Rust. Diesel proporciona una interfaz segura y eficiente para
+interactuar con bases de datos SQL, lo que facilita la creación y gestión de esquemas, así como la
+ejecución de consultas.
+Diesel nos proporciona un sistema de migraciones que nos permite versionar y gestionar los
+cambios en la estructura de la base de datos de manera controlada, generando esquemas
+que podemos utilizar a la hora de utilizar los métodos que nos proporciona el ORM.
+De esta manera, tendremos consultas seguras y tipadas. Esto nos da una especial
+seguridad a la hora de hacer un desarrollo ágil, ya que podemos iterar rápidamente sobre el
+modelo de datos y asegurarnos de que los cambios se reflejan correctamente en la
+base de datos y en nuestro código, ya que hasta que no se solucionen los problemas
+de compilación provenientes de los cambios en la infraestructura, no se podrá seguir
+avanzando.
+
+</p>
+<!-- l. 586 --><p class='noindent'><span class='paragraphHead' id='implementacion-de-arquitectura-limpia'><a id='x1-118000'></a><span class='cmbx-10x-x-109'>Implementaci</span>ó<span class='cmbx-10x-x-109'>n de Arquitectura Limpia</span></span>
+
+</p>
+<!-- l. 587 --><p class='noindent'><span class='subparagraphHead' id='_6'><a id='x1-119000'></a></span>
+Tal y como se ha descrito en apartados anteriores, se ha seguido una arquitectura limpia
+siguiendo el paradigma de programación <a class='glossary' href='#glo_cqrs'>CQRS</a>.
+</p><!-- l. 591 --><p class='noindent'>Para ello, se ha aprovechado el sistema de <span class='cmti-10x-x-109'>tipos gen</span>é<span class='cmti-10x-x-109'>ricos </span>que ofrece Rust.
+</p><!-- l. 593 --><p class='noindent'>Los tipos genéricos en Rust permiten escribir código que puede funcionar con múltiples tipos de
+datos sin necesidad de duplicar el código. Se definen utilizando parámetros de tipo, que
+son identificadores que se reemplazan por tipos concretos cuando se utiliza el código
+                                                                                 
+                                                                                 
+genérico.
+</p><!-- l. 595 --><p class='noindent'>En una arquitectura limpia, los tipos genéricos facilitan la creación de componentes
+reutilizables e independientes de la implementación concreta. Por ejemplo, se puede
+definir una interfaz (trait en Rust) para un repositorio de datos y luego implementar
+diferentes repositorios (e.g., uno para una base de datos y otro para un archivo) que
+implementen ese trait. Los tipos genéricos permiten que las capas superiores de la
+aplicación interactúen con el repositorio a través del trait, sin necesidad de conocer la
+implementación concreta. Esto facilita la inyección de dependencias, donde se puede
+pasar una implementación concreta del repositorio a la capa superior en tiempo de
+ejecución.
+</p><!-- l. 597 --><p class='noindent'>Los traits en Rust definen un conjunto de métodos que un tipo debe implementar
+para ser considerado como una instancia de ese trait, se podría considerar que son
+las “interfaces” de Rust. Los traits se pueden usar con tipos genéricos para restringir
+los tipos que se pueden usar con una función o estructura genérica. Por ejemplo, se
+puede definir una función genérica que solo funcione con tipos que implementen el trait
+‘Display‘.
+</p><!-- l. 599 --><p class='noindent'>De esta manera, definimos los traits que nos van a hacer falta en el dominio y cuando queremos
+usarlo en alguna función, simplemente le pasamos el tipo genérico que está definido en el dominio.
+A la hora de inicializar nuestra aplicación es cuando vamos a instanciar los tipos concretos que
+implementan esos traits que vamos a usar, los cuales se van a inyectar en donde haga falta, por
+lo general en un estado global de la aplicación, el cual es accesible desde cualquier hilo de
+ejecución.
+</p><!-- l. 602 --><p class='noindent'>Esto se puede ver en el siguiente ejemplo, donde definimos un trait que representa un repositorio
+de usuarios y luego implementamos el repositorio que accederá a la base de datos mediante el
+ORM <span class='cmbx-10x-x-109'>Diesel</span>:
+</p>
+<!-- l. 604 -->
+<p><a id='x1-119001r1'></a>
+ </p><pre class='lstlisting' id='listing-1'><span class='label'><a id='x1-119002r1'></a><span class='cmr-6'>1</span></span><span style='color:#AAAAAA'><span class='cmsltt-10x-x-109'>//</span></span><span style='color:#AAAAAA'> <span class='cmsltt-10x-x-109'>src/lib/users/domain/user_repository.rs</span> 
+</span><span class='label'><a id='x1-119003r2'></a><span class='cmr-6'>2</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>use</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>std::future::Future;</span> 
+</span><span class='label'><a id='x1-119004r3'></a><span class='cmr-6'>3</span></span> 
+<span class='label'><a id='x1-119005r4'></a><span class='cmr-6'>4</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>use</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>crate</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>::</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>users</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>::</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>domain</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>::{</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>user</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>::</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>NewUser</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>User};</span> 
+</span><span class='label'><a id='x1-119006r5'></a><span class='cmr-6'>5</span></span> 
+<span class='label'><a id='x1-119007r6'></a><span class='cmr-6'>6</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>pub</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>trait</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>UserRepository: Clone + Send + Sync + ’</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>static</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>{</span> 
+</span><span class='label'><a id='x1-119008r7'></a><span class='cmr-6'>7</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>fn</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>get_by_username(</span> 
+</span><span class='label'><a id='x1-119009r8'></a><span class='cmr-6'>8</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>&amp;</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>self</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span> 
+<span class='label'><a id='x1-119010r9'></a><span class='cmr-6'>9</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>username:</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>String</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span> 
+<span class='label'><a id='x1-119011r10'></a><span class='cmr-6'>10</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>) -&gt;</span> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>impl</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>Future&lt;Output =</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Result</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Option</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>User</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&gt;,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>UserRepositoryError&gt;&gt; + Send;</span> 
+</span><span class='label'><a id='x1-119012r11'></a><span class='cmr-6'>11</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>fn</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>create_user(&amp;</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>self</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>user: NewUser) -&gt;</span> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>impl</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>Future&lt;Output =</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Result</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>User</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>UserRepositoryError&gt;&gt; + Send;</span> 
+</span><span class='label'><a id='x1-119013r12'></a><span class='cmr-6'>12</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>}</span></span> 
+<span class='label'><a id='x1-119014r13'></a><span class='cmr-6'>13</span></span> 
+<span class='label'><a id='x1-119015r14'></a><span class='cmr-6'>14</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>#[</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>derive</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Debug</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>,</span></span><span style='color:#B65611'> <span class='cmtt-10x-x-109'>thiserror::Error)]</span> 
+</span><span class='label'><a id='x1-119016r15'></a><span class='cmr-6'>15</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>pub</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>enum</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>UserRepositoryError {</span> 
+</span><span class='label'><a id='x1-119017r16'></a><span class='cmr-6'>16</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>#[</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>error</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>("</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>User</span></span><span style='color:#B65611'> <span class='cmtt-10x-x-109'>already exists")]</span> 
+</span><span class='label'><a id='x1-119018r17'></a><span class='cmr-6'>17</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>UserAlreadyExists,</span> 
+</span><span class='label'><a id='x1-119019r18'></a><span class='cmr-6'>18</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>#[</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>error</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>("</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Unexpected</span></span><span style='color:#B65611'> <span class='cmtt-10x-x-109'>error")]</span> 
+</span><span class='label'><a id='x1-119020r19'></a><span class='cmr-6'>19</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>InternalServerError,</span> 
+</span><span class='label'><a id='x1-119021r20'></a><span class='cmr-6'>20</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>}</span></span></pre>
+ 
+ <figcaption class='caption'><span class='id'>Listing 1:
+     </span><span class='content'>Trait
+     de
+     repositorio
+     de
+     usuarios</span></figcaption><!-- tex4ht:label?: x1-119021r  -->
+<!-- l. 626 --><p class='noindent'>Hemos definido un trait que será usado para acceder de alguna manera que nuestra capa de
+aplicación no va a saber. Además, se definen errores de dominio, los cuales no tienen nada que ver
+con cualquier error que pueda ocurrir al acceder a los datos en la base de datos o el sistema que
+se esté usando.
+</p><!-- l. 628 --><p class='noindent'>Además, nuestro trait especifica que la implementación del trait debe también implementar Clone,
+Send y Sync, asegurándonos de que se puede utilizar de manera segura entre hilos. Esto es
+importante para que nuestro repositorio pueda ser usado en un entorno asíncrono y
+concurrente.
+</p>
+<!-- l. 630 -->
+<p><a id='x1-119022r2'></a>
+ </p><pre class='lstlisting' id='listing-2'><span class='label'><a id='x1-119023r1'></a><span class='cmr-6'>1</span></span><span style='color:#AAAAAA'><span class='cmsltt-10x-x-109'>//</span></span><span style='color:#AAAAAA'> <span class='cmsltt-10x-x-109'>src/lib/users/infrastructure/diesel_user_repository.rs</span> 
+</span><span class='label'><a id='x1-119024r2'></a><span class='cmr-6'>2</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>#[</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>derive</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Clone</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>]</span></span> 
+<span class='label'><a id='x1-119025r3'></a><span class='cmr-6'>3</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>pub</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>struct</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>DieselUserRepository {</span> 
+</span><span class='label'><a id='x1-119026r4'></a><span class='cmr-6'>4</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>pool:</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Arc</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>Pool</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>ConnectionManager</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>PgConnection</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&gt;&gt;&gt;,</span></span> 
+<span class='label'><a id='x1-119027r5'></a><span class='cmr-6'>5</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>}</span></span> 
+<span class='label'><a id='x1-119028r6'></a><span class='cmr-6'>6</span></span> 
+<span class='label'><a id='x1-119029r7'></a><span class='cmr-6'>7</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>impl</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>DieselUserRepository {</span> 
+</span><span class='label'><a id='x1-119030r8'></a><span class='cmr-6'>8</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>pub</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>fn</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>new(connection:</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Arc</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>Pool</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>ConnectionManager</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>PgConnection</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&gt;&gt;&gt;)</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>-&gt;</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Self</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>{</span> 
+</span><span class='label'><a id='x1-119031r9'></a><span class='cmr-6'>9</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>DieselUserRepository { pool: connection }</span> 
+</span><span class='label'><a id='x1-119032r10'></a><span class='cmr-6'>10</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>}</span> 
+</span><span class='label'><a id='x1-119033r11'></a><span class='cmr-6'>11</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>}</span></span> 
+<span class='label'><a id='x1-119034r12'></a><span class='cmr-6'>12</span></span> 
+<span class='label'><a id='x1-119035r13'></a><span class='cmr-6'>13</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>impl</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>UserRepository</span> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>for</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>DieselUserRepository {</span> 
+</span><span class='label'><a id='x1-119036r14'></a><span class='cmr-6'>14</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>async</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>fn</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>create_user(&amp;</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>self</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>new_user: NewUser) -&gt;</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Result</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>User</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>UserRepositoryError&gt; {</span> 
+</span><span class='label'><a id='x1-119037r15'></a><span class='cmr-6'>15</span></span><span style='color:#6E6B5E'>        </span><span style='color:#AAAAAA'><span class='cmsltt-10x-x-109'>//</span></span><span style='color:#AAAAAA'> <span class='cmsltt-10x-x-109'>Implementaci</span>ó<span class='cmsltt-10x-x-109'>n de la creaci</span>ó<span class='cmsltt-10x-x-109'>n de usuario usando diesel</span> 
+</span><span class='label'><a id='x1-119038r16'></a><span class='cmr-6'>16</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>}</span> 
+</span><span class='label'><a id='x1-119039r17'></a><span class='cmr-6'>17</span></span> 
+<span class='label'><a id='x1-119040r18'></a><span class='cmr-6'>18</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>async</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>fn</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>get_by_username(</span> 
+</span><span class='label'><a id='x1-119041r19'></a><span class='cmr-6'>19</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>&amp;</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>self</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span> 
+<span class='label'><a id='x1-119042r20'></a><span class='cmr-6'>20</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>user_username:</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>String</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span> 
+<span class='label'><a id='x1-119043r21'></a><span class='cmr-6'>21</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>) -&gt;</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Result</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Option</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>User</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&gt;,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>UserRepositoryError&gt; {</span> 
+</span><span class='label'><a id='x1-119044r22'></a><span class='cmr-6'>22</span></span><span style='color:#6E6B5E'>        </span><span style='color:#AAAAAA'><span class='cmsltt-10x-x-109'>//</span></span><span style='color:#AAAAAA'> <span class='cmsltt-10x-x-109'>Implementaci</span>ó<span class='cmsltt-10x-x-109'>n de la obtenci</span>ó<span class='cmsltt-10x-x-109'>n de usuario por nombre de usuario usando diesel</span> 
+</span><span class='label'><a id='x1-119045r23'></a><span class='cmr-6'>23</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>}</span> 
+</span><span class='label'><a id='x1-119046r24'></a><span class='cmr-6'>24</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>}</span></span></pre>
+                                                                                 
+                                                                                 
+ 
+ <figcaption class='caption'><span class='id'>Listing 2:
+     </span><span class='content'>Implementación
+     del
+     repositorio
+     de
+     usuarios</span></figcaption><!-- tex4ht:label?: x1-119046r  -->
+<!-- l. 657 --><p class='noindent'>Aquí podemos ver una implementación del trait que hemos definido anteriormente, en este caso
+para acceder a una base de datos PostgreSQL mediante el ORM <span class='cmbx-10x-x-109'>Diesel</span>. Esta implementación es
+la que se inyectará en el estado global de nuestra aplicación cuando se inicialice. En este caso,
+el repositorio implementa Send, Sync y Clone derivándolo de Clone, pues todas sus
+propiedades las implementan también haciendo que el repositorio lo implemente por
+ende.
+</p><!-- l. 660 --><p class='noindent'>El repositorio usará una pool de conexiones, pues al ser usado por varios hilos, necesitamos que
+cada hilo tenga su propia conexión a la base de datos para evitar bloqueos y problemas de
+concurrencia.
+</p><!-- l. 662 --><p class='noindent'>Una vez tenemos el trait y su implementación, tan solo nos va a quedar inyectar el repositorio en
+el estado global y utilizar el estado en nuestra capa de aplicación: </p><!-- l. 663 -->
+<p><a id='x1-119047r3'></a>
+ </p><pre class='lstlisting' id='listing-3'><span class='label'><a id='x1-119048r1'></a><span class='cmr-6'>1</span></span><span style='color:#AAAAAA'><span class='cmsltt-10x-x-109'>//</span></span><span style='color:#AAAAAA'> <span class='cmsltt-10x-x-109'>src/bin/server/main.rs</span> 
+</span><span class='label'><a id='x1-119049r2'></a><span class='cmr-6'>2</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>#[</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>tokio</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>::</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>main</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>]</span></span> 
+<span class='label'><a id='x1-119050r3'></a><span class='cmr-6'>3</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>async</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>fn</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>main() -&gt; anyhow::</span></span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Result</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;()</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&gt;</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>{</span> 
+</span><span class='label'><a id='x1-119051r4'></a><span class='cmr-6'>4</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>dotenvy::dotenv().ok();</span> 
+</span><span class='label'><a id='x1-119052r5'></a><span class='cmr-6'>5</span></span> 
+<span class='label'><a id='x1-119053r6'></a><span class='cmr-6'>6</span></span> 
+<span class='label'><a id='x1-119054r7'></a><span class='cmr-6'>7</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>let</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>connection_pool =</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Arc</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>::</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>new</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>establish_connection</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>()</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>;</span></span> 
+<span class='label'><a id='x1-119055r8'></a><span class='cmr-6'>8</span></span> 
+<span class='label'><a id='x1-119056r9'></a><span class='cmr-6'>9</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>let</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>user_repository = DieselUserRepository::new(connection_pool);</span> 
+</span><span class='label'><a id='x1-119057r10'></a><span class='cmr-6'>10</span></span> 
+<span class='label'><a id='x1-119058r11'></a><span class='cmr-6'>11</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>let</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>server = HttpServer::new(user_repository).</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>await</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>?;</span></span> 
+<span class='label'><a id='x1-119059r12'></a><span class='cmr-6'>12</span></span> 
+<span class='label'><a id='x1-119060r13'></a><span class='cmr-6'>13</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>server.run().</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>await</span></span> 
+<span class='label'><a id='x1-119061r14'></a><span class='cmr-6'>14</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>}</span></span> 
+<span class='label'><a id='x1-119062r15'></a><span class='cmr-6'>15</span></span> 
+<span class='label'><a id='x1-119063r16'></a><span class='cmr-6'>16</span></span><span style='color:#AAAAAA'><span class='cmsltt-10x-x-109'>//</span></span><span style='color:#AAAAAA'> <span class='cmsltt-10x-x-109'>src/lib/users/interface/http/routes.rs</span> 
+</span><span class='label'><a id='x1-119064r17'></a><span class='cmr-6'>17</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>pub</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>async</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>fn</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>create_user&lt;UR: UserRepository&gt;(</span> 
+</span><span class='label'><a id='x1-119065r18'></a><span class='cmr-6'>18</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>State(state): State&lt;AppState&lt;UR&gt;&gt;,</span> 
+</span><span class='label'><a id='x1-119066r19'></a><span class='cmr-6'>19</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>ValidatedJson(body): ValidatedJson&lt;CreateUserCommand&gt;,</span> 
+</span><span class='label'><a id='x1-119067r20'></a><span class='cmr-6'>20</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>-&gt;</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Result</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>StatusCode</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>Json&lt;ApiResponseBody&lt;CreateUserResult&gt;&gt;), ApiError&gt; {</span> 
+</span><span class='label'><a id='x1-119068r21'></a><span class='cmr-6'>21</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>match</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>create_user_command_handler(body, state.user_repository.as_ref()).</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>await</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>{</span> 
+</span><span class='label'><a id='x1-119069r22'></a><span class='cmr-6'>22</span></span><span style='color:#6E6B5E'>        </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Ok</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>user</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>=&gt;</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Ok</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>((</span></span> 
+<span class='label'><a id='x1-119070r23'></a><span class='cmr-6'>23</span></span><span style='color:#6E6B5E'>            <span class='cmtt-10x-x-109'>StatusCode::CREATED,</span> 
+</span><span class='label'><a id='x1-119071r24'></a><span class='cmr-6'>24</span></span><span style='color:#6E6B5E'>            <span class='cmtt-10x-x-109'>ApiResponseBody::new(user).into(),</span> 
+</span><span class='label'><a id='x1-119072r25'></a><span class='cmr-6'>25</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>)),</span> 
+</span><span class='label'><a id='x1-119073r26'></a><span class='cmr-6'>26</span></span><span style='color:#6E6B5E'>        </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Err</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>err</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>=&gt;</span> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>match</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>err {</span> 
+</span><span class='label'><a id='x1-119074r27'></a><span class='cmr-6'>27</span></span><span style='color:#6E6B5E'>            <span class='cmtt-10x-x-109'>UserRepositoryError::UserAlreadyExists =&gt;</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Err</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>ApiError</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>::</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>ConflictError</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>err</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>.</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>to_string</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>()</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span> 
+<span class='label'><a id='x1-119075r28'></a><span class='cmr-6'>28</span></span><span style='color:#6E6B5E'>            <span class='cmtt-10x-x-109'>UserRepositoryError::InternalServerError =&gt;</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Err</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>ApiError</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>::</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>InternalServerError</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>err</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>.</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>to_string</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>()</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span> 
+<span class='label'><a id='x1-119076r29'></a><span class='cmr-6'>29</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>},</span> 
+</span><span class='label'><a id='x1-119077r30'></a><span class='cmr-6'>30</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>}</span> 
+</span><span class='label'><a id='x1-119078r31'></a><span class='cmr-6'>31</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>}</span></span> 
+<span class='label'><a id='x1-119079r32'></a><span class='cmr-6'>32</span></span> 
+<span class='label'><a id='x1-119080r33'></a><span class='cmr-6'>33</span></span><span style='color:#AAAAAA'><span class='cmsltt-10x-x-109'>//</span></span><span style='color:#AAAAAA'> <span class='cmsltt-10x-x-109'>src/lib/users/application/commands/create_user.rs</span> 
+</span><span class='label'><a id='x1-119081r34'></a><span class='cmr-6'>34</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>pub</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>async</span></span><span style='color:#6E6B5E'> </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>fn</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>create_user_command_handler&lt;UR: UserRepository&gt;(</span> 
+</span><span class='label'><a id='x1-119082r35'></a><span class='cmr-6'>35</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>mut</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>command: CreateUserCommand,</span> 
+</span><span class='label'><a id='x1-119083r36'></a><span class='cmr-6'>36</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>user_repository: &amp;UR,</span> 
+</span><span class='label'><a id='x1-119084r37'></a><span class='cmr-6'>37</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>-&gt;</span> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Result</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>&lt;</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>CreateUserResult</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>,</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>UserRepositoryError&gt; {</span> 
+</span><span class='label'><a id='x1-119085r38'></a><span class='cmr-6'>38</span></span> 
+<span class='label'><a id='x1-119086r39'></a><span class='cmr-6'>39</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>if</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>user_repository.get_by_username(command.username.clone()).</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>await</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>?.</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>is_some</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>()</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>{</span> 
+</span><span class='label'><a id='x1-119087r40'></a><span class='cmr-6'>40</span></span><span style='color:#6E6B5E'>        </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>return</span></span><span style='color:#6E6B5E'> </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Err</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>UserRepositoryError</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>::</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>UserAlreadyExists</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>;</span></span> 
+<span class='label'><a id='x1-119088r41'></a><span class='cmr-6'>41</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>}</span> 
+</span><span class='label'><a id='x1-119089r42'></a><span class='cmr-6'>42</span></span> 
+<span class='label'><a id='x1-119090r43'></a><span class='cmr-6'>43</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>let</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>salt = SaltString::generate(&amp;</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>mut</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>OsRng);</span> 
+</span><span class='label'><a id='x1-119091r44'></a><span class='cmr-6'>44</span></span> 
+<span class='label'><a id='x1-119092r45'></a><span class='cmr-6'>45</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>let</span></span><span style='color:#6E6B5E'> <span class='cmtt-10x-x-109'>argon2 = Argon2::default();</span> 
+</span><span class='label'><a id='x1-119093r46'></a><span class='cmr-6'>46</span></span> 
+<span class='label'><a id='x1-119094r47'></a><span class='cmr-6'>47</span></span><span style='color:#6E6B5E'>    <span class='cmtt-10x-x-109'>command.password = argon2</span> 
+</span><span class='label'><a id='x1-119095r48'></a><span class='cmr-6'>48</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>.hash_password(command.password.as_bytes(), &amp;salt)</span> 
+</span><span class='label'><a id='x1-119096r49'></a><span class='cmr-6'>49</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>.map_err(|_| UserRepositoryError::InternalServerError)?</span> 
+</span><span class='label'><a id='x1-119097r50'></a><span class='cmr-6'>50</span></span><span style='color:#6E6B5E'>        <span class='cmtt-10x-x-109'>.to_string();</span> 
+</span><span class='label'><a id='x1-119098r51'></a><span class='cmr-6'>51</span></span> 
+<span class='label'><a id='x1-119099r52'></a><span class='cmr-6'>52</span></span><span style='color:#6E6B5E'>    </span><span style='color:#B65611'><span class='cmtt-10x-x-109'>Ok</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>user_repository</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>.</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>create_user</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>(</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>command</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>.</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>into</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>()</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>.</span></span><span style='color:#B854D4'><span class='cmtt-10x-x-109'>await</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>?.</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>into</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>()</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>)</span></span> 
+<span class='label'><a id='x1-119100r53'></a><span class='cmr-6'>53</span></span><span style='color:#6E6B5E'><span class='cmtt-10x-x-109'>}</span></span></pre>
+ 
+ <figcaption class='caption'><span class='id'>Listing 3:
+     </span><span class='content'>Inyección
+     del
+     repositorio
+     en
+     el
+     estado
+     global
+     y
+     uso
+     en
+     el
+     comando
+     para
+     crear
+     un
+     usuario</span></figcaption><!-- tex4ht:label?: x1-119100r  -->
+<!-- l. 719 --><p class='noindent'>Cuando definimos el estado global que va a extraer nuestro endpoint mediante el extractor que
+nos proporciona Axum, lo definimos con un tipo genérico <span class='cmti-10x-x-109'>UR</span>, el cual especificamos que va a
+implementar el trait <span class='cmti-10x-x-109'>UserRepository</span>. Es decir, sabemos los métodos que nos ofrece y las
+propiedades que tiene que tener, pero en la capa de aplicación no tenemos que conocer cómo se está
+implementando, solamente cómo se usa.
+</p><!-- l. 721 --><p class='noindent'>Otra buena práctica que podemos observar en el código es utilizar errores de dominio. De esta
+manera, abstraemos la capa de aplicación de cualquier tipo de error que pueda ocurrir en la
+capa de infraestructura y solamente en la capa de interfaz, que es la que presenta
+los datos al usuario, asociamos cada error de dominio al error correspondiente de
+interfaz.
+                                                                                 
+                                                                                 
+</p><!-- l. 723 --><p class='noindent'>Así, si quisiéramos cambiar cómo accedemos a los datos, tan solo tendríamos que crear o modificar
+la implementación que realizamos en la capa de infraestructura.
+</p><!-- l. 725 --><p class='noindent'>El siguiente diagrama muestra cómo se relacionan las diferentes capas de la arquitectura limpia
+que hemos implementado: </p><figure class='figure' id='x1-119101r10'><span id='diagrama-que-muestra-relaciones-entre-las-capas-para-nuestra-implementacion'></span> 
+
+                                                                                 
+                                                                                 
+
+                                                                                 
+                                                                                 
+<div class='center'>
+<!-- l. 727 --><p class='noindent'>
+</p><!-- l. 728 --><p class='noindent'><img alt='PIC' src='assets/sprint1/diagrama-arquitectura-limpia.png' style='width:95%' /></p></div>
+<figcaption class='caption'><span class='id'>Figura 10: </span><span class='content'>Diagrama que muestra relaciones entre las capas para nuestra implementación.</span></figcaption><!-- tex4ht:label?: x1-119101r10  -->
+                                                                                 
+                                                                                 
+</figure>
+
+<!-- l. 733 --><p class='noindent'><span class='paragraphHead' id='documentacion-de-la-api-rest'><a id='x1-120000'></a><span class='cmbx-10x-x-109'>Documentaci</span>ó<span class='cmbx-10x-x-109'>n de la API REST</span></span>
+
+</p>
+<!-- l. 734 --><p class='noindent'><span class='subparagraphHead' id='_7'><a id='x1-121000'></a></span>
+Para documentar todos los endpoints de la API REST, se ha utilizado la especificación OpenAPI.
+Esta especificación permite describir de manera estructurada los endpoints, parámetros, tipos de
+datos y respuestas de la API.
+</p><!-- l. 738 --><p class='noindent'>Esta documentación se genera automáticamente mediante la librería <span class='cmbx-10x-x-109'>utoipa</span>, que se integra con
+Axum para generar la documentación a partir de los atributos y tipos definidos en el código. Esto
+asegura que la documentación esté siempre actualizada y refleje fielmente el estado actual de la
+API, por lo que cada vez que definamos un nuevo endpoint o modifiquemos uno existente, la
+documentación se actualizará automáticamente.
+</p><!-- l. 741 --><p class='noindent'>Además, se ha configurado otra librería compatible con utoipa <span class='cmbx-10x-x-109'>utoipa-swagger-ui</span>, que
+permite servir la documentación generada como una página web interactiva, lo que
+facilita a los desarrolladores y usuarios explorar y probar los endpoints de la API,
+mostrando ejemplos de peticiones, respuestas, errores y los esquemas usados en las
+peticiones y respuestas. Además, nos permite probar los endpoints directamente desde la
+interfaz.
+
+</p>
+<!-- l. 744 --><p class='noindent'><span class='paragraphHead' id='pruebas-unitarias-y-de-integracion'><a id='x1-122000'></a><span class='cmbx-10x-x-109'>Pruebas unitarias y de integraci</span>ó<span class='cmbx-10x-x-109'>n</span></span>
+
+</p>
+<!-- l. 745 --><p class='noindent'><span class='subparagraphHead' id='_8'><a id='x1-123000'></a></span>
+Para garantizar la calidad del código y el correcto funcionamiento de la aplicación, se han
+implementado pruebas unitarias y de integración utilizando la librería <span class='cmbx-10x-x-109'>tokio </span>para pruebas
+asíncronas y un <span class='cmbx-10x-x-109'>servicio oneshot </span>para simular el servidor HTTP. El servicio oneshot no es más
+que un servidor HTTP con unas rutas definidas al igual que nuestra API, solo que es de un solo
+uso para realizar pruebas, ya que solamente deja simular una sola petición y respuesta, lo que es
+suficiente para nuestras pruebas unitarias.
+</p><!-- l. 750 --><p class='noindent'>En este punto es donde entra en juego una de las ventajas de utilizar una arquitectura limpia y
+CQRS. Al separar la lógica de negocio de la infraestructura, podemos probar los comandos y
+consultas de manera aislada, sin necesidad de depender de la implementación concreta del
+repositorio o de la base de datos. Esto nos permite escribir pruebas más rápidas y enfocadas en la
+lógica de negocio.
+</p><!-- l. 753 --><p class='noindent'>Además, nos da la ventaja de poder <a class='glossary' href='#glo_mockear'>mockear</a> los repositorios y otros componentes de
+infraestructura, lo que facilita la simulación de diferentes escenarios y errores en las
+pruebas.
+</p><!-- l. 755 --><p class='noindent'>Así, tendríamos la siguiente estructura en la carpeta de tests:
+</p><!-- l. 783 --><p class='noindent'>   </p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>tests</span>
+</p><!-- l. 783 --><p class='noindent'>   __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>tests.rs</span>
+                                                                                 
+                                                                                 
+</p><!-- l. 783 --><p class='noindent'>   __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>users</span>
+</p><!-- l. 783 --><p class='noindent'>      __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>application</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>commands</span>
+</p><!-- l. 783 --><p class='noindent'>            __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_create_user.rs</span>
+</p><!-- l. 783 --><p class='noindent'>            __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_login.rs</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>queries</span>
+</p><!-- l. 783 --><p class='noindent'>            __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_get_all_users.rs</span>
+</p><!-- l. 783 --><p class='noindent'>            __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_get_user.rs</span>
+</p><!-- l. 783 --><p class='noindent'>      __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>domain</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>auth.rs</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>roles.rs</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>user_repository.rs</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>user.rs</span>
+</p><!-- l. 783 --><p class='noindent'>      __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>infrastructure</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_jwt_token_service.rs</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_mappers.rs</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_models.rs</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_repository.rs</span>
+</p><!-- l. 783 --><p class='noindent'>      __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>integration</span>
+</p><!-- l. 783 --><p class='noindent'>         __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>test_user_endpoints.rs</span>
+</p><!-- l. 783 --><p class='noindent'>      __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>mocks.rs</span>
+</p><!-- l. 783 --><p class='noindent'>   __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>utils</span>
+</p><!-- l. 783 --><p class='noindent'>      __</p><!-- l. 783 --><p class='noindent'><span class='cmtt-10x-x-109'>functions.rs</span>
+</p><!-- l. 785 --><p class='noindent'>Como se puede ver, hemos separado las pruebas en diferentes carpetas según su tipo: pruebas de
+dominio, de infraestructura, de aplicación y de integración. Se han abarcado todos los casos de uso
+definidos en las historias de usuario, asegurando que cada funcionalidad se prueba de manera
+aislada y también en conjunto con el resto del sistema.
+</p><!-- l. 788 --><p class='noindent'>Para ejecutar todos los tests, es tan sencillo como ejecutar el comando <span class='cmmi-10x-x-109'>cargo test </span>en la raíz del
+proyecto, lo que ejecutará todas las pruebas definidas en la carpeta <span class='cmtt-10x-x-109'>tests </span>y mostrará los
+resultados en la consola.
+
+</p>
+<!-- l. 790 --><p class='noindent'><span class='paragraphHead' id='despliegue'><a id='x1-124000'></a><span class='cmbx-10x-x-109'>Despliegue</span></span>
+
+</p>
+<!-- l. 791 --><p class='noindent'><span class='subparagraphHead' id='_9'><a id='x1-125000'></a></span>
+Todos los pasos necesarios para el despliegue se han definido en el README del proyecto, donde
+se explica cómo construir el binario, cómo crear la imagen Docker y cómo ejecutar el servidor en un
+contenedor Docker, o directamente del binario compilado.
+</p><!-- l. 795 --><p class='noindent'>Nuestra aplicación depende de una base de datos PostgreSQL (de momento) y se ha generado un
+archivo docker compose para facilitar el despliegue de la aplicación junto con la base de datos.
+Este archivo define los servicios necesarios, incluyendo el servidor y la base de datos, y permite
+iniciar todo el entorno con un solo comando.
+</p><!-- l. 797 --><p class='noindent'>Si bien se puede utilizar docker compose para levantar el entorno de desarrollo, también se
+puede ejecutar el servidor directamente desde el binario generado, definiendo en las
+variables de entorno los parámetros necesarios para la base de datos, sin necesidad de usar
+Docker.
+                                                                                 
+                                                                                 
 </p><!-- l. 1 --><p class='noindent'>
                                                                                  
                                                                                  
@@ -4343,7 +4686,7 @@ la gestión de cuentas. Para finalizar el sprint, se documentará todo al comple
                                                                                  
 
 </p>
-<h3 class='sectionHead' id='conclusiones2'><span class='titlemark'>7.   </span> <a id='x1-1150007'></a>Conclusiones</h3>
+<h3 class='sectionHead' id='conclusiones2'><span class='titlemark'>7.   </span> <a id='x1-1260007'></a>Conclusiones</h3>
 <!-- l. 5 --><p class='noindent'>Reflejamos el problema, solución alcanzada y resultados. Leemos los objetivos y vemos si se han
 cumplido y el por qué no en el caso de no haberlos alcanzado. Maximizamos información, no
 queremos algo extenso, queremos algo resumido
@@ -4355,53 +4698,53 @@ queremos algo extenso, queremos algo resumido
                                                                                  
 
 </p>
-<h3 class='sectionHead' id='bibliografia'><span class='titlemark'>8.   </span> <a id='x1-1160008'></a>Bibliografía</h3>
+<h3 class='sectionHead' id='bibliografia'><span class='titlemark'>8.   </span> <a id='x1-1270008'></a>Bibliografía</h3>
 <!-- l. 5 --><p class='noindent'>Referenciamos todo en lo que nos hemos apoyado a la hora de hacer el trabajo. Si tenemos links,
 queremos poner la fecha de última consulta. Queremos también poner las referencias básicas de la
 disciplina. Cada vez que consulte una página, queremos ponerla aquí con un pequeño párrafo de lo
 que más nos ha gustado.
 
 </p>
-<h3 class='sectionHead' id='bibliografia1'><a id='x1-117000'></a>Bibliografía</h3>
-<!-- l. 115 --><p class='noindent'>
+<h3 class='sectionHead' id='bibliografia1'><a id='x1-128000'></a>Bibliografía</h3>
+<!-- l. 125 --><p class='noindent'>
        </p><dl class='thebibliography'><dt class='thebibliography' id='X0-rust-for-safety-and-performance'>
 </dt><dd class='thebibliography' id='bib-1'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_rust-for-safety-and-performance'></a>Bugden, W., &amp; Alahmar, A. (2022). Rust: The Programming Language for Safety
+       <!-- l. 125 --><p class='noindent'><a id='page.185'></a><a href='main.html' id='X0-'></a>Bugden, W., &amp; Alahmar, A. (2022). Rust: The Programming Language for Safety
        and Performance. <span class='cmti-10x-x-109'>IGSCONG’22</span>.
        </p></dd><dt class='thebibliography' id='X0-lynx-article'>
 </dt><dd class='thebibliography' id='bib-2'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_lynx-article'></a>Huang, X., &amp; Team, L. (2025, marzo). Lynx: Unlock Native for More [<a href='https://lynxjs.org/blog/lynx-unlock-native-for-more.html'>Link</a>].
+       <!-- l. 125 --><p class='noindent'>Huang, X., &amp; Team, L. (2025, marzo). Lynx: Unlock Native for More [<a href='https://lynxjs.org/blog/lynx-unlock-native-for-more.html'>Link</a>].
        </p></dd><dt class='thebibliography' id='X0-rustbook2021'>
 </dt><dd class='thebibliography' id='bib-3'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_rustbook2021'></a>Klabnik, S., &amp; Nichols, C. (2021). <span class='cmti-10x-x-109'>The Rust Programming Language</span>. No Starch
+       <!-- l. 125 --><p class='noindent'>Klabnik, S., &amp; Nichols, C. (2021). <span class='cmti-10x-x-109'>The Rust Programming Language</span>. No Starch
        Press.
        </p></dd><dt class='thebibliography' id='X0-lynx-native-modules'>
 </dt><dd class='thebibliography' id='bib-4'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_lynx-native-modules'></a>Lynx-Team. (2025, marzo). Native Modules [Accedido en el <a href='https://lynxjs.org/guide/use-native-modules#platform=android'>link</a> el 12/05/2025].
+       <!-- l. 125 --><p class='noindent'>Lynx-Team. (2025, marzo). Native Modules [Accedido en el <a href='https://lynxjs.org/guide/use-native-modules#platform=android'>link</a> el 12/05/2025].
        </p></dd><dt class='thebibliography' id='X0-uncle-bob-clean-architecture'>
 </dt><dd class='thebibliography' id='bib-5'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_uncle-bob-clean-architecture'></a>Martin,  R. C.  (2017).  <span class='cmti-10x-x-109'>Clean  Architecture:  A  Craftsman’s  Guide  to  Software
+       <!-- l. 125 --><p class='noindent'>Martin,  R. C.  (2017).  <span class='cmti-10x-x-109'>Clean  Architecture:  A  Craftsman’s  Guide  to  Software
        Structure and Design</span>. Pearson.
        </p></dd><dt class='thebibliography' id='X0-meichthys2024'>
 </dt><dd class='thebibliography' id='bib-6'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_meichthys2024'></a>meichthys. (2025). Free and OpenSource Photo Libraries [Accedido: [10/05/2025]].
+       <!-- l. 125 --><p class='noindent'>meichthys. (2025). Free and OpenSource Photo Libraries [Accedido: [10/05/2025]].
        <a class='url' href='https://github.com/meichthys/foss_photo_libraries'>https://github.com/meichthys/foss_photo_libraries</a>
        </p></dd><dt class='thebibliography' id='X0-rust-hexagonal-architecture'>
 </dt><dd class='thebibliography' id='bib-7'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_rust-hexagonal-architecture'></a>Morrison, A. (2024, diciembre). Master hexagonal architecture in Rust [Accedido:
+       <!-- l. 125 --><p class='noindent'>Morrison, A. (2024, diciembre). Master hexagonal architecture in Rust [Accedido:
        [06/04/2025]].
        </p></dd><dt class='thebibliography' id='X0-scrum-guide'>
 </dt><dd class='thebibliography' id='bib-8'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_scrum-guide'></a>Schwaber,  K.,  &amp;  Sutherland,  J.  (2020).  The  2020  Scrum  Guide  [Accedido:
+       <!-- l. 125 --><p class='noindent'>Schwaber,  K.,  &amp;  Sutherland,  J.  (2020).  The  2020  Scrum  Guide  [Accedido:
        [10/04/2025]]. <a class='url' href='https://www.scrumguides.org/scrum-guide.html'>https://www.scrumguides.org/scrum-guide.html</a>
                                                                                  
                                                                                  
        </p></dd><dt class='thebibliography' id='X0-rust-benchmark'>
 </dt><dd class='thebibliography' id='bib-9'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_rust-benchmark'></a>Techempower. (2022, julio). Web Framework Benchmarks [Accedido: 10/04/2025].
+       <!-- l. 125 --><p class='noindent'>Techempower. (2022, julio). Web Framework Benchmarks [Accedido: 10/04/2025].
        </p></dd><dt class='thebibliography' id='X0-tsechelidis2023modular'>
 </dt><dd class='thebibliography' id='bib-10'>
-       <!-- l. 115 --><p class='noindent'><a id='cite.0_tsechelidis2023modular'></a>Tsechelidis, M., Nikolaidis, N., Maikantis, T., &amp; Ampatzoglou, A. (2023). Modular
+       <!-- l. 125 --><p class='noindent'>Tsechelidis, M., Nikolaidis, N., Maikantis, T., &amp; Ampatzoglou, A. (2023). Modular
        Monoliths the way to Standardization. <span class='cmti-10x-x-109'>Proceedings of the 3rd Eclipse Security, AI,
        Architecture and Modelling Conference on Cloud to Edge Continuum</span>, 49-52.</p></dd></dl>
  
