@@ -4,9 +4,9 @@
 \section{Propuesta}
 Ya que es un tfg de desarrollo describimos lo realizado y cómo, así como los resultados obtenidos.
 
-Una vez analizado el estado del arte y las tecnologías disponibles, se ha definido una propuesta de desarrollo que busca cumplir con los objetivos planteados en la introducción. Esta propuesta se basa en el uso de metodologías ágiles y tecnologías modernas para garantizar un desarrollo eficiente y escalable.
+Una vez analizado el estado del arte y las tecnologías disponibles, se propone una propuesta a desarrollar que busca cumplir con los objetivos planteados en la introducción. Para el desarrollo de la propuesta se utilizan metodologías ágiles y tecnologías modernas para garantizar un desarrollo eficiente y que permitirá una fácil adaptación a los cambios que puedan surgir durante el desarrollo del proyecto.
 
-Tal como se ha especificado en el apartado anterior, se desarrollará una solución que busca ofrecer:
+Tal como se ha especificado en los capítulos anteriores, se desarrollará una solución que busca ofrecer:
 \begin{itemize}
     \item Solución FOSS que permita una aportar al proyecto de manera sencilla, pudiendo entender rápida y fácilmente el código y la arquitectura del sistema.
     \item Soluciones eficientes y rápidas. Para ello usaremos tecnologías lo más eficientes posibles, siempre buscando la seguridad y escalabilidad de la aplicación.
@@ -23,7 +23,8 @@ Tal como se ha especificado en el apartado anterior, se desarrollará una soluci
 
 Para el desarrollo de este proyecto se va a hacer uso de la metodología ágil Scrum. Esta metodología se basa en el desarrollo iterativo e incremental, lo que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
 
-Se ha optado por el uso de Scrum en vez de otra metodología ágil como Kanban o XP (Extreme Programming) o alguna metodología tradicional ya que se ha utilizado anteriormente y se considera que es con la que más cómodo y eficaz se va trabajar.
+Se ha optado por el uso de Scrum en vez de otra metodología ágil como Kanban o XP (Extreme Programming) o alguna metodología tradicional ya que se ha utilizado anteriormente y se considera que es con la que más cómodo y eficaz se va trabajar, dado que el equipo de desarrollo ha trabajado con anterioridad con esta metodología ágil y está familiarizado con ella.
+Además, Scrum es una metodología que se adapta muy bien a proyectos de desarrollo de software, ya que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
 
 Tal y como se explica en la guía oficial de Scrum \parencite{scrum-guide}, Scrum es un marco de trabajo ágil que se utiliza para gestionar proyectos complejos y adaptarse a los cambios de manera rápida y eficiente. Se basa en la colaboración entre equipos multidisciplinarios, la entrega continua de valor y la mejora continua.
 Scrum se centra en la entrega de incrementos de producto funcionales en ciclos cortos, lo que permite a los equipos recibir retroalimentación temprana y ajustar su enfoque según sea necesario. Esto es especialmente útil en proyectos donde los requisitos pueden cambiar con frecuencia o donde la incertidumbre es alta.
@@ -70,7 +71,7 @@ Para el desarrollo de este proyecto se ha buscado utilizar tecnologías que sean
 Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerados en la actualidad en el mundo de la programación: \textbf{Rust}.
 
 Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
-Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente. 
+Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente.
 
 ¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? \parencite{rust-for-safety-and-performance}
 \begin{itemize}
@@ -150,7 +151,7 @@ Axum es un framework de aplicaciones web construido sobre Tokio, una biblioteca 
 Aunque hay varios frameworks más eficientes en términos de velocidad a la hora de realizar benchmarks\footnote{\href{https://web-frameworks-benchmark.netlify.app/result?l=rust}{Comparativa frameworks de Rust}} \footnote{\href{https://www.techempower.com/benchmarks/\#section=data-r21&test=composite&hw=ph}{Comparativa con frameworks de otros lenguajes}}, algunos de ellos tienen un tiempo de compilación demasiado alto, por lo que puede llegar a hacer más lento el desarrollo.
 Además, ninguno de los demás frameworks de Rust tiene una comunidad tan activa como la de Axum ni una documentación tan completa.
 
-Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rust más usada para la programación asíncrona}, garantiza un soporte a largo plazo que otros frameworks no garantizan. Además, es \href{https://lib.rs/crates/axum}{la librería más descargada }mensualmente para aplicaciones web en Rust.  
+Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rust más usada para la programación asíncrona}, garantiza un soporte a largo plazo que otros frameworks no garantizan. Además, es \href{https://lib.rs/crates/axum}{la librería más descargada }mensualmente para aplicaciones web en Rust.
 
 Como se puede ver en los benchmark hay frameworks de otros lenguajes que pueden parecer más sencillos que Rust que nos dan el mismo o mejor rendimiento, pero tal y como se ha comentado anteriormente, el punto principal de Rust no es únicamente su rendimiento, sino la seguridad que da el propio lenguaje y lo poco propenso que es a errores en tiempo de compilación, lo que hace de la aplicación mucho más robusta, segura y sostenible a largo plazo.
 
@@ -205,8 +206,8 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
 
 ¿Por qué no se ha optado por otras opciones como Flutter o Kotlin Multiplatform?
 \begin{itemize}
-    \item \textbf{Flutter}: aunque es un framework muy potente y con una comunidad muy activa, su rendimiento no es tan bueno como el de Lynx.js. 
-        Flutter lo que hace es renderizar lo que sería como un ``canvas'' que utiliza un motor gráfico parecido al de los juegos para renderizar la interfaz de usuario, haciendo que la experiencia de usuario no sea tan fluida como podría ser la de otro framework. 
+    \item \textbf{Flutter}: aunque es un framework muy potente y con una comunidad muy activa, su rendimiento no es tan bueno como el de Lynx.js.
+        Flutter lo que hace es renderizar lo que sería como un ``canvas'' que utiliza un motor gráfico parecido al de los juegos para renderizar la interfaz de usuario, haciendo que la experiencia de usuario no sea tan fluida como podría ser la de otro framework.
     \item \textbf{Kotlin Multiplatform}: aunque es una opción interesante, la comunidad y la documentación son mucho más limitadas que las de Lynx.js. La curva de aprendizaje es mucho más pronunciada, ya que se utiliza Kotlin junto con una gran cantidad de librerías las cuales necesitan de un estudio profundo para su uso.
 
         Nos daría el mejor rendimiento sin tener que programar la aplicación de forma nativa para todos los dispositivos (los dispositivos comparten código pero hay que implementar la mayoría de forma nativa para las distintas plataformas), pero el desarrollo sería mucho más lento y tedioso, lo cual además complicaría la aportación al proyecto Open Source.
@@ -217,7 +218,29 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
 
 Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \parencite{lynx-article}.
 
-\subsection{Historias de usuario / Historias técnicas}
+\subsection{Sprint 0}
+\label{sec:planificacion-inicial}
+Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad, las cuales tienen un inicio y un fin.
+
+Se suele crear un sprint denominado como ``Sprint 0'' en el que se hace una planificación inicial, se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de las tareas que se van a realizar en todos los sprints.
+Durante este sprint no se va a desarrollar funcionalidad, si no que se van a asentar unas bases para todo el proyecto sobre las cuales se trabajará en los siguientes sprints.
+Los objetivos de este sprint son los siguientes:
+
+\begin{itemize}
+    \item Definir diagrama de la arquitectura inicial del sistema.
+    \item Estudiar la estructura de implementación del sistema.
+    \item Definir un presupuesto para el proyecto (sección \hyperref[sec:presupuesto]{Presupuesto}).
+    \item Definir el product backlog inicial (sección \hyperref[sec:historias-de-usuario]{Historias de usuario}).
+    \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
+    \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
+    \item Definir el entorno de desarrollo tanto para el servidor como el cliente.
+    \item Definir el backlog de el primer sprint.
+    \item Realizar diagrama de Gantt para el primer sprint.
+\end{itemize}
+
+El product backlog inicial se ha definido en la \hyperref[sec:historias-de-usuario]{sección de historias de usuario} y se ha dividido en dos partes, una para el servidor y otra para el cliente móvil.
+
+\subsubsection{Historias de usuario / Historias técnicas}
 \label{sec:historias-de-usuario}
 En esta sección se detallan las historias de usuario e historias técnicas de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
 
@@ -234,7 +257,7 @@ Además de las historias de usuario, contamos con historias técnicas, que son h
 
 A lo largo del product backlog  se hará referencia a HU\{identificador\} para las historias de usuario y HT\{identificador\} para las historias técnicas. El identificador será un número entero que se asignará de manera consecutiva a cada historia de usuario o historia técnica. Para la sub-historias de usuario se asignará un número entero que será el mismo que la historia de usuario a la que pertenece, seguido de un punto y otro número entero que será el identificador de la sub-historia de usuario, por ejemplo: HU1, HU1.1, HU1.2, etc.
 
-\subsubsection{Servidor}
+\paragraph{Servidor}
 \renewcommand{\arraystretch}{1.3} % Increases row height for readability
 \rowcolors{2}{gray!15}{white} % Alternate row colors
 
@@ -318,9 +341,11 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
 \end{tabularx}
 
-\paragraph{Historias que se han dividido}
+\subparagraph{Historias que se han dividido}
 
-\begin{table}[H]
+Ambas tablas que aparecen a continuación muestran ejemplos de historias técnicas que han sido divididas en sub-historias para facilitar su gestión y estimación en el backlog.
+
+\begin{table}[h!]
     \begin{center}
         \begin{tabularx}{\textwidth}{|l|l|>{\raggedright}X|l|}
             \hline
@@ -336,7 +361,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \end{center}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[h!]
     \begin{center}
         \begin{tabularx}{\textwidth}{|l|X|>{\raggedright\arraybackslash}X|l|}
             \hline
@@ -355,7 +380,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 \end{table}
 
 \newpage
-\subsubsection{Móvil} 
+\paragraph{Móvil}
 \begin{tabularx}{\textwidth}{|l|l|>{\raggedright\arraybackslash}X|l|}
     \hline
     ID & Título & Descripción & Estimación \\
@@ -420,27 +445,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
 \end{tabularx}
 
-\subsection{Planificación inicial}
-\label{sec:planificacion-inicial}
-Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad, las cuales tienen un inicio y un fin.
 
-Se suele crear un sprint denominado como ``Sprint 0'' en el que se hace una planificación inicial, se genera la que va a ser la primera versión del product backlog y se dan unas estimaciones de las tareas que se van a realizar en todos los sprints.
-Durante este sprint no se va a desarrollar funcionalidad, si no que se van a asentar unas bases para todo el proyecto sobre las cuales se trabajará en los siguientes sprints.
-Los objetivos de este sprint son los siguientes:
-
-\begin{itemize}
-    \item Definir diagrama de la arquitectura inicial del sistema.
-    \item Estudiar la estructura de implementación del sistema.
-    \item Definir un presupuesto para el proyecto (sección \hyperref[sec:presupuesto]{Presupuesto}).
-    \item Definir el product backlog inicial (sección \hyperref[sec:historias-de-usuario]{Historias de usuario}).
-    \item Estudiar documentación y cursos de las tecnologías de backend que se van a utilizar.
-    \item Estudiar la documentación sobre las tecnologías de frontend que se van a utilizar.
-    \item Definir el entorno de desarrollo tanto para el servidor como el cliente.
-    \item Definir el backlog de el primer sprint.
-    \item Realizar diagrama de Gantt para el primer sprint.
-\end{itemize}
-
-El product backlog inicial se ha definido en la \hyperref[sec:historias-de-usuario]{sección de historias de usuario} y se ha dividido en dos partes, una para el servidor y otra para el cliente móvil.
 
 \subsubsection{Diagrama de arquitectura}
 \begin{figure}[H]
@@ -524,7 +529,7 @@ Es decir, nuestra capa de dominio no se puede comunicar con ninguna de las otras
 En la imagen podemos ver el diagrama de una arquitectura limpia para nuestra aplicación móvil, donde cada capa tiene una responsabilidad clara y bien definida.
 
 Las flechas representan cómo accede cada capa a las demás.
-El acceso se hace de la capa más externa a la más interna, es decir, la capa de dominio (la más interna) no puede saber nada sobre las otras capas, pero la capa de presentación puede acceder a la capa de dominio y a la capa de aplicación. 
+El acceso se hace de la capa más externa a la más interna, es decir, la capa de dominio (la más interna) no puede saber nada sobre las otras capas, pero la capa de presentación puede acceder a la capa de dominio y a la capa de aplicación.
 
 Nuestra capa de aplicación no utiliza directamente la capa de infraestructura, sino que lo hace a través de interfaces que definimos en la capa de dominio. La capa de infraestructura se encarga de implementar estas interfaces, lo que nos permite cambiar la implementación de la capa de infraestructura sin afectar a la capa de dominio, de aplicación ni la de presentación.
 
@@ -722,11 +727,11 @@ Teniendo en cuenta que el desarrollo del proyecto comienza la última semana de 
 Los objetivos de cada sprint quedarían de la siguiente manera:
 \begin{itemize}
     \item \textbf{Sprint 1}: Implementación de la API REST del servidor, incluyendo la gestión de usuarios, autenticación y autorización. Durante esta iteración se busca implementar una gestión de usuarios simple junto con toda la estructura base del proyecto.
-    \item \textbf{Sprint 2}: Implementación de la aplicación móvil. Definición e implementación de módulos nativos para el acceso a archivos multimedia y permisos. Durante esta iteración se busca implementar una aplicación de gestión de galería básica sin funcionalidades de sincronización. 
+    \item \textbf{Sprint 2}: Implementación de la aplicación móvil. Definición e implementación de módulos nativos para el acceso a archivos multimedia y permisos. Durante esta iteración se busca implementar una aplicación de gestión de galería básica sin funcionalidades de sincronización.
     \item \textbf{Sprint 3}: Implementación de todo el procesado multimedia en el servidor: generación de miniaturas, subida y compresión de imágenes y vídeos, etiquetado basado en metadatos, etc. En el cliente se implementará la subida de archivos multimedia a el servidor y la visualización de los archivos subidos.
     \item \textbf{Sprint 4}: Implementación de la sincronización automática de archivos multimedia en el cliente móvil tanto como la visualización del estado nuestra galería en el servidor. En esta iteración implementaremos principalmente toda la conexión automática entre el cliente y el servidor, así como la sincronización de archivos multimedia.
     \item \textbf{Sprint 5}: Implementación de la gestión de usuarios desde el cliente móvil, incluyendo la gestión de permisos en las galerías, álbumes y archivos. Durante esta última iteración se implementará el uso compartido de galerías y álbumes entre usuarios.
-    \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia propio en el servidor. 
+    \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia propio en el servidor.
 \end{itemize}
 Este último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto open-source.
 
@@ -817,3 +822,4 @@ De esta forma, tendríamos el siguiente desglose de costes:
 \end{table}
 
 \input{sections/sprints/sprint1}
+\input{sections/sprints/sprint2}

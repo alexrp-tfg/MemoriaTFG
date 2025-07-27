@@ -2,53 +2,51 @@
 ~
 \newpage
 \section{Introducción}
+% TODO: Este tiene que ser el primer capítulo del documento y los demás los sucesivos.
+
+% TODO: Hay que añadir 2 secciones al finale de esta: Planificación y análisis de costes y estructura del documento (explicamos lo que se va a encontrar el lector en cada capítulo).
 
 \subsection{Contexto}
-Hoy en día, en la era de la digitalización, todos tenemos móviles con cámaras de alta resolución y grandes almacenamientos que nos permiten capturar y guardar una gran cantidad de fotografías y vídeos, espacio el cual, aunque parezca enorme, todos sabemos que se acaba terminando. Para ello es que se ofrecen distintos tipos de servicios en la nube que nos permiten tener todos esos archivos multimedia guardados en un lugar desconocido para el usuario promedio junto con la facilidad de la sincronización automática.
+% TODO: Aumentar un poco más el contexto para intentar ocupar una página entera.
+Hoy en día, en la era de la digitalización, la mayoría de las personas tienen móviles con cámaras de alta resolución y grandes almacenamientos que nos permiten capturar y guardar una gran cantidad de fotografías y vídeos, espacio el cual, aunque parezca enorme, se acaba terminando. Por este motivo se ofrecen distintos tipos de servicios en la nube que permiten almacenar todos esos archivos multimedia guardados en un lugar desconocido para el usuario promedio junto con la facilidad de la sincronización automática.
 
-Aún así, este espacio también se acaba, junto con la desventaja de que hay que pagar por guardar esos archivos en ese lugar desconocido. Es por eso que este proyecto busca ofrecer una solución a este problema, permitiendo alojar un servidor de almacenamiento y sincronización en cualquier servidor o computadora personal.
+Aún así, este espacio también se acaba, junto con la desventaja de que tiene un coste por guardar esos archivos en ese lugar desconocido. Este proyecto busca ofrecer una solución a este problema, mediante el desarrollo de un servicio de almacenamiento y sincronización que podrá ser alojado y desplegado en la mayoría de equipos servidores y computadoras personales.
 
 \subsection{Motivación}
+% TODO: Aumentar un poco más la motivación para intentar ocupar una página entera.
 Durante un periodo vacacional, se presentó un caso práctico en el que un familiar enfrentaba dificultades debido a que su almacenamiento en Google Fotos se había acabado. Este problema planteó la necesidad de implementar un sistema que permitiera la transferencia automática de fotografías desde un dispositivo móvil a un portátil antiguo, aprovechando la conectividad de la red wifi doméstica.
 
-Es por ello que me decidí a solucionar esta problemática mediante el diseño e implementación de una solución tecnológica adecuada, eficiente y segura que permita a cualquier usuario tener un sistema de sincronización de multimedia entre dispositivos, teniendo un servidor central en el que guardar las fotos.
+Es por ello que me decidí a solucionar esta problemática mediante el diseño e implementación de una solución tecnológica eficiente y segura que permita a cualquier usuario tener un sistema de almacenamiento y sincronización de archivos multimedia entre dispositivos, haciendo uso de un servicio que se pudiera alojar y desplegar en la mayoría de los equipos.
 
 \subsection{Objetivos}
-En infinitivo y concisos. Siguiendo las siglas SMART (Specific, Measurable, Achievable, Relevant, Time-bound).
-Mejor tener objetivos generales y después específicos.
+% En infinitivo y concisos. Siguiendo las siglas SMART (Specific, Measurable, Achievable, Relevant, Time-bound).
+% Mejor tener objetivos generales y después específicos.
 
-Mover después de Motivación.
-Para definir los objetivos de nuestro proyecto, primero vamos a definir unos objetivos generales de los cuales se derivarán los específicos.
+\textbf{Objetivo general}
+
+Desarrollar una solución multiplataforma, multiusuario y open-source para la compartición de archivos multimedia.
+
+\textbf{Objetivos específicos}
+
 \begin{itemize}
-    \item OG1: Desarrollar un sistema multiplataforma y multiusuario para la compartición de archivos multimedia.
-        \begin{itemize}
-            \item OE1: Implementar un cliente de sincronización de archivos multimedia.
-            \item OE2: Implementar un servidor de sincronización de archivos multimedia.
-            \item OE3: Implementar un sistema de gestión de usuarios y permisos.
-            \item OE4: Implementar un sistema de gestión de archivos multimedia.
-        \end{itemize}
-    \item OG2: Realizar un proyecto Open-Source
-        \begin{itemize}
-            \item OE5: Publicar de manera pública el código fuente del proyecto.
-            \item OE6: Documentar todos y cada uno de los componentes del proyecto.
-            \item OE7: Utilizar una arquitectura de software que facilite la comprensión y el mantenimiento del código.
-        \end{itemize}
-    \item OG3: Proporcionar una solución segura y eficiente para la sincronización de archivos multimedia.
-        \begin{itemize}
-            \item OE8: Implementar un sistema de cifrado de archivos multimedia.
-            \item OE9: Implementar un sistema de autenticación y autorización de usuarios.
-        \end{itemize}
-    \item OG4: Desarrollar un sistema fácilmente escalable
-        \begin{itemize}
-            \item OE10: Implementar un sistema poco acoplado que nos permita fácil escalabilidad.
-            \item OE11: Utilizar soluciones software que nos permitan escalar el sistema de manera horizontal.
-        \end{itemize}
-    \item OG5: Proporcionar una solución que permita realizar copias de seguridad de una manera sencilla.
-    \item OG6: Desarrollar una solución nativa para las aplicaciones móviles más utilizadas.
-        \begin{itemize}
-            \item OE12: Conseguir un rendimiento óptimo en móviles.
-            \item OE13: Implementar una interfaz de usuario intuitiva y fácil de usar.
-            \item OE14: Conseguir una buena experiencia de usuario.
-        \end{itemize}
+    \item \textbf{OE1: Análisis, diseño e implementación del sistema} \\
+    Analizar, diseñar e implementar un sistema para el almacenamiento y sincronización de archivos multimedia, seleccionando los estilos y patrones arquitectónicos más adecuados (como Cliente/Servidor, Modelo-Vista-Controlador, etc.), e incorporando funcionalidades para la gestión y protección de los archivos mediante la gestión de usuarios y permisos.
 
+    \item \textbf{OE2: Desarrollo del cliente y servidor de sincronización} \\
+    Implementar tanto el cliente como el servidor encargados de la sincronización automática de archivos multimedia entre dispositivos, asegurando la compatibilidad multiplataforma y la facilidad de despliegue en diferentes entornos.
+
+    \item \textbf{OE3: Gestión de usuarios, permisos y seguridad} \\
+    Desarrollar un sistema robusto de gestión de usuarios y permisos, incluyendo mecanismos de autenticación, autorización y cifrado de archivos, con el objetivo de garantizar la seguridad y privacidad de los datos almacenados y compartidos.
+
+    \item \textbf{OE4: Publicación y documentación del proyecto} \\
+    Publicar el código fuente del proyecto bajo una licencia open-source, asegurando la documentación exhaustiva de todos los componentes y facilitando la comprensión, uso y mantenimiento por parte de la comunidad.
+
+    \item \textbf{OE5: Escalabilidad y mantenimiento} \\
+    Diseñar el sistema con una arquitectura desacoplada que permita la escalabilidad horizontal y el mantenimiento sencillo, utilizando tecnologías y soluciones que favorezcan el crecimiento futuro del sistema.
+
+    \item \textbf{OE6: Copias de seguridad y recuperación} \\
+    Implementar mecanismos que permitan la realización de copias de seguridad y la recuperación sencilla de los archivos multimedia, garantizando la integridad y disponibilidad de los datos.
+
+    \item \textbf{OE7: Desarrollo de aplicaciones móviles nativas} \\
+    Desarrollar aplicaciones móviles nativas para las plataformas más utilizadas, priorizando el rendimiento, la experiencia de usuario y la facilidad de uso mediante interfaces intuitivas y optimizadas.
 \end{itemize}
