@@ -65,15 +65,27 @@ Gracias a esta metodología conseguimos tener una organización muy clara de lo 
 
 \subsection{Tecnologías}
 % TODO: Relacionar con los requisitos/objetivos.
-Para el desarrollo de este proyecto se ha buscado utilizar tecnologías que sean lo más eficientes y rápidas posibles, pero a la vez que sean seguras y escalables. Se ha buscado un equilibrio entre rendimiento y facilidad de uso, ya que el objetivo principal es conseguir un producto funcional y eficiente.
 
 \subsubsection{Servidor}
+Para este caso, cualquiera de las dos soluciones sería completamente válida. Go podría ser la mejor opción por su enfoque en la simplicidad y la facilidad de uso, especialmente para aplicaciones web y servicios de red. Sin embargo, Rust ofrece ventajas significativas en términos de seguridad de memoria y rendimiento, lo que lo convierte en una opción atractiva para aplicaciones que requieren alta concurrencia y eficiencia.
+
+En nuestro proyecto se busca alto rendimiento, seguridad, facilidad de contribuir al proyecto y un lenguaje sólido que no sea propenso a fallos.
+Es por esto que Rust es la mejor opción en nuestro caso.
+
+Tal como se ha comentado anteriormente, Rust nos facilita seguridad en la ejecución del código gracias a su estricto compilador.
+Nos ofrece una gran variedad de funcionalidades sin coste en rendimiento junto con su sistema de propiedad y préstamos que nos permite gestionar la memoria de forma segura y eficiente, evitando errores comunes como las condiciones de carrera o los punteros nulos sin necesidad de un recolector de basura (GC).
+
+Aunque la curva de aprendizaje de Rust es más pronunciada, los beneficios a largo plazo en términos de seguridad y rendimiento justifican esta inversión inicial.
+
+Invertir en aprender este lenguaje no solo nos favorecerá para el desarrollo de este proyecto, sino que también nos proporcionará habilidades valiosas para futuros proyectos en el ámbito del desarrollo de software, el cual al final es uno de los objetivos de hacer un proyecto de este tamaño.
+
+Trabajar con tecnologías y paradigmas de programación con las que no estamos familiarizados nos ayudará a mejorar nuestras habilidades y ampliar nuestro conocimiento en el desarrollo de software, lo cual es esencial para nuestro crecimiento profesional.
+
 Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerados en la actualidad en el mundo de la programación: \textbf{Rust}.
 
 Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
 Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente.
 
-¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? \parencite{rust-for-safety-and-performance}
 \begin{itemize}
     \item \textbf{Rendimiento}: es conocido por su alto rendimiento, lo que lo convierte en una excelente opción para aplicaciones que requieren un procesamiento intensivo de datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para desarrollo web es muy bueno, como se puede ver en distintos benchmark \parencite{rust-benchmark}.
     \item \textbf{Seguridad}: tiene un sistema de tipos y un modelo de propiedad que ayudan a prevenir errores comunes de programación, como desbordamientos de búfer y condiciones de carrera.
@@ -84,67 +96,8 @@ Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otr
 \end{itemize}
 
 
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\textwidth]{assets/rust-cpu-comparison.png}
-  \caption{Comparativa de uso de CPU entre Rust y otros lenguajes de programación (menos es mejor) \parencite{rust-for-safety-and-performance}}
-  \label{fig:rust-cpu-comparison}
-\end{figure}
 
-
-\begin{figure}[H]
-  \centering
-  \includegraphics[width=0.8\textwidth]{assets/rust-memory-comparison.png}
-  \caption{Comparativa de uso de memoria entre Rust y otros lenguajes de programación (menos es mejor) \parencite{rust-for-safety-and-performance}}
-  \label{fig:rust-memory-comparison}
-\end{figure}
-
-Como se puede ver en las figuras \ref{fig:rust-cpu-comparison} y \ref{fig:rust-memory-comparison}, Rust tiene un rendimiento muy bueno en comparación con otros lenguajes de programación, tanto en uso de CPU como en uso de memoria.
-
-A partir de las figuras, podemos definir dos fórmulas para calcular el porcentaje de mejora con respecto a los otros lenguajes de programación:
-\begin{equation}
-    \text{Mejora}_{\text{CPU}} (\%) = \left( \frac{T_{\text{\textit{lenguaje}}} - T_{\text{Rust}}}{T_{\text{\textit{lenguaje}}}} \right) \times 100
-\end{equation}
-
-\begin{equation}
-    \text{Mejora}_{\text{Memoria}} (\%) = \left( \frac{M_{\text{\textit{lenguaje}}} - M_{\text{Rust}}}{M_{\text{\textit{lenguaje}}}} \right) \times 100
-\end{equation}
-
-
-Obteniendo las siguientes tablas de comparación:
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Lenguaje} & \textbf{Bubble Sort} & \textbf{Monte Carlo Pi} & \textbf{Monte Carlo Pi (SimpleRNG)} \\
-\hline
-C      & 38.2\%  & 37.9\%  & -0.8\% \\
-C++    & 38.2\%  & 55.5\%  & -0.8\% \\
-Go     & 6.5\%   & 64.1\%  & 0.4\%           \\
-Java   & 17.0\%  & 59.6\%  & 19.4\%          \\
-Python & 98.0\%  & 99.3\%  & 99.4\%          \\
-\hline
-\end{tabular}
-\caption{Porcentaje de mejora de Rust con respecto a otros lenguajes de programación en términos de tiempo de CPU. (Mayor es mejor)}
-\end{table}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{Lenguaje} & \textbf{Bubble Sort} & \textbf{Monte Carlo Pi} & \textbf{Monte Carlo Pi (SimpleRNG)} \\
-\hline
-C      & 89.8\%  & 20.4\%  & 25.6\%  \\
-C++    & 45.1\%  & 45.3\%  & 45.9\%  \\
-Go     & 65.4\%  & 43.5\%  & 44.0\%  \\
-Java   & 97.8\%  & 95.4\%  & 95.4\%  \\
-Python & 89.7\%  & 78.4\%  & 78.2\%  \\
-\hline
-\end{tabular}
-\caption{Porcentaje de mejora de Rust con respecto a otros lenguajes de programación en términos de uso de memoria. (Mayor es mejor)}
-\end{table}
-
+¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? \parencite{rust-for-safety-and-performance}
 Haremos uso del framework de aplicaciones web \href{https://github.com/tokio-rs/axum?tab=readme-ov-file}{\textbf{Axum}}.
 
 Axum es un framework de aplicaciones web construido sobre Tokio, una biblioteca de programación asíncrona para Rust. Axum se centra en la simplicidad y la facilidad de uso, lo que lo convierte en una excelente opción para desarrollar aplicaciones web rápidas y eficientes.
