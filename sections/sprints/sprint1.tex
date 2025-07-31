@@ -625,7 +625,7 @@ pub enum UserRepositoryError {
 \end{lstlisting}
 Hemos definido un trait que será usado para acceder de alguna manera que nuestra capa de aplicación no va a saber. Además, se definen errores de dominio, los cuales no tienen nada que ver con cualquier error que pueda ocurrir al acceder a los datos en la base de datos o el sistema que se esté usando.
 
-Además, nuestro trait especifica que la implementación del trait debe también implementar Clone, Send y Sync, asegurándonos de que se puede utilizar de manera segura entre hilos. Esto es importante para que nuestro repositorio pueda ser usado en un entorno asíncrono y concurrente.
+Además, el trait especifica que su implementación debe también implementar Clone, Send y Sync, asegurando que se pueda utilizar de manera segura entre hilos. Esto es importante para que nuestro repositorio pueda ser usado en un entorno asíncrono y concurrente.
 
 \begin{lstlisting}[language=Rust, caption={Implementación del repositorio de usuarios}, label={lst:impl-repository}]
 // src/lib/users/infrastructure/diesel_user_repository.rs

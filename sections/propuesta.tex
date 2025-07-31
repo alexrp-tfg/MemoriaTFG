@@ -2,28 +2,28 @@
 ~
 \newpage
 \section{Propuesta}
-Ya que es un tfg de desarrollo describimos lo realizado y cómo, así como los resultados obtenidos.
+Dado que se trata de un TFG de desarrollo, se describe lo realizado, el procedimiento seguido y los resultados obtenidos.
 
 Una vez analizado el estado del arte y las tecnologías disponibles, se propone una propuesta a desarrollar que busca cumplir con los objetivos planteados en la introducción. Para el desarrollo de la propuesta se utilizan metodologías ágiles y tecnologías modernas para garantizar un desarrollo eficiente y que permitirá una fácil adaptación a los cambios que puedan surgir durante el desarrollo del proyecto.
 
 Tal como se ha especificado en los capítulos anteriores, se desarrollará una solución que busca ofrecer:
 \begin{itemize}
     \item Solución FOSS que permita una aportar al proyecto de manera sencilla, pudiendo entender rápida y fácilmente el código y la arquitectura del sistema.
-    \item Soluciones eficientes y rápidas. Para ello usaremos tecnologías lo más eficientes posibles, siempre buscando la seguridad y escalabilidad de la aplicación.
-    \item Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible a largo plazo, permitiendo añadir nuevas funcionalidades y mejoras de manera sencilla. Para ello se implementará una arquitectura limpia \parencite{uncle-bob-clean-architecture}, lo que nos proporcionará una estructura del proyecto completamente desacoplada, facilitando la escalabilidad y mantenimiento.
+    \item Soluciones eficientes y rápidas. Para ello se emplearán tecnologías lo más eficientes posibles, siempre buscando la seguridad y escalabilidad de la aplicación.
+    \item Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible a largo plazo, permitiendo añadir nuevas funcionalidades y mejoras de manera sencilla. Para ello se implementará una arquitectura limpia \parencite{uncle-bob-clean-architecture}, lo que proporcionará una estructura del proyecto completamente desacoplada, facilitando la escalabilidad y mantenimiento.
     \item Almacenamiento eficiente. Se busca que el almacenamiento de los archivos sea lo más eficiente posible, tanto en términos de espacio como de velocidad de acceso.
-        Para ello, primero se hará uso de un sistema de almacenamiento de objetos compatible con S3, lo que nos permitirá utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage y en nuestro caso, MinIO.
+        Para ello, primero se hará uso de un sistema de almacenamiento de objetos compatible con S3, lo que permitirá utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage y en este caso, MinIO.
         Más adelante, se implementará una solución de almacenamiento nativa que permita un acceso más rápido y eficiente a los archivos, además de una mejor gestión de los mismos.
-    \item Desarrollo ágil y flexible. Se busca que el desarrollo sea ágil y flexible, permitiendo adaptarse a los cambios y necesidades del proyecto de manera rápida y eficiente. Para ello se hará uso de la metodología ágil Scrum, lo que nos permitirá tener una organización clara del proyecto y una planificación adecuada de las tareas a realizar.
-        Seguir esta metodología nos ayudará a tener una mejor organización del proyecto y una planificación adecuada de las tareas a realizar, lo que aportará una buena organización en un futuro si se incorporan más personas al proyecto.
+    \item Desarrollo ágil y flexible. Se busca que el desarrollo sea ágil y flexible, permitiendo adaptarse a los cambios y necesidades del proyecto de manera rápida y eficiente. Para ello se hará uso de la metodología ágil Scrum, lo que facilitará una organización clara del proyecto y una planificación adecuada de las tareas a realizar.
+        Seguir esta metodología favorecerá una mejor organización del proyecto y una planificación adecuada de las tareas a realizar, lo que aportará una buena organización en caso de que se incorporen más personas al proyecto en el futuro.
 \end{itemize}
 
 \subsection{Metodología}
 \label{sec:metodologia}
 
-Para el desarrollo de este proyecto se va a hacer uso de la metodología ágil Scrum. Esta metodología se basa en el desarrollo iterativo e incremental, lo que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
+Para el desarrollo de este proyecto se ha optado por la metodología ágil Scrum. Esta metodología se basa en el desarrollo iterativo e incremental, lo que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
 
-Se ha optado por el uso de Scrum en vez de otra metodología ágil como Kanban o XP (Extreme Programming) o alguna metodología tradicional ya que se ha utilizado anteriormente y se considera que es con la que más cómodo y eficaz se va trabajar, dado que el equipo de desarrollo ha trabajado con anterioridad con esta metodología ágil y está familiarizado con ella.
+La elección de Scrum sobre otras metodologías ágiles como Kanban o XP (Extreme Programming), o incluso enfoques tradicionales, se fundamenta en la experiencia previa del equipo de desarrollo con este marco de trabajo, lo que garantiza una mayor comodidad y eficacia en su aplicación.
 Además, Scrum es una metodología que se adapta muy bien a proyectos de desarrollo de software, ya que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
 
 Tal y como se explica en la guía oficial de Scrum \parencite{scrum-guide}, Scrum es un marco de trabajo ágil que se utiliza para gestionar proyectos complejos y adaptarse a los cambios de manera rápida y eficiente. Se basa en la colaboración entre equipos multidisciplinarios, la entrega continua de valor y la mejora continua.
@@ -43,133 +43,25 @@ Es por ello que se van a documentar todas las decisiones que se tomen y los camb
   \label{fig:scrum-diagram}
 \end{figure}
 
-En esta imagen podemos ver definido todo el proceso que se sigue con una metodología Scrum, desde la planificación del producto hasta la entrega del mismo.
+En esta imagen se observa definido todo el proceso que se sigue con una metodología Scrum, desde la planificación del producto hasta la entrega del mismo.
 
-Tal y como se comenta en la guía de Scrum y podemos ver en la imagen, durante el desarrollo del proyecto se van a generar varios artefactos:
+Como se comenta en la guía de Scrum y se puede ver en la imagen, durante el desarrollo del proyecto se van a generar varios artefactos:
 \begin{itemize}
     \item \textbf{Product Backlog}: es una lista priorizada de requisitos o tareas pendientes en un proyecto ágil. En este caso, el product backlog se va a utilizar para organizar todas las historias de usuario e historias técnicas que se van a implementar en el proyecto.
     \item \textbf{Sprint Backlog}: es una lista de tareas (las cuales salen de las historias de usuario y técnicas) seleccionadas del product backlog que se van a realizar durante un sprint.
     \item \textbf{Incremento}: es la suma de todos los elementos del product backlog completados durante un sprint y los incrementos de todos los sprints anteriores. En este caso, el incremento se va a utilizar para organizar todas las tareas que se han realizado durante cada sprint.
 \end{itemize}
-De esta manera buscamos al tener un objetivo de producto claro y definido en los sprints. Aunque el producto sufra cambios después, queremos intentar estimar lo mejor posible y, sobre todo, terminar los sprints con un producto con \textbf{valor}, tal y como se dice en la guía `\textit{A product is a vehicle to deliver value. It has a clear boundary, known stakeholders, well-defined users or customers. A product could be a service, a physical product, or something more abstract.}'
+Aunque el producto sufra cambios después, intentar estimar lo mejor posible y terminar los sprints con un producto con \textbf{valor} es el objetivo principal de esta metodología, tal y como se dice en la guía `\textit{A product is a vehicle to deliver value. It has a clear boundary, known stakeholders, well-defined users or customers. A product could be a service, a physical product, or something more abstract.}'
 
-Separaremos el desarrollo en distintos sprints, cada uno de ellos con una duración de dos semanas.
+Se separará el desarrollo en distintos sprints, cada uno de ellos con una duración de dos semanas.
 
 Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint y se desarrollarán (posible desglose en distintas historias de usuario, definición de tareas relacionadas con la HU junto con estimación de las mismas y definición de pruebas de aceptación) generando así el Sprint Backlog correspondiente a ese sprint, se completarán las tareas necesarias para completarlas.
 
-Al final del sprint se realizará una revisión en la que se analizará lo que se ha conseguido hacer y si hemos cumplido con lo que habíamos definido antes del sprint para adaptar el product backlog si fuera necesario y tenerlo en cuenta para el siguiente sprint. En la revisión participarán Product Owner, equipo de desarrollo, Scrum Master y los interesados en el proyecto (Stakeholders). Aquí es donde se presenta el incremento del producto a los interesados y se recibe retroalimentación sobre el trabajo realizado.
+Al final del sprint se realizará una revisión en la que se analizará lo que se ha conseguido hacer y si se ha cumplido con lo definido antes del sprint para adaptar el product backlog si fuera necesario y tenerlo en cuenta para el siguiente sprint. En la revisión participarán Product Owner, equipo de desarrollo, Scrum Master y los interesados en el proyecto (Stakeholders). Aquí es donde se presenta el incremento del producto a los interesados y se recibe retroalimentación sobre el trabajo realizado.
 
-Y por último se lleva a cabo una retrospectiva en el equipo, donde se reflexiona principalmente sobre el cómo se ha trabajado, qué se ha hecho bien, qué se ha hecho mal y qué se puede mejorar para el siguiente sprint. Esto es una parte fundamental de Scrum, ya que permite al equipo aprender de su experiencia y mejorar continuamente.
+Y por último se lleva a cabo una retrospectiva en el equipo, donde se reflexiona principalmente sobre el modo de trabajo, los aspectos positivos, negativos y las posibles mejoras para el siguiente sprint. Esto es una parte fundamental de Scrum, ya que permite al equipo aprender de su experiencia y mejorar continuamente.
 
-Gracias a esta metodología conseguimos tener una organización muy clara de lo que se va a hacer, cómo se va a hacer y cuándo se va a hacer.
-
-\subsection{Tecnologías}
-% TODO: Relacionar con los requisitos/objetivos.
-
-\subsubsection{Servidor}
-Para este caso, cualquiera de las dos soluciones sería completamente válida. Go podría ser la mejor opción por su enfoque en la simplicidad y la facilidad de uso, especialmente para aplicaciones web y servicios de red. Sin embargo, Rust ofrece ventajas significativas en términos de seguridad de memoria y rendimiento, lo que lo convierte en una opción atractiva para aplicaciones que requieren alta concurrencia y eficiencia.
-
-En nuestro proyecto se busca alto rendimiento, seguridad, facilidad de contribuir al proyecto y un lenguaje sólido que no sea propenso a fallos.
-Es por esto que Rust es la mejor opción en nuestro caso.
-
-Tal como se ha comentado anteriormente, Rust nos facilita seguridad en la ejecución del código gracias a su estricto compilador.
-Nos ofrece una gran variedad de funcionalidades sin coste en rendimiento junto con su sistema de propiedad y préstamos que nos permite gestionar la memoria de forma segura y eficiente, evitando errores comunes como las condiciones de carrera o los punteros nulos sin necesidad de un recolector de basura (GC).
-
-Aunque la curva de aprendizaje de Rust es más pronunciada, los beneficios a largo plazo en términos de seguridad y rendimiento justifican esta inversión inicial.
-
-Invertir en aprender este lenguaje no solo nos favorecerá para el desarrollo de este proyecto, sino que también nos proporcionará habilidades valiosas para futuros proyectos en el ámbito del desarrollo de software, el cual al final es uno de los objetivos de hacer un proyecto de este tamaño.
-
-Trabajar con tecnologías y paradigmas de programación con las que no estamos familiarizados nos ayudará a mejorar nuestras habilidades y ampliar nuestro conocimiento en el desarrollo de software, lo cual es esencial para nuestro crecimiento profesional.
-
-Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerados en la actualidad en el mundo de la programación: \textbf{Rust}.
-
-Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
-Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente.
-
-\begin{itemize}
-    \item \textbf{Rendimiento}: es conocido por su alto rendimiento, lo que lo convierte en una excelente opción para aplicaciones que requieren un procesamiento intensivo de datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para desarrollo web es muy bueno, como se puede ver en distintos benchmark \parencite{rust-benchmark}.
-    \item \textbf{Seguridad}: tiene un sistema de tipos y un modelo de propiedad que ayudan a prevenir errores comunes de programación, como desbordamientos de búfer y condiciones de carrera.
-    \item \textbf{Concurrencia}: soporta de manera nativa y sencilla la escritura de código concurrente y paralelo, lo que es esencial para aplicaciones que manejan múltiples tareas al mismo tiempo.
-        Gracias a su implementación de \gls{fearless-concurrency}, Rust permite a los desarrolladores escribir código concurrente sin preocuparse por errores comunes como condiciones de carrera o deadlocks, lo que facilita la creación de aplicaciones altamente eficientes y escalables.
-    \item \textbf{Manejo de errores}: tiene un enfoque único para el manejo de errores, utilizando tipos de datos como \texttt{Result} y \texttt{Option} para representar resultados exitosos y fallidos, lo que ayuda a evitar errores en tiempo de ejecución, consiguiendo de esta manera no encontrarnos con errores inesperados a la hora de ejecutar la aplicación.
-    \item \textbf{Ecosistema}: cuenta con un ecosistema en crecimiento, con una amplia variedad de bibliotecas y herramientas que facilitan el desarrollo de aplicaciones.
-\end{itemize}
-
-
-
-¿Por qué la elección de este lenguaje para el desarrollo del servidor de sincronización? \parencite{rust-for-safety-and-performance}
-Haremos uso del framework de aplicaciones web \href{https://github.com/tokio-rs/axum?tab=readme-ov-file}{\textbf{Axum}}.
-
-Axum es un framework de aplicaciones web construido sobre Tokio, una biblioteca de programación asíncrona para Rust. Axum se centra en la simplicidad y la facilidad de uso, lo que lo convierte en una excelente opción para desarrollar aplicaciones web rápidas y eficientes.
-Aunque hay varios frameworks más eficientes en términos de velocidad a la hora de realizar benchmarks\footnote{\href{https://web-frameworks-benchmark.netlify.app/result?l=rust}{Comparativa frameworks de Rust}} \footnote{\href{https://www.techempower.com/benchmarks/\#section=data-r21&test=composite&hw=ph}{Comparativa con frameworks de otros lenguajes}}, algunos de ellos tienen un tiempo de compilación demasiado alto, por lo que puede llegar a hacer más lento el desarrollo.
-Además, ninguno de los demás frameworks de Rust tiene una comunidad tan activa como la de Axum ni una documentación tan completa.
-
-Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rust más usada para la programación asíncrona}, garantiza un soporte a largo plazo que otros frameworks no garantizan. Además, es \href{https://lib.rs/crates/axum}{la librería más descargada }mensualmente para aplicaciones web en Rust.
-
-Como se puede ver en los benchmark hay frameworks de otros lenguajes que pueden parecer más sencillos que Rust que nos dan el mismo o mejor rendimiento, pero tal y como se ha comentado anteriormente, el punto principal de Rust no es únicamente su rendimiento, sino la seguridad que da el propio lenguaje y lo poco propenso que es a errores en tiempo de compilación, lo que hace de la aplicación mucho más robusta, segura y sostenible a largo plazo.
-
-
-\subsubsection{Móvil}
-Para el desarrollo de la aplicación móvil se ha optado por un nuevo framework de desarrollo multiplataforma, \textbf{Lynx.js}.
-
-Lynx.js es un framework inspirado en React Native. El desarrollo de la aplicación se hace con React el cual se compila a código nativo de la plataforma. El framework soporta componentes de cualquier framework de desarrollo web, aunque está pensado para usar React y es lo que usaremos nosotros.
-
-Aunque pueda parecer igual que React Native, Lynx añade algunas cosas que le faltan a React Native. Uno de los mayores problemas de React Native es su rendimiento en algunas situaciones, ya que este solamente hace uso de un solo thread, lo cual no permite una buena gestión de las tareas. Por ejemplo, no puede obtener datos de una API mientras que se actualiza lo que se muestra al usuario.
-
-Sin embargo, Lynx tiene dos threads, un main thread y un background thread.
-Gracias a esto, es posible especificar en qué thread se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el background thread se obtienen los datos de la API.
-Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \gls{ifr} (\acrshort{ifracr}).
-
-Para conseguir esto, Lynx altera el ciclo de vida de los componentes de React (figura \ref{fig:lynx-component-lifecycle}), consiguiendo deshacerse de cuellos de botella típicos que aparecen en los frameworks de desarrollo móvil asegurando un rendimiento óptimo y una experiencia de usuario fluida.
-
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[width=\textwidth]{lynx-lifecycle.png}
-    \end{center}
-    \caption{Ciclo de vida de los componentes en Lynx.js (\href{https://lynxjs.org/react/lifecycle.html}{Documentación})}
-    \label{fig:lynx-component-lifecycle}
-\end{figure}
-
-
-Dado que la aplicación necesitará hacer uso de módulos nativos de los teléfonos, necesitaremos implementarlos para cada plataforma.
-Esto se puede hacer de manera sencilla, ya que el framework permite la creación de módulos nativos los cuales se pueden llamar desde nuestro código escrito en React.
-
-Este es uno de los puntos fuertes de la aplicación, ya que nos va a permitir programar haciendo uso de React, el cual es un framework muy conocido y utilizado, pero a la vez nos va a permitir hacer uso de módulos nativos de cada plataforma, lo que nos da una gran flexibilidad a la hora de desarrollar la aplicación de forma nativa en todas las plataformas.
-
-Lynx usa una aplicación nativa \textit{Lynx Explorer}, con la cual podemos ver cómo se va a ver la aplicación en el dispositivo móvil. Esta aplicación es la que se encarga de compilar el código de Lynx a código nativo y de ejecutar la aplicación en el dispositivo móvil.
-Para poder hacer uso de los módulos nativos, tendremos que implementarlos en el Explorer, un proyecto que implementa el runtime que utiliza Lynxjs por debajo tanto en Android como iOS, compilar el código del mismo y una vez tenemos la aplicación con nuestro módulo nativo, podemos ejecutar nuestra aplicación sobre nuestro Explorer y hacer uso de nuestro módulo nativo.
-
-A la hora de compilar nuestra aplicación para ser usada en producción, Lynx se incorpora sobre un SDK de Android o iOS. Gracias a esto podemos incorporar nuestra aplicación en cualquier otra aplicación existente con tan solo compilar nuestro código y añadirlo con el SDK de Lynx en la plataforma que gustemos.
-En nuestro caso nos limitamos a usar una estructura de aplicación que proporcionan en \href{https://github.com/lynx-family/integrating-lynx-demo-projects}{su repositorio oficial de proyectos de ejemplo}, los cuales contienen proyectos vacíos que hacen uso de el SDK correspondiente en cada plataforma, por lo que tan solo tendremos que incorporar nuestra aplicación hecha con Lynx.js compilada y compilar el proyecto para cada plataforma.
-
-El proceso de compilación de una aplicación para producción sigue siendo complejo aún, ya que tal y como he comentado, Lynx.js no tiene aún una manera definitiva de compilar un proyecto sin tener que integrarlo mediante el SDK de Lynx en un proyecto nativo de Android o iOS. Aún así, el repositorio con los proyectos de ejemplo proporciona una buena base para empezar a trabajar con Lynx.js y nos permite centrarnos en el desarrollo de la aplicación sin tener que preocuparnos por la configuración del proyecto.
-
-Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho por el equipo de Lynx \parencite{lynx-native-modules}.
-
-Dado que para el desarrollo de aplicaciones en iOS es necesario tener un sistema de Apple, en la implementación de esta aplicación nos centraremos en la parte de Android, aunque el código de la aplicación será el mismo para ambas plataformas.
-La única diferencia será la implementación de los módulos nativos, que serán diferentes para cada plataforma.
-
-En resumen, las ventajas de usar este framework con respecto a otros son:
-\begin{itemize}
-    \item \textbf{Rendimiento}: al compilar a código nativo, el rendimiento es mucho mejor que el de otros frameworks como Flutter. Además, Lynx nos permite hacer uso de su tecnología de doble thread, haciendo que nuestra aplicación sea mucho más fluida y rápida en comparación con otras tecnologías.
-    \item \textbf{Flexibilidad}: permite la creación de módulos nativos para cada plataforma, lo que da una gran flexibilidad a la hora de desarrollar la aplicación.
-    \item \textbf{Simplicidad}: la sintaxis es muy similar a la de React, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en este framework.
-    \item \textbf{Documentación}: la documentación es muy completa y está en constante actualización.
-\end{itemize}
-
-¿Por qué no se ha optado por otras opciones como Flutter o Kotlin Multiplatform?
-\begin{itemize}
-    \item \textbf{Flutter}: aunque es un framework muy potente y con una comunidad muy activa, su rendimiento no es tan bueno como el de Lynx.js.
-        Flutter lo que hace es renderizar lo que sería como un ``canvas'' que utiliza un motor gráfico parecido al de los juegos para renderizar la interfaz de usuario, haciendo que la experiencia de usuario no sea tan fluida como podría ser la de otro framework.
-    \item \textbf{Kotlin Multiplatform}: aunque es una opción interesante, la comunidad y la documentación son mucho más limitadas que las de Lynx.js. La curva de aprendizaje es mucho más pronunciada, ya que se utiliza Kotlin junto con una gran cantidad de librerías las cuales necesitan de un estudio profundo para su uso.
-
-        Nos daría el mejor rendimiento sin tener que programar la aplicación de forma nativa para todos los dispositivos (los dispositivos comparten código pero hay que implementar la mayoría de forma nativa para las distintas plataformas), pero el desarrollo sería mucho más lento y tedioso, lo cual además complicaría la aportación al proyecto Open Source.
-    \item \textbf{React Native}: aunque es un framework muy conocido y utilizado, su rendimiento no es tan bueno como el de Lynx.js.
-        Es una opción muy parecida a Lynx.js, pero a largo plazo la aplicación podría verse afectada por el rendimiento.
-        Dada la similitud con Lynx.js y las ventajas que ofrece, se ha optado por este último.
-\end{itemize}
-
-Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0, es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \parencite{lynx-article}.
+Gracias a esta metodología se consigue tener una organización muy clara de lo que se va a hacer, cómo se va a hacer y cuándo se va a hacer.
 
 \subsection{Sprint 0}
 \label{sec:planificacion-inicial}
@@ -199,7 +91,7 @@ En esta sección se detallan las historias de usuario e historias técnicas de l
 
 Se ha considerado esta separación ya que la aplicación de servidor tiene un objetivo diferente al de la aplicación móvil, de esta manera conseguimos una mejor organización de las historias de usuario.
 
-Durante los primeros sprints se trabajará de manera principalmente separada, enfocándose en la parte correspondiente que se defina de la aplicación y en una fase más avanzada se trabajará de manera conjunta, integrando ambas aplicaciones. Esto lo hacemos para para poder enfocarnos mejor en una sola parte del proyecto, de esta manera no tenemos que estar cambiando de contexto constantemente entre las dos aplicaciones, lo que podría hacer que el desarrollo fuera más lento y tedioso.
+Durante los primeros sprints se trabajará de manera principalmente separada, enfocándose en la parte correspondiente que se defina de la aplicación y en una fase más avanzada se trabajará de manera conjunta, integrando ambas aplicaciones. Se realizará de esta manera para para poder enfocarnos mejor en una sola parte del proyecto, de esta manera no tenemos que estar cambiando de contexto constantemente entre las dos aplicaciones, lo que podría hacer que el desarrollo fuera más lento y tedioso.
 
 Para la planificación del desarrollo se han utilizado puntos de historia (PH), los cuales representan una estimación de lo que se considera que se tardará en implementar las historias de usuario. Esta estimación es relativa, es decir, no representa un tiempo real sino una estimación con respecto a todas las demás historias de usuario, siendo 1 punto de historia la historia de usuario más sencilla de implementar o que menos tiempo requiere.
 
@@ -252,7 +144,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HT02 & Sincronización incremental & Implementar sincronización basada en metadatos (fecha, tamaño, hash). & 5 \\
     \hline
-    HT03 & API REST en Rust & Desarrollar API RESTful usando Rust y Axum & 13 \\
+    HT03 & API REST & Desarrollar API RESTful par el servidor & 13 \\
     \hline
     HT04 & Descubrimiento mDNS & Crear sistema de descubrimiento automático usando mDNS. & 8 \\
     \hline
@@ -268,7 +160,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HT10 & Subida concurrente & Soporte para subida simultánea y manejo de errores. & 8 \\
     \hline
-    HT11 & Tests en Rust & Añadir pruebas unitarias e integración en backend. & 5 \\
+    HT11 & Tests & Añadir pruebas unitarias e integración en backend. & 5 \\
     \hline
     HT12 & CI/CD & Configurar pipelines de integración y despliegue. & 5 \\
     \hline
@@ -296,7 +188,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 
 \subparagraph{Historias que se han dividido}
 
-Ambas tablas que aparecen a continuación muestran ejemplos de historias técnicas que han sido divididas en sub-historias para facilitar su gestión y estimación en el backlog.
+Ambas tablas que aparecen a continuación muestran historias técnicas que han sido divididas en sub-historias para facilitar su gestión y estimación en el backlog.
 
 \begin{table}[h!]
     \begin{center}
@@ -408,34 +300,38 @@ Ambas tablas que aparecen a continuación muestran ejemplos de historias técnic
     \caption{Diagrama de la arquitectura del sistema. Representa las comunicaciones entre los distintos elementos del sistema}\label{fig:diagrama-arquitectura}
 \end{figure}
 
-Como podemos ver en la figura \ref{fig:diagrama-arquitectura}, el sistema va a estar compuesto por un cliente (móvil tanto en Android como iOS gracias a la multiplataforma que nos da Lynx.js) que se comunica con un servidor mediante peticiones HTTP.
-Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma desarrollado en Lynx.js (una tecnología muy nueva) y un servidor programado en Rust no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST. Además, tanto Lynx.js como React Native no tienen muy buena compatibilidad con gRPC.
+Como se muestra en la figura \ref{fig:diagrama-arquitectura}, el sistema va a estar compuesto por un cliente (móvil tanto en Android como iOS) que se comunica con un servidor mediante peticiones HTTP.
+Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma móvil y el servidor no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST.
 
 Todo esto hizo decidirse por una API REST, la cual es más sencilla de implementar y de mantener a largo plazo, además de ser más fácil de entender para cualquier desarrollador que quiera contribuir al proyecto.
 
-El servidor se comunicará de manera abstracta con un servicio de almacenamiento de datos. Para la primera versión de la aplicación haremos uso de MinIO, un software Open-Source que nos permite crear un servidor de almacenamiento de objetos compatible con la API de Amazon S3.
-Esto nos da la ventaja de poder utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage en el futuro sin necesidad de cambiar la aplicación.
+El servidor se comunicará de manera abstracta con un servicio de almacenamiento de datos. Para la primera versión de la aplicación se hará uso de MinIO, un software Open-Source que permite crear un servidor de almacenamiento de objetos compatible con la API de Amazon S3.
+Esto proporciona la ventaja de poder utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage en el futuro sin necesidad de cambiar la aplicación.
 MinIO está diseñado para ser totalmente escalable y de alto rendimiento, lo que lo convierte en una excelente opción para almacenar grandes volúmenes de datos, como fotos y vídeos.
 
-Aunque para las primeras iteraciones hagamos uso de MinIO para almacenar los datos multimedia, en iteraciones más avanzadas se implementará un sistema de almacenamiento nativo en Rust, el cual nos permitirá tener un mayor control sobre los datos y una mejor integración con el resto del sistema.
+Aunque en las primeras iteraciones se utilice MinIO para almacenar los datos multimedia, en iteraciones más avanzadas se implementará un sistema de almacenamiento nativo, el cual permitirá un mayor control sobre los datos y una mejor integración con el resto del sistema.
 
-Gracias a la arquitectura hexagonal que se va a utilizar a la hora de implementar el sistema, conseguimos un desacople total de la capa de aplicación, dominio e infraestructura, brindando la posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, teniendo de esta manera flexibilidad sobre la solución que queramos usar para almacenar nuestros datos/multimedia.
+Gracias a la arquitectura hexagonal que se va a utilizar a la hora de implementar el sistema, se consigue un desacople total de la capa de aplicación, dominio e infraestructura, brindando la posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, proporcionando de esta manera flexibilidad sobre la solución que se desee usar para almacenar los datos/multimedia.
 
-Para el almacenaje de los datos de nuestra aplicación se ha optado por PostgreSQL.
-Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo plazo, nos da una gran cantidad de ventajas frente a las desventajas que tiene, como pueden ser:
+Para el almacenaje de los datos de la aplicación se ha optado por hacer uso de un \acrshort{orm} con PostgreSQL.
+Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo plazo, esta opción proporciona una gran cantidad de ventajas frente a las desventajas que tiene, como pueden ser:
 \begin{itemize}
     \item \textbf{Integridad de los datos}: PostgreSQL es un sistema de gestión de bases de datos relacional, lo que significa que garantiza la integridad de los datos mediante el uso de transacciones y restricciones.
     \item \textbf{Escalabilidad}: aunque no es tan escalable como otras soluciones noSQL, PostgreSQL es capaz de manejar grandes volúmenes de datos y puede escalar horizontalmente mediante particionamiento.
     \item \textbf{Rendimiento}: PostgreSQL es conocido por su alto rendimiento y eficiencia en el manejo de consultas complejas y grandes volúmenes de datos.
     \item \textbf{Comunidad activa}: PostgreSQL tiene una comunidad muy activa y una gran cantidad de documentación y recursos disponibles, lo que facilita su aprendizaje y uso.
-    \item \textbf{Open-Source}: al ser un software Open-Source, no tenemos que pagar por licencias y se alinea con el enfoque de nuestro proyecto que busca ser Open-Source.
+    \item \textbf{Open-Source}: al ser un software Open-Source, no es necesario pagar por licencias y se alinea con el enfoque del proyecto que busca ser Open-Source.
 \end{itemize}
 
-\subsubsection{Estructura de implementación}
-En un proyecto de este tipo es muy importante tener una buena estructura a la hora de implementar nuestras aplicaciones.
-Buscamos la separación de responsabilidades y una buena organización lo cual nos lleva a cumplir uno de nuestros objetivos generales (OG4): desarrollar un sistema fácilmente escalable.
+Aunque se elija una base de datos en este punto del proyecto, la arquitectura del sistema permite cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, lo que proporciona flexibilidad para cambiar la base de datos en el futuro si fuera necesario.
+Además, se ha optado por hacer uso de un \acrshort{orm} para facilitar la interacción con la base de datos y abstraer la complejidad de las consultas SQL, lo que permite centrarse en la lógica de negocio y no en la implementación de la base de datos.
+Esto otorga mayor flexibilidad a la hora de cambiar la base de datos en el futuro, ya que el \acrshort{orm} permite cambiar el motor de base de datos fácilmente.
 
-Para ello, se ha estudiado las distintas opciones que tenemos, tanto para el servidor como para la aplicación móvil, y principalmente se ha optado por una arquitectura limpia \parencite{uncle-bob-clean-architecture}, cuyos principios son:
+\subsubsection{Estructura de implementación}
+En un proyecto de este tipo es muy importante tener una buena estructura a la hora de implementar la aplicación.
+Se busca la separación de responsabilidades y una buena organización, lo cual satisface uno de los objetivos específicos (OE5): desarrollar un sistema que sea fácilmente escalable.
+
+Para ello, se han estudiado las distintas opciones disponibles, tanto para el servidor como para la aplicación móvil, y se ha optado por una variación de la arquitectura limpia \parencite{uncle-bob-clean-architecture}, cuyos principios son:
 \begin{itemize}
     \item \textbf{Separación de responsabilidades}: cada capa del sistema tiene una responsabilidad clara y bien definida, lo que facilita el mantenimiento y la evolución del sistema.
     \item \textbf{Independencia de la infraestructura}: las capas más internas del sistema no dependen de detalles de implementación de la infraestructura, lo que permite cambiar la infraestructura sin afectar al resto del sistema.
@@ -447,11 +343,11 @@ Para ello, se ha estudiado las distintas opciones que tenemos, tanto para el ser
 \subparagraph{}
 Para el servidor se ha decidido usar una estructura monolítica modular siguiendo los principios de una arquitectura limpia.
 Este enfoque se acerca a lo que sería una estructura de microservicios, pero sin la complejidad que conlleva el uso de múltiples servicios.
-Siguiendo esta solución tenemos un solo binario que contiene todo el código del servidor, pero con una estructura modular, donde cada módulo tiene una responsabilidad clara y bien definida.
-Es la mejor solución para un equipo pequeño por el simple hecho de que no tenemos que preocuparnos por la comunicación entre distintos servicios, el despliegue de los mismos y la gestión de la infraestructura para cada uno de los servicios.
+Siguiendo esta solución la aplicación se compone de un solo binario que contiene todo el código del servidor, pero con una estructura modular donde cada módulo tiene una responsabilidad clara y bien definida.
+Es la mejor solución para un equipo pequeño ya que se elimina el factor de la comunicación entre distintos servicios, el despliegue de los mismos y la gestión de la infraestructura para cada uno de los servicios.
 
-Aún así, tenemos la gran mayoría de las ventajas que nos da una arquitectura de microservicios, como la separación de responsabilidades, la facilidad de pruebas y la escalabilidad.
-De esta manera, si en un futuro quisiéramos separar el servidor en microservicios, sería mucho más sencillo hacerlo, ya que ya tenemos una estructura modular que nos permite separar las distintas funcionalidades del servidor.
+Aun así, cuenta con la gran mayoría de las ventajas que proporciona una arquitectura de microservicios, como la separación de responsabilidades, la facilidad de pruebas y la escalabilidad.
+De esta manera, en un futuro se podría separar el servidor en microservicios de manera sencilla, dado que se dispone de una estructura modular donde cada módulo tiene su responsabilidad, por lo que tan solo sería necesario separar los módulos en distintos servicios y hacer que se comuniquen entre ellos mediante un protocolo de comunicación específico, como puede ser HTTP o gRPC.
 
 
 \begin{figure}[H]
@@ -461,15 +357,15 @@ De esta manera, si en un futuro quisiéramos separar el servidor en microservici
   \label{fig:modular-monolith-comparison}
 \end{figure}
 
-Como podemos ver en la figura \ref{fig:modular-monolith-comparison}, la diferencia que vemos entre una arquitectura de microservicios y una monolítica modular es que los módulos comparten el mismo proceso y por ende la comunicación entre ellos cambiará y se hará de manera local mediante llamadas a funciones, mientras que en una arquitectura de microservicios la comunicación entre los distintos servicios se hace mediante peticiones a través de un protocolo de comunicación específico y cada módulo tendría su propia forma de administrar datos, lo que añade una capa de complejidad innecesaria para un proyecto de este tipo.
+En la figura \ref{fig:modular-monolith-comparison} se muestra que la diferencia entre una arquitectura de microservicios y una monolítica modular es que los módulos comparten el mismo proceso y por ende la comunicación entre ellos cambiará y se hará de manera local mediante llamadas a funciones, mientras que en una arquitectura de microservicios la comunicación entre los distintos servicios se hace mediante peticiones a través de un protocolo de comunicación específico y cada módulo tendría su propia forma de administrar datos, lo que añade una capa de complejidad innecesaria para un proyecto de este alcance.
 
 \paragraph{Arquitectura del cliente}
 \subparagraph{}
-Tal y como se ha comentado anteriormente, la aplicación móvil también seguirá una arquitectura limpia, donde tendremos una capa de presentación, una capa de dominio y una capa de infraestructura.
+La aplicación móvil también seguirá una arquitectura limpia, la cual contará con una capa de presentación, una capa de dominio y una capa de infraestructura.
 La capa de presentación se encargará de la interfaz de usuario y de la interacción con el usuario, la capa de dominio se encargará de la lógica de negocio y la capa de infraestructura se encargará de la comunicación con el servidor y el almacenamiento local.
 
 Tal como se comenta en el libro \textit{Clean Architecture} \parencite{uncle-bob-clean-architecture}, esta arquitectura es como una cebolla, donde cada capa está separada por una interfaz y cada capa puede comunicarse con la capa inferior a través de esta interfaz, pero no al revés.
-Es decir, nuestra capa de dominio no se puede comunicar con ninguna de las otras capas, ya que esta es la capa más interna y no debe depender de ninguna otra capa.
+Es decir, la capa de dominio no se puede comunicar con ninguna de las otras capas, ya que esta es la capa más interna y no debe depender de ninguna otra capa.
 
 
 \begin{figure}[H]
@@ -479,21 +375,158 @@ Es decir, nuestra capa de dominio no se puede comunicar con ninguna de las otras
   \label{fig:clean-architecture-mobile}
 \end{figure}
 
-En la imagen podemos ver el diagrama de una arquitectura limpia para nuestra aplicación móvil, donde cada capa tiene una responsabilidad clara y bien definida.
-
 Las flechas representan cómo accede cada capa a las demás.
 El acceso se hace de la capa más externa a la más interna, es decir, la capa de dominio (la más interna) no puede saber nada sobre las otras capas, pero la capa de presentación puede acceder a la capa de dominio y a la capa de aplicación.
 
-Nuestra capa de aplicación no utiliza directamente la capa de infraestructura, sino que lo hace a través de interfaces que definimos en la capa de dominio. La capa de infraestructura se encarga de implementar estas interfaces, lo que nos permite cambiar la implementación de la capa de infraestructura sin afectar a la capa de dominio, de aplicación ni la de presentación.
+La capa de aplicación no utiliza directamente la capa de infraestructura, sino que lo hace a través de interfaces definidas en la capa de dominio. La capa de infraestructura se encarga de implementar estas interfaces, lo que permite cambiar la implementación de la capa de infraestructura sin afectar a la capa de dominio, de aplicación ni la de presentación.
 
-De esta manera conseguimos una separación de responsabilidades y una independencia de la infraestructura, lo que nos permite cambiar la implementación de cualquier capa sin afectar al resto del sistema.
-También nos permite hacer pruebas unitarias e integración de manera más sencilla, ya que podemos \gls{mockear} las interfaces de la capa de infraestructura y probar la lógica de negocio sin necesidad de depender de la implementación concreta de la capa de infraestructura.
+De esta manera se consigue una separación de responsabilidades y una independencia de la infraestructura, lo que permite cambiar la implementación de cualquier capa sin afectar al resto del sistema.
+También permite hacer pruebas unitarias e integración de manera más sencilla, ya que permite \gls{mockear} las interfaces de la capa de infraestructura y probar la lógica de negocio sin necesidad de depender de la implementación concreta de la capa de infraestructura.
+
+\subsubsection{Desarrollo de artefactos del primer sprint}
+Tal y como se ha definido en la \hyperref[sec:metodologia]{sección de metodología}, cada sprint se va a enfocar en una parte del proyecto. En este caso, el primer sprint se va a centrar en historias de usuario del servidor solamente. El segundo sprint se centrará en las historias de usuario del cliente móvil y una vez analizado el estado de ambos productos, se decidirá si comenzar a tener sprints conjuntos.
+
+En la metodología Scrum se seleccionan historias de usuario hasta que la suma de las estimaciones de las historias de usuario sea menor o igual a la velocidad del equipo para ese sprint.
+La velocidad del equipo se define como la cantidad de puntos de historia que el equipo puede completar en un sprint, y se calcula a partir de los sprints anteriores.
+En este caso, como es el primer sprint y no hay una velocidad definida, se escogen historias de usuario fijándose en el tipo de tarea e intentando no tener una suma de puntos de historia muy alta.
+
+Una vez se termina el sprint, en el proceso de retrospectiva se analiza cuántas historias de usuario se han completado o cuantas se han quedado a medias, y se ajusta la velocidad del equipo para el siguiente sprint. Este proceso se repite en cada sprint hasta que el equipo tiene una velocidad estable y se puede obtener una estimación más precisa de cuántas historias de usuario pueden completarse en cada sprint.
+
+Durante la especificación del sprint backlog se va a estudiar si hay historias de usuario que puedan ser divididas en distintas historias y una vez se hayan definido las historias de usuario que se van a implementar en el sprint, se definirán las tareas correspondientes a cada historia de usuario junto con su estimación en horas.
+En el momento que se disponga de estimaciones en horas de tareas, es posible realizar un diagrama de Gantt para el sprint con las tareas y su duración estimada.
+
+\subsubsection{Planificación de entregas}
+En esta sección se va a definir los objetivos generales que tendremos para cada entrega en caga sprint. Estos objetivos son estimados y pueden variar dependiendo de la velocidad real del equipo, puede ser que se consiga más en un sprint o menos. Esta planificación se realiza para que, en el caso de que tuviéramos un cliente, se le pudiera dar una estimación del producto que va a ir recibiendo en cada entrega.
+
+En este caso y en este tipo de proyecto, sirve para tener un enfoque claro de lo que se quiere conseguir en cada sprint y no desviarse realizando otras tareas.
+Definir qué se va a entregar en cada sprint también ayudará priorizar qué historias de usuario se van a realizar en cada sprint.
+
+Teniendo en cuenta que el desarrollo del proyecto comienza la última semana de junio de 2025, que cada sprint dura dos semanas y que la fecha límite de entrega del proyecto es el 5 de septiembre de 2025, se presentan un total de 11 semanas para el proyecto. Teniendo en cuenta que el sprint 0 tiene una duración de una semana, se definen un total de 5 sprints para el desarrollo del proyecto.
+
+Los objetivos de cada sprint quedarían de la siguiente manera:
+\begin{itemize}
+    \item \textbf{Sprint 1}: Implementación de la API REST del servidor, incluyendo la gestión de usuarios, autenticación y autorización. Durante esta iteración se busca implementar una gestión de usuarios simple junto con toda la estructura base del proyecto.
+    \item \textbf{Sprint 2}: Implementación de la aplicación móvil. Definición e implementación de módulos nativos para el acceso a archivos multimedia y permisos. Durante esta iteración se busca implementar una aplicación de gestión de galería básica sin funcionalidades de sincronización.
+    \item \textbf{Sprint 3}: Implementación de todo el procesado multimedia en el servidor: generación de miniaturas, subida y compresión de imágenes y vídeos, etiquetado basado en metadatos, etc. En el cliente se implementará la subida de archivos multimedia a el servidor y la visualización de los archivos subidos.
+    \item \textbf{Sprint 4}: Implementación de la sincronización automática de archivos multimedia en el cliente móvil tanto como la visualización del estado de la galería en el servidor. En esta iteración se implementará principalmente toda la conexión automática entre el cliente y el servidor, así como la sincronización de archivos multimedia.
+    \item \textbf{Sprint 5}: Implementación de la gestión de usuarios desde el cliente móvil, incluyendo la gestión de permisos en las galerías, álbumes y archivos. Durante esta última iteración se implementará el uso compartido de galerías y álbumes entre usuarios.
+    \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia nativo en el servidor.
+\end{itemize}
+Este último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto open-source.
+
+Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint anterior.
+
+\subsection{Tecnologías}
+Una vez realizado el análisis de las distintas tecnologías que se pueden utilizar para el desarrollo del proyecto en el capítulo \ref{sec:tecnologias} y definidos los requisitos principales de el proyecto, se ha decidido utilizar las siguientes tecnologías para cada parte del proyecto:
+
+\subsubsection{Servidor}
+Para el servidor, cualquiera de las dos soluciones sería completamente válida. Go podría ser la mejor opción por su enfoque en la simplicidad y la facilidad de uso, especialmente para aplicaciones web y servicios de red. Sin embargo, Rust ofrece ventajas significativas en términos de seguridad de memoria y rendimiento, lo que lo convierte en una opción atractiva para aplicaciones que requieren alta concurrencia y eficiencia.
+
+En este proyecto se busca alto rendimiento, seguridad, facilidad de contribuir al proyecto y un lenguaje sólido que no sea propenso a fallos.
+Es por esto que Rust es la mejor opción para este caso. \parencite{rust-for-safety-and-performance}
+
+Tal como se ha comentado anteriormente, Rust facilita la seguridad en la ejecución del código gracias a su estricto compilador.
+Ofrece una gran variedad de funcionalidades sin coste en rendimiento junto con su sistema de propiedad y préstamos que permite gestionar la memoria de forma segura y eficiente, evitando errores comunes como las condiciones de carrera o los punteros nulos sin necesidad de un recolector de basura (GC).
+
+Aunque la curva de aprendizaje de Rust es más pronunciada, los beneficios a largo plazo en términos de seguridad y rendimiento justifican esta inversión inicial.
+
+Invertir en aprender este lenguaje no solo favorecerá el desarrollo de este proyecto, sino que también proporcionará habilidades valiosas para futuros proyectos en el ámbito del desarrollo de software, el cual al final es uno de los objetivos de hacer un proyecto de este tamaño.
+
+El trabajo con tecnologías y paradigmas de programación poco familiares para el equipo contribuye al desarrollo de nuevas competencias y a la ampliación del conocimiento en el ámbito del desarrollo de software, lo cual resulta fundamental para el crecimiento profesional.
+
+Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerados en la actualidad en el mundo de la programación: \textbf{Rust}.
+
+Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
+Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente.
+
+\begin{itemize}
+    \item \textbf{Rendimiento}: es conocido por su alto rendimiento, lo que lo convierte en una excelente opción para aplicaciones que requieren un procesamiento intensivo de datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para desarrollo web es muy bueno, como se puede ver en distintos benchmark \parencite{rust-benchmark}.
+    \item \textbf{Seguridad}: tiene un sistema de tipos y un modelo de propiedad que ayudan a prevenir errores comunes de programación, como desbordamientos de búfer y condiciones de carrera.
+    \item \textbf{Concurrencia}: soporta de manera nativa y sencilla la escritura de código concurrente y paralelo, lo que es esencial para aplicaciones que manejan múltiples tareas al mismo tiempo.
+        Gracias a su implementación de \gls{fearless-concurrency}, Rust permite a los desarrolladores escribir código concurrente sin preocuparse por errores comunes como condiciones de carrera o deadlocks, lo que facilita la creación de aplicaciones altamente eficientes y escalables.
+    \item \textbf{Manejo de errores}: tiene un enfoque único para el manejo de errores, utilizando tipos de datos como \texttt{Result} y \texttt{Option} para representar resultados exitosos y fallidos, lo que ayuda a evitar errores en tiempo de ejecución, consiguiendo de esta manera no encontrarnos con errores inesperados a la hora de ejecutar la aplicación.
+    \item \textbf{Ecosistema}: cuenta con un ecosistema en crecimiento, con una amplia variedad de bibliotecas y herramientas que facilitan el desarrollo de aplicaciones.
+\end{itemize}
+
+
+Se ha decidido usar del framework de aplicaciones web \href{https://github.com/tokio-rs/axum?tab=readme-ov-file}{\textbf{Axum}}.
+
+Axum es un framework de aplicaciones web construido sobre Tokio, una biblioteca de programación asíncrona para Rust. Axum se centra en la simplicidad y la facilidad de uso, lo que lo convierte en una excelente opción para desarrollar aplicaciones web rápidas y eficientes.
+Aunque hay varios frameworks más eficientes en términos de velocidad a la hora de realizar benchmarks\footnote{\href{https://web-frameworks-benchmark.netlify.app/result?l=rust}{Comparativa frameworks de Rust}} \footnote{\href{https://www.techempower.com/benchmarks/\#section=data-r21&test=composite&hw=ph}{Comparativa con frameworks de otros lenguajes}}, algunos de ellos tienen un tiempo de compilación demasiado alto, por lo que puede llegar a hacer más lento el desarrollo.
+Además, ninguno de los demás frameworks de Rust tiene una comunidad tan activa como la de Axum ni una documentación tan completa.
+
+Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rust más usada para la programación asíncrona}, garantiza un soporte a largo plazo que otros frameworks no garantizan. Además, es \href{https://lib.rs/crates/axum}{la librería más descargada }mensualmente para aplicaciones web en Rust.
+
+Como se puede ver en los benchmark hay frameworks de otros lenguajes que pueden parecer más sencillos que Rust y que ofrecen el mismo o mejor rendimiento, pero como se ha comentado anteriormente, el punto principal de Rust no es únicamente su rendimiento, sino la seguridad que proporciona el propio lenguaje y lo poco propenso que es a errores en tiempo de compilación, lo que hace que la aplicación sea mucho más robusta, segura y sostenible a largo plazo.
+
+
+\subsubsection{Móvil}
+Para el desarrollo de la aplicación móvil se ha optado por el nuevo framework de desarrollo multiplataforma, \textbf{Lynx.js}.
+
+Lynx.js es un framework inspirado en React Native. El desarrollo de la aplicación se hace con React el cual se compila a código nativo de la plataforma. El framework soporta componentes de cualquier framework de desarrollo web, aunque está pensado para usar React con componentes definidos por el framework de desarrollo.
+
+Aunque pueda parecer igual que React Native, Lynx añade algunas cosas que le faltan a React Native. Uno de los mayores problemas de React Native es su rendimiento en algunas situaciones, ya que este solamente hace uso de un solo hilo de ejecución, lo cual no permite una buena gestión de las tareas. Por ejemplo, no puede obtener datos de una API mientras que se actualiza lo que se muestra al usuario.
+
+Sin embargo, Lynx tiene se ejecuta sobre dos hilos, un hilo principal y un hilo secundario.
+Gracias a esto, es posible especificar en qué hilo se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el hilo secundario se obtienen los datos de la API.
+Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \gls{ifr} (\acrshort{ifracr}).
+
+Para conseguir esto, Lynx altera el ciclo de vida de los componentes de React (figura \ref{fig:lynx-component-lifecycle}), consiguiendo deshacerse de cuellos de botella típicos que aparecen en los frameworks de desarrollo móvil asegurando un rendimiento óptimo y una experiencia de usuario fluida.
+
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width=\textwidth]{lynx-lifecycle.png}
+    \end{center}
+    \caption{Ciclo de vida de los componentes en Lynx.js (\href{https://lynxjs.org/react/lifecycle.html}{Documentación})}
+    \label{fig:lynx-component-lifecycle}
+\end{figure}
+
+
+Dado que la aplicación necesitará hacer uso de módulos nativos de los teléfonos, será necesario implementarlos para cada plataforma.
+Esto se puede hacer de manera sencilla, ya que el framework permite la creación de módulos nativos los cuales se pueden llamar desde el código escrito con React.
+
+Este es uno de los puntos fuertes de la aplicación, ya que permitirá programar haciendo uso de React, el cual es un framework muy conocido y utilizado, pero a la vez permite usar módulos nativos de cada plataforma, lo que da una gran flexibilidad a la hora de desarrollar la aplicación de forma nativa en todas las plataformas.
+
+Lynx usa una aplicación nativa \textit{Lynx Explorer}, con la cual se puede visualizar el estado de la aplicación conforme se va desarrollando en tiempo real.
+Esta aplicación se encarga de ejecutar el código compilado de Lynx.js y permite debuggear la aplicación gracias a su \href{https://github.com/lynx-family/lynx-devtool}{herramienta de depuración}.
+Para poder hacer uso de los módulos nativos es necesario implementarlos en el Explorer, un proyecto que implementa el runtime que utiliza Lynx.js por debajo tanto en Android como iOS, compilar el código del mismo y una vez se ha compilado la aplicación con nuestro módulo nativo, se puede llamar a la implementación nativa desde la aplicación escrita en Lynx.js.
+
+A la hora de compilar la aplicación para ser usada en producción, Lynx se incorpora sobre un SDK de Android o iOS. Gracias a esto se puede incorporar la aplicación en cualquier otra aplicación existente con tan solo compilar el código y añadirlo con el SDK de Lynx en la plataforma que se desee.
+En este caso se usará una estructura de aplicación que proporcionan en \href{https://github.com/lynx-family/integrating-lynx-demo-projects}{su repositorio oficial de proyectos de ejemplo}, los cuales contienen proyectos vacíos que hacen uso de el SDK correspondiente en cada plataforma, por lo que tan solo será necesario incorporar la aplicación hecha con Lynx.js compilada y compilar el proyecto para cada plataforma.
+
+El proceso de compilación de una aplicación para producción sigue siendo complejo aún, ya que tal y como se ha comentado, Lynx.js no tiene aún una manera definitiva de compilar un proyecto sin tener que integrarlo mediante el SDK de Lynx en un proyecto nativo de Android o iOS. Aún así, el repositorio con los proyectos de ejemplo proporciona una buena base para empezar a trabajar con Lynx.js y permite el desarrollo de la aplicación sin tener que preocuparnos por la configuración del proyecto.
+
+Todo esto, junto con los comandos y repositorios necesarios viene detallado en el artículo hecho por el equipo de Lynx \parencite{lynx-native-modules}.
+
+Dado que para el desarrollo de aplicaciones en iOS es necesario tener un sistema de Apple, este proyecto se centrará únicamente en la aplicación para Android, aunque el código de la aplicación será el mismo para ambas plataformas a diferencia de la implementación de los módulos nativos, que serán diferentes para cada plataforma.
+
+En resumen, las ventajas de usar este framework con respecto a otros son:
+\begin{itemize}
+    \item \textbf{Rendimiento}: al compilar a código nativo, el rendimiento es mucho mejor que el de otros frameworks como Flutter. Además, Lynx ofrece una tecnología de doble hilo, haciendo que la aplicación sea mucho más fluida y rápida en comparación con otras tecnologías.
+    \item \textbf{Flexibilidad}: permite la creación de módulos nativos para cada plataforma, lo que da una gran flexibilidad a la hora de desarrollar la aplicación.
+    \item \textbf{Simplicidad}: la sintaxis es muy similar a la de React, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en este framework.
+    \item \textbf{Documentación}: la documentación es muy completa y está en constante actualización.
+\end{itemize}
+
+¿Por qué no se ha optado por otras opciones como Flutter o Kotlin Multiplatform?
+\begin{itemize}
+    \item \textbf{Flutter}: aunque es un framework muy potente y con una comunidad muy activa, su rendimiento no es tan bueno como el de Lynx.js.
+        Flutter renderiza un ``canvas'' que utiliza un motor gráfico que se asemeja a un motor para juegos para renderizar la interfaz de usuario, haciendo que la experiencia de usuario no sea tan fluida como podría ser la de otro framework.
+    \item \textbf{Kotlin Multiplatform}: aunque es una opción interesante, la comunidad y la documentación son mucho más limitadas que las de Lynx.js. La curva de aprendizaje es mucho más pronunciada, ya que se utiliza Kotlin junto con una gran cantidad de librerías las cuales necesitan de un estudio profundo para su uso.
+
+        Aportaría el mejor rendimiento sin tener que programar la aplicación de forma nativa para todos los dispositivos (los dispositivos comparten código pero hay que implementar la mayoría de forma nativa para las distintas plataformas), pero el desarrollo sería mucho más lento y tedioso, lo cual además complicaría la aportación al proyecto Open Source.
+    \item \textbf{React Native}: aunque es un framework muy conocido y utilizado, su rendimiento no es tan bueno como el de Lynx.js.
+        Es una opción muy parecida a Lynx.js, pero a largo plazo la aplicación podría verse afectada por el rendimiento.
+        Dada la similitud con Lynx.js y las ventajas que ofrece, se ha optado por este último.
+\end{itemize}
+
+Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0. Es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \parencite{lynx-article}.
 
 \subsubsection{Inicialización del entorno de desarrollo}
 En esta sección se va a detallar cómo se ha procedido a la inicialización del entorno de desarrollo tanto para el servidor como para la aplicación móvil.
 \paragraph{Servidor}
 \subparagraph{}
-Para la inicialización del entorno de desarrollo del servidor nos hemos basado en la estructura de ejemplo que se puede encontrar en el artículo consultado sobre la arquitectura hexagonal en Rust \parencite{rust-hexagonal-architecture}. Éste quedaría de la siguiente manera:
+Para la inicialización del entorno de desarrollo del servidor se ha tomado como referencia la estructura de ejemplo que se puede encontrar en el artículo consultado sobre la arquitectura hexagonal en Rust \parencite{rust-hexagonal-architecture}. Éste quedaría de la siguiente manera:
 \dirtree{%
 .1 /.
 .2 migrations/.
@@ -536,32 +569,32 @@ Para la inicialización del entorno de desarrollo del servidor nos hemos basado 
 .2 README.md.
 }
 
-Como podemos ver, tenemos la siguiente estructura:
+Se define la siguiente estructura:
 \begin{itemize}
-    \item \textbf{migrations}: esta carpeta contiene los archivos de migración de la base de datos, que se utilizan para crear y actualizar la estructura de la base de datos. En este caso, tenemos un archivo para crear la tabla de autores. Esta carpeta contiene todos los archivos necesarios para inicializar la base de datos y para borrarla si es necesario.
+    \item \textbf{migrations}: esta carpeta contiene los archivos de migración de la base de datos, que se utilizan para crear y actualizar la estructura de la base de datos. En este caso, contiene un archivo para crear la tabla de autores. Esta carpeta contiene todos los archivos necesarios para inicializar la base de datos y para borrarla si es necesario.
     \item \textbf{src}: esta carpeta contiene todo el código fuente del servidor, con las siguientes subcarpetas:
         \begin{itemize}
-            \item \textbf{bin}: contiene el código que se ejecuta al iniciar el servidor, el punto de entrada de la aplicación. En esta carpeta no vamos a tener ningún tipo de lógica implementada, tan solo inicializaremos el servidor, definiremos las implementaciones de las interfaces y arrancaremos el servidor con las dependencias que necesite.
-            \item \textbf{lib}: en esta carpeta tenemos todo el código de la aplicación, dividido siguiendo una filosofía hexagonal de la siguiente manera:
+            \item \textbf{bin}: contiene el código que se ejecuta al iniciar el servidor, el punto de entrada de la aplicación. En esta carpeta no hay ningún tipo de lógica implementada, tan solo se inicializa el servidor, se definen las implementaciones de las interfaces y se inicia el servidor con las dependencias que necesite.
+            \item \textbf{lib}: esta carpeta contiene todo el código de la aplicación, dividido siguiendo una filosofía hexagonal de la siguiente manera:
                 \begin{itemize}
-                    \item \textbf{domain}: contiene el código del dominio de la aplicación, es decir, la lógica de negocio. Aquí tenemos los modelos, definiciones de los puertos (interfaces) y servicios que se utilizan en la aplicación.
-                    \item \textbf{inbound}: contiene el código de la capa de entrada de la aplicación, es decir, las interfaces que se exponen al exterior. En este caso, tenemos un módulo HTTP que define los handlers (controladores) que se encargan de recibir las peticiones HTTP y devolver las respuestas correspondientes.
-                    \item \textbf{outbound}: contiene el código de la capa de salida de la aplicación, es decir, las implementaciones de las interfaces que se utilizan en la capa de dominio. En este caso, tenemos un cliente de correo electrónico, un cliente de Prometheus y un cliente SQLite que se encargan de enviar correos electrónicos, exponer métricas y acceder a la base de datos respectivamente.
+                    \item \textbf{domain}: contiene el código del dominio de la aplicación, es decir, la lógica de negocio. Se definen los modelos, puertos (interfaces) y servicios que se utilizan en la aplicación.
+                    \item \textbf{inbound}: contiene el código de la capa de entrada de la aplicación, es decir, las interfaces que se exponen al exterior. En este caso, contiene un módulo HTTP que define los handlers (controladores) que se encargan de recibir las peticiones HTTP y devolver las respuestas correspondientes.
+                    \item \textbf{outbound}: contiene el código de la capa de salida de la aplicación, es decir, las implementaciones de las interfaces que se utilizan en la capa de dominio. En este caso, contiene un cliente de correo electrónico, un cliente de Prometheus y un cliente SQLite que se encargan de enviar correos electrónicos, exponer métricas y acceder a la base de datos respectivamente.
                     \item \textbf{config.rs}: contiene la configuración de la aplicación, como las variables de entorno y los parámetros de configuración.
                     \item Los demás archivos definen los módulos de Rust.
                 \end{itemize}
         \end{itemize}
 \end{itemize}
 
-Además de esos archivos, tenemos los archivos típicos de un proyecto de Rust, como son el \texttt{Cargo.toml} y el \texttt{Cargo.lock}, que definen las dependencias del proyecto y la versión de las mismas, así como el archivo \texttt{README.md} que contiene la documentación del proyecto y el archivo \texttt{LICENSE} que contiene la licencia del proyecto. Tanto el archivo \texttt{README.md} como el \texttt{LICENSE} se han redactado en inglés al igual que todo el código, puesto que el proyecto está pensado para ser Open-Source y se busca que cualquier persona pueda entenderlo y contribuir al mismo.
+Además de esos archivos, existen los archivos típicos de un proyecto de Rust, como son el \texttt{Cargo.toml} y el \texttt{Cargo.lock}, que definen las dependencias del proyecto y la versión de las mismas, así como el archivo \texttt{README.md} que contiene la documentación del proyecto y el archivo \texttt{LICENSE} que contiene la licencia del proyecto. Tanto el archivo \texttt{README.md} como el \texttt{LICENSE} se han redactado en inglés al igual que todo el código, puesto que el proyecto está pensado para ser Open-Source y se busca que cualquier persona pueda entenderlo y contribuir al mismo.
 
-En nuestro proyecto, tal y como se ha definido anteriormente, vamos a utilizar un enfoque de arquitectura monolítica modular siguiendo el patrón de código \acrshort{cqrs}.
-En este enfoque, los archivos van a estar organizados en módulos en vez de agrupados por capas, lo que nos va a permitir definir de una manera más clara y flexible las funcionalidades de cada módulo.
-Además, en la capa de aplicación se separan los casos de uso en comandos y consultas (las consultas son las que se encargan de obtener datos y los comandos son los que se encargan de modificar el estado del sistema), lo que nos permite tener una mejor organización del código y una mayor flexibilidad a la hora de añadir nuevas funcionalidades.
+En este proyecto, tal y como se ha definido anteriormente, se utiliza un enfoque de arquitectura monolítica modular siguiendo el patrón de código \acrshort{cqrs}.
+En este enfoque, los archivos van a estar organizados en módulos en vez de agrupados por capas, lo que permite definir de una manera más clara y flexible las funcionalidades de cada módulo.
+Además, en la capa de aplicación se separan los casos de uso en comandos y consultas (las consultas son las que se encargan de obtener datos y los comandos son los que se encargan de modificar el estado del sistema), lo que permite tener una mejor organización del código y una mayor flexibilidad a la hora de añadir nuevas funcionalidades.
 
-Este es un enfoque común en aplicaciones web modernas, ya que gracias a esto podríamos conseguir funcionalidades como añadir caché a las consultas, realizar pruebas unitarias de los comandos y consultas de manera independiente, y tener una mejor organización del código en general.
+Este es un enfoque común en aplicaciones web modernas, ya que gracias a esto se puede conseguir funcionalidades como añadir caché a las consultas, realizar pruebas unitarias de los comandos y consultas de manera independiente, y tener una mejor organización del código en general.
 
-Si adaptáramos este proyecto de ejemplo a la estructura que vamos a utilizar, tendríamos una estructura de la siguiente manera:
+Si se adaptara este proyecto de ejemplo a la estructura que se utilizará, la estructura sería de la siguiente manera:
 
 \newpage
 \dirtree{%
@@ -610,12 +643,12 @@ Si adaptáramos este proyecto de ejemplo a la estructura que vamos a utilizar, t
 
 \paragraph{Cliente móvil}
 \subparagraph{}
-Viendo la estructura del servidor y la definición de la arquitectura limpia para una aplicación móvil que hemos definido en la figura \ref{fig:clean-architecture-mobile}, podemos ver que la estructura del cliente móvil es muy similar a la del servidor, pero con algunas diferencias.
+Siguiendo la arquitectura limpia para una aplicación móvil, definida en la figura \ref{fig:clean-architecture-mobile}, la estructura del cliente móvil es muy similar a la del servidor, pero con algunas diferencias.
 
-En este caso no vamos a utilizar el patrón de código \acrshort{cqrs}, ya que no es necesario en una aplicación móvil, pero sí vamos a utilizar una estructura modular similar a la del servidor, donde cada módulo tiene una responsabilidad clara y bien definida.
-La única adición que tendremos con respecto a la estructura del servidor es que en la aplicación móvil tenemos una capa de presentación que se encarga de la interfaz de usuario y de la interacción con el usuario, la cual sería la equivalente a la capa de interface que definimos en el servidor para la comunicación con el exterior (en el caso del servidor, mediante comunicación HTTP).
+En este caso no se utiliza el patrón de código \acrshort{cqrs}, ya que no es necesario en una aplicación móvil, pero sí se sigue una estructura modular similar a la del servidor, donde cada módulo tiene una responsabilidad clara y bien definida.
+La única adición que se presenta con respecto a la estructura del servidor es que en la aplicación móvil existe una capa de presentación que se encarga de la interfaz de usuario y de la interacción con el usuario, la cual sería la equivalente a la capa de interface que se definió en el servidor para la comunicación con el exterior (en el caso del servidor, mediante comunicación HTTP).
 
-Una estructura de ejemplo para una aplicación móvil que hace uso de el servidor de ejemplo que hemos definido anteriormente podría ser la siguiente:
+Una estructura de ejemplo para una aplicación móvil podría ser la siguiente:
 
 \dirtree{%
 .1 mobile-app/.
@@ -651,128 +684,12 @@ Una estructura de ejemplo para una aplicación móvil que hace uso de el servido
 .2 archivos de configuración del proyecto...
 }
 
-La principal diferencia que tenemos con respecto al servidor es que en la capa de aplicación no seguiremos un patrón CQRS y tendremos implementaciones de servicios que se encargan de toda la lógica.
+La principal diferencia que hay con respecto al servidor es que en la capa de aplicación no se seguirá un patrón CQRS y se implementarán servicios que se encargan de toda la lógica.
 Además, la capa de interfaz se cambia por una capa de presentación, que se encargará de la interfaz de usuario y de la interacción con el usuario.
 
-Para la inicialización del entorno de desarrollo del cliente móvil, además del directorio que implementa nuestra aplicación usando Lynx.js necesitaremos un directorio para el código de Lynx Explorer, puesto que tendremos que hacer una implementación de módulos nativos para acceder a funcionalidades como el acceso a imágenes en el dispositivo tanto como para gestionar los permisos necesarios de la aplicación.
-Toda la documentación que se ha utilizado para inicializar el directorio con nuestra versión de Lynx Explorer se puede encontrar en la \href{https://lynxjs.org/guide/use-native-modules.html#platform=android}{documentación oficial de Lynx.js} sobre implementación de módulos nativos.
+Para la inicialización del entorno de desarrollo del cliente móvil, además del directorio que implementa la aplicación usando Lynx.js se necesitará un directorio para el código de Lynx Explorer, puesto que se realizará una implementación de módulos nativos para acceder a funcionalidades como el acceso a imágenes en el dispositivo tanto como para gestionar los permisos necesarios de la aplicación.
+Toda la documentación que se ha utilizado para inicializar el directorio de Lynx Explorer se puede encontrar en la \href{https://lynxjs.org/guide/use-native-modules.html#platform=android}{documentación oficial de Lynx.js} sobre implementación de módulos nativos.
 
-\subsubsection{Desarrollo de artefactos del primer sprint}
-Tal y como se ha definido en la \hyperref[sec:metodologia]{sección de metodología}, cada sprint se va a enfocar en una parte del proyecto. En este caso, el primer sprint se va a centrar en historias de usuario del servidor solamente. El segundo sprint se centrará en las historias de usuario del cliente móvil y una vez analizado el estado de ambos productos, se decidirá si comenzar a tener sprints conjuntos.
-
-En la metodología Scrum se cogen historias de usuario hasta que la suma de las estimaciones de las historias de usuario sea menor o igual a la velocidad del equipo para ese sprint.
-La velocidad del equipo se define como la cantidad de puntos de historia que el equipo puede completar en un sprint, y se calcula a partir de los sprints anteriores.
-En este caso, como es el primer sprint y no tenemos una velocidad definida, se escogen historias de usuario fijándose en el tipo de tarea e intentando no tener una suma de puntos de historia muy alta.
-
-Una vez se termina el sprint, en el proceso de retrospectiva se analiza cuántas historias de usuario se han completado o cuantas se han quedado a medias, y se ajusta la velocidad del equipo para el siguiente sprint. Este proceso se repite en cada sprint hasta que el equipo tiene una velocidad estable y podemos tener una estimación más precisa de cuántas historias de usuario se pueden completar en cada sprint.
-
-Durante la especificación del sprint backlog se va a estudiar si hay historias de usuario que puedan ser divididas en distintas historias y una vez se hayan definido las historias de usuario que se van a implementar en el sprint, definiremos las tareas correspondientes a cada historia de usuario junto con su estimación en horas.
-En el momento que tenemos estimaciones en horas de tareas, podemos realizar un diagrama de Gantt para el sprint con las tareas y su duración estimada.
-
-\subsubsection{Planificación de entregas}
-En esta sección se va a definir los objetivos generales que tendremos para cada entrega en caga sprint. Estos objetivos son estimados y pueden variar dependiendo de la velocidad real del equipo, puede ser que se consiga más en un sprint o menos. Esta planificación se realiza para que, en el caso de que tuviéramos un cliente, se le pudiera dar una estimación del producto que va a ir recibiendo en cada entrega.
-
-En nuestro caso y en el tipo de proyecto que estamos realizando, nos sirve para tener un enfoque claro de lo que queremos conseguir en cada sprint y no desviarnos realizando otras tareas.
-Definir qué se va a entregar en cada sprint nos ayuda también a priorizar qué historias de usuario se van a realizar en cada sprint.
-
-Teniendo en cuenta que el desarrollo del proyecto comienza la última semana de junio de 2025, que cada sprint dura dos semanas y que la fecha límite de entrega del proyecto es el 5 de septiembre de 2025, tenemos un total de 11 semanas para el proyecto. Teniendo en cuenta que el sprint 0 tiene una duración de una semana, tenemos un total de 5 sprints para el desarrollo del proyecto.
-
-Los objetivos de cada sprint quedarían de la siguiente manera:
-\begin{itemize}
-    \item \textbf{Sprint 1}: Implementación de la API REST del servidor, incluyendo la gestión de usuarios, autenticación y autorización. Durante esta iteración se busca implementar una gestión de usuarios simple junto con toda la estructura base del proyecto.
-    \item \textbf{Sprint 2}: Implementación de la aplicación móvil. Definición e implementación de módulos nativos para el acceso a archivos multimedia y permisos. Durante esta iteración se busca implementar una aplicación de gestión de galería básica sin funcionalidades de sincronización.
-    \item \textbf{Sprint 3}: Implementación de todo el procesado multimedia en el servidor: generación de miniaturas, subida y compresión de imágenes y vídeos, etiquetado basado en metadatos, etc. En el cliente se implementará la subida de archivos multimedia a el servidor y la visualización de los archivos subidos.
-    \item \textbf{Sprint 4}: Implementación de la sincronización automática de archivos multimedia en el cliente móvil tanto como la visualización del estado nuestra galería en el servidor. En esta iteración implementaremos principalmente toda la conexión automática entre el cliente y el servidor, así como la sincronización de archivos multimedia.
-    \item \textbf{Sprint 5}: Implementación de la gestión de usuarios desde el cliente móvil, incluyendo la gestión de permisos en las galerías, álbumes y archivos. Durante esta última iteración se implementará el uso compartido de galerías y álbumes entre usuarios.
-    \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia propio en el servidor.
-\end{itemize}
-Este último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto open-source.
-
-Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint anterior.
-
-\subsection{Presupuesto}
-\label{sec:presupuesto}
-Para el cálculo y desglose del presupuesto total del proyecto se ha supuesto un equipo de una única persona a media jornada.
-
-Para el cálculo del presupuesto de personal hemos tenido en cuenta el salario medio de un ingeniero de software en España, que según el portal de empleo \href{https://www.glassdoor.es/Sueldos/granada-software-engineer-sueldo-SRCH_IL.0,7_IC2614045_KO8,25.htm}{Glassdoor} ronda entre los 24.000 y 33.000 euros brutos anuales, cogiendo el valor de 24000 euros brutos anuales como salario base dada la inexperiencia del trabajador.
-
-Para calcular el costo total mensual de un trabajador, tenemos que sumar a el salario base los costes de seguridad social, la cuota patronal y el \acrshort{irpf}, siguiendo la siguiente fórmula:
-\begin{equation}
-    \text{Coste total mensual} = \text{Salario base} + \text{Seguridad Social} + \text{Cuota patronal} + \text{IRPF}
-\end{equation}
-\begin{itemize}
-    \item Salario base: 12.000 euros brutos anuales / 12 meses = 1.000 euros brutos mensuales
-    \item Seguridad social: se entiende por seguridad social a la cuota obrera que debe de pagar el trabajador. En este caso se debe aplicar el 6.45\% sobre el salario bruto mensual. Por lo tanto:
-        \begin{equation}
-            \text{Seguridad Social} = 1000 \times 0.0645 = 64.5 \text{ euros mensuales}
-        \end{equation}
-    \item Cuota patronal: se entiende por cuota patronal a la cuota que debe de pagar la empresa por el trabajador.
-        Según la base mínima de cotización para 2024 de un ingeniero técnico (1.532,10 euros\footnote{Fuente: \href{https://www.cuestioneslaborales.es/porcentaje-de-cotizacion-a-la-seguridad-social-del-trabajador-y-empresa/}{Porcentaje de cotización a la Seguridad Social del trabajador y empresa} entre 2 ya que es media jornada\textit{ Última vez accedido el 20/06/2025 }}) se ha aplicado el porcentaje de cotización del 31,98\%.
-        Nuestro cálculo es el siguiente:
-        \begin{equation}
-            \text{Cuota patronal} = \dfrac{1532.10 \times 0.3198}{2} = 245.12 \text{ euros mensuales}
-        \end{equation}
-    \item IRPF: con un salario bruto anual de 12.000 euros, en 2024 el IRPF que aplica es del 19\% \footnote{Fuente: \href{https://www.bankinter.com/blog/finanzas-personales/como-calcular-retenciones-irpf-nomina\#tabla-retenciones}{Cómo calcular retenciones IRPF en la nómina}\textit{ Última vez accedido el 20/06/2025 }}.
-        Por lo tanto, el IRPF mensual sería:
-        \begin{equation}
-            \text{IRPF} = 1000 \times 0.19 = 190 \text{ euros mensuales}
-        \end{equation}
-\end{itemize}
-
-De esta manera, el coste total mensual del trabajador sería:
-\begin{equation}
-    \text{Coste total mensual} = 1000 + 64.5 + 245.12 + 190 = 1499.62 \text{ euros mensuales}
-\end{equation}
-
-Para el gasto de materiales solamente tendremos materiales inventables, concretamente el material de trabajo del trabajador.
-Dicho material de trabajo sería el siguiente:
-\begin{itemize}
-    \item Ordenador de sobremesa: 1.000 euros con vida estimada restante de 4 años, es decir, 250 euros al año.
-    \item Monitores: 300 euros con vida estimada restante de 6 años, es decir, 50 euros al año.
-    \item Teclado y ratón: 150 euros con vida estimada restante de 3 años, es decir, 50 euros al año.
-\end{itemize}
-La duración total del proyecto es de 3 meses, por lo que el coste total de materiales sería:
-\begin{equation}
-    \text{Coste total de materiales} = \dfrac{250 + 50 + 50}{12} \times 3 = 37.5 \text{ euros}
-\end{equation}
-
-Dado que uno de los objetivos principales del proyecto es la capacidad de alojar la aplicación en un servidor propio, no tenemos en cuenta el coste de un servidor.
-
-Dado que la aplicación se ha desarrollado usando Rust y Lynx.js, no se han tenido en cuenta los costes de licencias de software, ya que ambas tecnologías son Open-Source y no requieren de licencias para su uso.
-
-Para la formación del trabajador se han usado cursos gratuitos así como la documentación oficial de las tecnologías utilizadas, por lo que no se ha tenido en cuenta ningún coste adicional.
-
-De esta forma, tendríamos el siguiente desglose de costes:
-\begin{table}[H]
-    \caption{Tabla de presupuesto del proyecto}\label{tab:presupuesto}
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|X|c|c|c|}
-            \hline
-            \textbf{Gastos elegibles} & \textbf{Unidades} & \textbf{Coste por unidad} & \textbf{Importe solicitado} \\
-            \hline
-            \multicolumn{3}{|l|}{\textbf{GASTOS DE PERSONAL}} & \textbf{4.498.86\euro} \\
-            Total gastos de contratación de personal & 3 & 1.499,62\euro/mes & 4.498,86\euro \\
-            \hline
-            \multicolumn{3}{|l|}{\textbf{GASTOS DE EJECUCIÓN}} & \textbf{87.5\euro} \\
-            \multicolumn{3}{|l|}{Costes de adquisición de material inventariable} & 87.5\euro \\
-            \quad Ordenador & 1 & 62,50\euro & 62,50\euro \\
-            \quad Monitores & 1 & 12,50\euro & 12,50\euro \\
-            \quad Teclado y ratón & 1 & 12,50\euro & 12,50\euro \\
-            \multicolumn{3}{|l|}{Costes de adquisición de material fungible} & 0\euro \\
-            \multicolumn{3}{|l|}{Costes de consultoría, prestación de servicios, suministros, etc.} & 0\euro \\
-            \multicolumn{3}{|l|}{Costes de subcontratación} & 0\euro \\
-            \multicolumn{3}{|l|}{\textbf{GASTOS COMPLEMENTARIOS}} & \textbf{0\euro} \\
-            \multicolumn{3}{|l|}{Formación del equipo de desarrollo} & 0\euro \\
-            \multicolumn{3}{|l|}{Gastos de desplazamiento, viajes, estancias y dietas} & 0\euro \\
-            \multicolumn{3}{|l|}{Gastos de inscripción en congresos y seminarios} & 0\euro \\
-            \hline
-            \multicolumn{3}{|l|}{\textbf{COSTES DIRECTOS (10\% presupuesto total)}} & \textbf{458,64\euro} \\
-            \hline
-            \multicolumn{3}{|l|}{\textbf{TOTAL INCENTIVO SOLICITADO}} & \textbf{5.045,00\euro} \\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
 
 \input{sections/sprints/sprint1}
 \input{sections/sprints/sprint2}

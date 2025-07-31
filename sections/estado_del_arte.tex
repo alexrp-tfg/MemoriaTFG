@@ -4,16 +4,6 @@
 \section{Estado del arte}
 Qué se ha hecho hasta ahora en este campo, qué tecnologías se han utilizado, qué problemas se han encontrado, qué soluciones se han propuesto.
 
-% TODO:  Hablar también del estudio de las posibles soluciones, aunque después se elija otra.
-%
-% Añadir trabajo relacionado, hablar sobre propuestas de otras personas.
-%
-% Incorporar comparación de las tecnologías planteadas.
-% 1. **Inmediato**: Completar análisis de tecnologías móviles
-% 2. **Corto plazo**: Añadir métricas cuantitativas y trabajo relacionado
-% 3. **Medio plazo**: Desarrollar análisis de arquitecturas y contribución
-
-
 En este apartado se presenta un análisis del estado del arte en el ámbito de las bibliotecas de archivos multimedia de código abierto (\acrshort{foss}).
 Se examinan las principales soluciones disponibles, sus características técnicas, fortalezas y limitaciones, así como las tendencias actuales en el sector.
 Dado que uno de los objetivos del proyecto es desarrollar un producto que sea de código abierto, la comparación se centra en soluciones FOSS que ya están en el mercado y que han sido ampliamente adoptadas por la comunidad, lo cual nos va a permitir desarrollar una comparación mas extensa sobre cómo están organizados los proyectos para facilitar su mantenimiento y escalabilidad, así como las tecnologías que utilizan para ofrecer sus servicios.
@@ -63,9 +53,9 @@ Las soluciones analizadas se pueden clasificar en tres categorías principales:
     \item \textbf{Soluciones ligeras}: Optimizadas para recursos limitados
 \end{itemize}
 
-\subsection{Análisis de las Tres Soluciones Principales}
+% --- NUEVA ORGANIZACIÓN: ANÁLISIS INDIVIDUAL DE CADA SOLUCIÓN ---
 
-\subsubsection{Immich}
+\subsection{Immich}
 
 (\cite{immich-documentation}) Immich es una solución de gestión de fotos de código abierto orientada a usuarios que buscan una alternativa privada y autoalojada a servicios comerciales como Google Photos. Su desarrollo comenzó en 2022 y ha experimentado un rápido crecimiento gracias a una comunidad activa y a la adopción de tecnologías modernas.
 
@@ -77,25 +67,36 @@ Las soluciones analizadas se pueden clasificar en tres categorías principales:
 
 \textbf{Características funcionales:}
 \begin{itemize}
-    \item \textbf{Facilidad de uso:} Interfaz web moderna, intuitiva y responsiva, con aplicaciones móviles para Android e iOS.
-    \item \textbf{Instalación y despliegue:} Ofrece imágenes Docker y documentación clara, facilitando la instalación en servidores personales o NAS.
-    \item \textbf{Soporte multiplataforma:} Disponible en web y dispositivos móviles, con sincronización automática desde el móvil.
-    \item \textbf{Idiomas disponibles:} Traducción a varios idiomas, incluyendo español, gracias a la colaboración comunitaria.
-    \item \textbf{Tecnologías:} Backend en NestJS/Node.js, frontend en SvelteKit, móvil en Flutter, base de datos PostgreSQL y Redis, IA con TensorFlow.
+    \item \textbf{Aplicaciones móviles y web}: Apps nativas para Android e iOS, y una interfaz web moderna y responsiva.
+    \item \textbf{Copia de seguridad automática}: Respaldo automático de fotos y vídeos desde dispositivos móviles.
+    \item \textbf{Soporte multiplataforma}: Disponible en web y dispositivos móviles, con sincronización automática.
+    \item \textbf{Reconocimiento facial y de objetos}: Identificación automática de personas y elementos en las fotos.
+    \item \textbf{Búsqueda avanzada}: Permite buscar por etiquetas, ubicaciones, fechas y otros metadatos.
+    \item \textbf{Vista de carpetas}: Navegación por la estructura de carpetas original.
+    \item \textbf{Soporte de Chromecast}: Permite enviar fotos y vídeos a dispositivos Chromecast.
+    \item \textbf{Transcodificación y aceleración hardware}: Soporte para transcodificación de vídeo y aceleración por hardware.
+    \item \textbf{Librerías externas}: Indexación de archivos existentes en el disco sin necesidad de moverlos.
+    \item \textbf{Gestión de usuarios y roles}: Configuración de cuentas, ajustes y permisos.
+    \item \textbf{Etiquetas y álbumes}: Organización mediante etiquetas y álbumes personalizados.
+    \item \textbf{Compartición}: Compartir álbumes y fotos mediante enlaces o con otros usuarios.
+    \item \textbf{Soporte de XMP sidecars}: Lectura y escritura de metadatos en archivos sidecar XMP.
+    \item \textbf{CLI y monitorización}: Herramienta de línea de comandos y panel de monitorización.
+    \item \textbf{Soporte de formatos}: Compatibilidad con JPEG, PNG, HEIC, RAW (parcial), vídeos y Live Photos.
+    \item \textbf{Traducción}: Disponible en varios idiomas, incluyendo español.
 \end{itemize}
 
 \textbf{Comunidad y ecosistema:}
 \begin{itemize}
-    \item \textbf{Comunidad activa:} Foros, Discord y GitHub con alta participación.
-    \item \textbf{Documentación:} Completa y en constante actualización.
-    \item \textbf{Extensibilidad:} API pública y soporte para integraciones futuras.
+    \item \textbf{Comunidad activa}: Foros, Discord y GitHub con alta participación.
+    \item \textbf{Documentación}: Completa y en constante actualización.
+    \item \textbf{Extensibilidad}: API pública y soporte para integraciones futuras.
 \end{itemize}
 
 \textbf{Seguridad y privacidad:}
 \begin{itemize}
-    \item \textbf{Gestión de datos personales:} Los datos permanecen en el servidor del usuario, sin envíos a terceros.
-    \item \textbf{Cifrado:} Actualmente no implementa cifrado de extremo a extremo, pero sí buenas prácticas de seguridad en el almacenamiento y acceso.
-    \item \textbf{Actualizaciones:} Lanzamientos frecuentes y respuesta rápida a vulnerabilidades.
+    \item \textbf{Gestión de datos personales}: Los datos permanecen en el servidor del usuario, sin envíos a terceros.
+    \item \textbf{Cifrado}: Actualmente no implementa cifrado de extremo a extremo, pero sí buenas prácticas de seguridad en el almacenamiento y acceso.
+    \item \textbf{Actualizaciones}: Lanzamientos frecuentes y respuesta rápida a vulnerabilidades.
 \end{itemize}
 
 \textbf{Casos de uso y ejemplos reales:}
@@ -108,12 +109,78 @@ Las soluciones analizadas se pueden clasificar en tres categorías principales:
 \begin{itemize}
     \item Alto consumo de recursos debido a Node.js.
     \item API en constante evolución (su última versión aún no se considera estable).
-    \item Compatibilidad limitada con carpetas existentes.
-    \item Algunas funciones avanzadas (como la edición colaborativa o el reconocimiento facial avanzado) están en desarrollo.
+    \item Algunas funciones avanzadas (como la edición colaborativa) están en desarrollo.
     \item La integración con otros servicios y dispositivos aún es limitada en comparación con soluciones comerciales.
 \end{itemize}
 
-\subsubsection{PhotoPrism}
+\textbf{Importación de archivos existentes}
+
+(\cite{immich-documentation}, \href{https://immich.app/docs/features/libraries/}{Librerías externas}) Immich permite importar archivos multimedia ya existentes en el disco mediante el uso de \textit{external libraries}. Estas bibliotecas externas rastrean los archivos almacenados fuera de Immich y, al escanearlas, la aplicación indexa fotos y vídeos desde las rutas configuradas (import paths), mostrándolos en la línea de tiempo principal como cualquier otro recurso. Los archivos pueden organizarse en varias bibliotecas, cada una con múltiples rutas de importación, y se pueden definir patrones de exclusión para omitir ciertos archivos o carpetas (por ejemplo, RAW). Si un archivo se elimina del disco, Immich lo mueve a la papelera tras un nuevo escaneo; si se modifica fuera de Immich, es necesario volver a escanear para reflejar los cambios. La importación requiere que las rutas sean accesibles desde el contenedor Docker de Immich, por lo que es necesario montar los volúmenes correspondientes. Además, existe una función experimental de vigilancia automática del sistema de archivos para importar nuevos archivos sin necesidad de escanear manualmente. Es importante tener en cuenta que los metadatos añadidos desde Immich no se escriben en los archivos originales, y que mover archivos fuera de las rutas de importación puede hacer que se pierdan los metadatos asociados en Immich.
+
+\textbf{Requisitos de Hardware}
+
+(\cite{immich-documentation}, \href{https://immich.app/docs/install/requirements}{Apartado de requerimientos}) Immich presenta los siguientes requisitos de hardware para su instalación y funcionamiento óptimo:
+
+\begin{itemize}
+    \item Recomendado sistema operativo Linux o variante de UNIX para una mejor compatibilidad con Docker.
+    \item Procesador con al menos 2 núcleos, recomendado 4 o más.
+    \item Mínimo de 4 GB de RAM, recomendado 6 GB o más.
+    \item Recomendado sistema de almacenamiento UNIX (EXT4, ZFS, APFS, etc.) que ofrezca soporte para permisos y propiedad de usuarios/grupos.
+    \item Se recomienda tener la base de datos en un dispositivo SSD y con una conexión rápida y estable, puesto que los archivos de PostgreSQL pueden crecer rápidamente.
+\end{itemize}
+
+\textbf{Arquitectura}
+
+(\cite{immich-documentation}, \href{https://immich.app/docs/developer/architecture/}{Apartado de arquitectura}) Immich utiliza una arquitectura cliente-servidor. Además, implementa una separación de responsabilidades haciendo uso de una arquitectura hexagonal un tanto relajado, puesto que no la siguen al pie de la letra si no que buscan separar la lógica de negocio de la lógica de infraestructura, tanto para el cliente como el servidor:
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/immich-architecture.png}
+  \caption{Arquitectura de Immich (\cite{immich-documentation}, \href{https://immich.app/docs/developer/architecture/}{Apartado de arquitectura})}
+  \label{fig:immich-architecture}
+\end{figure}
+
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/immich-architecture-client.png}
+  \caption{Arquitectura del cliente de Immich (\cite{immich-documentation}, \href{https://immich.app/docs/developer/architecture/}{Apartado de arquitectura})}
+  \label{fig:immich-architecture-client}
+\end{figure}
+
+Aunque en teoría utilizan esta arquitectura, en la práctica se observa que no siempre se sigue al pie de la letra.
+
+\textbf{Escalabilidad}
+
+(\cite{immich-documentation}, \href{https://immich.app/docs/guides/scaling-immich/}{Apartado de escalabilidad}) Immich ha sido desarrollado siguiendo prácticas modernas de despliegue, permitiendo la ejecución de múltiples instancias del backend de manera paralela. Para implementar una escalabilidad horizontal efectiva, es imprescindible que todas las instancias estén conectadas a una infraestructura compartida, lo que implica el acceso común a la base de datos Postgres, al sistema de colas Redis y al almacenamiento de archivos.
+
+\begin{itemize}
+    \item \textbf{Escalabilidad vertical:} El rendimiento del sistema puede incrementarse mediante la ampliación de los recursos de hardware en una única máquina. Immich está optimizado para aprovechar múltiples tareas en segundo plano, cuyo número puede ser ajustado desde el panel de administración.
+    \item \textbf{Escalabilidad horizontal:} Es posible desplegar varias instancias de Immich en diferentes máquinas o contenedores, lo cual resulta especialmente ventajoso en entornos orquestados como Kubernetes o en escenarios donde se desea aprovechar recursos distribuidos (por ejemplo, usar un PC potente para tareas de transcodificación). Todas las instancias deben compartir la misma base de datos, Redis y almacenamiento de archivos. La configuración concreta depende del entorno y puede requerir conocimientos adicionales (NFS, túneles de red, etc.).
+    \item \textbf{Gestión de workers:} Cada contenedor de Immich ejecuta varios workers internos. Si el objetivo del escalado es únicamente aumentar la capacidad de procesamiento en segundo plano, se puede deshabilitar el worker de API en instancias adicionales para optimizar recursos.
+    \item \textbf{Escalado hacia abajo:} Immich permite reducir el número de instancias sin riesgo de pérdida de información, ya que todo el estado se almacena en Postgres, Redis y el sistema de archivos. Las tareas pendientes quedarán en espera hasta que haya workers disponibles.
+\end{itemize}
+
+Cabe destacar que, en escenarios con una sola máquina, el escalado horizontal no suele aportar beneficios adicionales, ya que cada contenedor puede gestionar múltiples tareas concurrentemente.
+
+\textbf{Monetización}
+
+Immich es completamente gratuito y open source, sin funciones premium o de pago. Su financiación proviene de donaciones y de la comunidad.
+
+\textbf{Interoperabilidad}
+
+Immich presenta las siguientes características de interoperabilidad:
+
+\begin{itemize}
+    \item \textbf{Integración con servicios externos:} Soporte para almacenamiento externo mediante protocolos como \gls{webdav} y S3.
+    \item \textbf{Soporte de estándares de metadatos:} Soporte parcial, centrado principalmente en EXIF.
+    \item \textbf{Exportación e importación:} Permite la exportación e importación de fotos y metadatos, con algunas limitaciones.
+    \item \textbf{Federación y APIs:} Ofrece APIs REST para integración con aplicaciones de terceros, con una API en evolución.
+\end{itemize}
+
+% --- FIN DE ANÁLISIS INDIVIDUAL DE Immich ---
+
+\subsection{PhotoPrism}
 
 (\cite{photoprism-documentation}) PhotoPrism es una de las soluciones FOSS más maduras y populares para la gestión de fotos, con una comunidad consolidada y un enfoque en la organización eficiente y el respeto a la privacidad.
 
@@ -125,482 +192,290 @@ Las soluciones analizadas se pueden clasificar en tres categorías principales:
 
 \textbf{Características funcionales:}
 \begin{itemize}
-    \item \textbf{Facilidad de uso:} Interfaz web clara y funcional, con enfoque en la organización y búsqueda eficiente.
-    \item \textbf{Instalación y despliegue:} Instalación sencilla mediante Docker o binarios, compatible con múltiples sistemas operativos.
-    \item \textbf{Soporte multiplataforma:} Acceso desde cualquier navegador y soporte PWA para móviles.
-    \item \textbf{Idiomas disponibles:} Traducción a numerosos idiomas.
-    \item \textbf{Tecnologías:} Backend en Go, frontend en Vue.js, base de datos SQLite/MariaDB, almacenamiento local con archivos sidecar.
+    \item \textbf{Aplicación web progresiva (PWA)}: Experiencia similar a una app nativa en cualquier dispositivo, instalable en móviles y escritorio.
+    \item \textbf{Soporte multiplataforma}: Funciona en Mac, Linux, Windows, Raspberry Pi, FreeBSD y NAS.
+    \item \textbf{Búsqueda avanzada}: Filtros combinables por etiquetas, ubicación, resolución, color, calidad, etc.
+    \item \textbf{Reconocimiento facial}: Detección y agrupación de rostros para identificar personas.
+    \item \textbf{Mapas y lugares}: Visualización de fotos en mapas de alta resolución y enriquecimiento de metadatos de ubicación.
+    \item \textbf{Compartición de álbumes}: Enlaces secretos con expiración opcional, sin necesidad de registro.
+    \item \textbf{Soporte de formatos}: Indexación, visualización y conversión de imágenes, vídeos y RAW (JPEG, PNG, GIF, BMP, HEIF, HEIC, MP4, MOV, WebP, WebM, y amplia compatibilidad RAW).
+    \item \textbf{Extracción avanzada de metadatos}: Soporte para Exif, XMP, Google Photos JSON y normalización de campos.
+    \item \textbf{Detección de duplicados}: Identificación automática de archivos repetidos.
+    \item \textbf{Sincronización y backup}: Integración con PhotoSync y clientes WebDAV para copia de seguridad y acceso remoto.
+    \item \textbf{Privacidad}: 100\% autoalojado, sin compartir datos con terceros.
+    \item \textbf{Etiquetas, álbumes y organización}: Clasificación flexible y apilado de fotos relacionadas.
+    \item \textbf{Revisión y selección}: Herramientas para marcar, archivar, ocultar o revisar fotos.
+    \item \textbf{Soporte de sidecars}: Uso de archivos sidecar para metadatos.
+    \item \textbf{Temas claro/oscuro}: Interfaz adaptable.
 \end{itemize}
 
 \textbf{Comunidad y ecosistema:}
 \begin{itemize}
-    \item \textbf{Comunidad consolidada:} Foros, GitHub y canales de soporte activos.
-    \item \textbf{Documentación:} Muy completa y detallada.
-    \item \textbf{Extensibilidad:} Limitada, pero con integración básica mediante API y archivos sidecar.
+    \item \textbf{Comunidad consolidada}: Foros, GitHub y canales de soporte activos.
+    \item \textbf{Documentación}: Muy completa y detallada.
+    \item \textbf{Extensibilidad}: API básica y soporte de sidecars.
 \end{itemize}
 
 \textbf{Seguridad y privacidad:}
 \begin{itemize}
-    \item \textbf{Gestión de datos personales:} Los datos permanecen bajo control del usuario.
-    \item \textbf{Cifrado:} No implementa cifrado de extremo a extremo, pero permite despliegues seguros en redes privadas.
-    \item \textbf{Actualizaciones:} Ciclo de lanzamientos estable y respuesta adecuada a incidencias.
+    \item \textbf{Gestión de datos personales}: Los datos permanecen bajo control del usuario.
+    \item \textbf{Cifrado}: No implementa cifrado de extremo a extremo, pero permite despliegues seguros en redes privadas.
+    \item \textbf{Actualizaciones}: Ciclo de lanzamientos estable y respuesta adecuada a incidencias.
 \end{itemize}
 
 \textbf{Casos de uso y ejemplos reales:}
 \begin{itemize}
-    \item Utilizado por fotógrafos, familias y pequeñas empresas para organizar y buscar fotos de forma eficiente.
+    \item Utilizado por fotógrafos (por su compatibilidad sencilla con tipos de imágenes RAW), familias y pequeñas empresas para organizar y buscar fotos de forma eficiente.
     \item Referencias en comunidades de software libre y autoalojamiento.
 \end{itemize}
 
 \textbf{Limitaciones actuales:}
 \begin{itemize}
-    \item Soporte limitado para múltiples usuarios.
+    \item Soporte limitado para múltiples usuarios (no orientado a uso multiusuario avanzado).
     \item Escalabilidad horizontal restringida.
     \item Aplicaciones móviles limitadas a PWA, sin apps nativas.
     \item No utiliza una estructura estandarizada para la organización, dificultando la contribución de terceros.
+    \item No dispone de edición avanzada ni IA en el dispositivo.
 \end{itemize}
 
-\subsubsection{Ente}
+\textbf{Importación de archivos existentes}
 
-Ente destaca por su enfoque radical en la privacidad y la seguridad, ofreciendo cifrado de extremo a extremo y una experiencia multiplataforma coherente gracias a Flutter.
+(\cite{photoprism-documentation}, \href{https://docs.photoprism.app/developer-guide/media/import/}{Importación de archivos}) PhotoPrism ofrece varias opciones para importar y gestionar archivos ya existentes en el disco. Es posible indexar directamente las carpetas originales, manteniendo la estructura y nombres de archivos, o utilizar la función de importación, que copia los archivos, elimina duplicados y los organiza automáticamente por año y mes. El modo de sólo lectura permite usar PhotoPrism como galería sin modificar los archivos originales. Además, se pueden subir archivos mediante WebDAV o la función de subida web, que los coloca en un directorio temporal antes de importarlos a la carpeta de originales. Tras la importación o indexación, PhotoPrism genera miniaturas y permite organizar, buscar y clasificar las fotos sin alterar los archivos fuente, salvo que se utilicen funciones avanzadas de importación.
 
-\textbf{Propósito y público objetivo:} Dirigido a usuarios que priorizan la privacidad y la seguridad de sus fotos, como periodistas, activistas o cualquier persona preocupada por la confidencialidad de sus datos.
+\textbf{Requisitos de Hardware}
 
-\textbf{Historia y contexto:} Proyecto joven pero con rápido crecimiento, impulsado por la demanda de soluciones seguras y privadas en el ámbito de la gestión fotográfica.
+(\cite{photoprism-documentation}, \href{https://www.photoprism.app/plus/kb/requirements}{Apartado de requerimientos}) PhotoPrism recomienda los siguientes requisitos para su instalación y funcionamiento óptimo:
 
-\textbf{Modelo de desarrollo:} Comunidad activa y transparente, con desarrollo abierto y enfoque en la seguridad.
+\begin{itemize}
+    \item \textbf{Procesador:} Al menos 2 núcleos físicos, preferiblemente más para mejorar el rendimiento en tareas concurrentes e indexación de grandes colecciones.
+    \item \textbf{Memoria RAM:} Mínimo 4 GB de memoria física; se recomienda igualar la cantidad de RAM al número de núcleos de CPU para un rendimiento óptimo, especialmente durante la indexación y procesamiento de archivos multimedia de gran tamaño.
+    \item \textbf{Sistema operativo:} 64 bits, compatible con Docker Desktop (Windows 10+, macOS 11+), Podman (Red Hat, CentOS, Fedora, AlmaLinux, Rocky Linux) o Docker (Ubuntu, Debian y otras distribuciones Linux). Soporte multi-arquitectura para procesadores AMD, Intel y ARM64 (incluyendo Raspberry Pi 3/4 y Apple Silicon).
+    \item \textbf{Almacenamiento:} Se recomienda el uso de SSD local para la base de datos y archivos de caché, lo que mejora significativamente el rendimiento en la indexación y acceso a miniaturas. El almacenamiento compartido en red o discos duros convencionales pueden utilizarse para la carpeta de originales, pero no para la base de datos ni la caché.
+    \item \textbf{Espacio en disco:} Reservar aproximadamente un 50\% adicional del tamaño de los archivos originales para la carpeta de almacenamiento (miniaturas, caché y archivos generados). El uso real suele ser menor, dependiendo de la configuración y los tipos de archivo.
+    \item \textbf{Swap:} Al menos 4 GB de espacio de swap para evitar reinicios inesperados durante el procesamiento de archivos grandes.
+\end{itemize}
+
+\textbf{Bases de datos compatibles:}
+\begin{itemize}
+    \item Compatible con SQLite 3 (recomendado solo para bibliotecas pequeñas o entornos de prueba) y MariaDB 10.5.12+ (recomendado para producción y grandes volúmenes de datos). El soporte para MySQL 8 ha sido discontinuado.
+\end{itemize}
+
+\textbf{Navegadores compatibles:}
+\begin{itemize}
+    \item La interfaz web, desarrollada como PWA, es compatible con los principales navegadores modernos (Chrome, Chromium, Safari, Firefox, Edge) y puede instalarse en la pantalla de inicio de sistemas operativos y dispositivos móviles.
+\end{itemize}
+
+\textbf{Notas adicionales:}
+\begin{itemize}
+    \item La conversión de imágenes RAW y el uso de TensorFlow se deshabilitan automáticamente en sistemas con 1 GB o menos de memoria.
+    \item El uso de hardware más potente (mayor número de núcleos y RAM) mejora notablemente el rendimiento, especialmente en escenarios con múltiples usuarios concurrentes o grandes volúmenes de archivos.
+    \item No se recomienda el uso de dispositivos NAS de gama baja ni almacenamiento no fiable (USB, SD, carpetas de red) para la base de datos.
+\end{itemize}
+
+\textbf{Arquitectura}
+
+(\cite{photoprism-documentation}, \href{https://www.photoprism.app/kb/architecture}{Apartado de arquitectura}) PhotoPrism utiliza una arquitectura monolítica basada en contenedores Docker, lo que permite una fácil implementación y escalabilidad. La aplicación se compone de varios componentes principales:
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.8\textwidth]{assets/photoprism-modules.png}
+  \caption{Arquitectura de monolito de PhotoPrism (\cite{photoprism-documentation}, \href{https://www.photoprism.app/kb/architecture}{Apartado de arquitectura})}
+  \label{fig:photoprism-modules}
+\end{figure}
+
+Como podemos ver, aunque siguen una arquitectura monolítica, la aplicación está dividida en varios módulos cada uno con su responsabilidad
+\textbf{Escalabilidad}
+
+PhotoPrism está diseñado principalmente para maximizar el uso eficiente de los recursos disponibles, ya que la mayoría de sus usuarios lo ejecutan en dispositivos NAS domésticos o en pequeñas instancias de servidores en la nube. Por ello, tanto la documentación pública como el desarrollo del proyecto se centran en estos escenarios de uso.
+
+\begin{itemize}
+    \item \textbf{Escalabilidad vertical:} La edición Community Edition, disponible libremente, puede gestionar millones de archivos siempre que el servidor cumpla los requisitos recomendados. El rendimiento y la capacidad de la aplicación aumentan al mejorar los recursos de hardware (CPU, RAM, almacenamiento rápido), lo que permite manejar grandes volúmenes de datos y usuarios concurrentes en un único servidor.
+    \item \textbf{Escalabilidad horizontal:} La arquitectura actual y el conjunto de funcionalidades no están orientados a la alta disponibilidad ni al escalado horizontal en la nube. Para escenarios empresariales que requieran alta disponibilidad o escalabilidad horizontal, sería necesario rediseñar la arquitectura, por ejemplo, dividiendo el backend en microservicios escalables de forma independiente y utilizando sistemas de almacenamiento distintos al sistema de archivos tradicional para la indexación.
+\end{itemize}
+
+En caso de requerimientos empresariales específicos de escalabilidad o disponibilidad, los desarrolladores de PhotoPrism ofrecen asesoramiento personalizado para evaluar la viabilidad y las opciones de implementación.
+
+\textbf{Monetización}
+
+PhotoPrism sigue un modelo freemium, donde algunas características avanzadas requieren suscripción. Existen membresías Plus y Pro disponibles.
+
+\textbf{Interoperabilidad}
+
+PhotoPrism presenta las siguientes características de interoperabilidad:
+
+\begin{itemize}
+    \item \textbf{Integración con servicios externos:} Soporte para almacenamiento externo mediante protocolos como \gls{webdav} y S3.
+    \item \textbf{Soporte de estándares de metadatos:} Soporte completo de estándares como EXIF, \acrshort{iptc} y \acrshort{xmp}.
+    \item \textbf{Exportación e importación:} Facilita la migración mediante herramientas específicas y documentación detallada.
+    \item \textbf{Federación y APIs:} Ofrece una API más estable para integración con aplicaciones de terceros.
+\end{itemize}
+
+% --- FIN DE ANÁLISIS INDIVIDUAL DE PhotoPrism ---
+
+\subsection{Ente}
+
+Ente destaca por su enfoque radical en la privacidad y la seguridad, ofreciendo cifrado de extremo a extremo y una experiencia multiplataforma coherente gracias a Flutter. Aunque su principal vía de uso es el servicio gestionado en la nube, Ente también soporta el autoalojamiento (\textit{self-hosting}), permitiendo a los usuarios desplegar su propio servidor siguiendo la documentación oficial\footnote{\url{https://help.ente.io/self-hosting/}}. Sin embargo, el autoalojamiento no es el foco principal del proyecto y la documentación, soporte y comunidad están más orientados al uso gestionado que a la personalización o despliegue avanzado por parte de terceros.
+
+\textbf{Propósito y público objetivo:} Dirigido a usuarios que priorizan la privacidad y la seguridad de sus fotos, como periodistas, activistas o cualquier persona preocupada por la confidencialidad de sus datos. El modelo de negocio está basado en planes de suscripción y almacenamiento gestionado, aunque se ofrece la opción de autoalojamiento para usuarios avanzados.
+
+\textbf{Historia y contexto:} Proyecto joven pero con rápido crecimiento, impulsado por la demanda de soluciones seguras y privadas en el ámbito de la gestión fotográfica. Ente ha puesto especial énfasis en la transparencia de su arquitectura y en la auditoría de su código, y aunque el autoalojamiento es posible y el código es abierto, la experiencia y el soporte están más orientados al servicio gestionado.
+
+\textbf{Modelo de desarrollo:} Comunidad activa y transparente, con desarrollo abierto y enfoque en la seguridad, pero con la mayor parte de los esfuerzos centrados en el servicio gestionado.
 
 \textbf{Características funcionales:}
 \begin{itemize}
-    \item \textbf{Facilidad de uso:} Interfaz moderna y coherente en todas las plataformas.
-    \item \textbf{Instalación y despliegue:} Sencillo para usuarios finales, con apps en tiendas oficiales y opción de autoalojamiento.
-    \item \textbf{Soporte multiplataforma:} Apps nativas para móvil y escritorio, y versión web.
-    \item \textbf{Idiomas disponibles:} Traducción en expansión gracias a la comunidad.
-    \item \textbf{Tecnologías:} Backend en Go, frontend y apps en Flutter, base de datos PostgreSQL, cifrado client-side.
+    \item \textbf{Cifrado de extremo a extremo}: Todas las fotos y metadatos se almacenan cifrados, solo el usuario puede acceder a ellos.
+    \item \textbf{Replicación en 3 ubicaciones}: Los datos cifrados se almacenan en tres nubes distintas y ubicaciones geográficas.
+    \item \textbf{Aplicaciones multiplataforma}: Apps para Android, iOS, Linux, Mac, Windows y web, todas open source.
+    \item \textbf{Subida automática en segundo plano}: Copia de seguridad automática y continua en todos los dispositivos.
+    \item \textbf{Planes familiares}: Compartición de suscripción con hasta 5 miembros, cada uno con espacio privado.
+    \item \textbf{Búsqueda avanzada}: IA en el dispositivo para reconocimiento facial y búsqueda por lenguaje natural.
+    \item \textbf{Compartición de álbumes}: Compartición cifrada con otros usuarios o mediante enlaces protegidos y configurables.
+    \item \textbf{Colaboración}: Permite que otros usuarios añadan fotos a tus álbumes, incluso mediante enlaces públicos.
+    \item \textbf{Importación y exportación}: Importación sencilla desde otros proveedores y exportación incremental con un clic.
+    \item \textbf{Memorias}: Historias automáticas para revivir recuerdos de años anteriores.
+    \item \textbf{Fotos ocultas}: Elementos protegidos tras la pantalla de bloqueo.
+    \item \textbf{Descripciones y etiquetas}: Añadir descripciones y etiquetas cifradas, con búsqueda por palabras clave.
+    \item \textbf{Seguridad adicional}: Autenticación en dos factores y bloqueo de pantalla.
+    \item \textbf{Liberación de espacio}: Elimina archivos del dispositivo que ya han sido respaldados.
+    \item \textbf{Temas claro/oscuro}: Interfaz adaptable en móviles.
+    \item \textbf{Soporte y comunidad}: Soporte humano y comunidad activa.
 \end{itemize}
 
 \textbf{Comunidad y ecosistema:}
 \begin{itemize}
-    \item \textbf{Comunidad creciente:} Participación activa en GitHub y foros.
-    \item \textbf{Documentación:} Clara y orientada a la seguridad.
-    \item \textbf{Extensibilidad:} Limitada por el enfoque en la privacidad.
+    \item \textbf{Comunidad activa}: Desarrollo abierto y escucha activa de sugerencias.
+    \item \textbf{Soporte humano}: Atención personalizada por correo.
+    \item \textbf{Hoja de ruta pública}: Mejoras continuas y transparencia.
 \end{itemize}
 
 \textbf{Seguridad y privacidad:}
 \begin{itemize}
-    \item \textbf{Gestión de datos personales:} Cifrado de extremo a extremo, arquitectura de conocimiento cero.
-    \item \textbf{Cifrado:} Todos los datos se cifran en el cliente antes de ser almacenados.
-    \item \textbf{Actualizaciones:} Rápida respuesta a vulnerabilidades y mejoras continuas en seguridad.
+    \item \textbf{Cifrado extremo a extremo}: Arquitectura auditada y pública.
+    \item \textbf{Replicación geográfica}: Alta disponibilidad y durabilidad.
+    \item \textbf{Privacidad total}: Ni siquiera Ente puede acceder a los datos del usuario.
+    \item \textbf{Opciones de seguridad}: 2FA, bloqueo de pantalla, protección de enlaces.
 \end{itemize}
 
 \textbf{Casos de uso y ejemplos reales:}
 \begin{itemize}
-    \item Adoptado por usuarios preocupados por la privacidad y organizaciones que manejan información sensible.
-    \item Recomendado en foros de privacidad y seguridad digital.
+    \item Usuarios preocupados por la privacidad y organizaciones que manejan información sensible.
+    \item Compartición segura de álbumes familiares y colaboración en eventos.
+    \item Usuarios que no buscan una solución de autoalojamiento compleja, sino una experiencia sencilla y segura.
 \end{itemize}
 
 \textbf{Limitaciones actuales:}
 \begin{itemize}
-    \item Overhead del cifrado afecta el rendimiento.
-    \item Características de IA limitadas por la privacidad.
-    \item No se utiliza ninguna estructura de repositorio, dificultando la aportación al proyecto.
+    \item El autoalojamiento está disponible pero no es el foco principal del desarrollo ni del soporte.
+    \item El cifrado extremo a extremo limita la interoperabilidad y la integración con servicios externos.
+    \item Características de IA limitadas por el diseño centrado en la privacidad (todo el procesamiento es local en el cliente).
+    \item Menor flexibilidad para personalización avanzada en despliegues autoalojados.
 \end{itemize}
 
-\subsection{Comparación Técnica Detallada}
+\textbf{Importación de archivos existentes}
 
-\begin{table}[H]
+(\cite{ente-documentation}, \href{https://docs.photoprism.app/developer-guide/media/import/}{Apartado de importación}) Ente facilita la importación de archivos locales permitiendo al usuario arrastrar y soltar carpetas directamente en la aplicación de escritorio. El sistema se encarga de subir y cifrar los archivos, preservando la estructura de carpetas y gestionando la importación de grandes volúmenes de datos de forma automática. Este proceso está diseñado para ser sencillo y transparente para el usuario, aunque la velocidad de importación puede variar según el tamaño de la biblioteca y la velocidad de la conexión. En caso de problemas durante la importación, el soporte oficial está disponible para ayudar a los usuarios.
+
+\textbf{Requisitos de Hardware y Software}
+
+(\cite{ente-documentation}, \href{https://docs.ente.io/self-host/requirements}{Apartado de requerimientos}) Ente está diseñado para funcionar con requisitos mínimos de recursos, ya que la mayor parte de las tareas computacionalmente intensivas se realizan en el cliente. Esto permite que el servidor funcione correctamente en instancias pequeñas en la nube, portátiles antiguos e incluso dispositivos embebidos de gama baja.
+
+\begin{itemize}
+    \item \textbf{CPU:} Se requiere al menos 1 núcleo de CPU.
+    \item \textbf{RAM:} Mínimo 1 GB de memoria RAM para ejecutar el clúster (utilizando el script de inicio rápido).
+    \item \textbf{Almacenamiento:} Sistema de archivos compatible con Unix, como ZFS, EXT4, BTRFS, etc. (especialmente si se utiliza el contenedor de PostgreSQL, ya que requiere soporte de permisos de usuario/grupo).
+\end{itemize}
+
+\textbf{Requisitos de software:}
+\begin{itemize}
+    \item \textbf{Sistema operativo:} Cualquier sistema Linux o tipo Unix; se recomienda Ubuntu o Debian para una mejor experiencia con Docker. Los sistemas no Linux pueden presentar dificultades con Docker y el soporte.
+    \item \textbf{Docker:} Es necesario para ejecutar el servidor de Ente, la aplicación web y los servicios dependientes (base de datos y almacenamiento de objetos). También se requiere el plugin Docker Compose.
+\end{itemize}
+
+\textbf{Consumo de Recursos}
+
+El consumo de recursos de Ente se caracteriza por:
+
+\begin{itemize}
+    \item \textbf{Almacenamiento:} Uso eficiente del almacenamiento debido al cifrado.
+    \item \textbf{Procesamiento:} Sobrecarga adicional debido al cifrado.
+\end{itemize}
+
+\textbf{Mantenimiento}
+
+En el servicio gestionado, el usuario no se encarga del mantenimiento, actualizaciones ni copias de seguridad. En el modo autoalojado, el mantenimiento recae sobre el usuario, aunque la simplicidad del despliegue facilita la gestión básica.
+
+\textbf{Arquitectura}
+
+(\cite{ente-documentation}, \href{https://ente.io/architecture/}{Apartado de arquitectura}) Ente no incluye una descripción detallada de su arquitectura, aunque explica con detalle los procesos de la aplicación en los distintos casos de uso. Viendo el código fuente, podemos ver que no hay una estructura definida, si no que está todo en archivos sueltos, lo que dificulta la comprensión de la arquitectura general. Sin embargo, se puede deducir que sigue un modelo cliente-servidor, donde el cliente (aplicación web y móvil) interactúa con el servidor a través de una API RESTful.
+
+Ente implementa cifrado de extremo a extremo (E2EE) para garantizar la privacidad de los datos del usuario. Todas las claves criptográficas se generan y gestionan en el dispositivo del usuario, y nunca se almacenan en el servidor en texto claro. El flujo general es el siguiente:
+
+\textbf{Escalabilidad}
+
+La escalabilidad y la alta disponibilidad están garantizadas por el propio servicio gestionado, que replica los datos cifrados entre varios proveedores y regiones. En el modo autoalojado, la escalabilidad es limitada y depende de la infraestructura del usuario.
+
+\textbf{Monetización}
+
+Ente sigue un modelo de negocio basado en planes de suscripción y almacenamiento gestionado, sin funciones premium ocultas para el autoalojamiento.
+
+\textbf{Interoperabilidad}
+
+Ente presenta las siguientes características de interoperabilidad:
+
+\begin{itemize}
+    \item \textbf{Integración con servicios externos:} Muy limitada, debido al cifrado extremo a extremo y al enfoque en la privacidad.
+    \item \textbf{Soporte de estándares de metadatos:} Soporte parcial, centrado principalmente en EXIF.
+    \item \textbf{Exportación e importación:} Priorización de la exportación cifrada para mantener la privacidad.
+    \item \textbf{Federación y APIs:} APIs REST disponibles para integración con aplicaciones de terceros, pero limitadas por el modelo de seguridad.
+\end{itemize}
+
+\subsection{Comparación y conclusiones}
+
+A continuación se presenta una tabla comparativa de las características clave, seguida de una discusión sobre las fortalezas y debilidades de cada solución.
+
+\begin{table}[h!]
 \centering
-\begin{tabular}{|l|c|c|c|}
+\label{tab:comparativa}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{|>{\bfseries}l|p{4cm}|p{4cm}|p{4cm}|}
 \hline
-\textbf{Característica} & \textbf{Immich} & \textbf{PhotoPrism} & \textbf{Ente} \\
-\hline
-Estrellas GitHub & 66,988 & 37,499 & 19,431 \\
-Lenguaje Principal & TypeScript & Go & \gls{dart} \\
-Arquitectura & Microservicios & Monolítica & Cliente-Servidor \\
-Base de Datos & PostgreSQL & SQLite/MySQL & PostgreSQL \\
-Aplicación Móvil & Flutter (8/10) & PWA (4/10) & Flutter (8/10) \\
-Reconocimiento IA & 9/10 & 9/10 & En desarrollo \\
-Múltiples Usuarios & 8/10 & No soportado & 9/10 \\
-Búsqueda & 9/10 & 8/10 & 6/10 \\
-Privacidad & 7/10 & 8/10 & 10/10 \\
-Facilidad de Contribución & Alta & Baja & Baja-Media \\
-\hline
-\end{tabular}
-\caption{Comparación técnica de las principales soluciones FOSS}
-\label{tab:tech_comparison}
+\textbf{Característica} & \textbf{Immich} & \textbf{Photoprism} & \textbf{Ente} \\ \hline
+\textbf{Filosofía} & Reemplazo de Google Photos, rico en funciones & Gestor de librería robusto y estable & Privacidad y seguridad por encima de todo \\ \hline
+\textbf{Licencia} & AGPL-3.0 & AGPL-3.0 & AGPL-3.0 \\ \hline
+\textbf{Sinc. Escritorio} & CLI / Interfaz Web & WebDAV & Cliente de escritorio dedicado \\ \hline
+\textbf{Soporte RAW} & Bueno & Excelente y exhaustivo & Limitado (en desarrollo) \\ \hline
+\textbf{Búsqueda IA} & Semántica (CLIP) en servidor & Basada en etiquetas y metadatos & Semántica (en el dispositivo) \\ \hline
+\textbf{Cifrado en Reposo} & A nivel de sistema de archivos & A nivel de sistema de archivos & \textbf{De extremo a extremo (E2EE)} \\ \hline
+\textbf{Actividad Comunidad} & Muy Alta & Alta y Estable & Alta \\ \hline
+\end{tabular}%
+}
+\caption{Tabla Comparativa de Características Clave.}
 \end{table}
 
-A continuación se explican brevemente las características comparadas en la tabla anterior:
-
-\textbf{Estrellas GitHub:} Indica la popularidad y el nivel de interés de la comunidad en cada proyecto, reflejando tanto la visibilidad como la actividad de usuarios y desarrolladores.
-
-\textbf{Lenguaje Principal:} Se refiere al lenguaje de programación predominante en el desarrollo del proyecto, lo que puede influir en la facilidad de contribución, el rendimiento y la compatibilidad con otras tecnologías.
-
-\textbf{Arquitectura:} Describe el enfoque estructural del software. Una arquitectura de microservicios facilita la escalabilidad y el mantenimiento, mientras que una arquitectura monolítica puede simplificar el despliegue. El modelo cliente-servidor, por su parte, suele estar orientado a la seguridad y la separación de responsabilidades.
-
-\textbf{Base de Datos:} Indica el sistema de gestión de bases de datos utilizado para almacenar la información. La elección de la base de datos afecta el rendimiento, la escalabilidad y la facilidad de integración con otros sistemas.
-
-\textbf{Aplicación Móvil:} Evalúa la calidad y el tipo de experiencia móvil ofrecida, diferenciando entre aplicaciones nativas (mayor rendimiento y funcionalidad) y aplicaciones web progresivas (PWA), que suelen ser más limitadas.
-
-\textbf{Reconocimiento IA:} Hace referencia a las capacidades de inteligencia artificial para el reconocimiento de imágenes, como la detección de rostros, objetos o escenas, y su grado de madurez en cada solución.
-
-\textbf{Múltiples Usuarios:} Indica el soporte para la gestión de varios usuarios en la misma instancia, lo que es relevante para entornos familiares, de equipos o empresas.
-
-\textbf{Búsqueda:} Evalúa la potencia y precisión de los mecanismos de búsqueda y filtrado de imágenes, incluyendo la búsqueda por metadatos, texto o reconocimiento automático.
-
-\textbf{Privacidad:} Analiza el nivel de protección de los datos del usuario, considerando aspectos como el cifrado, la arquitectura de conocimiento cero y la gestión local de la información.
-
-\textbf{Facilidad de Contribución:} Se refiere a la facilidad con la que nuevos desarrolladores pueden colaborar en el proyecto, influida por la calidad de la documentación y la modularidad del código.
-
-\subsection{Análisis de Rendimiento}
-
-El análisis de rendimiento revela diferentes enfoques optimizados para casos de uso específicos:
-
-\textbf{Immich} sobresale en escalabilidad y características avanzadas, pero requiere más recursos del servidor. Su arquitectura de microservicios permite el escalado horizontal y la distribución de carga de trabajo, especialmente beneficial para el procesamiento de IA.
-
-\textbf{PhotoPrism} ofrece la mejor eficiencia de recursos gracias a Go y su arquitectura monolítica, siendo ideal para instalaciones en hardware limitado. Su procesamiento de archivos es especialmente eficiente para fotógrafos profesionales.
-
-\textbf{Ente} equilibra el rendimiento con la seguridad, trasladando el procesamiento al cliente para mantener la privacidad, aunque esto introduce latencia en las operaciones de cifrado/descifrado.
-
-\subsection{Tendencias y Evolución del Sector}
-
-El análisis del estado del arte revela varias tendencias importantes:
-
-\begin{enumerate}
-    \item \textbf{Migración hacia arquitecturas modernas}: Immich lidera esta tendencia con TypeScript y microservicios
-    \item \textbf{Enfoque en la privacidad}: Ente representa la vanguardia en soluciones privacy-first
-    \item \textbf{Madurez y estabilidad}: PhotoPrism ejemplifica la importancia de la estabilidad a largo plazo
-    \item \textbf{Convergencia móvil}: Flutter se está estableciendo como la tecnología preferida para aplicaciones móviles
-\end{enumerate}
-
-\subsection{Conclusiones}
-
-El ecosistema de bibliotecas de archivos multimedia FOSS presenta tres paradigmas distintos que abordan diferentes necesidades del mercado. Immich representa la innovación y escalabilidad, PhotoPrism la madurez y eficiencia, mientras que Ente pionerea en privacidad y seguridad.
-
-Esta diversidad de enfoques indica un mercado en maduración donde no existe una solución única, sino que cada proyecto optimiza para casos de uso específicos. La elección entre estas soluciones depende fundamentalmente de los requisitos de escalabilidad, privacidad, recursos disponibles y experiencia técnica del usuario final.
-
-El análisis sugiere que el futuro del sector se dirigirá hacia la convergencia de estas características, buscando soluciones que combinen la escalabilidad de Immich, la eficiencia de PhotoPrism y la privacidad de Ente.
-
-Además, las nuevas tecnologías como pueden ser \gls{react-native} o en este caso \gls{lynxjs}, pueden aportar un mejor desarrollo de una aplicación móvil nativa, que permita una mejor experiencia de usuario y un mejor rendimiento en dispositivos móviles sin perder características nativas de las plataformas.
-
-No se ve en ningún proyecto entre los más populares que haga uso de \gls{rust}. Aunque hay una tendencia a utilizar Go, el cual es un lenguaje que es más sencillo y proporciona un rendimiento muy bueno, Rust ofrece ventajas significativas en términos de seguridad y rendimiento, especialmente para aplicaciones que requieren un alto grado de concurrencia y eficiencia en el manejo de memoria. Esto sugiere una oportunidad para explorar Rust como una alternativa viable para el desarrollo de bibliotecas de archivos multimedia FOSS en el futuro.
-
-Por lo general, se suele hacer uso de un almacenamiento de objetos ya implementado, como puede ser \gls{minio}, que es compatible con \gls{s3}. Esto permite una mayor escalabilidad y flexibilidad en el almacenamiento de grandes volúmenes de datos, lo cual es esencial para aplicaciones que manejan grandes bibliotecas de archivos multimedia.
-Aún así, sería interesante explorar la posibilidad de implementar un almacenamiento de objetos propio, ya que esto podría ofrecer ventajas en términos de personalización y optimización para casos de uso específicos como puede ser el caso en el que ya se tiene un almacenamiento de archivos en el servidor y se quiere aprovechar para almacenar las fotos.
-
-
-\subsection{Análisis de Costes}
-
-El análisis de costes es un aspecto fundamental a la hora de evaluar las diferentes soluciones de bibliotecas de archivos multimedia FOSS. Este análisis abarca varios aspectos que impactan directamente en el coste total de implementación y mantenimiento.
-
-\subsubsection{Requisitos de Hardware}
-
-Los requisitos de hardware varían significativamente entre las diferentes soluciones:
-
+\subsection{Fortalezas y Debilidades}
 \begin{itemize}
-    \item \textbf{Immich}:
-    \begin{itemize}
-        \item Rendimiento óptimo con procesador moderno (por ejemplo, Intel NUC de 12ª generación)
-        \item Mínimo 16GB de RAM recomendado para bibliotecas grandes
-        \item Almacenamiento SSD para la base de datos y caché
-        \item Almacenamiento NAS/HDD para los archivos originales
-    \end{itemize}
-
-    \item \textbf{PhotoPrism}:
-    \begin{itemize}
-        \item Requiere hardware más potente para un rendimiento similar
-        \item Mínimo 16GB de RAM, preferiblemente 32GB para bibliotecas grandes
-        \item GPU integrada recomendada para aceleración por hardware
-        \item SSD local para miniaturas y caché
-    \end{itemize}
-
-    \item \textbf{Ente}:
-    \begin{itemize}
-        \item Requisitos moderados debido al cifrado client-side
-        \item 8-16GB de RAM suficientes para la mayoría de casos
-        \item Menor dependencia de GPU
-    \end{itemize}
+    \item \textbf{Immich:} Su principal fortaleza es su \textbf{desarrollo vertiginoso} y su conjunto de características de vanguardia, como la búsqueda semántica. Es el que más se acerca a la experiencia de usuario de Google Photos. Su debilidad radica en esa misma velocidad, que puede llevar a cambios disruptivos (*breaking changes*) entre versiones. Es por eso mismo, que ellos mismos no lo recomiendan para copias de seguridad de imágenes y recomiendan siempre tener una copia de seguridad de las imágenes originales en otro lugar \footnote{Disclaimer en su \href{https://immich.app/}{página principal}}.
+    \item \textbf{Photoprism:} Su fortaleza es la \textbf{madurez y estabilidad}. Su soporte exhaustivo de formatos de archivo es inigualable, y su documentación es extremadamente detallada. Su debilidad es un ritmo de desarrollo más lento y la falta de una aplicación móvil nativa oficial.
+    \item \textbf{Ente:} Su fortaleza indiscutible es su \textbf{modelo de seguridad E2EE}, que lo convierte en la mejor opción para la privacidad. Sus clientes dedicados son de alta calidad. Su debilidad es la relativa novedad de su opción de auto-alojamiento y un soporte de formatos de nicho (como RAW) aún incipiente.
 \end{itemize}
 
-\subsubsection{Consumo de Recursos}
 
-El consumo de recursos afecta directamente a los costes operativos:
-
-\begin{itemize}
-    \item \textbf{Almacenamiento}:
-    \begin{itemize}
-        \item Immich: Genera dos miniaturas por imagen, altamente configurable
-        \item PhotoPrism: Genera 8 miniaturas JPEG con diferentes relaciones de aspecto
-        \item Ente: Uso eficiente del almacenamiento debido al cifrado
-    \end{itemize}
-
-    \item \textbf{Procesamiento}:
-    \begin{itemize}
-        \item Immich: Procesamiento paralelo eficiente, menor impacto en CPU
-        \item PhotoPrism: Mayor uso de CPU durante la indexación y procesamiento
-        \item Ente: Sobrecarga adicional debido al cifrado
-    \end{itemize}
-\end{itemize}
-
-\subsubsection{Costes de Mantenimiento}
-
-Los costes de mantenimiento incluyen:
-
-\begin{itemize}
-    \item \textbf{Actualizaciones y Parches}:
-    \begin{itemize}
-        \item Immich: Actualizaciones frecuentes, proceso automatizado
-        \item PhotoPrism: Desarrollo más lento, actualizaciones menos frecuentes
-        \item Ente: Ciclo de desarrollo moderado
-    \end{itemize}
-
-    \item \textbf{Backup y Redundancia}:
-    \begin{itemize}
-        \item Todas las soluciones requieren estrategias de backup
-        \item Costes adicionales para almacenamiento redundante
-        \item Necesidad de monitorización y mantenimiento regular
-    \end{itemize}
-\end{itemize}
-
-\subsubsection{Costes de Escalabilidad}
-
-La escalabilidad impacta en los costes a largo plazo:
-
-\begin{itemize}
-    \item \textbf{Vertical}:
-    \begin{itemize}
-        \item Immich: Mejor rendimiento con hardware modesto
-        \item PhotoPrism: Puede requerir actualizaciones de hardware más frecuentes
-        \item Ente: Escalado limitado por el cifrado
-    \end{itemize}
-
-    \item \textbf{Horizontal}:
-    \begin{itemize}
-        \item Immich: Arquitectura de microservicios facilita la escalabilidad
-        \item PhotoPrism: Limitaciones en escalabilidad horizontal
-        \item Ente: Diseño centrado en privacidad limita opciones de escalado
-    \end{itemize}
-\end{itemize}
-
-\subsubsection{Modelos de Monetización}
-
-Es importante considerar los diferentes modelos de monetización:
-
-\begin{itemize}
-    \item \textbf{Immich}:
-    \begin{itemize}
-        \item Completamente gratuito y open source
-        \item Sin funciones premium o de pago
-        \item Financiado por donaciones y comunidad
-    \end{itemize}
-
-    \item \textbf{PhotoPrism}:
-    \begin{itemize}
-        \item Modelo freemium
-        \item Algunas características avanzadas requieren suscripción
-        \item Membresías Plus y Pro disponibles
-    \end{itemize}
-
-    \item \textbf{Ente}:
-    \begin{itemize}
-        \item Enfoque en privacidad y seguridad
-        \item Modelo de negocio basado en donaciones
-    \end{itemize}
-\end{itemize}
-
-\subsection{Análisis Comparativo de Métricas}
-
-A partir de pruebas realizadas por la comunidad y documentación oficial, se presenta un análisis detallado de las métricas de rendimiento y capacidades de las tres soluciones principales.
-
-\subsubsection{Rendimiento de Procesamiento}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|c|c|}
-\hline
-\textbf{Métrica} & \textbf{Immich} & \textbf{PhotoPrism} & \textbf{Ente} \\
-\hline
-Velocidad de Indexación & Alta & Media-Baja & Media \\
-Tiempo de Carga UI & $<$1s & 1-2s & $<$1s \\
-Procesamiento Paralelo & Sí & No & Parcial \\
-Uso de CPU & Moderado & Alto & Bajo \\
-\hline
-\end{tabular}
-\caption{Comparación de métricas de rendimiento}
-\label{tab:performance_metrics}
-\end{table}
-
-\subsubsection{Gestión de Almacenamiento}
-
-\begin{itemize}
-    \item \textbf{Miniaturas por Imagen}:
-    \begin{itemize}
-        \item Immich: 2 miniaturas configurables
-        \item PhotoPrism: 8 miniaturas JPEG (diferentes relaciones de aspecto)
-        \item Ente: Optimizado para cifrado, número variable
-    \end{itemize}
-
-    \item \textbf{Espacio de Caché}:
-    \begin{itemize}
-        \item Immich: Aproximadamente 1.5x el tamaño original
-        \item PhotoPrism: 2-3x el tamaño original
-        \item Ente: 1-1.5x el tamaño original
-    \end{itemize}
-\end{itemize}
-
-\subsubsection{Precisión de Reconocimiento}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|c|c|}
-\hline
-\textbf{Característica} & \textbf{Immich} & \textbf{PhotoPrism} & \textbf{Ente} \\
-\hline
-Detección Facial & 90\% & 60\% & 85\% \\
-Reconocimiento de Objetos & 85\% & 70\% & No disponible \\
-Agrupación de Fotos & Excelente & Buena & Limitada \\
-Precisión de Búsqueda & Alta & Media & Media \\
-\hline
-\end{tabular}
-\caption{Comparación de precisión en características de IA}
-\label{tab:ai_accuracy}
-\end{table}
-
-\subsubsection{Tiempos de Procesamiento}
-
-Para una biblioteca de prueba de 40,000 imágenes (aproximadamente 1.6TB):
-
-\begin{itemize}
-    \item \textbf{Immich}:
-    \begin{itemize}
-        \item Importación inicial: 2-3 horas
-        \item Indexación completa: 4-6 horas
-        \item Generación de miniaturas: 3-4 horas
-        \item Procesamiento de IA: 6-8 horas
-    \end{itemize}
-
-    \item \textbf{PhotoPrism}:
-    \begin{itemize}
-        \item Importación inicial: 4-5 horas
-        \item Indexación completa: 24-48 horas
-        \item Generación de miniaturas: 8-10 horas
-        \item Procesamiento de IA: 12-24 horas
-    \end{itemize}
-
-    \item \textbf{Ente}:
-    \begin{itemize}
-        \item Importación inicial: 3-4 horas
-        \item Indexación completa: 8-10 horas
-        \item Generación de miniaturas: 4-5 horas
-        \item Procesamiento de IA: No aplicable
-    \end{itemize}
-\end{itemize}
-
-\subsubsection{Métricas de Escalabilidad}
-
-\begin{itemize}
-    \item \textbf{Límites de Biblioteca}:
-    \begin{itemize}
-        \item Immich: Probado con $>$1 millón de fotos
-        \item PhotoPrism: Recomendado hasta 500,000 fotos
-        \item Ente: Probado con $>$250,000 fotos
-    \end{itemize}
-
-    \item \textbf{Rendimiento con Carga}:
-    \begin{itemize}
-        \item Immich: Mantiene rendimiento con múltiples usuarios
-        \item PhotoPrism: Degradación notable con múltiples usuarios
-        \item Ente: Rendimiento constante pero limitado
-    \end{itemize}
-\end{itemize}
-
-\subsubsection{Soporte de Formatos}
-
-\begin{table}[H]
-\centering
-\begin{tabular}{|l|c|c|c|}
-\hline
-\textbf{Formato} & \textbf{Immich} & \textbf{PhotoPrism} & \textbf{Ente} \\
-\hline
-JPEG & Sí & Sí & Sí \\
-RAW & Parcial & Completo & No \\
-HEIC & Sí & Sí & Parcial \\
-Videos & Sí & Sí & Limitado \\
-Live Photos & Sí & No & No \\
-\hline
-\end{tabular}
-\caption{Comparación de soporte de formatos}
-\label{tab:format_support}
-\end{table}
-
-\subsection{Interoperabilidad y Estándares Abiertos}
-
-La interoperabilidad y el uso de estándares abiertos son factores clave para la adopción y sostenibilidad de las bibliotecas de archivos multimedia FOSS. Permiten a los usuarios migrar fácilmente sus datos, integrar la aplicación con otros servicios y evitar el "vendor lock-in". A continuación se analiza cómo las principales soluciones abordan estos aspectos:
-
-\begin{itemize}
-    \item \textbf{Integración con servicios externos}: Immich y PhotoPrism ofrecen soporte para almacenamiento externo mediante protocolos como \gls{webdav} y S3 (Amazon Simple Storage Service o compatibles como MinIO), facilitando la integración con soluciones de almacenamiento en la nube o NAS. Ente, por su enfoque en privacidad, limita la integración a servicios que no comprometan la seguridad de los datos.
-    \item \textbf{Soporte de estándares de metadatos}: PhotoPrism destaca por su soporte completo de estándares como EXIF, \acrshort{iptc} y \acrshort{xmp} para metadatos, permitiendo una mejor interoperabilidad con otras aplicaciones de gestión de fotos. Immich y Ente ofrecen soporte parcial, centrado principalmente en EXIF.
-    \item \textbf{Exportación e importación}: Todas las soluciones permiten la exportación e importación de fotos y metadatos, aunque el grado de automatización y compatibilidad varía. PhotoPrism facilita la migración mediante herramientas específicas y documentación detallada. Immich permite la importación desde carpetas existentes, pero la exportación masiva puede requerir herramientas adicionales. Ente prioriza la exportación cifrada para mantener la privacidad.
-    \item \textbf{Federación y APIs}: Ninguna de las soluciones principales implementa actualmente protocolos de federación como \gls{activity-pub}, aunque existen discusiones en la comunidad sobre su posible adopción futura. Todas ofrecen APIs REST para integración con aplicaciones de terceros, aunque el grado de estabilidad y documentación varía (Immich tiene una API en evolución, PhotoPrism una API más estable).
-\end{itemize}
-
-La adopción de estándares abiertos y la interoperabilidad son aspectos en los que aún existe margen de mejora en el sector. Fomentar la compatibilidad con protocolos y formatos ampliamente aceptados facilitará la integración con otros sistemas y la migración de datos, beneficiando tanto a usuarios finales como a desarrolladores.
-
-
-\subsection{Conclusiones}
-\subsubsection{Conclusiones del Análisis de Métricas}
-
-El análisis de métricas revela que Immich destaca en varios aspectos clave:
-
-\begin{itemize}
-    \item Mayor eficiencia en procesamiento paralelo
-    \item Mejor equilibrio entre almacenamiento y funcionalidad
-    \item Superior precisión en reconocimiento facial y de objetos
-    \item Mejor escalabilidad para bibliotecas grandes
-\end{itemize}
-
-PhotoPrism, aunque más maduro, muestra limitaciones en rendimiento y escalabilidad, mientras que Ente destaca en privacidad pero con funcionalidades más limitadas. Estas métricas refuerzan la elección de tecnologías y arquitectura para nuestro proyecto, que busca combinar la eficiencia de Immich con mejoras adicionales en rendimiento y funcionalidad.
-
-\subsubsection{Conclusiones del Análisis de Costes}
-
-El análisis de costes revela que Immich ofrece la mejor relación coste-beneficio para la mayoría de los casos de uso:
-
-\begin{itemize}
-    \item Requisitos de hardware más moderados
-    \item Mejor eficiencia en el uso de recursos
-    \item Arquitectura que facilita la escalabilidad
-    \item Modelo completamente gratuito sin costes ocultos
-\end{itemize}
-
-Sin embargo, la elección final dependerá de factores específicos como:
-\begin{itemize}
-    \item Tamaño de la biblioteca de fotos
-    \item Recursos de hardware disponibles
-    \item Necesidades de escalabilidad
-    \item Presupuesto para mantenimiento
-\end{itemize}
-
-Para nuestro proyecto, el análisis de costes refuerza la decisión de utilizar tecnologías eficientes como Rust y Lynx.js, que permitirán minimizar los requisitos de hardware y los costes operativos mientras se mantiene un alto nivel de rendimiento.
-
-\subsubsection{Conclusiones Interoperabilidad y Estándares Abiertos}
-El análisis de interoperabilidad y estándares abiertos muestra que Immich y PhotoPrism son las soluciones más avanzadas en este aspecto, con un enfoque claro en la integración con servicios externos y el uso de metadatos estandarizados. Ente, aunque prioriza la privacidad, limita la interoperabilidad al restringir la integración con servicios externos.
-
-En nuestra propuesta buscamos fomentar la interoperabilidad mediante el uso de estándares abiertos y APIs bien documentadas, lo que permitirá a los usuarios migrar fácilmente sus datos y contribuir al proyecto. Esto es esencial para garantizar la sostenibilidad a largo plazo y la adopción por parte de la comunidad.
+En esta propuesta buscamos fomentar la interoperabilidad mediante el uso de estándares abiertos y APIs bien documentadas, lo que permitirá a los usuarios migrar fácilmente sus datos y contribuir al proyecto. Esto es esencial para garantizar la sostenibilidad a largo plazo y la adopción por parte de la comunidad.
 Gracias a esto se busca que el proyecto no solo sea una solución de gestión de fotos, sino también un ecosistema abierto y colaborativo que permita a los usuarios y desarrolladores contribuir y beneficiarse mutuamente, además de poder integrar la aplicación con otros servicios y herramientas existentes.
 
-\subsection{Aportaciones de nuestro proyecto al estado del arte}
-Una vez realizado un estudio de las soluciones existentes y las tecnologías más utilizadas en el desarrollo de aplicaciones móviles y web, se ha identificado una clara oportunidad para mejorar la experiencia del usuario en la gestión de bibliotecas de archivos multimedia.
+Antes de abordar las aportaciones específicas de el proyecto, es importante destacar que, tras analizar las soluciones existentes, se identifican una serie de características fundamentales que deben estar presentes en cualquier aplicación moderna de gestión de archivos multimedia. Entre ellas se encuentran: la capacidad de importar y organizar archivos existentes desde el disco, soporte multiplataforma (web, móvil y escritorio), búsqueda avanzada y filtrado, reconocimiento facial y de objetos, opciones de compartición seguras, gestión eficiente de metadatos, protección de la privacidad y seguridad de los datos, así como una experiencia de usuario fluida y personalizable. Estas funcionalidades constituyen la base sobre la que debe construirse cualquier alternativa competitiva en este ámbito y serán consideradas requisitos mínimos en el desarrollo de la aplicación propuesta.
+
+\subsection{Aportaciones de el proyecto al estado del arte}
+Una vez realizado un estudio de las soluciones existentes, se han identificado una serie de factores que pueden ser mejorados o que no están presentes en las aplicaciones actuales. Estos factores son fundamentales para ofrecer una solución más completa y eficiente en la gestión de fotos y archivos multimedia.
 
 Nuestro proyecto busca abordar las limitaciones actuales de las aplicaciones de fotos, especialmente en términos de rendimiento, usabilidad, facilidad de aportación al proyecto y características avanzadas.
 \subsubsection{Rendimiento}
 El rendimiento es un aspecto crítico en las aplicaciones de fotos, especialmente cuando se manejan grandes colecciones. Muchas aplicaciones existentes sufren de lentitud en la carga y visualización de imágenes, lo que afecta negativamente la experiencia del usuario.
 No solo se busca optimizar la carga de imágenes en la aplicación, sino mejorar la velocidad de respuesta que ofrece el servidor a la hora de recibir, procesar y responder a las peticiones de los usuarios.
 
-Todo esto lo conseguiremos gracias a:
-\begin{itemize}
-    \item Aplicación móvil programada en Lynx.js, que permite un rendimiento optimizado mediante el uso de componentes específicos para la carga de datos e imágenes, así como un acceso más directo a las APIs nativas del dispositivo. Aunque es una tecnología emergente, utiliza JavaScript/TypeScript con su propia variante de React, lo que facilita la curva de aprendizaje para desarrolladores familiarizados con estas tecnologías.
-    \item Servidor programado en Rust, que ofrece alto rendimiento, eficiencia en la gestión de recursos y acceso a optimizaciones a bajo nivel, lo que se traduce en una respuesta más rápida a las peticiones de los usuarios. Usar Rust nos va a proporcionar un código más seguro y eficiente, evitando errores comunes como las condiciones de carrera o los punteros nulos sin necesidad de un recolector de basura (GC).
-\end{itemize}
+Todo esto se logrará mediante el uso de tecnologías modernas, eficientes y seguras.
+Se desarrollará el proyecto haciendo uso de una arquitectura estandarizada y modular, lo que permitirá una mayor flexibilidad y escalabilidad. Además, se implementarán técnicas de optimización de rendimiento, como la carga diferida de imágenes, el uso de miniaturas y la indexación eficiente de metadatos.
 \subsubsection{Contribución al proyecto}
 Nuestro proyecto no solo se centrará en ofrecer una aplicación de fotos, sino que también se diseñará como un proyecto FOSS, lo que permitirá a la comunidad contribuir y mejorar la aplicación de manera continua.
 
@@ -608,7 +483,6 @@ Para ello se hará uso de las mejoras prácticas de desarrollo de software:
 \begin{itemize}
     \item Uso de control de versiones (\Gls{git}), documentación clara y accesible, y un proceso de revisión de código que fomente la colaboración y la calidad del código.
     \item Se implementará una estructura de proyecto que facilite la incorporación de nuevos desarrolladores, con guías claras sobre cómo contribuir y estándares de codificación.
-    \item El uso de Rust también aporta valor a nuestro proyecto al ofrecer un lenguaje moderno y seguro que minimiza los errores comunes de programación, lo que facilita la colaboración y la contribución de nuevos desarrolladores, eliminando posibles errores en la aplicación incluso antes de que se ejecute.
-    \item Utilizaremos TypeScript en la aplicación móvil, lo que permitirá a los desarrolladores familiarizados con JavaScript contribuir fácilmente al proyecto, lo que facilitará la incorporación de nuevos colaboradores y fomentará una comunidad activa.
+    \item Uso de un lenguaje de programación moderno y seguro, que permita aportaciones de manera segura y eficiente.
     \item Implementación de pruebas unitarias y de integración para asegurar la calidad del código y la funcionalidad de la aplicación.
 \end{itemize}

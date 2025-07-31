@@ -1,11 +1,14 @@
 \newpage
 \section{Análisis de tecnologías}
+\label{sec:tecnologias}
+
 
 Tal y como se puede ver en el capítulo anterior, hay una tendencia general a usar Typescript o Go para el desarrollo de el servidor de sincronización de multimedia y Flutter o PWA para el desarrollo de aplicaciones móviles debido a su popularidad y facilidad de uso.
 Sin embargo, existen otras tecnologías que pueden ofrecer ventajas significativas en términos de rendimiento, seguridad y facilidad de desarrollo.
 
+Se estudiarán los diferentes lenguajes para el desarrollo del servidor, entre ellos Rust, Go, C, C++, Python, Java y Ruby on Rails. Cada uno de estos lenguajes tiene sus propias ventajas y desventajas, y la elección del lenguaje adecuado dependerá de los requisitos específicos del proyecto, como la necesidad de alto rendimiento, seguridad en la gestión de memoria y facilidad de desarrollo.
 
-Se estudiarán las tecnologías disponibles para el desarrollo de la aplicación móvil, entre ellas React Native, Flutter, PWA y Lynx.js. Cada una de estas tecnologías tiene sus propias ventajas y desventajas, y la elección de la tecnología adecuada dependerá de los requisitos específicos del proyecto, como la necesidad de una experiencia de usuario nativa, el rendimiento en dispositivos móviles y la facilidad de desarrollo.
+También se estudiarán las tecnologías disponibles para el desarrollo de la aplicación móvil, entre ellas React Native, Flutter, PWA y Lynx.js. Cada una de estas tecnologías tiene sus propias ventajas y desventajas, y la elección de la tecnología adecuada dependerá de los requisitos específicos del proyecto, como la necesidad de una experiencia de usuario nativa, el rendimiento en dispositivos móviles y la facilidad de desarrollo.
 
 \subsection{Servidor}
 El servidor de sincronización de multimedia es el componente central de la aplicación, encargado de gestionar la comunicación entre el cliente y el almacenamiento de fotos.
@@ -169,7 +172,7 @@ Rust permite la creación de hilos seguros y eficientes, y su modelo de propieda
 
 La concurrencia es una de las características estrella de Go. Se basa en \textit{goroutines} y \textit{canales} (channels) para la comunicación entre goroutines, siguiendo el paradigma de \acrfull{csp}.
 Éste se basa en la idea de que las goroutines se comunican entre sí a través de canales sin acceder a las mismas posiciones de memoria (cada goroutine tiene su propia copia de el mensaje) y reduce el riesgo de condiciones de carrera.
-Si queremos tener una comunicación bidireccional, tendríamos que utilizar un enfoque más tradicional mediante \glspl{mutex} o \glspl{semaforo} junto con \glspl{lock}, lo cual puede ser más complejo y propenso a errores.
+Si se quiere tener una comunicación bidireccional, se tendría que utilizar un enfoque más tradicional mediante \glspl{mutex} o \glspl{semaforo} junto con \glspl{lock}, lo cual puede ser más complejo y propenso a errores.
 \begin{itemize}
     \item \textbf{Ventajas:} Modelo de concurrencia muy simple y potente. Facilidad para escribir software concurrente y paralelo.
     \item \textbf{Desventajas:} Aunque las goroutines son ligeras, una mala gestión puede llevar a problemas de rendimiento o fugas de goroutines. Las condiciones de carrera son posibles y deben ser manejadas por el desarrollador.
@@ -535,23 +538,8 @@ Basándose en el análisis comparativo y los requisitos específicos del proyect
     \item Potencial para mejorar la experiencia de usuario en comparación con React Native
 \end{itemize}
 
-Para el desarrollo de este proyecto se va a optar por usar \textbf{Lynx.js}.
-
-Aunque es una elección que puede parecer arriesgada, se ha considerado que el rendimiento optimizado y la familiaridad con JavaScript/TypeScript son factores clave para el éxito del proyecto.
-Además, el hecho de que Lynx.js esté respaldado por TikTok sugiere un compromiso a largo plazo con la tecnología, lo que puede ofrecer estabilidad y actualizaciones continuas.
-
-Se ha descartado React Native ya que Lynx.js ofrece prácticamente las mismas ventajas, pero con un rendimiento optimizado gracias a componentes específicos optimizados, un tamaño de aplicación más reducido y un acceso más directo a las APIs nativas del dispositivo.
-
-Flutter aun ofreciendo una gran cantidad de ventajas se ha descartado por lo siguiente:
-\begin{itemize}
-    \item El tamaño de la aplicación es significativamente mayor que el de Lynx.js, lo cual puede ser un inconveniente para los usuarios con dispositivos de gama baja.
-    \item Aunque ofrece un rendimiento excelente, la curva de aprendizaje de Dart puede ser un obstáculo para algunos desarrolladores, especialmente si ya están familiarizados con JavaScript/TypeScript, lo cual afectaría a la facilidad de contribuir al proyecto.
-    \item Para dispositivos de gama baja, además de el tamaño de la aplicación, el rendimiento puede verse afectado por el uso intensivo del motor gráfico de Flutter, lo que podría resultar en una experiencia de usuario deficiente.
-    \item El acceso a funcionalidades nativas puede ser más complicado en comparación con Lynx.js, que permite una integración más directa con el código nativo existente.
-\end{itemize}
-Cabe destacar que Flutter habría sido la mejor elección si el objetivo del proyecto no fuera crear una aplicación FOSS, ya que el ecosistema de Typescript y JavaScript es más amplio y maduro, lo que facilita la integración con bibliotecas y herramientas existentes.
 
 \paragraph{Tecnologías no nombradas}
-Durante el análisis nos hemos centrado en aquellas tecnologías que son más populares y ampliamente utilizadas en la industria, pero existen otras opciones que podrían ser consideradas dependiendo de los requisitos específicos del proyecto como podría ser el desarrollo nativo (Kotlin/Java para Android y Swift/Objective-C para iOS) o Kotlin Multiplatform.
+Durante el análisis se han analizado aquellas tecnologías que son más populares y ampliamente utilizadas en la industria, pero existen otras opciones que podrían ser consideradas dependiendo de los requisitos específicos del proyecto como podría ser el desarrollo nativo (Kotlin/Java para Android y Swift/Objective-C para iOS) o Kotlin Multiplatform.
 
-Se han descartado debido a la alta curva de aprendizaje que tienen ambas soluciones en comparación con las anteriormente nombradas que usan lenguajes de programación más usados. Destacar que, aunque Kotlin Multiplaform nos ofrece una de las mejores alternativas para implementar en varias plataformas (ya que nos permite compartir código entre Android, iOS y web gracias a \gls{jetpack-compose}, implementando de forma sencilla y totalmente nativa funcionalidades específicas), la falta de madurez en su ecosistema y la complejidad de su implementación lo hacen menos atractivo para nuestro proyecto.
+Se han descartado debido a la alta curva de aprendizaje que tienen ambas soluciones en comparación con las anteriormente nombradas que usan lenguajes de programación más usados. Destacar que, aunque Kotlin Multiplaform ofrece una de las mejores alternativas para implementar en varias plataformas (ya que nos permite compartir código entre Android, iOS y web gracias a \gls{jetpack-compose}, implementando de forma sencilla y totalmente nativa funcionalidades específicas), la falta de madurez en su ecosistema y la complejidad de su implementación lo hacen menos atractivo para nuestro proyecto.

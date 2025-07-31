@@ -468,3 +468,41 @@ El reto técnico principal de este sprint es la creación de un módulo nativo p
     \item Desde el código JavaScript de nuestra aplicación, podremos importar y llamar a este módulo para obtener los datos de la galería.
 \end{enumerate}
 Este proceso asegura un rendimiento nativo para una tarea intensiva como es el acceso a ficheros multimedia.
+
+\paragraph{Implementación de botón de retroceso en Android}
+\subparagraph{}
+Aunque puede ser algo que se da por echo en un framework móvil, es importante destacar que Lynx.js no implementa por defecto el botón de retroceso.
+El comportamiento por defecto es el de salir de la aplicación al pulsar el botón de retroceso, lo cual no es deseable en una aplicación que tiene múltiples pantallas y donde se espera que el usuario pueda navegar hacia atrás sin salir de la app.
+
+Para la navegación es ha hecho uso de la librería `react-router`, que permite gestionar las rutas y la navegación entre pantallas de forma sencilla.
+Sin embargo, el botón de retroceso del dispositivo no está gestionado automáticamente por esta librería, lo que puede llevar a una experiencia de usuario inconsistente.
+
+Para solucionar este problema, se ha implementado un componente que captura un evento lanzado por la parte nativa de Android cuando se pulsa el botón de retroceso.
+Al recibir el evento, el componente navega a la pantalla anterior si existe, o cierra la aplicación si se está en la pantalla principal.
+
+La implementación en Lynx.js sería de la siguiente manera:
+\begin{lstlisting}[language=typescript, caption={Implementación del botón de retroceso en Lynx.js}]
+export function BackButtonHandler() {
+  const nav = useNavigate();
+  const handleBackButton = useCallback(() => {
+    nav(-1);
+  }, [nav]);
+  useLynxGlobalEventListener('backButtonPressed', handleBackButton);
+  return null;
+}
+\end{lstlisting}
+Este componente se incluye en la parte superior de la jerarquía de componentes, asegurando que captura el evento de retroceso en cualquier pantalla de la aplicación.
+
+La implementación del evento `backButtonPressed` en la parte nativa de Android queda de la siguiente manera:
+\begin{lstlisting}[language=Java, caption={Implementación del evento de botón de retroceso en Android}]
+backButtonCallback = new OnBackPressedCallback(true) {
+    @Override
+    public void handleOnBackPressed() {
+        if (mLynxView != null && mLynxView.getContext() instanceof LynxContext) {
+            ((LynxContext) mLynxView.getContext()).sendGlobalEvent("backButtonPressed", null);
+        }
+    }
+};
+getOnBackPressedDispatcher().addCallback(this, backButtonCallback);
+\end{lstlisting}
+El registro del componente se realiza en la actividad principal de la aplicación, asegurando que el evento se envía a la capa de JavaScript cuando el usuario pulsa el botón de retroceso.
