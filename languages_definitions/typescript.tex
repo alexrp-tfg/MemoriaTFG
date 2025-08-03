@@ -1,0 +1,39 @@
+\lstdefinelanguage{typescript}
+{
+    columns=fullflexible,
+    keepspaces=true,
+    frame=single,
+    framesep=0pt,
+    framerule=0pt,
+    framexleftmargin=4pt,
+    framexrightmargin=4pt,
+    framextopmargin=5pt,
+    framexbottommargin=3pt,
+    xleftmargin=4pt,
+    xrightmargin=4pt,
+    backgroundcolor=\color{GrayCodeBlock},
+    basicstyle=\ttfamily\color{BlackText},
+    keywords={
+        true,false,null,undefined,
+        if,else,switch,case,default,
+        for,while,do,break,continue,return,yield,
+        try,catch,finally,throw,
+        function,async,await,
+        let,const,var,
+        import,export,from,as,
+        class,interface,extends,implements,constructor,super,this,new,
+        public,private,protected,readonly,static,get,set,
+        type,enum,namespace,module,declare,abstract,infer,is,keyof,typeof,instanceof,in,of
+    },
+    keywordstyle=\color{PurpleKeyword},
+    ndkeywords={
+        number,string,boolean,any,void,never,unknown,symbol,bigint,object,
+        Array,ReadonlyArray,Promise,Record,Partial,Required,Pick,Omit,Exclude,Extract,NonNullable,Parameters,ReturnType,InstanceType
+    },
+    ndkeywordstyle=\color{RedTypename},
+    comment=[l][\color{GrayComment}\slshape]{//},
+    morecomment=[s][\color{GrayComment}\slshape]{/*}{*/},
+    stringstyle=\color{GreenString},
+    string=[b]",
+    morestring=[b]'
+}
