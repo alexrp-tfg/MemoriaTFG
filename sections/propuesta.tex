@@ -1,24 +1,25 @@
 \newpage
 ~
 \newpage
-\section{Propuesta}
+\chapter{Propuesta}
 Dado que se trata de un TFG de desarrollo, se describe lo realizado, el procedimiento seguido y los resultados obtenidos.
 
 Una vez analizado el estado del arte y las tecnologías disponibles, se propone una propuesta a desarrollar que busca cumplir con los objetivos planteados en la introducción. Para el desarrollo de la propuesta se utilizan metodologías ágiles y tecnologías modernas para garantizar un desarrollo eficiente y que permitirá una fácil adaptación a los cambios que puedan surgir durante el desarrollo del proyecto.
 
 Tal como se ha especificado en los capítulos anteriores, se desarrollará una solución que busca ofrecer:
 \begin{itemize}
-    \item Solución FOSS que permita una aportar al proyecto de manera sencilla, pudiendo entender rápida y fácilmente el código y la arquitectura del sistema.
+    \item Solución FOSS que permita aportar al proyecto de manera sencilla, facilitando entender el código y la arquitectura del sistema, consiguiendo de esta manera que sea más fácil contribuir al proyecto.
     \item Soluciones eficientes y rápidas. Para ello se emplearán tecnologías lo más eficientes posibles, siempre buscando la seguridad y escalabilidad de la aplicación.
     \item Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible a largo plazo, permitiendo añadir nuevas funcionalidades y mejoras de manera sencilla. Para ello se implementará una arquitectura limpia \parencite{uncle-bob-clean-architecture}, lo que proporcionará una estructura del proyecto completamente desacoplada, facilitando la escalabilidad y mantenimiento.
     \item Almacenamiento eficiente. Se busca que el almacenamiento de los archivos sea lo más eficiente posible, tanto en términos de espacio como de velocidad de acceso.
-        Para ello, primero se hará uso de un sistema de almacenamiento de objetos compatible con S3, lo que permitirá utilizar cualquier servicio de almacenamiento compatible con S3 como Amazon S3, Google Cloud Storage y en este caso, MinIO.
-        Más adelante, se implementará una solución de almacenamiento nativa que permita un acceso más rápido y eficiente a los archivos, además de una mejor gestión de los mismos.
+        Para ello, primero se hará uso de un sistema de almacenamiento de objetos compatible con \gls{s3}, lo que permitirá utilizar cualquier servicio de almacenamiento compatible con el mismo protocolo como Google Cloud Storage o usando software libre como podría ser \gls{minio}.
+        Dada la naturaleza de este proyecto, se utilizará MinIO como solución para el almacenamiento, ya que nos va a permitir almacenar nuestros archivos de manera eficiente en nuestro propio servidor.
+        En una ampliación futura se valorará la implementación de una solución de almacenamiento nativa que permita un acceso más rápido y eficiente a los archivos, además de una mejor gestión de los mismos.
     \item Desarrollo ágil y flexible. Se busca que el desarrollo sea ágil y flexible, permitiendo adaptarse a los cambios y necesidades del proyecto de manera rápida y eficiente. Para ello se hará uso de la metodología ágil Scrum, lo que facilitará una organización clara del proyecto y una planificación adecuada de las tareas a realizar.
         Seguir esta metodología favorecerá una mejor organización del proyecto y una planificación adecuada de las tareas a realizar, lo que aportará una buena organización en caso de que se incorporen más personas al proyecto en el futuro.
 \end{itemize}
 
-\subsection{Metodología}
+\section{Metodología}
 \label{sec:metodologia}
 
 Para el desarrollo de este proyecto se ha optado por la metodología ágil Scrum. Esta metodología se basa en el desarrollo iterativo e incremental, lo que permite una mayor flexibilidad y adaptación a los cambios durante el proceso de desarrollo.
@@ -39,11 +40,11 @@ Es por ello que se van a documentar todas las decisiones que se tomen y los camb
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{assets/scrum-diagram.png}
-  \caption{Diagrama del proceso completo de Scrum (\href{https://www.lecciones-aprendidas.info/2023/09/diagrama-explicativo-scrum-guia-2020.html}{Fuente})}
+  \caption{Diagrama del proceso completo de Scrum \parencite{scrum-diagram}}
   \label{fig:scrum-diagram}
 \end{figure}
 
-En esta imagen se observa definido todo el proceso que se sigue con una metodología Scrum, desde la planificación del producto hasta la entrega del mismo.
+En esta imagen se muestra todo el proceso que se sigue con una metodología Scrum, desde la planificación del producto hasta la entrega del mismo.
 
 Como se comenta en la guía de Scrum y se puede ver en la imagen, durante el desarrollo del proyecto se van a generar varios artefactos:
 \begin{itemize}
@@ -51,7 +52,7 @@ Como se comenta en la guía de Scrum y se puede ver en la imagen, durante el des
     \item \textbf{Sprint Backlog}: es una lista de tareas (las cuales salen de las historias de usuario y técnicas) seleccionadas del product backlog que se van a realizar durante un sprint.
     \item \textbf{Incremento}: es la suma de todos los elementos del product backlog completados durante un sprint y los incrementos de todos los sprints anteriores. En este caso, el incremento se va a utilizar para organizar todas las tareas que se han realizado durante cada sprint.
 \end{itemize}
-Aunque el producto sufra cambios después, intentar estimar lo mejor posible y terminar los sprints con un producto con \textbf{valor} es el objetivo principal de esta metodología, tal y como se dice en la guía `\textit{A product is a vehicle to deliver value. It has a clear boundary, known stakeholders, well-defined users or customers. A product could be a service, a physical product, or something more abstract.}'
+Aunque el producto sufra cambios después, intentar estimar lo mejor posible y terminar los sprints con un producto con \textbf{valor} es el objetivo principal de esta metodología, tal y como se dice en la guía `\textit{A product is a vehicle to deliver value. It has a clear boundary, known stakeholders, well-defined users or customers. A product could be a service, a physical product, or something more abstract.}' (\cite{scrum-guide}, apartado de Product Backlog)
 
 Se separará el desarrollo en distintos sprints, cada uno de ellos con una duración de dos semanas.
 
@@ -63,7 +64,7 @@ Y por último se lleva a cabo una retrospectiva en el equipo, donde se reflexion
 
 Gracias a esta metodología se consigue tener una organización muy clara de lo que se va a hacer, cómo se va a hacer y cuándo se va a hacer.
 
-\subsection{Sprint 0}
+\section{Sprint 0}
 \label{sec:planificacion-inicial}
 Durante un desarrollo con Scrum, tal como se ha comentado anteriormente en la \hyperref[sec:metodologia]{sección de metodología}, se usan \textbf{sprints} para dividir el desarrollo en partes organizadas y planificadas con anterioridad, las cuales tienen un inicio y un fin.
 
@@ -85,7 +86,7 @@ Los objetivos de este sprint son los siguientes:
 
 El product backlog inicial se ha definido en la \hyperref[sec:historias-de-usuario]{sección de historias de usuario} y se ha dividido en dos partes, una para el servidor y otra para el cliente móvil.
 
-\subsubsection{Historias de usuario / Historias técnicas}
+\subsection{Historias de usuario / Historias técnicas}
 \label{sec:historias-de-usuario}
 En esta sección se detallan las historias de usuario e historias técnicas de la aplicación, separadas en dos grupos: las de la aplicación de servidor y las de móvil.
 
@@ -186,7 +187,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
 \end{tabularx}
 
-\subparagraph{Historias que se han dividido}
+\paragraph{Historias que se han dividido}
 
 Ambas tablas que aparecen a continuación muestran historias técnicas que han sido divididas en sub-historias para facilitar su gestión y estimación en el backlog.
 
@@ -292,7 +293,7 @@ Ambas tablas que aparecen a continuación muestran historias técnicas que han s
 
 
 
-\subsubsection{Diagrama de arquitectura}
+\subsection{Arquitectura del sistema}
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=0.95\textwidth]{images/diagrama-arquitectura.png}
@@ -300,8 +301,8 @@ Ambas tablas que aparecen a continuación muestran historias técnicas que han s
     \caption{Diagrama de la arquitectura del sistema. Representa las comunicaciones entre los distintos elementos del sistema}\label{fig:diagrama-arquitectura}
 \end{figure}
 
-Como se muestra en la figura \ref{fig:diagrama-arquitectura}, el sistema va a estar compuesto por un cliente (móvil tanto en Android como iOS) que se comunica con un servidor mediante peticiones HTTP.
-Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma móvil y el servidor no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST.
+Como se muestra en la Figura \ref{fig:diagrama-arquitectura}, el sistema va a estar compuesto por un cliente (móvil tanto en Android como iOS) que se comunica con un servidor mediante peticiones HTTP.
+Se estudió la posibilidad de la comunicación mediante gRPC (\textit{Google Remote Procedure Call}) pero se desechó ya que la compatibilidad entre un cliente multiplataforma móvil y el servidor de sincronización no permitía hacer uso de todas las ventajas que ofrecía frente a un método convencional como puede ser una API REST.
 
 Todo esto hizo decidirse por una API REST, la cual es más sencilla de implementar y de mantener a largo plazo, además de ser más fácil de entender para cualquier desarrollador que quiera contribuir al proyecto.
 
@@ -311,7 +312,7 @@ MinIO está diseñado para ser totalmente escalable y de alto rendimiento, lo qu
 
 Aunque en las primeras iteraciones se utilice MinIO para almacenar los datos multimedia, en iteraciones más avanzadas se implementará un sistema de almacenamiento nativo, el cual permitirá un mayor control sobre los datos y una mejor integración con el resto del sistema.
 
-Gracias a la arquitectura hexagonal que se va a utilizar a la hora de implementar el sistema, se consigue un desacople total de la capa de aplicación, dominio e infraestructura, brindando la posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, proporcionando de esta manera flexibilidad sobre la solución que se desee usar para almacenar los datos/multimedia.
+Gracias a la arquitectura limpia (\cite{uncle-bob-clean-architecture}) que se va a utilizar a la hora de implementar el sistema, se consigue un desacople total de la capa de aplicación, dominio e infraestructura, brindando la posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, proporcionando de esta manera flexibilidad sobre la solución que se desee usar para almacenar los datos/multimedia.
 
 Para el almacenaje de los datos de la aplicación se ha optado por hacer uso de un \acrshort{orm} con PostgreSQL.
 Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo plazo, esta opción proporciona una gran cantidad de ventajas frente a las desventajas que tiene, como pueden ser:
@@ -327,8 +328,8 @@ Aunque se elija una base de datos en este punto del proyecto, la arquitectura de
 Además, se ha optado por hacer uso de un \acrshort{orm} para facilitar la interacción con la base de datos y abstraer la complejidad de las consultas SQL, lo que permite centrarse en la lógica de negocio y no en la implementación de la base de datos.
 Esto otorga mayor flexibilidad a la hora de cambiar la base de datos en el futuro, ya que el \acrshort{orm} permite cambiar el motor de base de datos fácilmente.
 
-\subsubsection{Estructura de implementación}
-En un proyecto de este tipo es muy importante tener una buena estructura a la hora de implementar la aplicación.
+\subsection{Arquitectura software}
+En un proyecto de este tipo es muy importante tener una buena estructura a la hora de diseñar el software.
 Se busca la separación de responsabilidades y una buena organización, lo cual satisface uno de los objetivos específicos (OE5): desarrollar un sistema que sea fácilmente escalable.
 
 Para ello, se han estudiado las distintas opciones disponibles, tanto para el servidor como para la aplicación móvil, y se ha optado por una variación de la arquitectura limpia \parencite{uncle-bob-clean-architecture}, cuyos principios son:
@@ -357,7 +358,7 @@ De esta manera, en un futuro se podría separar el servidor en microservicios de
   \label{fig:modular-monolith-comparison}
 \end{figure}
 
-En la figura \ref{fig:modular-monolith-comparison} se muestra que la diferencia entre una arquitectura de microservicios y una monolítica modular es que los módulos comparten el mismo proceso y por ende la comunicación entre ellos cambiará y se hará de manera local mediante llamadas a funciones, mientras que en una arquitectura de microservicios la comunicación entre los distintos servicios se hace mediante peticiones a través de un protocolo de comunicación específico y cada módulo tendría su propia forma de administrar datos, lo que añade una capa de complejidad innecesaria para un proyecto de este alcance.
+En la Figura \ref{fig:modular-monolith-comparison} se muestra que la diferencia entre una arquitectura de microservicios y una monolítica modular es que los módulos comparten el mismo proceso y por ende la comunicación entre ellos cambiará y se hará de manera local mediante llamadas a funciones, mientras que en una arquitectura de microservicios la comunicación entre los distintos servicios se hace mediante peticiones a través de un protocolo de comunicación específico y cada módulo tendría su propia forma de administrar datos, lo que añade una capa de complejidad innecesaria para un proyecto de este alcance.
 
 \paragraph{Arquitectura del cliente}
 \subparagraph{}
@@ -383,7 +384,7 @@ La capa de aplicación no utiliza directamente la capa de infraestructura, sino 
 De esta manera se consigue una separación de responsabilidades y una independencia de la infraestructura, lo que permite cambiar la implementación de cualquier capa sin afectar al resto del sistema.
 También permite hacer pruebas unitarias e integración de manera más sencilla, ya que permite \gls{mockear} las interfaces de la capa de infraestructura y probar la lógica de negocio sin necesidad de depender de la implementación concreta de la capa de infraestructura.
 
-\subsubsection{Desarrollo de artefactos del primer sprint}
+\subsection{Desarrollo de artefactos del primer sprint}
 Tal y como se ha definido en la \hyperref[sec:metodologia]{sección de metodología}, cada sprint se va a enfocar en una parte del proyecto. En este caso, el primer sprint se va a centrar en historias de usuario del servidor solamente. El segundo sprint se centrará en las historias de usuario del cliente móvil y una vez analizado el estado de ambos productos, se decidirá si comenzar a tener sprints conjuntos.
 
 En la metodología Scrum se seleccionan historias de usuario hasta que la suma de las estimaciones de las historias de usuario sea menor o igual a la velocidad del equipo para ese sprint.
@@ -395,7 +396,7 @@ Una vez se termina el sprint, en el proceso de retrospectiva se analiza cuántas
 Durante la especificación del sprint backlog se va a estudiar si hay historias de usuario que puedan ser divididas en distintas historias y una vez se hayan definido las historias de usuario que se van a implementar en el sprint, se definirán las tareas correspondientes a cada historia de usuario junto con su estimación en horas.
 En el momento que se disponga de estimaciones en horas de tareas, es posible realizar un diagrama de Gantt para el sprint con las tareas y su duración estimada.
 
-\subsubsection{Planificación de entregas}
+\subsection{Planificación de entregas}
 En esta sección se va a definir los objetivos generales que tendremos para cada entrega en caga sprint. Estos objetivos son estimados y pueden variar dependiendo de la velocidad real del equipo, puede ser que se consiga más en un sprint o menos. Esta planificación se realiza para que, en el caso de que tuviéramos un cliente, se le pudiera dar una estimación del producto que va a ir recibiendo en cada entrega.
 
 En este caso y en este tipo de proyecto, sirve para tener un enfoque claro de lo que se quiere conseguir en cada sprint y no desviarse realizando otras tareas.
@@ -416,17 +417,17 @@ Este último sprint, aunque no entra en el plazo de entrega del proyecto, se def
 
 Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint anterior.
 
-\subsection{Tecnologías}
-Una vez realizado el análisis de las distintas tecnologías que se pueden utilizar para el desarrollo del proyecto en el capítulo \ref{sec:tecnologias} y definidos los requisitos principales de el proyecto, se ha decidido utilizar las siguientes tecnologías para cada parte del proyecto:
+\section{Tecnologías}
+Una vez realizado el análisis de las distintas tecnologías que se pueden utilizar para el desarrollo del proyecto en el capítulo \ref{sec:tecnologias} y definidos los objetivos principales del proyecto (sección \ref{sec:objetivos}), se ha decidido utilizar las siguientes tecnologías para cada parte del proyecto:
 
-\subsubsection{Servidor}
+\subsection{Servidor}
 Para el servidor, cualquiera de las dos soluciones sería completamente válida. Go podría ser la mejor opción por su enfoque en la simplicidad y la facilidad de uso, especialmente para aplicaciones web y servicios de red. Sin embargo, Rust ofrece ventajas significativas en términos de seguridad de memoria y rendimiento, lo que lo convierte en una opción atractiva para aplicaciones que requieren alta concurrencia y eficiencia.
 
 En este proyecto se busca alto rendimiento, seguridad, facilidad de contribuir al proyecto y un lenguaje sólido que no sea propenso a fallos.
 Es por esto que Rust es la mejor opción para este caso. \parencite{rust-for-safety-and-performance}
 
 Tal como se ha comentado anteriormente, Rust facilita la seguridad en la ejecución del código gracias a su estricto compilador.
-Ofrece una gran variedad de funcionalidades sin coste en rendimiento junto con su sistema de propiedad y préstamos que permite gestionar la memoria de forma segura y eficiente, evitando errores comunes como las condiciones de carrera o los punteros nulos sin necesidad de un recolector de basura (GC).
+Ofrece una gran variedad de funcionalidades sin coste en rendimiento junto con su sistema de propiedad y préstamos que permite gestionar la memoria de forma segura y eficiente, evitando errores comunes como las condiciones de carrera o los punteros nulos sin necesidad de un recolector de basura (\acrfull{gb}).
 
 Aunque la curva de aprendizaje de Rust es más pronunciada, los beneficios a largo plazo en términos de seguridad y rendimiento justifican esta inversión inicial.
 
@@ -449,8 +450,7 @@ Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otr
 \end{itemize}
 
 
-Se ha decidido usar del framework de aplicaciones web \href{https://github.com/tokio-rs/axum?tab=readme-ov-file}{\textbf{Axum}}.
-
+Para el desarrollo de el servidor de sincronización se ha decidido usar del framework de aplicaciones web \href{https://github.com/tokio-rs/axum?tab=readme-ov-file}{\textbf{Axum}}.
 Axum es un framework de aplicaciones web construido sobre Tokio, una biblioteca de programación asíncrona para Rust. Axum se centra en la simplicidad y la facilidad de uso, lo que lo convierte en una excelente opción para desarrollar aplicaciones web rápidas y eficientes.
 Aunque hay varios frameworks más eficientes en términos de velocidad a la hora de realizar benchmarks\footnote{\href{https://web-frameworks-benchmark.netlify.app/result?l=rust}{Comparativa frameworks de Rust}} \footnote{\href{https://www.techempower.com/benchmarks/\#section=data-r21&test=composite&hw=ph}{Comparativa con frameworks de otros lenguajes}}, algunos de ellos tienen un tiempo de compilación demasiado alto, por lo que puede llegar a hacer más lento el desarrollo.
 Además, ninguno de los demás frameworks de Rust tiene una comunidad tan activa como la de Axum ni una documentación tan completa.
@@ -460,7 +460,7 @@ Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rus
 Como se puede ver en los benchmark hay frameworks de otros lenguajes que pueden parecer más sencillos que Rust y que ofrecen el mismo o mejor rendimiento, pero como se ha comentado anteriormente, el punto principal de Rust no es únicamente su rendimiento, sino la seguridad que proporciona el propio lenguaje y lo poco propenso que es a errores en tiempo de compilación, lo que hace que la aplicación sea mucho más robusta, segura y sostenible a largo plazo.
 
 
-\subsubsection{Móvil}
+\subsection{Móvil}
 Para el desarrollo de la aplicación móvil se ha optado por el nuevo framework de desarrollo multiplataforma, \textbf{Lynx.js}.
 
 Esta es una opción muy arriesgada para este proyecto ya que es un framework que aún está en desarrollo y no tiene una comunidad tan grande como otros frameworks más consolidados como React Native o Flutter.
@@ -528,7 +528,7 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
 
 Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizado por ellos para el desarrollo de varias de sus aplicaciones, por lo que aunque ha cambiado a ser Open-Source hace poco con su versión 3.2.0. Es un framework que ya ha sido probado en producción en aplicaciones como \textbf{TikTok Studio}, \textbf{Disney100 en TikTok}, \textbf{The Met Gala en TikTok} tal y como comentan en el artículo en el que anunciaron que Lynx.js pasaba a ser Open-Source \parencite{lynx-article}.
 
-\subsubsection{Inicialización del entorno de desarrollo}
+\subsection{Inicialización del entorno de desarrollo}
 En esta sección se va a detallar cómo se ha procedido a la inicialización del entorno de desarrollo tanto para el servidor como para la aplicación móvil.
 \paragraph{Servidor}
 \subparagraph{}
@@ -649,7 +649,7 @@ Si se adaptara este proyecto de ejemplo a la estructura que se utilizará, la es
 
 \paragraph{Cliente móvil}
 \subparagraph{}
-Siguiendo la arquitectura limpia para una aplicación móvil, definida en la figura \ref{fig:clean-architecture-mobile}, la estructura del cliente móvil es muy similar a la del servidor, pero con algunas diferencias.
+Siguiendo la arquitectura limpia para una aplicación móvil, definida en la Figura \ref{fig:clean-architecture-mobile}, la estructura del cliente móvil es muy similar a la del servidor, pero con algunas diferencias.
 
 En este caso no se utiliza el patrón de código \acrshort{cqrs}, ya que no es necesario en una aplicación móvil, pero sí se sigue una estructura modular similar a la del servidor, donde cada módulo tiene una responsabilidad clara y bien definida.
 La única adición que se presenta con respecto a la estructura del servidor es que en la aplicación móvil existe una capa de presentación que se encarga de la interfaz de usuario y de la interacción con el usuario, la cual sería la equivalente a la capa de interface que se definió en el servidor para la comunicación con el exterior (en el caso del servidor, mediante comunicación HTTP).

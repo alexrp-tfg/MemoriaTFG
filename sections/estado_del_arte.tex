@@ -1,23 +1,37 @@
 \newpage
 ~
 \newpage
-\section{Estado del arte}
-Qué se ha hecho hasta ahora en este campo, qué tecnologías se han utilizado, qué problemas se han encontrado, qué soluciones se han propuesto.
+\chapter{Estado del Arte}
+% Qué se ha hecho hasta ahora en este campo, qué tecnologías se han utilizado, qué problemas se han encontrado, qué soluciones se han propuesto.
 
-En este apartado se presenta un análisis del estado del arte en el ámbito de las bibliotecas de archivos multimedia de código abierto (\acrshort{foss}).
+En este capítulo se presenta un análisis del estado del arte en el ámbito de las bibliotecas de archivos multimedia de código abierto (\acrfull{foss}).
 Se examinan las principales soluciones disponibles, sus características técnicas, fortalezas y limitaciones, así como las tendencias actuales en el sector.
 Dado que uno de los objetivos del proyecto es desarrollar un producto que sea de código abierto, la comparación se centra en soluciones FOSS que ya están en el mercado y que han sido ampliamente adoptadas por la comunidad, lo cual nos va a permitir desarrollar una comparación mas extensa sobre cómo están organizados los proyectos para facilitar su mantenimiento y escalabilidad, así como las tecnologías que utilizan para ofrecer sus servicios.
 
 Además, se realiza un estudio sobre las tecnologías que vamos a utilizar en el proyecto en comparación con las alternativas y las que ya se utilizan en los proyectos existentes que se analizan.
 
-En el panorama actual de las bibliotecas de archivos multimedia de código abierto, existe una amplia variedad de soluciones que buscan ofrecer alternativas libres y gratuitas a los servicios propietarios como Google Photos o iCloud. Este análisis del estado del arte se centra en las tres soluciones más populares según el número de estrellas en GitHub: Immich, PhotoPrism y Ente.
+En el panorama actual de las bibliotecas de archivos multimedia de código abierto, existe una amplia variedad de soluciones que buscan ofrecer alternativas libres y gratuitas a los servicios propietarios como Google Photos o iCloud. Este análisis del estado del arte se centra en las tres soluciones de código abierto gratuitas más populares según el número de estrellas en GitHub: Immich, PhotoPrism y Ente.
 
 % Fuentes:
 % Google Photos: https://photos.google.com/
 % Apple Photos: https://www.apple.com/ios/photos/
 % Amazon Photos: https://www.amazon.com/photos
 % Microsoft OneDrive Photos: https://www.microsoft.com/en-us/microsoft-365/onedrive/online-cloud-storage
-\subsection{Soluciones Propietarias Relevantes}
+\section{Sistemas de almacenamiento y compartición de contenidos multimedia}
+
+Un sistema de almacenamiento y compartición de contenidos multimedia puede entenderse como una plataforma que permite a los usuarios guardar, organizar y acceder a recursos como fotografías, vídeos o grabaciones de audio desde diferentes dispositivos y ubicaciones. Este tipo de sistemas han surgido en gran medida como alternativa a las soluciones comerciales de almacenamiento en la nube, ofreciendo en muchos casos un mayor control sobre la privacidad y la gestión de los datos.
+
+La primera característica esencial de este tipo de soluciones es el soporte multiusuario y la concurrencia, que posibilitan que varias personas interactúen con el sistema de manera simultánea sin comprometer la coherencia de la información. Esta propiedad se complementa con la sincronización automática, mediante la cual los contenidos capturados en un dispositivo, como puede ser un teléfono móvil, se transfieren y actualizan de manera transparente en el servidor, garantizando que los usuarios dispongan siempre de la versión más reciente de sus archivos.
+
+Otra dimensión relevante es la accesibilidad multiplataforma: un mismo repositorio de información debe poder consultarse desde ordenadores, tablets o dispositivos móviles, ya sea mediante aplicaciones específicas o a través de interfaces web adaptadas. A medida que el volumen de datos crece, la escalabilidad se convierte en un requisito imprescindible, ya que el sistema debe mantener un rendimiento adecuado incluso en contextos con gran número de usuarios o con repositorios de gran tamaño.
+
+Además de estas capacidades técnicas, estos sistemas suelen incluir mecanismos de organización basados en metadatos, como fechas, ubicaciones geográficas o etiquetas, lo que permite una gestión más eficiente y flexible de grandes colecciones de contenido. La privacidad y la seguridad representan otro pilar fundamental: la autenticación, la autorización y, en muchos casos, el cifrado, son necesarios para garantizar que los datos personales permanezcan protegidos frente a accesos no autorizados. 
+
+Del mismo modo, la compartición de contenidos constituye un aspecto central. La posibilidad de compartir álbumes, carpetas o ficheros con otros usuarios, mediante enlaces públicos o controles de acceso más detallados, amplía las capacidades colaborativas del sistema. Finalmente, muchas de estas plataformas integran funciones de copia de seguridad y recuperación que aseguran la resiliencia frente a fallos, evitando la pérdida de información crítica.
+
+En conjunto, estas propiedades conforman el núcleo de lo que se entiende actualmente por un sistema de almacenamiento y compartición de contenidos multimedia. A partir de esta base conceptual, en las siguientes secciones se examinarán diversas soluciones consolidadas en este ámbito, con el fin de evaluar hasta qué punto responden a estos requisitos y qué innovaciones introducen respecto a los enfoques tradicionales.
+
+\section{Soluciones propietarias relevantes}
 
 En el ámbito de la gestión y almacenamiento de fotografías, las soluciones propietarias han marcado el estándar en cuanto a experiencia de usuario, integración de servicios y capacidades avanzadas de inteligencia artificial. Entre las plataformas más destacadas se encuentran Google Photos, Apple Photos, Amazon Photos y Microsoft OneDrive Photos, cada una con un enfoque particular y funcionalidades diferenciadoras.
 
@@ -42,9 +56,9 @@ Entre las características avanzadas que suelen estar más desarrolladas en esta
 
 Si bien algunas de estas funcionalidades comienzan a estar presentes en proyectos de código abierto, la madurez, precisión y facilidad de uso de las implementaciones propietarias sigue siendo, en muchos casos, superior debido a la inversión en inteligencia artificial, recursos computacionales y la integración profunda con sus respectivos ecosistemas. La incorporación de estas capacidades en soluciones FOSS representa un reto y una oportunidad para cerrar la brecha funcional existente.
 
-\subsection{Panorama General de Soluciones FOSS}
+\section{Panorama general de soluciones FOSS}
 
-El ecosistema de bibliotecas de archivos multimedia de código abierto ha experimentado un crecimiento significativo en los últimos años, impulsado por las crecientes preocupaciones sobre la privacidad de los datos y la dependencia de servicios en la nube propietarios. Según el análisis comparativo realizado por Meichthys \parencite{meichthys2024}, existen más de 16 proyectos activos que ofrecen diferentes enfoques y características.
+El ecosistema de soluciones FOSS ha experimentado un crecimiento significativo en los últimos años, impulsado por las crecientes preocupaciones sobre la privacidad de los datos y la dependencia de servicios en la nube propietarios. Según el análisis comparativo realizado por Meichthys \parencite{meichthys2024}, existen más de 16 proyectos activos que ofrecen diferentes enfoques y características.
 
 Las soluciones analizadas se pueden clasificar en tres categorías principales:
 \begin{itemize}
@@ -55,7 +69,7 @@ Las soluciones analizadas se pueden clasificar en tres categorías principales:
 
 % --- NUEVA ORGANIZACIÓN: ANÁLISIS INDIVIDUAL DE CADA SOLUCIÓN ---
 
-\subsection{Immich}
+\section{Immich}
 
 (\cite{immich-documentation}) Immich es una solución de gestión de fotos de código abierto orientada a usuarios que buscan una alternativa privada y autoalojada a servicios comerciales como Google Photos. Su desarrollo comenzó en 2022 y ha experimentado un rápido crecimiento gracias a una comunidad activa y a la adopción de tecnologías modernas.
 
@@ -172,7 +186,7 @@ Immich es completamente gratuito y open source, sin funciones premium o de pago.
 Immich presenta las siguientes características de interoperabilidad:
 
 \begin{itemize}
-    \item \textbf{Integración con servicios externos:} Soporte para almacenamiento externo mediante protocolos como \gls{webdav} y S3.
+    \item \textbf{Integración con servicios externos:} Soporte para almacenamiento externo mediante protocolos como \gls{webdav} y \gls{s3}.
     \item \textbf{Soporte de estándares de metadatos:} Soporte parcial, centrado principalmente en EXIF.
     \item \textbf{Exportación e importación:} Permite la exportación e importación de fotos y metadatos, con algunas limitaciones.
     \item \textbf{Federación y APIs:} Ofrece APIs REST para integración con aplicaciones de terceros, con una API en evolución.
@@ -180,7 +194,7 @@ Immich presenta las siguientes características de interoperabilidad:
 
 % --- FIN DE ANÁLISIS INDIVIDUAL DE Immich ---
 
-\subsection{PhotoPrism}
+\section{PhotoPrism}
 
 (\cite{photoprism-documentation}) PhotoPrism es una de las soluciones FOSS más maduras y populares para la gestión de fotos, con una comunidad consolidada y un enfoque en la organización eficiente y el respeto a la privacidad.
 
@@ -304,7 +318,7 @@ PhotoPrism sigue un modelo freemium, donde algunas características avanzadas re
 PhotoPrism presenta las siguientes características de interoperabilidad:
 
 \begin{itemize}
-    \item \textbf{Integración con servicios externos:} Soporte para almacenamiento externo mediante protocolos como \gls{webdav} y S3.
+    \item \textbf{Integración con servicios externos:} Soporte para almacenamiento externo mediante protocolos como \gls{webdav} y \gls{s3}.
     \item \textbf{Soporte de estándares de metadatos:} Soporte completo de estándares como EXIF, \acrshort{iptc} y \acrshort{xmp}.
     \item \textbf{Exportación e importación:} Facilita la migración mediante herramientas específicas y documentación detallada.
     \item \textbf{Federación y APIs:} Ofrece una API más estable para integración con aplicaciones de terceros.
@@ -312,7 +326,7 @@ PhotoPrism presenta las siguientes características de interoperabilidad:
 
 % --- FIN DE ANÁLISIS INDIVIDUAL DE PhotoPrism ---
 
-\subsection{Ente}
+\section{Ente}
 
 Ente destaca por su enfoque radical en la privacidad y la seguridad, ofreciendo cifrado de extremo a extremo y una experiencia multiplataforma coherente gracias a Flutter. Aunque su principal vía de uso es el servicio gestionado en la nube, Ente también soporta el autoalojamiento (\textit{self-hosting}), permitiendo a los usuarios desplegar su propio servidor siguiendo la documentación oficial\footnote{\url{https://help.ente.io/self-hosting/}}. Sin embargo, el autoalojamiento no es el foco principal del proyecto y la documentación, soporte y comunidad están más orientados al uso gestionado que a la personalización o despliegue avanzado por parte de terceros.
 
@@ -430,30 +444,7 @@ Ente presenta las siguientes características de interoperabilidad:
     \item \textbf{Federación y APIs:} APIs REST disponibles para integración con aplicaciones de terceros, pero limitadas por el modelo de seguridad.
 \end{itemize}
 
-\subsection{Comparación y conclusiones}
-
-A continuación se presenta una tabla comparativa de las características clave, seguida de una discusión sobre las fortalezas y debilidades de cada solución.
-
-\begin{table}[h!]
-\centering
-\label{tab:comparativa}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{|>{\bfseries}l|p{4cm}|p{4cm}|p{4cm}|}
-\hline
-\textbf{Característica} & \textbf{Immich} & \textbf{Photoprism} & \textbf{Ente} \\ \hline
-\textbf{Filosofía} & Reemplazo de Google Photos, rico en funciones & Gestor de librería robusto y estable & Privacidad y seguridad por encima de todo \\ \hline
-\textbf{Licencia} & AGPL-3.0 & AGPL-3.0 & AGPL-3.0 \\ \hline
-\textbf{Sinc. Escritorio} & CLI / Interfaz Web & WebDAV & Cliente de escritorio dedicado \\ \hline
-\textbf{Soporte RAW} & Bueno & Excelente y exhaustivo & Limitado (en desarrollo) \\ \hline
-\textbf{Búsqueda IA} & Semántica (CLIP) en servidor & Basada en etiquetas y metadatos & Semántica (en el dispositivo) \\ \hline
-\textbf{Cifrado en Reposo} & A nivel de sistema de archivos & A nivel de sistema de archivos & \textbf{De extremo a extremo (E2EE)} \\ \hline
-\textbf{Actividad Comunidad} & Muy Alta & Alta y Estable & Alta \\ \hline
-\end{tabular}%
-}
-\caption{Tabla Comparativa de Características Clave.}
-\end{table}
-
-\subsection{Fortalezas y Debilidades}
+\section{Fortalezas y debilidades}
 \begin{itemize}
     \item \textbf{Immich:} Su principal fortaleza es su \textbf{desarrollo vertiginoso} y su conjunto de características de vanguardia, como la búsqueda semántica. Es el que más se acerca a la experiencia de usuario de Google Photos. Su debilidad radica en esa misma velocidad, que puede llevar a cambios disruptivos (*breaking changes*) entre versiones. Es por eso mismo, que ellos mismos no lo recomiendan para copias de seguridad de imágenes y recomiendan siempre tener una copia de seguridad de las imágenes originales en otro lugar \footnote{Disclaimer en su \href{https://immich.app/}{página principal}}.
     \item \textbf{Photoprism:} Su fortaleza es la \textbf{madurez y estabilidad}. Su soporte exhaustivo de formatos de archivo es inigualable, y su documentación es extremadamente detallada. Su debilidad es un ritmo de desarrollo más lento y la falta de una aplicación móvil nativa oficial.
@@ -466,17 +457,17 @@ Gracias a esto se busca que el proyecto no solo sea una solución de gestión de
 
 Antes de abordar las aportaciones específicas de el proyecto, es importante destacar que, tras analizar las soluciones existentes, se identifican una serie de características fundamentales que deben estar presentes en cualquier aplicación moderna de gestión de archivos multimedia. Entre ellas se encuentran: la capacidad de importar y organizar archivos existentes desde el disco, soporte multiplataforma (web, móvil y escritorio), búsqueda avanzada y filtrado, reconocimiento facial y de objetos, opciones de compartición seguras, gestión eficiente de metadatos, protección de la privacidad y seguridad de los datos, así como una experiencia de usuario fluida y personalizable. Estas funcionalidades constituyen la base sobre la que debe construirse cualquier alternativa competitiva en este ámbito y serán consideradas requisitos mínimos en el desarrollo de la aplicación propuesta.
 
-\subsection{Aportaciones de el proyecto al estado del arte}
+\section{Aportaciones de el proyecto al estado del arte}
 Una vez realizado un estudio de las soluciones existentes, se han identificado una serie de factores que pueden ser mejorados o que no están presentes en las aplicaciones actuales. Estos factores son fundamentales para ofrecer una solución más completa y eficiente en la gestión de fotos y archivos multimedia.
 
 Nuestro proyecto busca abordar las limitaciones actuales de las aplicaciones de fotos, especialmente en términos de rendimiento, usabilidad, facilidad de aportación al proyecto y características avanzadas.
-\subsubsection{Rendimiento}
+\subsection{Rendimiento}
 El rendimiento es un aspecto crítico en las aplicaciones de fotos, especialmente cuando se manejan grandes colecciones. Muchas aplicaciones existentes sufren de lentitud en la carga y visualización de imágenes, lo que afecta negativamente la experiencia del usuario.
 No solo se busca optimizar la carga de imágenes en la aplicación, sino mejorar la velocidad de respuesta que ofrece el servidor a la hora de recibir, procesar y responder a las peticiones de los usuarios.
 
 Todo esto se logrará mediante el uso de tecnologías modernas, eficientes y seguras.
 Se desarrollará el proyecto haciendo uso de una arquitectura estandarizada y modular, lo que permitirá una mayor flexibilidad y escalabilidad. Además, se implementarán técnicas de optimización de rendimiento, como la carga diferida de imágenes, el uso de miniaturas y la indexación eficiente de metadatos.
-\subsubsection{Contribución al proyecto}
+\subsection{Contribución al proyecto}
 Nuestro proyecto no solo se centrará en ofrecer una aplicación de fotos, sino que también se diseñará como un proyecto FOSS, lo que permitirá a la comunidad contribuir y mejorar la aplicación de manera continua.
 
 Para ello se hará uso de las mejoras prácticas de desarrollo de software:

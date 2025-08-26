@@ -574,7 +574,7 @@ Después, se implementará el diseño de la base de datos. Una vez tenemos esta 
 
 Para finalizar, configuraremos todo lo necesario para poder desplegar el servidor.
 
-\subsection{Detalles de implementación}
+\subsection{Diseño detallado e implementación}
 
 \paragraph{Acceso a datos}
 \subparagraph{}
@@ -727,8 +727,10 @@ El siguiente diagrama muestra cómo se relacionan las diferentes capas de la arq
     \begin{center}
         \includegraphics[width=0.95\textwidth]{assets/sprint1/diagrama-arquitectura-limpia.png}
     \end{center}
-    \caption{Diagrama que muestra relaciones entre las capas para nuestra implementación.}\label{fig:diagrama-arquitectura-limpia-sprint1}
+    \caption{Diagrama del diseño arquitectónico detallado de nuestra implementación.}\label{fig:diagrama-arquitectura-limpia-sprint1}
 \end{figure}
+
+Tal como se ha definido en la arquitectura software, la capa de interfaz accede a la capa de aplicación pero no viceversa. Para hacer uso de la capa de infraestructura, la capa de aplicación utiliza una abstracción de dominio que utiliza siempre objetos de dominio, la cual después la infraestructura implementa y se inicializa en el estado global de la aplicación.
 
 \paragraph{Documentación de la API REST}
 \subparagraph{}

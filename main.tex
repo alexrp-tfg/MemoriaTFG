@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[11pt]{book}
 
 \usepackage[spanish]{babel}
 
@@ -79,11 +79,11 @@ archivos multimedia}
 
 
 \begin{titlingpage}
-  \maketitle
   \begin{figure}[!h]
     \centering
     \includegraphics[width=200px]{logo-ugr.jpg}
   \end{figure}
+  \maketitle
 \end{titlingpage}
 
 \tableofcontents
@@ -92,6 +92,7 @@ archivos multimedia}
 \listoffigures
 
 \newpage
+\renewcommand{\listtablename}{Índice de Tablas}
 \listoftables
 
 \newpage
@@ -103,11 +104,11 @@ archivos multimedia}
 
 \newpage
 
-\input{sections/introduccion}
-
 \input{sections/resumen}
 
 \input{sections/agradecimientos}
+
+\input{sections/introduccion}
 
 \input{sections/estado_del_arte}
 
