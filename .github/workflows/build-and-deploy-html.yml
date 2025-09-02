@@ -33,6 +33,7 @@ jobs:
           pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf main.tex
           biber pdf/main
           biber pdf/main
+          makeglossaries pdf/main
           pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf main.tex
           pdflatex -interaction=nonstopmode -halt-on-error -output-directory=pdf main.tex
 
