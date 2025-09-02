@@ -2,6 +2,7 @@
 ~
 \newpage
 \chapter{Estado del Arte}
+\label{ch:estado_del_arte}
 % Qué se ha hecho hasta ahora en este campo, qué tecnologías se han utilizado, qué problemas se han encontrado, qué soluciones se han propuesto.
 
 En este capítulo se presenta un análisis del estado del arte en el ámbito de las bibliotecas de archivos multimedia de código abierto (\acrfull{foss}).
@@ -60,12 +61,13 @@ Si bien algunas de estas funcionalidades comienzan a estar presentes en proyecto
 
 El ecosistema de soluciones FOSS ha experimentado un crecimiento significativo en los últimos años, impulsado por las crecientes preocupaciones sobre la privacidad de los datos y la dependencia de servicios en la nube propietarios. Según el análisis comparativo realizado por Meichthys \parencite{meichthys2024}, existen más de 16 proyectos activos que ofrecen diferentes enfoques y características.
 
-Las soluciones analizadas se pueden clasificar en tres categorías principales:
-\begin{itemize}
-    \item \textbf{Soluciones escalables}: Enfocadas en escalabilidad y características avanzadas
-    \item \textbf{Soluciones centradas en privacidad}: Priorizan la seguridad y el cifrado
-    \item \textbf{Soluciones ligeras}: Optimizadas para recursos limitados
-\end{itemize}
+Las soluciones analizadas se pueden clasificar en tres categorías principales según su enfoque arquitectónico y público objetivo:
+
+Las \textbf{soluciones escalables} están diseñadas para entornos que requieren alto rendimiento y capacidad de crecimiento. Estas aplicaciones priorizan la arquitectura distribuida, el soporte multiusuario avanzado y la capacidad de manejar grandes volúmenes de datos. Ejemplos como Immich se enfocan en ofrecer funcionalidades comparables a servicios comerciales, implementando características como búsqueda semántica, reconocimiento inteligente de contenido y sincronización automática entre múltiples dispositivos. Su arquitectura moderna les permite aprovechar tecnologías de contenedores y microservicios para facilitar el despliegue y mantenimiento.
+
+Las \textbf{soluciones centradas en privacidad} ponen el control de datos y la seguridad como pilares fundamentales de su diseño. Estas plataformas implementan cifrado de extremo a extremo, procesamiento local de datos sensibles y arquitecturas que minimizan la dependencia de servicios externos. Ente ejemplifica esta categoría al garantizar que incluso los desarrolladores no pueden acceder a los datos de los usuarios, utilizando claves criptográficas generadas y gestionadas exclusivamente en el dispositivo del usuario. Este enfoque, aunque puede limitar algunas funcionalidades avanzadas, proporciona el máximo nivel de privacidad disponible en el mercado.
+
+Finalmente, las \textbf{soluciones ligeras} están optimizadas para funcionar eficientemente en dispositivos con recursos limitados, como dispositivos NAS domésticos, servidores de bajo consumo o incluso ordenadores antiguos reutilizados. PhotoPrism representa esta categoría, enfocándose en la eficiencia de recursos mientras mantiene un conjunto robusto de funcionalidades esenciales como indexación inteligente, búsqueda avanzada y soporte exhaustivo de formatos de archivo. Estas soluciones suelen adoptar arquitecturas monolíticas que simplifican el despliegue y reducen la complejidad operacional.
 
 % --- NUEVA ORGANIZACIÓN: ANÁLISIS INDIVIDUAL DE CADA SOLUCIÓN ---
 
@@ -81,22 +83,22 @@ Las soluciones analizadas se pueden clasificar en tres categorías principales:
 
 \textbf{Características funcionales:}
 \begin{itemize}
-    \item \textbf{Aplicaciones móviles y web}: Apps nativas para Android e iOS, y una interfaz web moderna y responsiva.
-    \item \textbf{Copia de seguridad automática}: Respaldo automático de fotos y vídeos desde dispositivos móviles.
-    \item \textbf{Soporte multiplataforma}: Disponible en web y dispositivos móviles, con sincronización automática.
-    \item \textbf{Reconocimiento facial y de objetos}: Identificación automática de personas y elementos en las fotos.
-    \item \textbf{Búsqueda avanzada}: Permite buscar por etiquetas, ubicaciones, fechas y otros metadatos.
-    \item \textbf{Vista de carpetas}: Navegación por la estructura de carpetas original.
-    \item \textbf{Soporte de Chromecast}: Permite enviar fotos y vídeos a dispositivos Chromecast.
-    \item \textbf{Transcodificación y aceleración hardware}: Soporte para transcodificación de vídeo y aceleración por hardware.
-    \item \textbf{Librerías externas}: Indexación de archivos existentes en el disco sin necesidad de moverlos.
-    \item \textbf{Gestión de usuarios y roles}: Configuración de cuentas, ajustes y permisos.
-    \item \textbf{Etiquetas y álbumes}: Organización mediante etiquetas y álbumes personalizados.
-    \item \textbf{Compartición}: Compartir álbumes y fotos mediante enlaces o con otros usuarios.
-    \item \textbf{Soporte de XMP sidecars}: Lectura y escritura de metadatos en archivos sidecar XMP.
-    \item \textbf{CLI y monitorización}: Herramienta de línea de comandos y panel de monitorización.
-    \item \textbf{Soporte de formatos}: Compatibilidad con JPEG, PNG, HEIC, RAW (parcial), vídeos y Live Photos.
-    \item \textbf{Traducción}: Disponible en varios idiomas, incluyendo español.
+    \item \textbf{Aplicaciones móviles y web}: Apps nativas para Android e iOS que proporcionan una experiencia optimizada para cada plataforma, junto con una interfaz web moderna y responsiva construida con tecnologías web progresivas que replica fielmente la funcionalidad móvil en navegadores de escritorio.
+    \item \textbf{Copia de seguridad automática}: Sistema de respaldo continuo que sincroniza automáticamente fotos y vídeos desde dispositivos móviles al servidor, con opciones configurables para calidad de imagen, uso de datos móviles y horarios de sincronización.
+    \item \textbf{Soporte multiplataforma}: Ecosistema completo disponible en web y dispositivos móviles con sincronización bidireccional automática, permitiendo acceso coherente a la biblioteca de medios desde cualquier dispositivo conectado.
+    \item \textbf{Reconocimiento facial y de objetos}: Motor de inteligencia artificial integrado que identifica automáticamente personas, objetos, lugares y escenas en las fotografías, permitiendo agrupación automática y búsquedas por contenido visual sin depender de servicios externos.
+    \item \textbf{Búsqueda avanzada}: Sistema de búsqueda semántica que permite localizar imágenes mediante descripciones en lenguaje natural, filtros por etiquetas, ubicaciones geográficas, fechas, metadatos técnicos y contenido reconocido por IA.
+    \item \textbf{Vista de carpetas}: Navegación alternativa que respeta y muestra la estructura de carpetas original del usuario, facilitando la transición desde sistemas de archivos tradicionales sin perder la organización existente.
+    \item \textbf{Soporte de Chromecast}: Integración nativa que permite enviar fotos y vídeos directamente a dispositivos Chromecast para visualización en pantallas grandes, con controles de reproducción desde la aplicación.
+    \item \textbf{Transcodificación y aceleración hardware}: Procesamiento optimizado de vídeos con soporte para aceleración por hardware en GPUs compatibles, reduciendo significativamente los tiempos de procesamiento y el consumo de CPU durante la generación de miniaturas y conversión de formatos.
+    \item \textbf{Librerías externas}: Capacidad de indexar y gestionar archivos multimedia existentes en el disco sin necesidad de moverlos o duplicarlos, manteniendo la estructura original mientras se beneficia de las funcionalidades de búsqueda y organización de Immich.
+    \item \textbf{Gestión de usuarios y roles}: Sistema multiusuario con configuración granular de cuentas, permisos de acceso, cuotas de almacenamiento y roles administrativos, permitiendo el uso compartido seguro en entornos familiares o de pequeños equipos.
+    \item \textbf{Etiquetas y álbumes}: Herramientas de organización flexibles que permiten crear álbumes temáticos, aplicar etiquetas personalizadas y establecer jerarquías organizativas que complementan la búsqueda automática por contenido.
+    \item \textbf{Compartición}: Sistema de compartición versátil que permite generar enlaces públicos con controles de acceso configurable, compartir álbumes específicos con otros usuarios registrados y establecer permisos de visualización o edición.
+    \item \textbf{Soporte de XMP sidecars}: Compatibilidad completa con archivos sidecar XMP para lectura y escritura de metadatos, garantizando la preservación de información editorial y técnica sin modificar los archivos originales.
+    \item \textbf{CLI y monitorización}: Herramienta de línea de comandos para administración avanzada y automatización, junto con un panel de monitorización que proporciona métricas de rendimiento, uso de almacenamiento y estadísticas del sistema.
+    \item \textbf{Soporte de formatos}: Amplia compatibilidad con formatos estándar como JPEG, PNG, HEIC, soporte parcial pero en desarrollo para archivos RAW de cámaras profesionales, vídeos en múltiples códecs y Live Photos de dispositivos Apple.
+    \item \textbf{Traducción}: Interfaz completamente localizada disponible en múltiples idiomas incluyendo español, con contribuciones activas de la comunidad para mantener las traducciones actualizadas.
 \end{itemize}
 
 \textbf{Comunidad y ecosistema:}
@@ -206,21 +208,21 @@ Immich presenta las siguientes características de interoperabilidad:
 
 \textbf{Características funcionales:}
 \begin{itemize}
-    \item \textbf{Aplicación web progresiva (PWA)}: Experiencia similar a una app nativa en cualquier dispositivo, instalable en móviles y escritorio.
-    \item \textbf{Soporte multiplataforma}: Funciona en Mac, Linux, Windows, Raspberry Pi, FreeBSD y NAS.
-    \item \textbf{Búsqueda avanzada}: Filtros combinables por etiquetas, ubicación, resolución, color, calidad, etc.
-    \item \textbf{Reconocimiento facial}: Detección y agrupación de rostros para identificar personas.
-    \item \textbf{Mapas y lugares}: Visualización de fotos en mapas de alta resolución y enriquecimiento de metadatos de ubicación.
-    \item \textbf{Compartición de álbumes}: Enlaces secretos con expiración opcional, sin necesidad de registro.
-    \item \textbf{Soporte de formatos}: Indexación, visualización y conversión de imágenes, vídeos y RAW (JPEG, PNG, GIF, BMP, HEIF, HEIC, MP4, MOV, WebP, WebM, y amplia compatibilidad RAW).
-    \item \textbf{Extracción avanzada de metadatos}: Soporte para Exif, XMP, Google Photos JSON y normalización de campos.
-    \item \textbf{Detección de duplicados}: Identificación automática de archivos repetidos.
-    \item \textbf{Sincronización y backup}: Integración con PhotoSync y clientes WebDAV para copia de seguridad y acceso remoto.
-    \item \textbf{Privacidad}: 100\% autoalojado, sin compartir datos con terceros.
-    \item \textbf{Etiquetas, álbumes y organización}: Clasificación flexible y apilado de fotos relacionadas.
-    \item \textbf{Revisión y selección}: Herramientas para marcar, archivar, ocultar o revisar fotos.
-    \item \textbf{Soporte de sidecars}: Uso de archivos sidecar para metadatos.
-    \item \textbf{Temas claro/oscuro}: Interfaz adaptable.
+    \item \textbf{Aplicación web progresiva (PWA)}: Interfaz web avanzada que proporciona una experiencia equivalente a una aplicación nativa en cualquier dispositivo, con capacidad de instalación offline en dispositivos móviles y escritorio, notificaciones push y acceso sin conexión a contenido previamente cargado.
+    \item \textbf{Soporte multiplataforma}: Compatibilidad extensiva con múltiples sistemas operativos incluyendo Mac, Linux, Windows, Raspberry Pi, FreeBSD y dispositivos NAS comerciales, facilitando la implementación en prácticamente cualquier infraestructura existente.
+    \item \textbf{Búsqueda avanzada}: Sistema de filtrado altamente sofisticado que permite combinar múltiples criterios como etiquetas automáticas y manuales, ubicación geográfica, resolución, dominancia de color, calidad técnica de imagen y metadatos EXIF para localizar contenido específico en grandes colecciones.
+    \item \textbf{Reconocimiento facial}: Motor de detección y agrupación automática de rostros que utiliza algoritmos de aprendizaje automático para identificar y clasificar personas en fotografías, permitiendo búsquedas y organización por individuos sin comprometer la privacidad.
+    \item \textbf{Mapas y lugares}: Visualización geográfica interactiva de fotografías en mapas de alta resolución con capacidad de enriquecimiento automático de metadatos de ubicación mediante bases de datos geográficas, permitiendo explorar colecciones por criterios geoespaciales.
+    \item \textbf{Compartición de álbumes}: Sistema de enlaces de acceso controlado que permite compartir álbumes específicos mediante URLs secretas con opciones de expiración temporal y sin requerir registro de usuarios externos, manteniendo el control sobre el acceso a contenido privado.
+    \item \textbf{Soporte de formatos}: Compatibilidad exhaustiva con una amplia gama de formatos de imagen y vídeo incluyendo JPEG, PNG, GIF, BMP, HEIF, HEIC, MP4, MOV, WebP, WebM, y soporte nativo para más de 100 formatos RAW de cámaras profesionales de múltiples fabricantes.
+    \item \textbf{Extracción avanzada de metadatos}: Motor de procesamiento que extrae y normaliza metadatos de múltiples fuentes incluyendo EXIF estándar, XMP, archivos JSON de Google Photos y otros formatos propietarios, garantizando la preservación completa de información técnica y editorial.
+    \item \textbf{Detección de duplicados}: Algoritmo inteligente que identifica automáticamente archivos duplicados o similares basándose en hash de contenido, similitud visual y metadatos, ayudando a optimizar el uso de almacenamiento y mantener colecciones organizadas.
+    \item \textbf{Sincronización y backup}: Integración nativa con aplicaciones de sincronización como PhotoSync y clientes WebDAV estándar, proporcionando múltiples vías para copia de seguridad automática y acceso remoto desde dispositivos móviles y aplicaciones de terceros.
+    \item \textbf{Privacidad}: Arquitectura completamente autoalojada que garantiza que todos los datos permanezcan bajo control directo del usuario, sin transmisión de información personal o metadatos a servicios externos o terceros, cumpliendo con regulaciones de privacidad más estrictas.
+    \item \textbf{Etiquetas, álbumes y organización}: Sistema de clasificación flexible que combina etiquetado automático por contenido visual con etiquetas manuales personalizadas, creación de álbumes temáticos y funcionalidad de apilado para agrupar fotos relacionadas temporalmente o por contenido.
+    \item \textbf{Revisión y selección}: Herramientas de gestión de contenido que permiten marcar favoritos, archivar elementos, ocultar contenido privado y establecer estados de revisión, facilitando la curaduría y organización de grandes volúmenes de fotografías.
+    \item \textbf{Soporte de sidecars}: Implementación completa de archivos sidecar para almacenamiento de metadatos editados sin modificar archivos originales, garantizando la reversibilidad de cambios y compatibilidad con flujos de trabajo profesionales de fotografía.
+    \item \textbf{Temas claro/oscuro}: Interfaz adaptable con temas visuales configurables que incluyen modo claro y oscuro optimizados para diferentes condiciones de visualización y preferencias de usuario.
 \end{itemize}
 
 \textbf{Comunidad y ecosistema:}
@@ -338,22 +340,22 @@ Ente destaca por su enfoque radical en la privacidad y la seguridad, ofreciendo 
 
 \textbf{Características funcionales:}
 \begin{itemize}
-    \item \textbf{Cifrado de extremo a extremo}: Todas las fotos y metadatos se almacenan cifrados, solo el usuario puede acceder a ellos.
-    \item \textbf{Replicación en 3 ubicaciones}: Los datos cifrados se almacenan en tres nubes distintas y ubicaciones geográficas.
-    \item \textbf{Aplicaciones multiplataforma}: Apps para Android, iOS, Linux, Mac, Windows y web, todas open source.
-    \item \textbf{Subida automática en segundo plano}: Copia de seguridad automática y continua en todos los dispositivos.
-    \item \textbf{Planes familiares}: Compartición de suscripción con hasta 5 miembros, cada uno con espacio privado.
-    \item \textbf{Búsqueda avanzada}: IA en el dispositivo para reconocimiento facial y búsqueda por lenguaje natural.
-    \item \textbf{Compartición de álbumes}: Compartición cifrada con otros usuarios o mediante enlaces protegidos y configurables.
-    \item \textbf{Colaboración}: Permite que otros usuarios añadan fotos a tus álbumes, incluso mediante enlaces públicos.
-    \item \textbf{Importación y exportación}: Importación sencilla desde otros proveedores y exportación incremental con un clic.
-    \item \textbf{Memorias}: Historias automáticas para revivir recuerdos de años anteriores.
-    \item \textbf{Fotos ocultas}: Elementos protegidos tras la pantalla de bloqueo.
-    \item \textbf{Descripciones y etiquetas}: Añadir descripciones y etiquetas cifradas, con búsqueda por palabras clave.
-    \item \textbf{Seguridad adicional}: Autenticación en dos factores y bloqueo de pantalla.
-    \item \textbf{Liberación de espacio}: Elimina archivos del dispositivo que ya han sido respaldados.
-    \item \textbf{Temas claro/oscuro}: Interfaz adaptable en móviles.
-    \item \textbf{Soporte y comunidad}: Soporte humano y comunidad activa.
+    \item \textbf{Cifrado de extremo a extremo}: Arquitectura de seguridad que cifra todas las fotografías, vídeos y metadatos antes de abandonar el dispositivo del usuario, utilizando claves criptográficas generadas localmente que nunca se transmiten al servidor, garantizando que únicamente el propietario puede acceder al contenido descifrado.
+    \item \textbf{Replicación en 3 ubicaciones}: Sistema de alta disponibilidad que almacena los datos cifrados simultáneamente en tres proveedores de nube diferentes y ubicaciones geográficas distintas, proporcionando redundancia contra fallos de infraestructura y garantizando la durabilidad de los datos a largo plazo.
+    \item \textbf{Aplicaciones multiplataforma}: Ecosistema completo de aplicaciones nativas desarrolladas con Flutter para Android, iOS, Linux, Mac, Windows y navegadores web, todas con código fuente abierto y manteniendo consistencia de funcionalidades y experiencia de usuario entre plataformas.
+    \item \textbf{Subida automática en segundo plano}: Sistema de sincronización continua que detecta automáticamente nuevas fotografías y vídeos en todos los dispositivos conectados, realizando copias de seguridad incrementales cifradas sin intervención del usuario y con opciones de configuración para redes móviles y horarios específicos.
+    \item \textbf{Planes familiares}: Modelo de suscripción compartida que permite hasta 5 miembros familiares, donde cada usuario mantiene su espacio de almacenamiento privado completamente separado y cifrado, con gestión centralizada de facturación pero control individual absoluto sobre el contenido personal.
+    \item \textbf{Búsqueda avanzada}: Motor de inteligencia artificial que opera completamente en el dispositivo del usuario para reconocimiento facial, detección de objetos y búsqueda semántica por lenguaje natural, preservando la privacidad al no transmitir datos biométricos o de contenido visual al servidor.
+    \item \textbf{Compartición de álbumes}: Sistema de colaboración que permite compartir álbumes específicos con otros usuarios de Ente o mediante enlaces protegidos con controles granulares de acceso, fechas de expiración y opciones de descarga, manteniendo el cifrado de extremo a extremo durante todo el proceso.
+    \item \textbf{Colaboración}: Funcionalidad de álbumes colaborativos que permite a múltiples usuarios contribuir con fotografías a colecciones compartidas, incluso usuarios externos mediante enlaces públicos protegidos, con todas las contribuciones automáticamente cifradas y sincronizadas entre participantes.
+    \item \textbf{Importación y exportación}: Herramientas de migración que facilitan la importación directa desde servicios como Google Photos, Apple Photos y otros proveedores, junto con exportación incremental que permite descargar bibliotecas completas con un solo clic mientras preserva metadatos y organización original.
+    \item \textbf{Memorias}: Función de recuerdos automáticos que analiza localmente las fechas y ubicaciones de fotografías para generar compilaciones nostálgicas de años anteriores, similar a las historias de redes sociales pero manteniendo toda la información temporal privada en el dispositivo.
+    \item \textbf{Fotos ocultas}: Capa adicional de privacidad que permite marcar contenido sensible como oculto, requiriendo autenticación biométrica o PIN adicional para acceder a estos elementos, efectivamente creando un álbum privado dentro del álbum privado.
+    \item \textbf{Descripciones y etiquetas}: Sistema de anotación que permite añadir descripciones textuales y etiquetas personalizadas a fotografías, con toda la información de metadatos también cifrada de extremo a extremo y disponible para búsqueda por palabras clave sin comprometer la privacidad.
+    \item \textbf{Seguridad adicional}: Capas múltiples de protección incluyendo autenticación de dos factores (2FA), bloqueo de aplicación con PIN o biometría, y opciones de sesión segura que requieren reautenticación periódica para acceso a contenido sensible.
+    \item \textbf{Liberación de espacio}: Funcionalidad inteligente de gestión de almacenamiento local que identifica fotografías ya respaldadas de forma segura en la nube y permite eliminarlas del dispositivo para liberar espacio, manteniendo acceso inmediato a través de la aplicación.
+    \item \textbf{Temas claro/oscuro}: Interfaz de usuario adaptable con soporte para temas visuales claro y oscuro que se ajustan automáticamente a las preferencias del sistema o pueden configurarse manualmente, optimizados para diferentes condiciones de iluminación y consumo de batería.
+    \item \textbf{Soporte y comunidad}: Atención al cliente personalizada con soporte humano directo por correo electrónico, comunidad activa de usuarios y desarrolladores, y canales de comunicación transparentes para sugerencias de funcionalidades y resolución de problemas.
 \end{itemize}
 
 \textbf{Comunidad y ecosistema:}
@@ -445,35 +447,17 @@ Ente presenta las siguientes características de interoperabilidad:
 \end{itemize}
 
 \section{Fortalezas y debilidades}
-\begin{itemize}
-    \item \textbf{Immich:} Su principal fortaleza es su \textbf{desarrollo vertiginoso} y su conjunto de características de vanguardia, como la búsqueda semántica. Es el que más se acerca a la experiencia de usuario de Google Photos. Su debilidad radica en esa misma velocidad, que puede llevar a cambios disruptivos (*breaking changes*) entre versiones. Es por eso mismo, que ellos mismos no lo recomiendan para copias de seguridad de imágenes y recomiendan siempre tener una copia de seguridad de las imágenes originales en otro lugar \footnote{Disclaimer en su \href{https://immich.app/}{página principal}}.
-    \item \textbf{Photoprism:} Su fortaleza es la \textbf{madurez y estabilidad}. Su soporte exhaustivo de formatos de archivo es inigualable, y su documentación es extremadamente detallada. Su debilidad es un ritmo de desarrollo más lento y la falta de una aplicación móvil nativa oficial.
-    \item \textbf{Ente:} Su fortaleza indiscutible es su \textbf{modelo de seguridad E2EE}, que lo convierte en la mejor opción para la privacidad. Sus clientes dedicados son de alta calidad. Su debilidad es la relativa novedad de su opción de auto-alojamiento y un soporte de formatos de nicho (como RAW) aún incipiente.
-\end{itemize}
+El análisis comparativo de las tres soluciones principales revela patrones distintivos en sus enfoques de desarrollo, fortalezas técnicas y limitaciones operacionales que determinan su idoneidad para diferentes casos de uso y perfiles de usuario.
 
+\textbf{Immich} destaca por su \textbf{desarrollo vertiginoso} y su ambiciosa implementación de características de vanguardia que rivalizan directamente con servicios comerciales establecidos. Su capacidad de búsqueda semántica, reconocimiento facial avanzado y experiencia de usuario pulida lo posicionan como la alternativa FOSS que más se acerca a replicar la funcionalidad y usabilidad de Google Photos. La arquitectura moderna basada en contenedores facilita el despliegue y la escalabilidad, mientras que su comunidad activa contribuye a un ecosistema dinámico de mejoras continuas. Sin embargo, esta misma velocidad de desarrollo constituye su principal debilidad operacional. Los cambios disruptivos (\textit{breaking changes}) entre versiones pueden comprometer la estabilidad de instalaciones en producción, llevando a los propios desarrolladores a advertir contra su uso como única copia de seguridad de datos críticos\footnote{Disclaimer en su \href{https://immich.app/}{página principal}}. La relativa juventud del proyecto también implica una menor madurez en aspectos como la migración de datos y la compatibilidad hacia atrás.
+
+\textbf{PhotoPrism} representa el paradigma de \textbf{madurez y estabilidad} en el ecosistema FOSS de gestión fotográfica. Su soporte exhaustivo de formatos de archivo, especialmente formatos RAW de cámaras profesionales, es prácticamente inigualable en el sector de código abierto. La documentación extremadamente detallada y la arquitectura bien establecida proporcionan confianza para implementaciones de producción a largo plazo. La eficiencia en el uso de recursos permite funcionamiento óptimo incluso en hardware limitado, mientras que las herramientas avanzadas de metadatos satisfacen las necesidades de fotógrafos profesionales y archivistas. No obstante, esta estabilidad tiene como contrapartida un ritmo de desarrollo más conservador que puede resultar en la incorporación tardía de funcionalidades emergentes. La ausencia de aplicaciones móviles nativas oficiales limita significativamente la experiencia en dispositivos móviles, dependiendo exclusivamente de la interfaz web progresiva, lo cual puede no satisfacer las expectativas de usuarios acostumbrados a aplicaciones nativas.
+
+\textbf{Ente} establece el estándar de referencia en \textbf{seguridad y privacidad} mediante su implementación rigurosa de cifrado de extremo a extremo que garantiza la inaccesibilidad de datos incluso para los administradores del servicio. Las aplicaciones nativas de alta calidad desarrolladas con Flutter proporcionan una experiencia consistente y refinada across todas las plataformas soportadas. El modelo de negocio sostenible basado en suscripciones asegura el desarrollo continuo sin comprometer la privacidad del usuario mediante monetización de datos. La replicación geográfica automática en el servicio gestionado ofrece alta disponibilidad sin intervención del usuario. Sin embargo, el enfoque radical en la privacidad introduce limitaciones funcionales significativas: la inteligencia artificial y el procesamiento de contenido están restringidos al dispositivo local, limitando capacidades avanzadas de búsqueda y organización. La opción de autoalojamiento, aunque técnicamente disponible, carece del soporte robusto y la documentación extensa que caracteriza a las otras soluciones, posicionándola más como una alternativa técnica que como una opción principal para usuarios que requieren control total sobre su infraestructura.
+
+\section{Conclusiones}
 
 Con el desarrollo de este proyecto buscamos fomentar la interoperabilidad mediante el uso de estándares abiertos y APIs bien documentadas, lo que permitirá a los usuarios migrar fácilmente sus datos y contribuir al proyecto. Esto es esencial para garantizar la sostenibilidad a largo plazo y la adopción por parte de la comunidad.
 Gracias a esto se busca que el proyecto no solo sea una solución de gestión de archivos multimedia, sino también un ecosistema abierto y colaborativo que permita a los usuarios y desarrolladores contribuir y beneficiarse mutuamente, además de poder integrar la aplicación con otros servicios y herramientas existentes.
 
 Antes de abordar las aportaciones específicas de el proyecto, es importante destacar que, tras analizar las soluciones existentes, se identifican una serie de características fundamentales que deben estar presentes en cualquier aplicación moderna de gestión de archivos multimedia. Entre ellas se encuentran: la capacidad de importar y organizar archivos existentes desde el disco, soporte multiplataforma (web, móvil y escritorio), búsqueda avanzada y filtrado, reconocimiento facial y de objetos, opciones de compartición seguras, gestión eficiente de metadatos, protección de la privacidad y seguridad de los datos, así como una experiencia de usuario fluida y personalizable. Estas funcionalidades constituyen la base sobre la que debe construirse cualquier alternativa competitiva en este ámbito y serán consideradas requisitos mínimos en el desarrollo de la aplicación propuesta.
-
-\section{Aportaciones del proyecto al estado del arte}
-Una vez realizado un estudio de las soluciones existentes, se han identificado una serie de factores que pueden ser mejorados o que no están presentes en las aplicaciones actuales. Estos factores son fundamentales para ofrecer una solución más completa y eficiente en la gestión de fotos y archivos multimedia.
-
-Nuestro proyecto busca abordar las limitaciones actuales de las aplicaciones de fotos, especialmente en términos de rendimiento, usabilidad, facilidad de aportación al proyecto y características avanzadas.
-\subsection{Rendimiento}
-El rendimiento es un aspecto crítico en las aplicaciones de fotos, especialmente cuando se manejan grandes colecciones. Muchas aplicaciones existentes sufren de lentitud en la carga y visualización de imágenes, lo que afecta negativamente la experiencia del usuario.
-No solo se busca optimizar la carga de imágenes en la aplicación, sino mejorar la velocidad de respuesta que ofrece el servidor a la hora de recibir, procesar y responder a las peticiones de los usuarios.
-
-Todo esto se logrará mediante el uso de tecnologías modernas, eficientes y seguras.
-Se desarrollará el proyecto haciendo uso de una arquitectura estandarizada y modular, lo que permitirá una mayor flexibilidad y escalabilidad. Además, se implementarán técnicas de optimización de rendimiento, como la carga diferida de imágenes, el uso de miniaturas y la indexación eficiente de metadatos.
-\subsection{Contribución al proyecto}
-Nuestro proyecto no solo se centrará en ofrecer una aplicación de fotos, sino que también se diseñará como un proyecto FOSS, lo que permitirá a la comunidad contribuir y mejorar la aplicación de manera continua.
-
-Para ello se hará uso de las mejoras prácticas de desarrollo de software:
-\begin{itemize}
-    \item Uso de control de versiones (\Gls{git}), documentación clara y accesible, y un proceso de revisión de código que fomente la colaboración y la calidad del código.
-    \item Se implementará una estructura de proyecto que facilite la incorporación de nuevos desarrolladores, con guías claras sobre cómo contribuir y estándares de codificación.
-    \item Uso de un lenguaje de programación moderno y seguro, que permita aportaciones de manera segura y eficiente.
-    \item Implementación de pruebas unitarias y de integración para asegurar la calidad del código y la funcionalidad de la aplicación.
-\end{itemize}

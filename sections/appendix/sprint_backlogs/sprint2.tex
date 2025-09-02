@@ -1,0 +1,380 @@
+\section{Sprint 2}
+\label{appendix:sprint2-backlog}
+% HU20: Ver archivos subidos (adaptada)
+\begin{table}[H]
+    \centering
+    \begin{tabularx}{\textwidth}{|l|X|l|}
+        \hline
+        \textbf{Identificador HU20} &
+        \textbf{Como usuario, quiero ver una lista o galería de los archivos que ya están en mi dispositivo} &
+        \textbf{Estimación: 5 PH}\\
+        \hline
+        \multicolumn{3}{|p{\textwidth}|}{
+            \begin{minipage}{\textwidth}
+                \centering
+                \vspace{0.5em}
+                \begin{tabular}{|l|p{8cm}|r|}
+                    \hline
+                    \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
+                    \hline
+                    Tarea 20-1 & Crear el componente de la pantalla principal (galería) & 4.5 \\
+                    \hline
+                    Tarea 20-2 & Implementar un componente para previsualizar cada imagen (thumbnail) & 4 \\
+                    \hline
+                    Tarea 20-3 & Diseñar y maquetar una cuadrícula (grid) para mostrar las imágenes & 2 \\
+                    \hline
+                    Tarea 20-4 & Integrar la lógica para obtener las imágenes del dispositivo (depende de HT23) & 3 \\
+                    \hline
+                \end{tabular}
+                \vspace{0.5em}
+            \end{minipage}
+        } \\
+        \hline
+        \multicolumn{3}{|p{\textwidth}|}{
+            \textbf{Pruebas de aceptación:}
+            \begin{itemize}
+                \item Al abrir la app (tras iniciar sesión), se muestra una galería con las imágenes del móvil.
+                \item Las imágenes se muestran en una cuadrícula ordenada.
+                \item La interfaz es fluida al desplazarse por la galería.
+            \end{itemize}
+        }\\
+        \hline
+        \multicolumn{3}{|p{\textwidth}|}{
+            \textbf{Observaciones:}
+            \begin{itemize}
+                \item La historia original era ``ver archivos subidos'', pero se adapta para este sprint a ``ver archivos locales'' como primer paso.
+                \item Inicialmente no se incluirá la carga de vídeos, solo imágenes.
+            \end{itemize}
+        }\\
+        \hline
+    \end{tabularx}
+\end{table}
+
+% HU24: Inicio y cierre de sesión
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|l|}
+            \hline
+            \textbf{Identificador HU24} &
+            \textbf{Como usuario, quiero iniciar y cerrar sesión para proteger mis datos} &
+            \textbf{Estimación: 5 PH}\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \begin{minipage}{\textwidth}
+                    \centering
+                    \vspace{0.5em}
+                    \begin{tabular}{|l|p{8cm}|r|}
+                        \hline
+                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
+                        \hline
+                        Tarea 24-1U & Diseñar y maquetar la pantalla de inicio de sesión & 2 \\
+                        \hline
+                        Tarea 24-2U & Implementar la lógica del formulario (usuario, contraseña) & 1.5 \\
+                        \hline
+                        Tarea 24-3U & Integrar la llamada al endpoint de login del servidor (depende de HT24) & 2 \\
+                        \hline
+                        Tarea 24-4U & Implementar la navegación: si el login es exitoso, ir a la galería & 1 \\
+                        \hline
+                        Tarea 24-5U & Añadir un botón para cerrar sesión que borre el token (depende de HT31) & 1 \\
+                        \hline
+                    \end{tabular}
+                    \vspace{0.5em}
+                \end{minipage}
+            } \\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Pruebas de aceptación:}
+                \begin{itemize}
+                    \item El usuario puede introducir sus credenciales y pulsar un botón para iniciar sesión.
+                    \item Si las credenciales son válidas, se le redirige a la pantalla de la galería.
+                    \item Si son inválidas, se muestra un mensaje de error.
+                    \item Existe una opción para cerrar la sesión actual.
+                \end{itemize}
+            }\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Observaciones:}
+                \begin{itemize}
+                    \item Esta HU conecta el cliente con el backend desarrollado en el Sprint 1.
+                \end{itemize}
+            }\\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+% HU25: Gestión de permisos
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|l|}
+            \hline
+            \textbf{Identificador HU25} &
+            \textbf{Como usuario, quiero que la app me pida permisos de acceso solo cuando sea necesario} &
+            \textbf{Estimación: 3 PH}\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \begin{minipage}{\textwidth}
+                    \centering
+                    \vspace{0.5em}
+                    \begin{tabular}{|l|p{8cm}|r|}
+                        \hline
+                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
+                        \hline
+                        Tarea 25-1 & Implementar la lógica para verificar si los permisos ya han sido concedidos & 1 \\
+                        \hline
+                        Tarea 25-2 & Invocar el diálogo nativo de solicitud de permisos de lectura de almacenamiento & 1.5 \\
+                        \hline
+                        Tarea 25-3 & Gestionar la respuesta del usuario (permiso concedido o denegado) & 1.5 \\
+                        \hline
+                    \end{tabular}
+                    \vspace{0.5em}
+                \end{minipage}
+            } \\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Pruebas de aceptación:}
+                \begin{itemize}
+                    \item Al intentar acceder a la galería por primera vez, la app solicita permiso para leer el almacenamiento.
+                    \item Si el usuario concede el permiso, la app muestra las imágenes.
+                    \item Si el usuario deniega el permiso, la app muestra un mensaje informativo.
+                \end{itemize}
+            }\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Observaciones:}
+                \begin{itemize}
+                    \item Esta historia está ligada a la implementación del módulo nativo (HT23).
+                \end{itemize}
+            }\\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+% HT23: Acceso a la galería
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|l|}
+            \hline
+            \textbf{Identificador HT23} &
+            \textbf{Implementar acceso seguro a la galería de fotos y vídeos} &
+            \textbf{Estimación: 5 PH}\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \begin{minipage}{\textwidth}
+                    \centering
+                    \vspace{0.5em}
+                    \begin{tabular}{|l|p{8cm}|r|}
+                        \hline
+                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
+                        \hline
+                        Tarea 23-1 & Configurar el proyecto `Lynx Explorer' para añadir un módulo nativo en Android & 3 \\
+                        \hline
+                        Tarea 23-2 & Escribir el código nativo (Java/Kotlin) para consultar el `MediaStore' de Android & 3 \\
+                        \hline
+                        Tarea 23-3 & Crear el ``puente'' (bridge) para exponer la funcionalidad nativa a JavaScript & 2.5 \\
+                        \hline
+                        Tarea 23-4 & Implementar el método en JS que llama al módulo nativo para obtener las URIs de las imágenes & 2 \\
+                        \hline
+                    \end{tabular}
+                    \vspace{0.5em}
+                \end{minipage}
+            } \\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Pruebas de aceptación:}
+                \begin{itemize}
+                    \item El código JavaScript puede invocar una función que devuelve una lista de imágenes del dispositivo.
+                    \item El módulo nativo gestiona correctamente los permisos y errores de acceso.
+                    \item La app puede compilarse con el nuevo módulo nativo incluido.
+                \end{itemize}
+            }\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Observaciones:}
+                \begin{itemize}
+                    \item Esta es una de las tareas más complejas y críticas del sprint, ya que valida el uso de una de las características clave de Lynx.js.
+                \end{itemize}
+            }\\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+
+% HT24: Comunicación con API
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|l|}
+            \hline
+            \textbf{Identificador HT24} &
+            \textbf{Integrar cliente HTTP que se comunique con el servidor} &
+            \textbf{Estimación: 5 PH}\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \begin{minipage}{\textwidth}
+                    \centering
+                    \vspace{0.5em}
+                    \begin{tabular}{|l|p{8cm}|r|}
+                        \hline
+                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
+                        \hline
+                        Tarea 24-1 & Seleccionar e instalar una librería de cliente HTTP (ej. axios) & 0.5 \\
+                        \hline
+                        Tarea 24-2 & Crear una capa de servicio (service layer) para encapsular las llamadas a la API & 2 \\
+                        \hline
+                        Tarea 24-3 & Definir los \glspl{dto} para las peticiones y respuestas & 1.5 \\
+                        \hline
+                        Tarea 24-4 & Implementar la lógica para añadir el token JWT a las cabeceras de las peticiones & 1.5 \\
+                        \hline
+                    \end{tabular}
+                    \vspace{0.5em}
+                \end{minipage}
+            } \\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Pruebas de aceptación:}
+                \begin{itemize}
+                    \item La aplicación puede realizar una petición POST al endpoint de login.
+                    \item Se puede configurar la URL base del servidor mediante variables de entorno (en sprints posteriores, esta url se descubrirá automáticamente en la red).
+                    \item La capa de servicio maneja correctamente las respuestas exitosas y de error.
+                \end{itemize}
+            }\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Observaciones:}
+                \begin{itemize}
+                    \item La implementación seguirá los principios de la arquitectura limpia, aislando la infraestructura de red.
+                \end{itemize}
+            }\\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+% HT29: Pruebas unitarias
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|l|}
+            \hline
+            \textbf{Identificador HT29} &
+            \textbf{Añadir pruebas unitarias y de integración a la lógica común en React / Lynx.js} &
+            \textbf{Estimación: 5 PH (Parcial)}\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \begin{minipage}{\textwidth}
+                    \centering
+                    \vspace{0.5em}
+                    \begin{tabular}{|l|p{8cm}|r|}
+                        \hline
+                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
+                        \hline
+                        Tarea 29-1 & Configurar el entorno de pruebas (Jest) & 2 \\
+                        \hline
+                        Tarea 29-2 & Escribir pruebas para los servicios de la capa de aplicación (ej. servicio de autenticación) & 2.5 \\
+                        \hline
+                    \end{tabular}
+                    \vspace{0.5em}
+                \end{minipage}
+            } \\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Pruebas de aceptación:}
+                \begin{itemize}
+                    \item Se pueden ejecutar las pruebas desde la línea de comandos.
+                    \item Los componentes visuales tienen pruebas que verifican su renderizado y comportamiento.
+                    \item La lógica de negocio está cubierta por pruebas unitarias.
+                    \item Las dependencias externas (API, módulos nativos) están mockeadas en las pruebas.
+                \end{itemize}
+            }\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Observaciones:}
+                \begin{itemize}
+                    \item Es una historia técnica de alta estimación porque establecer una buena base de pruebas desde el principio es fundamental para la mantenibilidad del proyecto.
+                \end{itemize}
+            }\\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+% HT31: Gestión de tokens
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|l|}
+            \hline
+            \textbf{Identificador HT31} &
+            \textbf{Almacenar y renovar tokens de autenticación de forma segura} &
+            \textbf{Estimación: 3 PH}\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \begin{minipage}{\textwidth}
+                    \centering
+                    \vspace{0.5em}
+                    \begin{tabular}{|l|p{8cm}|r|}
+                        \hline
+                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
+                        \hline
+                        Tarea 31-1 & Investigar y elegir una solución de almacenamiento seguro local (ej. AsyncStorage) & 1 \\
+                        \hline
+                        Tarea 31-2 & Crear un servicio para guardar, leer y eliminar el token JWT del almacenamiento & 2 \\
+                        \hline
+                        Tarea 31-3 & Integrar este servicio en el flujo de inicio y cierre de sesión & 1 \\
+                        \hline
+                    \end{tabular}
+                    \vspace{0.5em}
+                \end{minipage}
+            } \\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Pruebas de aceptación:}
+                \begin{itemize}
+                    \item Tras un inicio de sesión exitoso, el token JWT se guarda en el dispositivo.
+                    \item Al cerrar la aplicación y volver a abrirla, el usuario sigue autenticado (se recupera el token).
+                    \item Al cerrar sesión, el token se elimina del almacenamiento.
+                \end{itemize}
+            }\\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+
+% HT36: UI responsive
+\begin{table}[H]
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|l|}
+            \hline
+            \textbf{Identificador HT36} &
+            \textbf{Adaptar UI para distintos tamaños de pantalla (tablet, móvil)} &
+            \textbf{Estimación: 3 PH}\\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \begin{minipage}{\textwidth}
+                    \centering
+                    \vspace{0.5em}
+                    \begin{tabular}{|l|p{8cm}|r|}
+                        \hline
+                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
+                        \hline
+                        Tarea 36-1 & Implementar una estrategia de diseño adaptable & 2 \\
+                        \hline
+                        Tarea 36-2 & Probar y ajustar la UI de la galería y el login en emuladores de tablet y móvil & 2 \\
+                        \hline
+                    \end{tabular}
+                    \vspace{0.5em}
+                \end{minipage}
+            } \\
+            \hline
+            \multicolumn{3}{|p{\textwidth}|}{
+                \textbf{Pruebas de aceptación:}
+                \begin{itemize}
+                    \item La pantalla de login se ve correctamente tanto en un móvil de tamaño estándar como en una tablet.
+                    \item La cuadrícula de la galería adapta el número de columnas según el ancho de la pantalla.
+                \end{itemize}
+            }\\
+            \hline
+        \end{tabularx}
+    \end{center}
+\end{table}
+

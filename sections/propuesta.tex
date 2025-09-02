@@ -19,6 +19,27 @@ Tal como se ha especificado en los capítulos anteriores, se desarrollará una s
         Seguir esta metodología favorecerá una mejor organización del proyecto y una planificación adecuada de las tareas a realizar, lo que aportará una buena organización en caso de que se incorporen más personas al proyecto en el futuro.
 \end{itemize}
 
+\section{Aportaciones del proyecto al estado del arte}
+Una vez realizado un estudio de las soluciones existentes y posibles tecnologías a utilizar en el capítulo \ref{ch:estado_del_arte}, se han identificado una serie de factores que pueden ser mejorados o que no están presentes en las aplicaciones actuales. Estos factores son fundamentales para ofrecer una solución más completa y eficiente en la gestión de fotos y archivos multimedia.
+
+Nuestro proyecto busca abordar las limitaciones actuales de las aplicaciones de fotos, especialmente en términos de rendimiento, usabilidad, facilidad de aportación al proyecto y características avanzadas.
+\subsection{Rendimiento}
+El rendimiento es un aspecto crítico en las aplicaciones de fotos, especialmente cuando se manejan grandes colecciones. Muchas aplicaciones existentes sufren de lentitud en la carga y visualización de imágenes, lo que afecta negativamente la experiencia del usuario.
+No solo se busca optimizar la carga de imágenes en la aplicación, sino mejorar la velocidad de respuesta que ofrece el servidor a la hora de recibir, procesar y responder a las peticiones de los usuarios.
+
+Todo esto se logrará mediante el uso de tecnologías modernas, eficientes y seguras.
+Se desarrollará el proyecto haciendo uso de una arquitectura estandarizada y modular, lo que permitirá una mayor flexibilidad y escalabilidad. Además, se implementarán técnicas de optimización de rendimiento, como la carga diferida de imágenes, el uso de miniaturas y la indexación eficiente de metadatos.
+\subsection{Contribución al proyecto}
+Nuestro proyecto no solo se centrará en ofrecer una aplicación de fotos, sino que también se diseñará como un proyecto FOSS, lo que permitirá a la comunidad contribuir y mejorar la aplicación de manera continua.
+
+Para ello se hará uso de las mejoras prácticas de desarrollo de software:
+\begin{itemize}
+    \item Uso de control de versiones (\Gls{git}), documentación clara y accesible, y un proceso de revisión de código que fomente la colaboración y la calidad del código.
+    \item Se implementará una estructura de proyecto que facilite la incorporación de nuevos desarrolladores, con guías claras sobre cómo contribuir y estándares de codificación.
+    \item Uso de un lenguaje de programación moderno y seguro, que permita aportaciones de manera segura y eficiente.
+    \item Implementación de pruebas unitarias y de integración para asegurar la calidad del código y la funcionalidad de la aplicación.
+\end{itemize}
+
 \section{Metodología}
 \label{sec:metodologia}
 
@@ -328,6 +349,20 @@ Aunque se elija una base de datos en este punto del proyecto, la arquitectura de
 Además, se ha optado por hacer uso de un \acrshort{orm} para facilitar la interacción con la base de datos y abstraer la complejidad de las consultas SQL, lo que permite centrarse en la lógica de negocio y no en la implementación de la base de datos.
 Esto otorga mayor flexibilidad a la hora de cambiar la base de datos en el futuro, ya que el \acrshort{orm} permite cambiar el motor de base de datos fácilmente.
 
+Una de las principales fortalezas del sistema propuesto radica en su escalabilidad horizontal, facilitada por la arquitectura distribuida de sus componentes principales. La separación del servidor de aplicación, el sistema de almacenamiento de archivos (MinIO) y la base de datos (PostgreSQL) en componentes independientes permite escalar cada uno de manera selectiva según las demandas específicas del sistema, sin comprometer la disponibilidad ni la integridad de los datos.
+
+En el caso del servidor de aplicación, se pueden desplegar múltiples instancias detrás de un balanceador de carga que distribuya las peticiones de manera inteligente. Esto no solo mejora el rendimiento al procesar más peticiones simultáneamente, sino que también proporciona alta disponibilidad: si una instancia falla, el balanceador redirige automáticamente el tráfico a las instancias restantes, garantizando que los usuarios no experimenten interrupciones en el servicio. La naturaleza \textit{stateless} del servidor facilita esta escalabilidad, ya que cualquier instancia puede procesar cualquier petición sin dependencia de estado local.
+
+Para el almacenamiento de archivos multimedia, MinIO ofrece capacidades de escalabilidad horizontal nativas mediante clustering y distribución automática de datos. Se pueden añadir nuevos nodos al cluster de MinIO de manera transparente, aumentando tanto la capacidad de almacenamiento como el rendimiento de lectura/escritura. La replicación automática de objetos entre nodos garantiza la disponibilidad de los datos incluso durante operaciones de mantenimiento o fallos de hardware. Los usuarios continúan accediendo a sus archivos sin interrupciones, mientras que el sistema redistribuye automáticamente la carga entre los nodos disponibles.
+
+En cuanto a PostgreSQL, la escalabilidad se puede abordar mediante varias estrategias complementarias. Para escalado de lectura, se pueden implementar réplicas de solo lectura que manejen consultas de visualización de galerías y metadatos, mientras que el servidor principal gestiona las operaciones de escritura. Para cargas más intensivas, se puede implementar particionamiento horizontal (sharding) donde los datos se distribuyen entre múltiples instancias según criterios como el ID de usuario o la fecha de creación. Adicionalmente, el uso de técnicas como connection pooling y caché distribuido (Redis/Memcached) reduce la carga en la base de datos y mejora los tiempos de respuesta.
+
+El diseño modular del sistema permite que estas operaciones de escalado se realicen sin impacto en la experiencia del usuario mediante la implementación de estrategias de despliegue avanzadas. El \textit{blue-green deployment} consiste en mantener dos entornos idénticos de producción: mientras el entorno "azul" atiende a los usuarios, el entorno "verde" se actualiza con las nuevas instancias o configuraciones. Una vez verificado que el entorno verde funciona correctamente, se redirige todo el tráfico instantáneamente, eliminando tiempos de inactividad. Alternativamente, los \textit{rolling updates} permiten actualizar gradualmente las instancias del servidor una por una, manteniendo siempre un número mínimo de instancias operativas para atender las peticiones mientras las demás se actualizan secuencialmente.
+
+Para garantizar la resistencia ante fallos temporales durante estos procesos, el cliente móvil implementa mecanismos de \textit{retry automático}, que consiste en reintentar automáticamente las peticiones fallidas después de intervalos exponencialmente crecientes (por ejemplo, 1s, 2s, 4s, 8s), permitiendo que operaciones como la subida de fotos se completen exitosamente incluso si algunos servidores están temporalmente no disponibles.
+
+Esta arquitectura distribuida no solo facilita el crecimiento del sistema, sino que también mejora su resistencia a fallos, asegurando que los usuarios puedan acceder a sus fotos y sincronizar nuevos archivos de manera continua, independientemente de las operaciones de infraestructura que se estén realizando en segundo plano. La combinación de estas estrategias garantiza que el escalado del sistema sea completamente transparente para el usuario final, manteniendo la integridad de los datos y la continuidad del servicio en todo momento.
+
 \subsection{Arquitectura software}
 En un proyecto de este tipo es muy importante tener una buena estructura a la hora de diseñar el software.
 Se busca la separación de responsabilidades y una buena organización, lo cual satisface uno de los objetivos específicos (OE5): desarrollar un sistema que sea fácilmente escalable.
@@ -402,7 +437,7 @@ En esta sección se va a definir los objetivos generales que tendremos para cada
 En este caso y en este tipo de proyecto, sirve para tener un enfoque claro de lo que se quiere conseguir en cada sprint y no desviarse realizando otras tareas.
 Definir qué se va a entregar en cada sprint también ayudará priorizar qué historias de usuario se van a realizar en cada sprint.
 
-Teniendo en cuenta que el desarrollo del proyecto comienza la última semana de junio de 2025, que cada sprint dura dos semanas y que la fecha límite de entrega del proyecto es el 5 de septiembre de 2025, se presentan un total de 11 semanas para el proyecto. Teniendo en cuenta que el sprint 0 tiene una duración de una semana, se definen un total de 5 sprints para el desarrollo del proyecto.
+Para el desarrollo de este proyecto teniendo en cuenta las historias de usuario definidas en el backlog, se han definido 6 sprints de 2 semanas cada uno, lo que da un total de 12 semanas de desarrollo.
 
 Los objetivos de cada sprint quedarían de la siguiente manera:
 \begin{itemize}
@@ -418,7 +453,7 @@ Este último sprint, aunque no entra en el plazo de entrega del proyecto, se def
 Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint anterior.
 
 \section{Tecnologías}
-Una vez realizado el análisis de las distintas tecnologías que se pueden utilizar para el desarrollo del proyecto en el capítulo \ref{sec:tecnologias} y definidos los objetivos principales del proyecto (sección \ref{sec:objetivos}), se ha decidido utilizar las siguientes tecnologías para cada parte del proyecto:
+Una vez realizado el análisis de las distintas tecnologías que se pueden utilizar para el desarrollo del proyecto en el Capítulo \ref{sec:tecnologias} y definidos los objetivos principales del proyecto (sección \ref{sec:objetivos}), se ha decidido utilizar las siguientes tecnologías para cada parte del proyecto:
 
 \subsection{Servidor}
 Para el servidor, cualquiera de las dos soluciones sería completamente válida. Go podría ser la mejor opción por su enfoque en la simplicidad y la facilidad de uso, especialmente para aplicaciones web y servicios de red. Sin embargo, Rust ofrece ventajas significativas en términos de seguridad de memoria y rendimiento, lo que lo convierte en una opción atractiva para aplicaciones que requieren alta concurrencia y eficiencia.
@@ -460,7 +495,7 @@ Axum al estar desarrollado sobre la librería de Tokio\footnote{Librería de Rus
 Como se puede ver en los benchmark hay frameworks de otros lenguajes que pueden parecer más sencillos que Rust y que ofrecen el mismo o mejor rendimiento, pero como se ha comentado anteriormente, el punto principal de Rust no es únicamente su rendimiento, sino la seguridad que proporciona el propio lenguaje y lo poco propenso que es a errores en tiempo de compilación, lo que hace que la aplicación sea mucho más robusta, segura y sostenible a largo plazo.
 
 
-\subsection{Móvil}
+\subsection{Aplicación Móvil}
 Para el desarrollo de la aplicación móvil se ha optado por el nuevo framework de desarrollo multiplataforma, \textbf{Lynx.js}.
 
 Esta es una opción muy arriesgada para este proyecto ya que es un framework que aún está en desarrollo y no tiene una comunidad tan grande como otros frameworks más consolidados como React Native o Flutter.

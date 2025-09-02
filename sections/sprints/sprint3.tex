@@ -512,13 +512,70 @@ Las tareas relacionadas con la aplicación móvil de este sprint se centran prin
 Se realiza de esta manera para que al finalizar el sprint 3 tengamos un producto con más valor, puesto que el usuario tendrá la posibilidad de subir fotos y vídeos desde su móvil, que serán procesados en el servidor y podrán visualizarse en una galería online.
 
 \subsection{Diseño detallado e implementación}
-La implementación de la subida de archivos multimedia se ha realizado en dos pasos, primero se ha implementado una subida de archivos sencilla, la cual permite subir archivos multimedia al servidor habiendo iniciado sesión, guardando los archivos en MinIO y guardando los metadatos en la base de datos asociados al usuario autenticado.
+\paragraph{Subida de archivos multimedia}
+\subparagraph{}
 
-El flujo que se ha seguido en la implementación ha sido el siguiente:
+Se ha realizado la implementación de la subida de archivos multimedia (fotos y vídeos) desde la aplicación móvil al servidor, así como el procesado de estos archivos en el servidor (compresión de imágenes, generación de miniaturas) y la visualización en una galería online.
+
+El flujo que se ha seguido en la implementación de la subida de los archivos multimedia ha sido el siguiente:
 \begin{figure}[H]
     \begin{center}
         \includegraphics[width=0.95\textwidth]{assets/sprint3/diagrama-subida-archivos.png}
     \end{center}
-    \caption{Diagrama de flujo de subida de archivos multimedia}\label{fig:diagrama-flujo-subida-archivos}
+    \caption{Diagrama de flujo de subida de un archivo multimedia}\label{fig:diagrama-flujo-subida-archivos}
 \end{figure}
 
+Como se muestra en la Figura \ref{fig:diagrama-flujo-subida-archivos}, el usuario selecciona la foto o video que desea subir desde la aplicación móvil. La aplicación móvil envía los archivos al servidor a través de un endpoint de subida. El servidor recibe el archivo y lo procesa sin alojar todo el contenido del mismo en memoria, consiguiendo así un procesamiento eficiente. A continuación, el servidor procesa el archivo y genera una miniatura. Finalmente, los archivos procesados se almacenan en el sistema de almacenamiento definitivo (MinIO) y el usuario puede ver sus archivos en una galería online, es decir, no necesita tener los archivos en su dispositivo para poder visualizarlos.
+
+La generación de miniaturas se realiza de manera paralela, por lo que no bloquea la subida de archivos.
+
+\paragraph{Manejo de subidas concurrentes}
+\subparagraph{}
+
+Durante el desarrollo se realizaron varias pruebas de estrés de subida de diferentes números de archivos (100, 1000, 20000) para asegurar que el servidor podía manejar múltiples subidas concurrentes sin errores ni bloqueos. Se implementó un sistema de control de concurrencia para limitar el número de subidas simultáneas, evitando así la sobrecarga del servidor.
+Para la gestión de subidas concurrentes se ha definido un número máximo de peticiones que pueden ser atendidas de forma simultánea. Este ajuste es configurable a través de una variable de entorno, permitiendo así adaptar el comportamiento del servidor según la capacidad del entorno de despliegue.
+
+El principal problema que se encontró durante las pruebas de estrés fue la saturación del servidor al recibir demasiadas peticiones simultáneas de subida de archivos. El problema que se encontró fue en la memoria, pues para cada archivo que se quería subir se tenía que alojar una cantidad de memoria para cada petición, bloqueando el servidor para muchas peticiones concurrentes. Para solucionar este problema, se implementó un sistema de semáforos que gestiona las peticiones entrantes y establece un límite de peticiones que pueden ejecutarse en paralelo, asegurando así que el servidor no se sobrecargue.
+
+\subsection{Extensión del sprint y retos técnicos}
+
+Durante el desarrollo del Sprint 3 se encontraron dificultades técnicas significativas que requirieron una semana adicional para completar las funcionalidades planificadas. Los principales retos surgieron por las limitaciones de la tecnología LynxJS utilizada en el desarrollo de la aplicación móvil, especialmente en el manejo de subidas de archivos.
+
+\paragraph{Limitaciones críticas de LynxJS}
+\subparagraph{}
+
+La principal limitación técnica encontrada fue la **ausencia de soporte nativo para subidas multipart** en LynxJS. Esta carencia impactó severamente en las siguientes áreas:
+
+\begin{itemize}
+    \item \textbf{Subidas multipart nativas}: LynxJS no proporciona APIs para manejar subidas de archivos multipart, obligando a implementar toda la funcionalidad de transferencia de archivos desde cero utilizando módulos nativos del sistema operativo.
+    
+    \item \textbf{Tracking de progreso de subida}: La falta de soporte multipart imposibilita el seguimiento granular del progreso de subida, ya que las implementaciones nativas requeridas no exponen interfaces compatibles con el sistema de eventos de LynxJS.
+    
+    \item \textbf{Gestión de archivos grandes}: El manejo de vídeos y archivos multimedia de gran tamaño requiere implementaciones nativas complejas que van más allá del scope actual del framework.
+\end{itemize}
+
+\paragraph{Historia de usuario no completada}
+\subparagraph{}
+
+Debido a estas limitaciones técnicas, la historia HU18 (Ver progreso de subida) no pudo ser completada en este sprint. Los motivos específicos son:
+
+\begin{itemize}
+    \item La implementación nativa de subidas multipart consume todo el tiempo estimado sin permitir la integración del sistema de progreso.
+    \item El desarrollo de un puente de comunicación entre los módulos nativos y LynxJS para el tracking de progreso requiere un análisis arquitectónico más profundo.
+    \item Las pruebas de integración entre componentes nativos y el framework presentan complejidades adicionales no contempladas inicialmente.
+\end{itemize}
+
+Esta funcionalidad se ha pospuesto para el Sprint 4, donde se dedicará tiempo específico a desarrollar una arquitectura robusta que permita la comunicación bidireccional entre módulos nativos y LynxJS.
+
+\paragraph{Impacto en el cronograma}
+\subparagraph{}
+
+El tiempo adicional de una semana se destinó a:
+\begin{enumerate}
+    \item Investigación de limitaciones de LynxJS para subidas multipart (8 horas)
+    \item Implementación completa de módulos nativos para subida de archivos (16 horas)
+    \item Refactorización de HU16 y HU27 para usar implementaciones nativas (12 horas)
+    \item Pruebas de integración y compatibilidad (8 horas)
+\end{enumerate}
+
+A pesar de la extensión, se ha logrado entregar un incremento funcional que permite la subida de fotos y vídeos, cumpliendo con los objetivos principales del sprint. La funcionalidad de progreso de subida se abordará en el siguiente sprint con una planificación específica para superar las limitaciones arquitectónicas identificadas.
