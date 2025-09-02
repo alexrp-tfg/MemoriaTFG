@@ -8,6 +8,7 @@ Cuando se termine el sprint, se calculará la velocidad del equipo la cual se ut
 
 Una vez definidas todas las tareas que se van a realizar en este sprint, se ha realizado un diagrama de Gantt para planificar el tiempo que se va a dedicar a cada una de ellas, teniendo en cuenta que el sprint tiene una duración de dos semanas, y se dará un orden de prioridad a las tareas que se consideren más importantes para llegar a el objetivo del sprint.
 
+% TODO: Move this to an appendix at the end of the document, alongside the product backlog and other sprints.
 \subsection{Historias de usuario}
 En esta sección se detallan las historias de usuario y técnicas que se han elegido para este sprint. Se va a hacer una breve descripción de cada una de ellas, así como los criterios de aceptación y las tareas necesarias para su implementación. Si fuera necesario, se definirán sub-historias de usuario para facilitar su desarrollo.
 
@@ -27,7 +28,7 @@ Las seleccionadas son las siguientes:
 
 Estas historias de usuario y técnicas suman un total de 56 puntos de historia (PH). Es importante destacar que la estimación en puntos de historia representa la complejidad relativa de cada historia, mientras que las tareas de desarrollo se estiman en horas de trabajo efectivo.
 
-\paragraph{Descomposición en tareas de desarrollo}
+\subsection{Descomposición en tareas de desarrollo}
 
 % HU05: Inicio de sesión
 \begin{table}[H]
@@ -574,7 +575,7 @@ Después, se implementará el diseño de la base de datos. Una vez tenemos esta 
 
 Para finalizar, configuraremos todo lo necesario para poder desplegar el servidor.
 
-\subsection{Detalles de implementación}
+\subsection{Diseño detallado e implementación}
 
 \paragraph{Acceso a datos}
 \subparagraph{}
@@ -727,8 +728,10 @@ El siguiente diagrama muestra cómo se relacionan las diferentes capas de la arq
     \begin{center}
         \includegraphics[width=0.95\textwidth]{assets/sprint1/diagrama-arquitectura-limpia.png}
     \end{center}
-    \caption{Diagrama que muestra relaciones entre las capas para nuestra implementación.}\label{fig:diagrama-arquitectura-limpia-sprint1}
+    \caption{Diagrama del diseño arquitectónico detallado de nuestra implementación.}\label{fig:diagrama-arquitectura-limpia-sprint1}
 \end{figure}
+
+Tal como se ha definido en la arquitectura software, la capa de interfaz accede a la capa de aplicación pero no viceversa. Para hacer uso de la capa de infraestructura, la capa de aplicación utiliza una abstracción de dominio que utiliza siempre objetos de dominio, la cual después la infraestructura implementa y se inicializa en el estado global de la aplicación.
 
 \paragraph{Documentación de la API REST}
 \subparagraph{}

@@ -1,16 +1,60 @@
 \newpage
-\section{Análisis de tecnologías}
+\chapter{Análisis de Tecnologías}
 \label{sec:tecnologias}
 
 
-Tal y como se puede ver en el capítulo anterior, hay una tendencia general a usar Typescript o Go para el desarrollo de el servidor de sincronización de multimedia y Flutter o PWA para el desarrollo de aplicaciones móviles debido a su popularidad y facilidad de uso.
+Tal como se ha mencionado en el capítulo anterior, hay una tendencia general a usar Typescript o Go para el desarrollo de el servidor de sincronización de multimedia y Flutter o PWA para el desarrollo de aplicaciones móviles debido a su popularidad y facilidad de uso.
 Sin embargo, existen otras tecnologías que pueden ofrecer ventajas significativas en términos de rendimiento, seguridad y facilidad de desarrollo.
 
-Se estudiarán los diferentes lenguajes para el desarrollo del servidor, entre ellos Rust, Go, C, C++, Python, Java y Ruby on Rails. Cada uno de estos lenguajes tiene sus propias ventajas y desventajas, y la elección del lenguaje adecuado dependerá de los requisitos específicos del proyecto, como la necesidad de alto rendimiento, seguridad en la gestión de memoria y facilidad de desarrollo.
+Se estudiarán los diferentes lenguajes y tecnologías como posibles candidatos para el desarrollo del servidor, entre ellos Rust, Go, C, C++, Python, Java y Ruby on Rails. Cada uno de estos lenguajes tiene sus propias ventajas y desventajas, y la elección del lenguaje adecuado dependerá de los requisitos específicos del proyecto, como la necesidad de alto rendimiento, seguridad en la gestión de memoria y facilidad de desarrollo.
 
 También se estudiarán las tecnologías disponibles para el desarrollo de la aplicación móvil, entre ellas React Native, Flutter, PWA y Lynx.js. Cada una de estas tecnologías tiene sus propias ventajas y desventajas, y la elección de la tecnología adecuada dependerá de los requisitos específicos del proyecto, como la necesidad de una experiencia de usuario nativa, el rendimiento en dispositivos móviles y la facilidad de desarrollo.
 
-\subsection{Servidor}
+\section{Almacenamiento de archivos}
+
+Para el almacenamiento de los archivos multimedia tenemos dos opciones: un almacenamiento local o un almacenamiento en la nube.
+
+\subsection{Almacenamiento local en servidor}
+Esta opción implica alojar físicamente los archivos en los discos duros del servidor que ejecuta la aplicación.
+
+\begin{itemize}
+    \item \textbf{Ventajas:}
+    \begin{itemize}
+        \item \textbf{Control total}: Se tiene el control absoluto sobre los datos, la seguridad y la infraestructura.
+        \item \textbf{Latencia baja}: La velocidad de acceso a los archivos es extremadamente alta, ya que no hay dependencias de la red externa.
+        \item \textbf{Coste predecible}: Una vez adquirido el hardware de almacenamiento, los costes operativos son fijos. No hay gastos variables por el uso de ancho de banda o por la cantidad de datos almacenados.
+    \end{itemize}
+
+    \item \textbf{Desventajas:}
+    \begin{itemize}
+        \item \textbf{Escalabilidad limitada}: La capacidad de almacenamiento está restringida por el hardware físico. Escalar requiere la compra e instalación de más discos duros.
+        \item \textbf{Coste inicial alto}: Requiere una inversión inicial significativa en hardware (servidores y almacenamiento).
+        \item \textbf{Mantenimiento y seguridad}: Se es responsable de todo el mantenimiento, las copias de seguridad, la redundancia de datos (\texttt{RAID}) y la protección contra fallos.
+        \item \textbf{Implementación de módulo de almacenamiento}: Hay que implementar el módulo que se va a encargar del almacenamiento de los archivos de forma local.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Almacenamiento en la nube}
+Esta opción utiliza servicios de terceros como \textbf{Amazon S3}, \textbf{Google Cloud Storage} o \textbf{Microsoft Azure Blob Storage} para almacenar los archivos. Estos servicios se basan en la arquitectura de almacenamiento de objetos, optimizada para grandes volúmenes de datos no estructurados utilizando el protocolo de comunicación para transferencia de archivos S3.
+
+\begin{itemize}
+\item \textbf{Ventajas:}
+    \begin{itemize}
+        \item \textbf{Escalabilidad ilimitada}: Se puede almacenar prácticamente cualquier cantidad de datos sin preocuparse por la capacidad del hardware.
+        \item \textbf{Coste flexible}: Se paga por el almacenamiento y el ancho de banda consumido, lo que lo hace ideal para proyectos con un crecimiento variable.
+        \item \textbf{Fiabilidad y durabilidad}: Estos servicios ofrecen alta disponibilidad y durabilidad de los datos, con redundancia automática y copias de seguridad integradas.
+        \item \textbf{Funcionalidades adicionales}: Suelen incluir características avanzadas como gestión de versiones, seguridad (acceso controlado) y replicación global.
+        \item \textbf{Mismo protocolo de comunicación para varias opciones}: Hay varias opciones para cada protocolo de almacenamiento, lo que permitirá al usuario no tener que depender únicamente de un proveedor. Por ejemplo, el protocolo que utiliza Amazon (\gls{s3}) tiene varias opciones que son totalmente compatibles con ese mismo protocolo, como pueden ser \gls{minio}, \href{https://www.digitalocean.com/products/spaces}{DigitalOcean Spaces} o \href{https://wasabi.com/es}{Wasabi}, por lo que el usuario tan solo necesitaría cambiar los datos de conexión con los servicios en la configuración de la aplicación para cambiar de proveedor.
+    \end{itemize}
+\item \textbf{Desventajas:}
+\begin{itemize}
+\item \textbf{Coste recurrente}: Los gastos se acumulan con el uso, lo que puede ser un inconveniente a largo plazo para un proyecto con un gran volumen de usuarios.
+\item \textbf{Dependencia de terceros}: Se depende de la disponibilidad y políticas del proveedor de servicios en la nube.
+\item \textbf{Latencia variable}: El acceso a los archivos depende de la red, lo que puede introducir una latencia mayor que en el almacenamiento local.
+\end{itemize}
+\end{itemize}
+
+\section{Servidor}
 El servidor de sincronización de multimedia es el componente central de la aplicación, encargado de gestionar la comunicación entre el cliente y el almacenamiento de fotos.
 Disponemos de una amplia variedad a la hora de elegir un lenguaje/\gls{framework} para el desarrollo del servidor, cada uno con sus propias ventajas y desventajas.
 
@@ -43,9 +87,9 @@ A continuación se muestra una comparativa de rendimiento de los lenguajes anter
   \label{fig:rust-memory-comparison}
 \end{figure}
 
-Como se puede ver en las figuras \ref{fig:rust-cpu-comparison} y \ref{fig:rust-memory-comparison}, Rust tiene un rendimiento muy bueno en comparación con otros lenguajes de programación, tanto en uso de CPU como en uso de memoria.
+Como se puede ver en las Figuras \ref{fig:rust-cpu-comparison} y \ref{fig:rust-memory-comparison}, Rust tiene un rendimiento muy bueno en comparación con otros lenguajes de programación, tanto en uso de CPU como en uso de memoria.
 
-A partir de las figuras, podemos definir dos fórmulas para calcular el porcentaje de mejora con respecto a los otros lenguajes de programación:
+A partir de las Figuras, podemos definir dos fórmulas para calcular el porcentaje de mejora con respecto a los otros lenguajes de programación:
 \begin{equation}
     \text{Mejora}_{\text{CPU}} (\%) = \left( \frac{T_{\text{\textit{lenguaje}}} - T_{\text{Rust}}}{T_{\text{\textit{lenguaje}}}} \right) \times 100
 \end{equation}
@@ -98,7 +142,7 @@ Rust y Go son dos lenguajes de programación modernos que han ganado una popular
 
 \textbf{Go} (también conocido como Golang) es un lenguaje desarrollado por Google, diseñado para ser simple, eficiente y productivo, especialmente para la programación concurrente y de redes. Prioriza la simplicidad en su sintaxis y herramientas, facilitando una curva de aprendizaje suave.
 
-\subsubsection{Gestión de Memoria}
+\subsection{Gestión de memoria}
 \paragraph{Rust}
 \subparagraph{}
 
@@ -128,7 +172,7 @@ Go está diseñado para ser un lenguaje de programación lo más eficiente posib
     \item \textbf{Desventajas:} Introduce una sobrecarga (overhead) y posibles pausas no determinísticas debido al GC, lo que puede ser un inconveniente en aplicaciones de tiempo real estricto.
 \end{itemize}
 
-\subsubsection{Rendimiento}
+\subsection{Rendimiento}
 \paragraph{Rust}
 \subparagraph{}
 Rust está diseñado para ofrecer un rendimiento comparable al de C y C++. Sus abstracciones de ``coste cero'' aseguran que las características de alto nivel no impongan una penalización en tiempo de ejecución. La ausencia de GC también contribuye a un rendimiento predecible.
@@ -153,7 +197,7 @@ Go utiliza un modelo de concurrencia basado en \glspl{goroutine} y canales (\cit
     \item \textbf{Ejecución:} Buen rendimiento para la mayoría de las aplicaciones, especialmente en \acrshort{i-o} y concurrencia. El GC puede impactar el rendimiento en ciertos escenarios.
 \end{itemize}
 
-\subsubsection{Concurrencia}
+\subsection{Concurrencia}
 \paragraph{Rust}
 \subparagraph{}
 
@@ -178,7 +222,7 @@ Si se quiere tener una comunicación bidireccional, se tendría que utilizar un 
     \item \textbf{Desventajas:} Aunque las goroutines son ligeras, una mala gestión puede llevar a problemas de rendimiento o fugas de goroutines. Las condiciones de carrera son posibles y deben ser manejadas por el desarrollador.
 \end{itemize}
 
-\subsubsection{Sintaxis y Curva de Aprendizaje}
+\subsection{Sintaxis y curva de aprendizaje}
 \paragraph{Rust}
 \subparagraph{}
 La sintaxis de Rust es moderna y expresiva, pero su sistema de tipos y el modelo de gestión de memoria (ownership y borrowing) introducen una curva de aprendizaje considerablemente más pronunciada que la de Go.
@@ -198,7 +242,7 @@ Go fue diseñado con la simplicidad como uno de sus principios fundamentales. Su
     \item \textbf{Desventajas:} La simplicidad puede llevar a cierta verbosidad en algunos casos (por ejemplo, el manejo de errores antes de la versión 1.13 con \texttt{wrap error}). Algunos patrones comunes de otros lenguajes no tienen un equivalente directo.
 \end{itemize}
 
-\subsubsection{Sistema de Tipos y Abstracciones}
+\subsection{Sistema de tipos y abstracciones}
 \paragraph{Rust}
 \subparagraph{}
 
@@ -217,7 +261,7 @@ Go tiene un sistema de tipos estático y simple. Utiliza interfaces para la poli
     \item \textbf{Desventajas:} Menos expresivo que el sistema de tipos de Rust. Antes de los genéricos, la falta de ellos era una limitación importante.
 \end{itemize}
 
-\subsubsection{Ecosistema y Herramientas}
+\subsection{Ecosistema y herramientas}
 \paragraph{Rust}
 \subparagraph{}
 
@@ -238,7 +282,7 @@ Go posee una excelente librería estándar que cubre muchas necesidades comunes,
     \item \textbf{Desventajas:} Menor cantidad de bibliotecas de terceros para ciertos dominios muy especializados en comparación con lenguajes más antiguos, aunque el ecosistema es maduro para sus casos de uso principales.
 \end{itemize}
 
-\subsubsection{Manejo de Errores}
+\subsection{Manejo de errores}
 \paragraph{Rust}
 \subparagraph{}
 Rust no utiliza excepciones. El manejo de errores se realiza principalmente a través de los tipos \texttt{Result<T, E>} y \texttt{Option<T>} y el pattern matching exhaustivo, que obligan al programador a considerar los casos de éxito y error explícitamente, sin posibilidad de compilar si no se manejan los errores correctamente.
@@ -256,7 +300,7 @@ El manejo de errores en este caso no es exhaustivo.
     \item \textbf{Desventajas:} Puede llevar a código repetitivo y verboso con múltiples comprobaciones de error.
 \end{itemize}
 
-\subsubsection{Casos de Uso Principales}
+\subsection{Casos de uso principales}
 \paragraph{Rust}
 
 \begin{itemize}
@@ -278,7 +322,7 @@ El manejo de errores en este caso no es exhaustivo.
     \item Aplicaciones concurrentes.
 \end{itemize}
 
-\subsubsection{Resumen de Ventajas y Desventajas}
+\subsection{Resumen de ventajas y desventajas}
 
 \paragraph{Rust}
 \subparagraph{Ventajas:}
@@ -317,11 +361,11 @@ El manejo de errores en este caso no es exhaustivo.
 \end{itemize}
 
 
-\subsection{Aplicación Móvil}
+\section{Aplicación móvil}
 
 Para el desarrollo de aplicaciones móviles en el contexto de bibliotecas de archivos multimedia, existen varias tecnologías que ofrecen diferentes enfoques y características. A continuación se presenta un análisis detallado de las principales opciones disponibles: React Native, Flutter, Progressive Web Apps (PWA) y Lynx.js.
 
-\subsubsection{Arquitectura y Funcionamiento}
+\subsection{Arquitectura y funcionamiento}
 
 \paragraph{React Native}
 (\cite{react-native-documentation}, \href{https://reactnative.dev/architecture/overview}{Arquitectura})Desarrollado por Meta, permite crear aplicaciones nativas usando JavaScript y React. Su arquitectura se basa en un \gls{bridge} que comunica el código JavaScript con los componentes nativos de la plataforma, renderizando una interfaz de usuario verdaderamente nativa. Permite la integración de código nativo si es necesario y ofrece \textit{hot reload} para agilizar el desarrollo.
@@ -335,7 +379,7 @@ Para el desarrollo de aplicaciones móviles en el contexto de bibliotecas de arc
 \paragraph{Lynx.js}
 (\cite{lynx-documentation}, \href{https://lynxjs.org/react/lifecycle.html#dual-thread-architecture-design}{Arquitectura doble hilo})Es una tecnología emergente que ejecuta JavaScript en un \textit{runtime} nativo sin necesidad de un WebView, similar a React Native pero con un enfoque en el rendimiento a través de una arquitectura de doble hilo. Promete una compilación \textit{just-in-time} (JIT) optimizada para móviles y un \textit{bridge} de comunicación más eficiente.
 
-\subsubsection{Rendimiento}
+\subsection{Rendimiento}
 
 \paragraph{React Native}
 Ofrece un buen rendimiento al utilizar componentes nativos, pero la comunicación a través del \textit{bridge} puede introducir latencia, especialmente en interacciones complejas o animaciones intensivas. Para tareas de alto rendimiento como el procesamiento de imágenes, a menudo se requiere el uso de bibliotecas de terceros que implementan la lógica en código nativo.
@@ -349,7 +393,7 @@ El rendimiento es generalmente inferior al de las soluciones nativas, ya que est
 \paragraph{Lynx.js}
 Promete un rendimiento superior al de React Native gracias a su arquitectura de doble hilo, que separa la lógica de la aplicación de la renderización de la interfaz. Sin embargo, al ser una tecnología nueva, hay pocos datos empíricos que respalden estas afirmaciones en aplicaciones complejas del mundo real.
 
-\subsubsection{Ecosistema y Comunidad}
+\subsection{Ecosistema y comunidad}
 
 \paragraph{React Native}
 Cuenta con el ecosistema más maduro y una de las comunidades más grandes en el desarrollo móvil multiplataforma. Existe una vasta cantidad de bibliotecas, herramientas y tutoriales disponibles, lo que facilita la resolución de problemas y la integración de funcionalidades.
@@ -363,7 +407,7 @@ Se beneficia del ecosistema web en su totalidad, que es el más grande y diverso
 \paragraph{Lynx.js}
 Su ecosistema es muy nuevo y la comunidad es muy pequeña. La documentación es escasa y encontrar soluciones a problemas específicos puede ser difícil. Su desarrollo está impulsado principalmente por TikTok, lo que plantea dudas sobre su viabilidad a largo plazo como proyecto de código abierto.
 
-\subsubsection{Curva de Aprendizaje y Desarrollo}
+\subsection{Curva de aprendizaje y desarrollo}
 
 \paragraph{React Native}
 La curva de aprendizaje es relativamente suave para los desarrolladores con experiencia en React y JavaScript. La reutilización de código entre iOS y Android es alta (70-80\%), lo que acelera el desarrollo. El \textit{hot reload} es una característica muy apreciada.
@@ -377,7 +421,7 @@ El desarrollo es accesible para cualquier desarrollador web. Se utiliza una úni
 \paragraph{Lynx.js}
 Utiliza JavaScript/TypeScript, lo que lo hace familiar para los desarrolladores web. Sin embargo, la falta de documentación y ejemplos hace que la curva de aprendizaje sea artificialmente alta debido a la necesidad de experimentar y descubrir cómo funcionan las cosas.
 
-\subsubsection{Análisis Específico para Bibliotecas de Fotos}
+\subsection{Análisis específico para bibliotecas de fotos}
 
 \paragraph{Procesamiento de Imágenes}
 Para una aplicación de gestión de fotos, el procesamiento eficiente de imágenes es crucial.
@@ -406,7 +450,7 @@ La carga perezosa (\textit{lazy loading}) y el cacheo son fundamentales para una
     \item \textbf{Lynx.js}: Ofrece un componente optimizado para la carga de imágenes y datos.
 \end{itemize}
 
-\subsubsection{Conclusiones}
+\subsection{Conclusiones}
 
 Dado que el proyecto busca crear una biblioteca de fotos de código abierto competitiva, la elección tecnológica debe priorizar el rendimiento, la experiencia de usuario y la facilidad de contribución.
 

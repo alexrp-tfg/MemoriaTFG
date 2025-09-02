@@ -27,7 +27,7 @@ La suma total de las historias seleccionadas es de \textbf{34 puntos de historia
 
 Además, se estima una carga extra a la hora de implementar los módulos nativos y la integración con Lynx.js, lo que puede hacer que el esfuerzo real sea comparable al del primer sprint.
 
-\textbf{Descomposición en tareas de desarrollo}
+\subsection{Descomposición en tareas de desarrollo}
 
 % HU20: Ver archivos subidos (adaptada)
 \begin{table}[H]
@@ -443,7 +443,7 @@ A la hora de realizar las tareas se ha priorizado la visualización de una galer
 \end{figure}
 
 
-\subsection{Detalles de implementación}
+\subsection{Diseño detallado e implementación}
 
 \paragraph{Arquitectura del Cliente Móvil}
 \subparagraph{}
@@ -506,3 +506,12 @@ backButtonCallback = new OnBackPressedCallback(true) {
 getOnBackPressedDispatcher().addCallback(this, backButtonCallback);
 \end{lstlisting}
 El registro del componente se realiza en la actividad principal de la aplicación, asegurando que el evento se envía a la capa de JavaScript cuando el usuario pulsa el botón de retroceso.
+
+\paragraph{Implementación de componente input}
+\subparagraph{}
+
+Aunque Lynx.js proporciona componentes básicos como `view', `text' y `image', no incluye un componente de entrada de texto (`input') por defecto.
+Para implementar un campo de entrada de texto, se ha creado un componente personalizado que encapsula la funcionalidad básica de un campo de texto.
+
+Para la implementación del componente, se ha tenido que utilizar el componente nativo `AppCompatEditText' de Android, que permite al usuario introducir texto.
+Gracias a la flexibilidad de Lynx.js (\cite{lynx-documentation}, \href{https://lynxjs.org/guide/custom-native-component.html#platform=android}{Implementando un componente nativo}), se ha podido crear un componente que se comporta como un campo de entrada de texto estándar en React Native teniendo el control total de la implementación.
