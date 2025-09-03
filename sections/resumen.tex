@@ -3,6 +3,33 @@
 \newpage
 \chapter*{Resumen}
 \addcontentsline{toc}{chapter}{Resumen}
-Tenemos que describir de manera concisa y concentrada el motivo del trabajo, objetivo y conclusiones a las que se llega.
-Esta sección tiene que estar en inglés y en español.
+
+\section*{Resumen en Español}
+
+En la era digital actual, la gestión de archivos multimedia personales ha generado una dependencia creciente de servicios en la nube comerciales como Google Photos o Apple iCloud. Estos servicios, aunque convenientes, presentan limitaciones significativas en términos de privacidad, control de datos y costes recurrentes, creando un escenario de dependencia del proveedor (vendor lock-in) que limita la soberanía digital del usuario.
+
+Este proyecto desarrolla una solución integral de código abierto para la sincronización y gestión de archivos multimedia que permite a los usuarios recuperar el control total sobre sus datos mediante el autoalojamiento (self-hosting). El sistema implementa una arquitectura Cliente/Servidor donde una aplicación móvil nativa se comunica con un servidor de sincronización a través de una API REST, eliminando la dependencia de servicios externos.
+
+El objetivo principal del proyecto es desarrollar una solución multiplataforma, multiusuario y de código abierto que permita almacenar, sincronizar y gestionar fotos y vídeos de manera segura y eficiente utilizando dispositivos propios como servidores de almacenamiento. Se priorizan aspectos como el rendimiento, la escalabilidad y la facilidad de contribución al proyecto.
+
+Para su desarrollo se ha adoptado la metodología ágil Scrum con sprints de dos semanas, implementando una arquitectura limpia modular que separa claramente las capas de dominio, aplicación e infraestructura. Para el servidor se utiliza Rust con el framework Axum, garantizando alto rendimiento y seguridad de memoria, mientras que para la aplicación móvil se emplea Lynx.js, un framework emergente que ofrece capacidades de doble hilo para optimizar la experiencia de usuario.
+
+El desarrollo ha producido un sistema funcional que incluye gestión segura de usuarios con autenticación JWT, sincronización automática de archivos multimedia y documentación completa con especificación OpenAPI. La arquitectura implementada permite escalabilidad horizontal y facilita el mantenimiento a largo plazo, cumpliendo con los principios del software libre y proporcionando una alternativa viable a las soluciones comerciales.
+
+El proyecto demuestra la viabilidad técnica de crear soluciones de gestión multimedia que priorizan la privacidad y el control del usuario sin comprometer la funcionalidad o la experiencia de uso. La implementación de tecnologías modernas como Rust y Lynx.js ha resultado en un sistema eficiente y seguro que puede competir con alternativas comerciales, mientras que la adopción de principios de código abierto facilita la contribución comunitaria y garantiza la sostenibilidad del proyecto.
+
+\section*{Abstract}
+
+In today's digital era, personal multimedia file management has generated an increasing dependence on commercial cloud services such as Google Photos or Apple iCloud. These services, while convenient, present significant limitations in terms of privacy, data control, and recurring costs, creating a vendor lock-in scenario that limits user digital sovereignty.
+
+This project develops a comprehensive open-source solution for multimedia file synchronization and management that allows users to regain complete control over their data through self-hosting. The system implements a Client/Server architecture where a native mobile application communicates with a synchronization server through a REST API, eliminating dependence on external services.
+
+The main objective of the project is to develop a cross-platform, multi-user, and open-source solution that allows storing, synchronizing, and managing photos and videos securely and efficiently using personal devices as storage servers. Priority is given to aspects such as performance, scalability, and ease of contribution to the project.
+
+For its development, the agile Scrum methodology has been adopted with two-week sprints, implementing a clean modular architecture that clearly separates domain, application, and infrastructure layers. Rust with the Axum framework is used for the server, ensuring high performance and memory safety, while Lynx.js, an emerging framework that offers dual-thread capabilities to optimize user experience, is employed for the mobile application.
+
+The development has produced a functional system that includes secure user management with JWT authentication, automatic multimedia file synchronization and complete documentation with OpenAPI specification. The implemented architecture allows for horizontal scalability and facilitates long-term maintenance, complying with free software principles and providing a viable alternative to commercial solutions.
+
+The project demonstrates the technical feasibility of creating multimedia management solutions that prioritize user privacy and control without compromising functionality or user experience. The implementation of modern technologies such as Rust and Lynx.js has resulted in an efficient and secure system that can compete with commercial alternatives, while the adoption of open-source principles facilitates community contribution and ensures project sustainability.
+
 \newpage

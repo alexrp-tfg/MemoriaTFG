@@ -1,10 +1,93 @@
 \newpage
 ~
 \newpage
-% TODO: En esta sección tiene que haber una subsección en la que se expliquen problemas encontrados y cómo se han solucionado, así como las limitaciones del proyecto.
-% Una valoración personal del proyecto, qué se ha aprendido, qué se ha dejado de aprender, qué se ha hecho bien, qué se ha hecho mal, etc.
-% También queremos una subsección en la que se explique el futuro del proyecto, qué se puede hacer, qué se quiere hacer, etc.
 \chapter{Conclusiones y Trabajo Futuro}
-Reflejamos el problema, solución alcanzada y resultados.
-Leemos los objetivos y vemos si se han cumplido y el por qué no en el caso de no haberlos alcanzado. 
-Maximizamos información, no queremos algo extenso, queremos algo resumido
+
+\section{Cumplimiento de objetivos}
+
+El desarrollo de este proyecto ha demostrado la viabilidad técnica de crear una solución de gestión multimedia que priorice la privacidad y el control del usuario sin comprometer la funcionalidad o la experiencia de uso. El análisis del cumplimiento de los objetivos específicos planteados al inicio del proyecto revela un alto grado de éxito, aunque con algunas limitaciones técnicas que han surgido durante el desarrollo.
+
+El primer objetivo específico, relacionado con el análisis, diseño e implementación del sistema, ha sido completado satisfactoriamente. Se ha implementado una arquitectura limpia modular que separa claramente las capas de dominio, aplicación e infraestructura, siguiendo patrones arquitectónicos como Cliente/Servidor y CQRS. El sistema incluye gestión robusta de usuarios con autenticación JWT, autorización basada en permisos y mecanismos de cifrado que garantizan la seguridad de los datos almacenados y compartidos.
+
+En cuanto al desarrollo del cliente y servidor de sincronización, este objetivo se ha logrado parcialmente. El servidor de sincronización está completamente implementado con capacidades de subida concurrente de archivos multimedia, procesamiento eficiente de imágenes y vídeos, y compatibilidad multiplataforma. La aplicación móvil permite la selección y subida de archivos, aunque algunas funcionalidades como el seguimiento de progreso de subida requieren desarrollo adicional debido a limitaciones técnicas del framework LynxJS que se identificaron durante la implementación.
+
+La gestión de usuarios, permisos y seguridad ha sido implementada completamente. El sistema cuenta con autenticación JWT robusta, gestión de sesiones segura, y un sistema de permisos que garantiza el acceso controlado a los recursos. Se han implementado medidas de seguridad adicionales como validación de tipos de archivo y límites de tamaño para prevenir posibles vulnerabilidades.
+
+Respecto a la publicación y documentación del proyecto, este objetivo se ha cumplido exitosamente. El código fuente está disponible bajo licencia open-source con documentación exhaustiva que incluye especificación OpenAPI automáticamente generada, guías de instalación y configuración, y documentación técnica detallada de la arquitectura implementada, facilitando así la comprensión, uso y mantenimiento por parte de la comunidad.
+
+La escalabilidad y mantenimiento han sido abordados mediante la arquitectura desacoplada implementada. El sistema permite escalabilidad horizontal del servidor de aplicación, integración con sistemas de almacenamiento distribuido como MinIO, y separación clara de responsabilidades que facilita el mantenimiento y la extensión de funcionalidades futuras.
+
+En cuanto a las copias de seguridad y recuperación, este objetivo ha sido parcialmente implementado. Se ha establecido la infraestructura base para almacenamiento seguro mediante MinIO, aunque las funcionalidades avanzadas de backup automático y recuperación quedan como trabajo futuro debido a limitaciones de tiempo en el desarrollo.
+
+Finalmente, el desarrollo de aplicaciones móviles nativas se ha logrado con ciertas limitaciones. Se ha desarrollado una aplicación móvil funcional para Android que integra módulos nativos para acceso a la galería del dispositivo y gestión de permisos. Sin embargo, las limitaciones técnicas de LynxJS han requerido implementaciones nativas más extensas de lo inicialmente previsto, especialmente en el manejo de subidas multipart.
+
+\section{Resultados obtenidos}
+
+El desarrollo ha producido un sistema funcional que constituye una alternativa viable a las soluciones comerciales existentes. El servidor de sincronización, implementado en Rust con el framework Axum, proporciona alta concurrencia, seguridad de memoria y rendimiento óptimo. Este servidor es capaz de manejar subidas concurrentes de archivos multimedia con control de flujo mediante semáforos para evitar sobrecarga del sistema.
+
+El sistema incorpora un procesamiento multimedia eficiente que procesa automáticamente las imágenes y vídeos subidos, generando compresiones optimizadas y miniaturas para mejorar la experiencia de visualización sin comprometer la calidad original de los archivos. Este procesamiento se realiza de manera asíncrona para no bloquear las operaciones de subida.
+
+La aplicación móvil nativa, desarrollada con LynxJS para Android, incluye módulos nativos para acceso a la galería del dispositivo, gestión de permisos contextual, y una interfaz de usuario optimizada para dispositivos móviles. A pesar de las limitaciones encontradas, la aplicación proporciona una experiencia de usuario fluida para la selección y subida de archivos multimedia.
+
+El proyecto incluye una API REST completamente documentada con especificación OpenAPI automáticamente generada que facilita la integración y el desarrollo de clientes adicionales. Esta documentación se mantiene actualizada automáticamente con los cambios en el código, garantizando su consistencia.
+
+Adicionalmente, se ha desarrollado una infraestructura de despliegue completa que incluye contenedorización con Docker, scripts de configuración, y documentación exhaustiva para facilitar el autoalojamiento del sistema en diferentes entornos de producción.
+
+\section{Problemas encontrados y soluciones implementadas}
+
+Durante el desarrollo se identificaron varios desafíos técnicos significativos que requirieron soluciones innovadoras y adaptaciones en la planificación original. La principal dificultad técnica surgió de las limitaciones del framework LynxJS para el manejo de subidas multipart y seguimiento de progreso. Esta tecnología emergente, aunque prometedora en términos de rendimiento, carece de soporte nativo para funcionalidades básicas como las subidas de archivos multipart, lo que requirió el desarrollo de módulos nativos extensos en Kotlin y Java, áreas en las que el equipo no tenía experiencia previa.
+
+La solución implementada para superar estas limitaciones involucró el desarrollo de un puente de comunicación personalizado entre la capa nativa de Android y el runtime de LynxJS. Este puente permite que los módulos nativos expongan funcionalidades específicas del sistema operativo móvil al código JavaScript, aunque con una complejidad de implementación significativamente mayor de la esperada inicialmente.
+
+Otro problema crítico se manifestó durante las pruebas de estrés con múltiples archivos simultáneos, donde se identificó un problema de saturación de memoria del servidor. El comportamiento inicial del sistema alojaba contenido completo de archivos en memoria para cada petición concurrente, lo que causaba bloqueos del servidor con un número elevado de subidas simultáneas. La solución implementada incluyó un sistema de semáforos que limita las peticiones concurrentes y optimiza el uso de memoria mediante streaming de archivos, evitando cargar el contenido completo en memoria durante el procesamiento.
+
+La implementación de una arquitectura limpia con tipos genéricos y traits en Rust presentó también una curva de aprendizaje pronunciada. La complejidad del sistema de tipos de Rust requirió un estudio profundo para desarrollar un patrón de inyección de dependencias que mantuviera la separación de capas sin comprometer el rendimiento del sistema. La solución final utiliza el sistema de tipos de Rust de manera eficiente, aprovechando las verificaciones en tiempo de compilación para garantizar la corrección del código.
+
+El uso de LynxJS como tecnología emergente requirió desarrollo experimental y contribuciones directas al ecosistema. Esto incluyó la implementación desde cero de componentes básicos como campos de entrada de texto y el manejo del botón de retroceso de Android, funcionalidades que en frameworks más maduros están disponibles de forma nativa.
+
+\section{Limitaciones del proyecto}
+
+El proyecto presenta ciertas limitaciones que deben considerarse para futuras iteraciones y para usuarios potenciales del sistema. La dependencia de tecnologías emergentes, particularmente LynxJS, introduce riesgos de sostenibilidad a largo plazo debido a su naturaleza experimental y comunidad limitada. Esta limitación se evidenció claramente en las dificultades encontradas para implementar funcionalidades básicas como las subidas multipart, que en frameworks más maduros están disponibles de forma nativa. Aún así, gracias a la implementación con una arquitectura limpia, existe la posibilidad de refactorizar el cliente móvil modificando la capa de presentación para usar otro framework más maduro como podría ser React Native.
+
+El soporte actual se limita exclusivamente a Android debido a restricciones de recursos y disponibilidad de hardware de desarrollo para iOS. Aunque el código base está arquitectónicamente preparado para extensión a iOS, la implementación de módulos nativos específicos para esta plataforma requiere desarrollo adicional y acceso a herramientas de desarrollo de Apple.
+
+Diversas funcionalidades avanzadas permanecen pendientes de implementación, incluyendo la sincronización automática en segundo plano, la detección automática de servidores en red local mediante mDNS, y sistemas avanzados de backup y recuperación. Estas funcionalidades, aunque planificadas en el diseño inicial, requieren desarrollo adicional que excede el alcance temporal del proyecto actual.
+
+\section{Valoración personal y aprendizajes}
+
+Este proyecto ha representado una experiencia de aprendizaje integral que ha abarcado múltiples disciplinas de la ingeniería de software moderna. El desarrollo con Rust ha proporcionado conocimientos profundos sobre gestión de memoria, concurrencia segura y diseño de sistemas de alto rendimiento. La curva de aprendizaje inicial fue pronunciada, pero los beneficios en términos de seguridad y rendimiento del código resultante han justificado ampliamente esta inversión de tiempo.
+
+La implementación de una arquitectura limpia ha reforzado significativamente la comprensión de principios fundamentales de diseño de software y separación de responsabilidades. Este enfoque arquitectónico ha demostrado su valor al facilitar el mantenimiento del código y permitir modificaciones en capas específicas sin afectar el resto del sistema.
+Esta arquitectura ha facilitado en gran medida el desarrollo de tests y la refactorización del código, promoviendo buenas prácticas de desarrollo y asegurando la calidad del software entregado.
+
+El trabajo con LynxJS, a pesar de sus limitaciones técnicas, ha ofrecido una perspectiva valiosa sobre el desarrollo de aplicaciones móviles multiplataforma y la implementación de módulos nativos. La experiencia con tecnologías emergentes ha desarrollado habilidades importantes de adaptación y resolución de problemas en entornos con documentación limitada y comunidades pequeñas donde prácticamente no existen recursos de terceros.
+
+La adopción de metodologías ágiles y la planificación detallada de sprints ha mejorado sustancialmente las habilidades de gestión de proyectos y estimación de tareas. La práctica de documentar retrospectivas y ajustar planificaciones basándose en la velocidad real del equipo ha proporcionado insights valiosos sobre el desarrollo de software en proyectos complejos.
+
+La documentación exhaustiva del proyecto y el enfoque en desarrollo de código abierto han reforzado la importancia de la comunicación técnica clara y la colaboración comunitaria. La generación automática de documentación API y la creación de guías de contribución han demostrado ser herramientas esenciales para proyectos que aspiran a la sostenibilidad a largo plazo.
+
+\section{Trabajo futuro}
+
+El proyecto establece una base sólida para futuras extensiones y mejoras que pueden abordarse en diferentes horizontes temporales. Las mejoras inmediatas se centran en completar funcionalidades que quedaron parcialmente implementadas debido a limitaciones técnicas identificadas durante el desarrollo.
+
+La implementación completa del seguimiento de progreso de subida requiere desarrollar una arquitectura robusta para comunicación bidireccional entre módulos nativos y LynxJS. Esta funcionalidad es crítica para mejorar la experiencia de usuario durante la transferencia de archivos grandes.
+
+La sincronización automática representa otra mejora inmediata prioritaria, permitiendo que el sistema detecte automáticamente nuevas fotos y vídeos en el dispositivo y los sincronice sin intervención manual del usuario. Esta funcionalidad transformaría la aplicación de una herramienta de backup manual a un sistema de respaldo automático completo.
+
+La implementación de detección automática de servidor mediante mDNS simplificaría significativamente el proceso de configuración inicial, eliminando la necesidad de introducir manualmente direcciones IP y puertos del servidor. Esta mejora haría el sistema más accesible para usuarios menos técnicos.
+
+El desarrollo de una interfaz de administración completa utilizando Tauri proporcionaría capacidades de gestión visual del servidor, incluyendo monitoreo de recursos, gestión de usuarios, y configuración de parámetros del sistema a través de una interfaz gráfica intuitiva.
+
+Las extensiones a medio plazo incluyen la expansión del soporte multiplataforma completo extendiendo la aplicación móvil a iOS, aprovechando la base de código común de LynxJS pero requiriendo implementación específica de módulos nativos para la plataforma de Apple.
+
+El desarrollo de un sistema de almacenamiento nativo optimizado específicamente para las necesidades del proyecto podría mejorar significativamente el rendimiento y reducir la dependencia de sistemas externos como MinIO, aunque requeriría un esfuerzo de desarrollo considerable.
+
+Las funcionalidades colaborativas avanzadas, incluyendo compartición de galerías y álbumes entre usuarios, expandirían el alcance del proyecto más allá del uso individual hacia escenarios de uso familiar o grupal.
+
+Las innovaciones a largo plazo contemplan la integración de capacidades de inteligencia artificial para reconocimiento de objetos, clasificación automática y búsqueda semántica de imágenes, lo que añadiría valor significativo al sistema de gestión multimedia.
+
+La implementación de federación de servidores permitiría que múltiples instancias del servidor se comuniquen para crear redes descentralizadas de almacenamiento, alineándose con principios de descentralización y resistencia a la censura.
+
+Las optimizaciones de rendimiento continuas, incluyendo cachéo inteligente, compresión adaptativa y optimizaciones específicas para diferentes tipos de dispositivos, mejorarían la experiencia de usuario en diversos escenarios de uso.
+
+El proyecto demuestra que es posible crear alternativas viables y competitivas a los servicios comerciales de gestión multimedia, priorizando la privacidad del usuario y el control de datos sin sacrificar funcionalidad o experiencia de uso. La base tecnológica establecida permite evolución continua y adaptación a las necesidades cambiantes de los usuarios en el ecosistema digital actual, mientras que la naturaleza open-source del proyecto garantiza su sostenibilidad y mejora continua a través de la colaboración comunitaria.
