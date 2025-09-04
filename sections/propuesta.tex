@@ -327,9 +327,19 @@ Para el almacenamiento de archivos multimedia, MinIO ofrece capacidades de escal
 
 En cuanto a PostgreSQL, la escalabilidad se puede abordar mediante varias estrategias complementarias. Para escalado de lectura, se pueden implementar réplicas de solo lectura que manejen consultas de visualización de galerías y metadatos, mientras que el servidor principal gestiona las operaciones de escritura. Para cargas más intensivas, se puede implementar particionamiento horizontal (sharding) donde los datos se distribuyen entre múltiples instancias según criterios como el ID de usuario o la fecha de creación. Adicionalmente, el uso de técnicas como connection pooling y caché distribuido (Redis/Memcached) reduce la carga en la base de datos y mejora los tiempos de respuesta.
 
+
+
+% TODO: Revisar primera frase
 El diseño modular del sistema permite que estas operaciones de escalado se realicen sin impacto en la experiencia del usuario mediante la implementación de estrategias de despliegue avanzadas. El \textit{blue-green deployment} consiste en mantener dos entornos idénticos de producción: mientras el entorno ``azul'' atiende a los usuarios, el entorno ``verde'' se actualiza con las nuevas instancias o configuraciones. Una vez verificado que el entorno verde funciona correctamente, se redirige todo el tráfico instantáneamente, eliminando tiempos de inactividad. Alternativamente, los \textit{rolling updates} permiten actualizar gradualmente las instancias del servidor una por una, manteniendo siempre un número mínimo de instancias operativas para atender las peticiones mientras las demás se actualizan secuencialmente. Estas son estrategias que son complementarias y pueden combinarse según las necesidades del sistema.
 
 Para garantizar la resistencia ante fallos temporales durante estos procesos, el cliente móvil implementa mecanismos de \textit{retry automático}, que consiste en reintentar automáticamente las peticiones fallidas después de intervalos exponencialmente crecientes (por ejemplo, 1s, 2s, 4s, 8s), permitiendo que operaciones como la subida de fotos se completen exitosamente incluso si algunos servidores están temporalmente no disponibles.
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.95\textwidth]{assets/arquitectura-escalable.png}
+    \end{center}
+    \caption{Ejemplo de arquitectura escalable gracias a nuestra arquitectura del sistema}\label{fig:arquitectura-escalable}
+\end{figure}
 
 Esta arquitectura distribuida no solo facilita el crecimiento del sistema, sino que también mejora su resistencia a fallos, asegurando que los usuarios puedan acceder a sus fotos y sincronizar nuevos archivos de manera continua, independientemente de las operaciones de infraestructura que se estén realizando en segundo plano. La combinación de estas estrategias garantiza que el escalado del sistema sea completamente transparente para el usuario final, manteniendo la integridad de los datos y la continuidad del servicio en todo momento.
 
@@ -416,6 +426,7 @@ Los objetivos de cada sprint quedarían de la siguiente manera:
     \item \textbf{Sprint 5}: Implementación de la gestión de usuarios desde el cliente móvil, incluyendo la gestión de permisos en las galerías, álbumes y archivos. Durante esta última iteración se implementará el uso compartido de galerías y álbumes entre usuarios.
     \item \textbf{Sprint 6}: Implementación de interfaz de usuario para gestión de configuración del servidor. Implementación de servicio de almacenamiento de archivos multimedia nativo en el servidor.
 \end{itemize}
+% TODO: Revisar este párrafo
 Este último sprint, aunque no entra en el plazo de entrega del proyecto, se define para tener una idea de lo que se quiere conseguir en el futuro, poder tener una planificación más clara de lo que se quiere conseguir en el proyecto y facilitar contribuciones al proyecto open-source.
 
 Tal y como se ha mencionado anteriormente, estos objetivos son estimados y por la naturaleza de la metodología Scrum pueden ir variando a lo largo del desarrollo. Al final de cada sprint se realizará una retrospectiva donde se ajustarán los backlogs y objetivos de los siguientes sprints en función de lo que se haya conseguido en el sprint anterior.
@@ -440,6 +451,8 @@ El trabajo con tecnologías y paradigmas de programación poco familiares para e
 
 Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
 Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente.
+
+Los principales beneficios de usar Rust para el desarrollo del servidor son:
 
 \begin{itemize}
     \item \textbf{Rendimiento}: es conocido por su alto rendimiento, lo que lo convierte en una excelente opción para aplicaciones que requieren un procesamiento intensivo de datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para desarrollo web es muy bueno, como se puede ver en distintos benchmark \parencite{rust-benchmark}.

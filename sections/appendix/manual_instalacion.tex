@@ -1,0 +1,330 @@
+\chapter{Manual de instalación}
+\label{chap:manual_instalacion}
+Todo el código fuente del proyecto está disponible en los siguientes repositorios de GitHub:
+\begin{itemize}
+    \item Servidor: \url{https://github.com/alexrp-tfg/server}
+    \item Explorador de Lynxjs: \url{https://github.com/alexrp-tfg/lynx-tfg}
+    \item Cliente móvil: \url{https://github.com/alexrp-tfg/mobile-client}
+\end{itemize}
+\section{Servidor}
+\subsection{Despliegue con Docker (Recomendado)}
+El proceso de despliegue del servidor usando Docker es sencillo y automatiza muchas tareas, como la configuración de la base de datos y el inicio del servidor.
+\begin{enumerate}
+    \item Clonar el repositorio del servidor:
+\begin{lstlisting}[language=bash]
+git clone https://github.com/alexrp-tfg/server
+cd server
+\end{lstlisting}
+
+    \item Crear y editar el archivo de entorno:
+\begin{lstlisting}[language=bash]
+cp .env.example .env
+\end{lstlisting}
+
+    \item Levantar los servicios:
+\begin{lstlisting}[language=bash]
+docker-compose up -d
+\end{lstlisting}
+
+    \item Acceder al servidor:
+        \begin{itemize}
+            \item API: \url{http://localhost:8000}
+            \item Documentación Swagger: \url{http://localhost:8000/doc}
+        \end{itemize}
+\end{enumerate}
+
+El despliegue con Docker incluye:
+\begin{itemize}
+    \item Base de datos PostgreSQL con comprobaciones automáticas de salud.
+    \item Migraciones automáticas de base de datos.
+    \item Creación de usuario administrador.
+    \item Inicio automático del servidor.
+\end{itemize}
+
+\subsection{Instalación Manual (Compilación del Binario)}
+
+En caso de que el usuario no quiera usar Docker, es posible compilar el binario del servidor manualmente.  
+\textbf{Nota}: Esta guía no incluye la instalación ni configuración de la base de datos, solo la compilación del servidor.
+El usuario tiene que hacerse cargo de aprovisionar el servidor con una base de datos PostgreSQL y un MinIO.
+
+\subsection*{Requisitos previos}
+\begin{itemize}
+    \item Rust 1.87 o superior
+\end{itemize}
+
+\subsection*{Pasos de instalación}
+
+\begin{enumerate}
+    \item Clonar el repositorio:
+\begin{lstlisting}[language=bash]
+git clone https://github.com/alexrp-tfg/server
+cd server
+\end{lstlisting}
+
+    \item Crear el archivo de entorno:
+\begin{lstlisting}[language=bash]
+cp .env.example .env
+\end{lstlisting}
+
+    \item Editar el archivo \texttt{.env} con la configuración adecuada para la base de datos y MinIO.
+
+    \item Compilar el binario en modo release:
+\begin{lstlisting}[language=bash]
+cargo build --release
+\end{lstlisting}
+
+    \item Instalar Diesel CLI y configurar la conexión a la base de datos:
+
+        Diesel es una herramienta para gestionar migraciones de bases de datos en proyectos Rust. Para instalar Diesel CLI, ejecuta:
+
+\begin{lstlisting}[language=bash]
+cargo install diesel_cli --no-default-features --features postgres
+\end{lstlisting}
+
+        Luego, configura la variable de entorno \texttt{DATABASE\_URL} en el archivo \texttt{.env} con la cadena de conexión de tu base de datos PostgreSQL, por ejemplo:
+
+\begin{lstlisting}[language=bash]
+postgres://usuario:contraseña@localhost/nombre_base_de_datos
+\end{lstlisting}
+
+        Finalmente, ejecuta las migraciones de Diesel para preparar la base de datos:
+
+\begin{lstlisting}[language=bash]
+diesel migration run
+\end{lstlisting}
+
+    \item Ejecutar el servidor:
+\begin{lstlisting}[language=bash]
+./target/release/server
+\end{lstlisting}
+
+    \item Acceder al servidor:
+        \begin{itemize}
+            \item API: \url{http://localhost:8000}
+            \item Documentación Swagger: \url{http://localhost:8000/doc}
+        \end{itemize}
+\end{enumerate}
+
+\section{Cliente móvil}
+Para utilizar la aplicación móvil necesitaremos, tanto la aplicación del explorador de Lynxjs como la implementación en Lynxjs.
+\subsection{Explorador de Lynxjs}
+El primer paso es tener instalada la aplicación del explorador de Lynxjs en nuestro dispositivo móvil.
+Para obtener el instalador de la aplicación, tenemos dos opciones: obtener la última versión desde el repositorio de GitHub o compilar la aplicación nosotros mismos.
+
+Para descargar la última versión basta con ir a la \href{https://github.com/alexrp-tfg/lynx-tfg/releases}{Sección de releases del repositorio} y descargar el archivo \texttt{.apk} de la última versión.
+
+Si queremos compilar la aplicación nosotros mismos, los pasos a seguir son los siguientes:
+
+\subsubsection{Requisitos del sistema}
+\begin{itemize}
+    \item 20GB o más de espacio en disco
+    \item Git/Python3 (>=3.9) instalado
+\end{itemize}
+
+\subsubsection{Instalación de dependencias}
+Las siguientes dependencias son necesarias:
+\begin{itemize}
+    \item JDK 11
+    \item Entorno de desarrollo Android
+    \item Biblioteca Python
+\end{itemize}
+
+\subsubsection{JDK}
+\textbf{Instalar JDK 11}
+
+\textit{MacOS}
+
+Recomendamos usar Homebrew para instalar la distribución OpenJDK llamada Zulu, proporcionada por Azul.
+\begin{lstlisting}[language=bash]
+brew install --cask zulu@11
+\end{lstlisting}
+
+Puedes usar el siguiente comando para confirmar si la instalación fue exitosa:
+\begin{lstlisting}[language=bash]
+javac --version
+\end{lstlisting}
+
+\textit{Linux}
+
+En Ubuntu o Debian:
+\begin{lstlisting}[language=bash]
+sudo apt install openjdk-11-jdk
+\end{lstlisting}
+
+En RHEL o CentOS:
+\begin{lstlisting}[language=bash]
+sudo yum install openjdk-11-jdk
+\end{lstlisting}
+
+\textit{Windows}
+
+Recomendamos usar winget para instalar la distribución OpenJDK:
+\begin{lstlisting}[language=bash]
+winget install -e --id ojdkbuild.openjdk.11.jdk
+\end{lstlisting}
+
+\textbf{Actualizar JAVA\_HOME}
+
+Confirma el directorio de instalación de tu JDK. Si sigues los pasos anteriores, la ruta del JDK probablemente sea:
+\begin{itemize}
+    \item \texttt{/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home} en MacOS
+    \item \texttt{/usr/lib/jvm/java-11-openjdk-amd64} en Linux
+    \item \texttt{C:\textbackslash Program Files\textbackslash ojdkbuild\textbackslash java-11-openjdk-11.0.15-1} en Windows
+\end{itemize}
+
+Añade las siguientes declaraciones a tu archivo de configuración de entorno:
+
+\textit{MacOS}
+\begin{lstlisting}[language=bash]
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-11.jdk/Contents/Home
+export PATH=$JAVA_HOME/bin:$PATH
+\end{lstlisting}
+
+\textit{Linux}
+\begin{lstlisting}[language=bash]
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+\end{lstlisting}
+
+\textit{Windows}
+\begin{lstlisting}[language=bash]
+$JDK_PATH="$env:ProgramFiles\ojdkbuild\java-11-openjdk-11.x.xx"
+[Environment]::SetEnvironmentVariable('JAVA_HOME', $JDK_PATH, 'User')
+$EXISTING_PATH = [Environment]::GetEnvironmentVariable('PATH', 'User')
+[Environment]::SetEnvironmentVariable('PATH', "$JDK_PATH;$EXISTING_PATH", 'User')
+\end{lstlisting}
+
+\subsubsection{Entorno de desarrollo Android}
+\textbf{Configurar ANDROID\_HOME}
+
+Añade la variable ANDROID\_HOME a tu archivo de configuración de entorno. Si has instalado el Android SDK anteriormente, establece ANDROID\_HOME al directorio de instalación del Android SDK.
+
+\textit{MacOS y Linux}
+\begin{lstlisting}[language=bash]
+export ANDROID_HOME=<ruta-al-android-sdk>
+\end{lstlisting}
+
+\textit{Windows}
+\begin{lstlisting}[language=bash]
+[Environment]::SetEnvironmentVariable('ANDROID_HOME', $ruta-al-android-sdk, 'User')
+\end{lstlisting}
+
+\subsubsection{Biblioteca Python}
+Recomendamos usar pyenv para gestionar el entorno de Python. Para instalar pyenv:
+\begin{itemize}
+    \item \url{https://github.com/pyenv/pyenv} en MacOS y Linux
+    \item \url{https://github.com/pyenv-win/pyenv-win} en Windows
+\end{itemize}
+
+Instala Python con versión igual o superior a 3.9 usando pyenv:
+\begin{lstlisting}[language=bash]
+pyenv install 3.9
+pyenv global 3.9
+\end{lstlisting}
+
+\subsubsection{Obtener el código}
+Clonar el repositorio (importante que sea en la carpeta \texttt{src/lynx}) y movernos a la rama de release 3.3:
+
+\begin{lstlisting}[language=bash]
+git clone https://github.com/alexrp-tfg/lynx-tfg.git src/lynx
+git checkout release/3.3
+\end{lstlisting}
+
+Después de obtener el repositorio del proyecto, ejecuta los siguientes comandos en el directorio raíz del proyecto:
+
+\textit{MacOS y Linux}
+\begin{lstlisting}[language=bash]
+cd lynx-tfg
+source tools/envsetup.sh
+tools/hab sync .
+\end{lstlisting}
+
+\textit{Windows}
+\begin{lstlisting}[language=bash]
+cd lynx-tfg
+tools\envsetup.ps1
+tools\hab.ps1 sync .
+\end{lstlisting}
+
+Ejecuta el siguiente comando, que instalará los componentes Android requeridos por Lynx, incluyendo Android SDK/NDK:
+\begin{lstlisting}[language=bash]
+python3 tools/android_tools/prepare_android_build.py
+\end{lstlisting}
+
+\subsubsection{Compilar y ejecutar}
+
+\paragraph{Método 1: Compilar usando Android Studio}
+\begin{enumerate}
+    \item Usar Android Studio para abrir el directorio \texttt{/explorer/android} del proyecto
+    \item Asegurarse de que el JDK usado por Android Studio apunte al JDK 11 instalado anteriormente
+    \item Activar Gradle sync
+    \item Seleccionar el módulo \texttt{LynxExplorer} y hacer clic en el botón \texttt{Run}
+\end{enumerate}
+
+\paragraph{Método 2: Compilar usando línea de comandos}
+Entrar al directorio \texttt{explorer/android} desde el directorio raíz del proyecto y ejecutar:
+\begin{lstlisting}[language=bash]
+cd explorer/android
+./gradlew :LynxExplorer:assembleNoasanDebug -Penable_trace=none -PabiList=x86_64
+\end{lstlisting}
+El argumento \texttt{-PabiList} puede ser cambiado a \texttt{armeabi-v7a}, \texttt{arm64-v8a} o \texttt{x86} dependiendo de la arquitectura del dispositivo donde se quiera instalar la aplicación.
+-PskipNativeBuild=true
+Dado que el proceso de compilación puede tardar varios minutos por la compilación de las dependencias nativas, se ha implementado un parámetro para reutilizar las dependencias ya compiladas en compilaciones posteriores. Para ello, se puede usar el parámetro \texttt{-PskipNativeBuild=true} para desactivar la compilación de las dependencias nativas y reutilizar las generadas anteriormente.
+
+Este comando generará \texttt{LynxExplorer-noasan-debug.apk} en la carpeta \\
+\texttt{lynx\_explorer/build/outputs/apk/noasan/debug/}.
+
+Para instalar el archivo .apk en tu dispositivo usando el comando adb:
+\begin{lstlisting}[language=bash]
+adb install lynx_explorer/build/outputs/apk/noasan/debug/LynxExplorer-noasan-debug.apk
+\end{lstlisting}
+
+Si el comando adb no se encuentra, puedes añadir la ruta al comando adb en el archivo de configuración de entorno:
+
+\textit{MacOS y Linux}
+\begin{lstlisting}[language=bash]
+export PATH=${PATH}:${ANDROID_HOME}/platform-tools
+\end{lstlisting}
+
+\textit{Windows}
+\begin{lstlisting}[language=bash]
+$EXISTING_PATH = [Environment]::GetEnvironmentVariable('PATH', 'User')
+$ANDROID_HOME= [Environment]::GetEnvironmentVariable('ANDROID_HOME', 'User')
+[Environment]::SetEnvironmentVariable('PATH', "$ANDROID_HOME\platform-tools;$EXISTING_PATH ", 'User')
+\end{lstlisting}
+
+\subsection{Implementación en Lynxjs}
+\subsubsection{Requisitos del sistema}
+\begin{itemize}
+    \item Node.js (>=18.19)
+    \item Cualquiera de los siguientes gestores de paquetes:
+        \begin{itemize}
+            \item npm
+            \item yarn
+            \item pnpm
+            \item bun
+        \end{itemize}
+\end{itemize}
+Una vez tenemos la aplicación del explorador de Lynxjs instalada en nuestro dispositivo móvil, necesitamos tener la implementación de Lynxjs para poder cargarla en el explorador.
+
+Para ello, tenemos que ejecutar la compilación de la aplicación a partir del código fuente del proyecto. Los pasos a seguir son los siguientes:
+
+Obtenemos el código fuente del proyecto clonando el repositorio:
+\begin{lstlisting}[language=bash]
+git clone https://github.com/alexrp-tfg/mobile-client.git
+cd mobile-client
+\end{lstlisting}
+
+Instalamos las dependencias del proyecto usando el gestor de paquetes que prefiramos. En este caso usaremos yarn:
+\begin{lstlisting}[language=bash]
+yarn install
+\end{lstlisting}
+
+Una vez instaladas las dependencias, podemos proceder a compilar la aplicación. Para ello, ejecutamos el siguiente comando:
+\begin{lstlisting}[language=bash]
+yarn run dev
+\end{lstlisting}
+
+Una vez tenemos la aplicación ejecutándose, abrimos la aplicación del explorador de Lynxjs en nuestro dispositivo móvil y escaneamos el código QR que aparece en la terminal donde hemos ejecutado el comando anterior o introducimos la url manualmente en el explorador.
+
+De esta manera, conseguimos ejecutar la aplicación en modo desarrollo, pudiendo ver los cambios en tiempo real al modificar el código fuente y pudiendo ejecutar la \href{github.com/lynx-family/lynx-devtool}{herramienta de desarrollo de lynxjs}.
