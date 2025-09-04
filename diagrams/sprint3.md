@@ -105,4 +105,32 @@ sequenceDiagram
     Servidor->>BD: Guarda metadatos (usuario, archivo)
     BD-->>Servidor: Confirma guardado
     Servidor-->>AppMóvil: Responde éxito/fallo
+    Servidor-->>Servidor: Genera thumbnail de archivo
+```
+
+```mermaid
+erDiagram
+    USERS {
+        UUID id PK "default: gen_random_uuid()"
+        VARCHAR username "NOT NULL, UNIQUE"
+        VARCHAR password "NOT NULL"
+        TIMESTAMPTZ created_at "default: CURRENT_TIMESTAMP"
+        TIMESTAMPTZ updated_at "default: CURRENT_TIMESTAMP"
+        ROLE role "ENUM('ADMIN', 'USER') DEFAULT 'USER'"
+    }
+
+    MEDIA_FILES {
+        UUID id PK "default: gen_random_uuid()"
+        UUID user_id FK "NOT NULL, references USERS(id), ON DELETE CASCADE"
+        VARCHAR filename "NOT NULL"
+        VARCHAR original_filename "NOT NULL"
+        BIGINT file_size "NOT NULL"
+        VARCHAR content_type "NOT NULL"
+        VARCHAR file_path "NOT NULL"
+        TIMESTAMPTZ uploaded_at "default: CURRENT_TIMESTAMP"
+        TIMESTAMPTZ updated_at "default: CURRENT_TIMESTAMP"
+        VARCHAR thumbnail_path "NULL"
+    }
+
+    USERS ||--o{ MEDIA_FILES : "owns"
 ```

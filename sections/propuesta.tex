@@ -2,8 +2,6 @@
 ~
 \newpage
 \chapter{Propuesta}
-Dado que se trata de un TFG de desarrollo, se describe lo realizado, el procedimiento seguido y los resultados obtenidos.
-
 Una vez analizado el estado del arte y las tecnologías disponibles, se propone una propuesta a desarrollar que busca cumplir con los objetivos planteados en la introducción. Para el desarrollo de la propuesta se utilizan metodologías ágiles y tecnologías modernas para garantizar un desarrollo eficiente y que permitirá una fácil adaptación a los cambios que puedan surgir durante el desarrollo del proyecto.
 
 Tal como se ha especificado en los capítulos anteriores, se desarrollará una solución que busca ofrecer:
@@ -53,11 +51,6 @@ Scrum se centra en la entrega de incrementos de producto funcionales en ciclos c
 
 Scrum se basa en una serie de roles, eventos y artefactos que ayudan a los equipos a organizar su trabajo y colaborar de manera efectiva. Los roles incluyen el Product Owner (responsable de la visión del producto), el Scrum Master (facilitador del proceso) y el equipo de desarrollo (responsable de la entrega del producto). Los eventos incluyen las reuniones diarias, las revisiones de sprint y las retrospectivas, que permiten a los equipos reflexionar sobre su trabajo y mejorar continuamente.
 
-Aunque Scrum está muy enfocado a equipos, también es posible utilizarlo con un equipo muy pequeño o incluso con una sola persona, realizando los mismos eventos pero sin la necesidad de tener un equipo de desarrollo.
-Éste es el enfoque que se le va a dar a este proyecto. Una buena práctica de Scrum es documentar todas las reuniones y tomas de decisiones que se toman a lo largo de la vida del proyecto, ya que esto ayuda a tener una mejor organización y a poder ver cómo ha ido evolucionando el proyecto a lo largo del tiempo.
-Es por ello que se van a documentar todas las decisiones que se tomen y los cambios que se realicen en el desarrollo.
-
-
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{assets/scrum-diagram.png}
@@ -77,7 +70,7 @@ Aunque el producto sufra cambios después, intentar estimar lo mejor posible y t
 
 Se separará el desarrollo en distintos sprints, cada uno de ellos con una duración de dos semanas.
 
-Durante cada sprint se seleccionarán las historias de usuario\footnote{Las historias de usuario son descripciones concisas y sencillas de una funcionalidad, escritas desde la perspectiva del usuario} al principio del sprint y se desarrollarán (posible desglose en distintas historias de usuario, definición de tareas relacionadas con la HU junto con estimación de las mismas y definición de pruebas de aceptación) generando así el Sprint Backlog correspondiente a ese sprint, se completarán las tareas necesarias para completarlas.
+Durante cada sprint se seleccionarán las \glspl{historia-usuario} al principio del sprint y se desarrollarán (posible desglose en distintas historias de usuario, definición de tareas relacionadas con la HU junto con estimación de las mismas y definición de pruebas de aceptación) generando así el Sprint Backlog correspondiente a ese sprint, se completarán las tareas necesarias para completarlas.
 
 Al final del sprint se realizará una revisión en la que se analizará lo que se ha conseguido hacer y si se ha cumplido con lo definido antes del sprint para adaptar el product backlog si fuera necesario y tenerlo en cuenta para el siguiente sprint. En la revisión participarán Product Owner, equipo de desarrollo, Scrum Master y los interesados en el proyecto (Stakeholders). Aquí es donde se presenta el incremento del producto a los interesados y se recibe retroalimentación sobre el trabajo realizado.
 
@@ -113,14 +106,14 @@ En esta sección se detallan las historias de usuario e historias técnicas de l
 
 Se ha considerado esta separación ya que la aplicación de servidor tiene un objetivo diferente al de la aplicación móvil, de esta manera conseguimos una mejor organización de las historias de usuario.
 
-Durante los primeros sprints se trabajará de manera principalmente separada, enfocándose en la parte correspondiente que se defina de la aplicación y en una fase más avanzada se trabajará de manera conjunta, integrando ambas aplicaciones. Se realizará de esta manera para para poder enfocarnos mejor en una sola parte del proyecto, de esta manera no tenemos que estar cambiando de contexto constantemente entre las dos aplicaciones, lo que podría hacer que el desarrollo fuera más lento y tedioso.
+Durante los primeros sprints se trabajará de manera principalmente separada, enfocándose en la parte correspondiente que se defina de la aplicación y en una fase más avanzada se trabajará de manera conjunta, integrando ambas aplicaciones. Se realizará de esta manera para para facilitar al equipo el enfoque en una sola parte del desarrollo, de esta manera el equipo de desarrollo no cambiará de contexto constantemente entre las dos aplicaciones, lo que podría hacer que el desarrollo fuera más lento y tedioso.
 
 Para la planificación del desarrollo se han utilizado puntos de historia (PH), los cuales representan una estimación de lo que se considera que se tardará en implementar las historias de usuario. Esta estimación es relativa, es decir, no representa un tiempo real sino una estimación con respecto a todas las demás historias de usuario, siendo 1 punto de historia la historia de usuario más sencilla de implementar o que menos tiempo requiere.
 
-Este es un listado inicial de historias de usuario, durante los sprints se irá especificando si alguna historia de usuario ha cambiado, añadido o eliminado del product backlog\footnote{El product backlog es una lista priorizada de requisitos o tareas pendientes en un proyecto ágil.}.
+Este es un listado inicial de historias de usuario, durante los sprints se irá especificando si alguna historia de usuario ha cambiado, añadido o eliminado del product backlog.
 
 Cada historia de usuario tiene un identificador único, una descripción de la historia de usuario y una estimación en puntos de historia. Ésta es después desglosada en historias de usuario más pequeñas de las cuales se definen tareas que tienen que ser realizadas para completar la historia de usuario con su estimación en horas.
-Además de las historias de usuario, contamos con historias técnicas, que son historias de usuario que no están relacionadas directamente con el usuario final, sino que son necesarias para el correcto funcionamiento del sistema. Estas historias técnicas se consideran como historias de usuario y se les asigna una estimación en puntos de historia.
+Además de las historias de usuario, se definen historias técnicas, que son historias de usuario que no están relacionadas directamente con el usuario final, sino que son necesarias para el correcto funcionamiento del sistema. Estas historias técnicas se consideran como historias de usuario y se les asigna una estimación en puntos de historia.
 
 A lo largo del product backlog  se hará referencia a HU\{identificador\} para las historias de usuario y HT\{identificador\} para las historias técnicas. El identificador será un número entero que se asignará de manera consecutiva a cada historia de usuario o historia técnica. Para la sub-historias de usuario se asignará un número entero que será el mismo que la historia de usuario a la que pertenece, seguido de un punto y otro número entero que será el identificador de la sub-historia de usuario, por ejemplo: HU1, HU1.1, HU1.2, etc.
 
@@ -166,7 +159,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HT02 & Sincronización incremental & Implementar sincronización basada en metadatos (fecha, tamaño, hash). & 5 \\
     \hline
-    HT03 & API REST & Desarrollar API RESTful par el servidor & 13 \\
+    HT03 & API REST & Desarrollar API RESTful para el servidor & 13 \\
     \hline
     HT04 & Descubrimiento mDNS & Crear sistema de descubrimiento automático usando mDNS. & 8 \\
     \hline
@@ -176,7 +169,7 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HT07 & Estructura de almacenamiento & Definir carpetas y metadatos para organizar los archivos. & 5 \\
     \hline
-    HT08 & Base de datos & Implementar SQLite o PostgreSQL para usuarios y archivos. & 8 \\
+    HT08 & Base de datos & Implementar conexión con base de datos para usuarios y archivos. & 8 \\
     \hline
     HT09 & Compresión de imágenes & Implementar compresión para optimizar el almacenamiento. & 5 \\
     \hline
@@ -190,13 +183,13 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
     \hline
     HT14 & Cobertura de tests & Medir y asegurar la cobertura de pruebas. & 3 \\
     \hline
-    HT15 & Interfaz Tauri & Crear interfaz gráfica del servidor con Tauri. & 8 \\
+    HT15 & Interfaz gráfica del servidor & Crear interfaz gráfica del servidor. & 8 \\
     \hline
     HT16 & Panel de control & Implementar visualización de archivos y uso del sistema. & 5 \\
     \hline
     HT17 & Notificaciones de progreso & Integrar notificaciones del sistema con progreso de subida. & 3 \\
     \hline
-    HT18 & Binario y Tauri & Empaquetar servidor como CLI y app Tauri. & 5 \\
+    HT18 & Binario & Empaquetar servidor como CLI. & 2 \\
     \hline
     HT19 & Dockerización & Crear imagen Docker del servidor. & 3 \\
     \hline
@@ -210,24 +203,6 @@ A lo largo del product backlog  se hará referencia a HU\{identificador\} para l
 
 \paragraph{Historias que se han dividido}
 
-Ambas tablas que aparecen a continuación muestran historias técnicas que han sido divididas en sub-historias para facilitar su gestión y estimación en el backlog.
-
-\begin{table}[h!]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|l|>{\raggedright}X|l|}
-            \hline
-            ID & Título & Descripción & Estimación \\
-            \hline
-            HT18 & Binario y Tauri & Empaquetar servidor como CLI y app Tauri. & 5 \\
-            \hline
-            HT18.1 & Binario & Empaquetar la aplicación como un solo binario & 2 \\
-            \hline
-            HT18.2 & Tauri & Empaquetar aplicación de escritorio con Tauri & 3 \\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
-
 \begin{table}[h!]
     \begin{center}
         \begin{tabularx}{\textwidth}{|l|X|>{\raggedright\arraybackslash}X|l|}
@@ -236,11 +211,9 @@ Ambas tablas que aparecen a continuación muestran historias técnicas que han s
             \hline
             HT20 & Documentación & Documentar instalación y uso del sistema. & 13 \\
             \hline
-            HT20.1 & Documentación del proyecto en Github & Documentar la instalación y uso del proyecto en el repositorio de Github & 5 \\
+            HT20.1 & Documentación del proyecto en Github & Documentar la instalación y uso del proyecto en el repositorio de Github & 8 \\
             \hline
             HT20.2 &  Documentación de la API REST con OpenAPI & Documentar mediante la generación de una página web todos los endpoints de la API REST & 5 \\
-            \hline
-            HT20.3 & Documentación de la aplicación Tauri & Manual de usuario de la aplicación de escritorio desarrollada con Tauri & 3 \\
             \hline
         \end{tabularx}
     \end{center}
@@ -351,13 +324,13 @@ Esto otorga mayor flexibilidad a la hora de cambiar la base de datos en el futur
 
 Una de las principales fortalezas del sistema propuesto radica en su escalabilidad horizontal, facilitada por la arquitectura distribuida de sus componentes principales. La separación del servidor de aplicación, el sistema de almacenamiento de archivos (MinIO) y la base de datos (PostgreSQL) en componentes independientes permite escalar cada uno de manera selectiva según las demandas específicas del sistema, sin comprometer la disponibilidad ni la integridad de los datos.
 
-En el caso del servidor de aplicación, se pueden desplegar múltiples instancias detrás de un balanceador de carga que distribuya las peticiones de manera inteligente. Esto no solo mejora el rendimiento al procesar más peticiones simultáneamente, sino que también proporciona alta disponibilidad: si una instancia falla, el balanceador redirige automáticamente el tráfico a las instancias restantes, garantizando que los usuarios no experimenten interrupciones en el servicio. La naturaleza \textit{stateless} del servidor facilita esta escalabilidad, ya que cualquier instancia puede procesar cualquier petición sin dependencia de estado local.
+En el caso del servidor de aplicación, se pueden desplegar múltiples instancias detrás de un balanceador de carga que distribuya las peticiones de manera inteligente. Esto no solo mejora el rendimiento al procesar más peticiones simultáneamente, sino que también proporciona alta disponibilidad: si una instancia falla, el balanceador redirige automáticamente el tráfico a las instancias restantes, garantizando que los usuarios no experimenten interrupciones en el servicio. La naturaleza \textit{sin estado} del servidor facilita esta escalabilidad, ya que cualquier instancia puede procesar cualquier petición sin dependencia de estado local.
 
 Para el almacenamiento de archivos multimedia, MinIO ofrece capacidades de escalabilidad horizontal nativas mediante clustering y distribución automática de datos. Se pueden añadir nuevos nodos al cluster de MinIO de manera transparente, aumentando tanto la capacidad de almacenamiento como el rendimiento de lectura/escritura. La replicación automática de objetos entre nodos garantiza la disponibilidad de los datos incluso durante operaciones de mantenimiento o fallos de hardware. Los usuarios continúan accediendo a sus archivos sin interrupciones, mientras que el sistema redistribuye automáticamente la carga entre los nodos disponibles.
 
 En cuanto a PostgreSQL, la escalabilidad se puede abordar mediante varias estrategias complementarias. Para escalado de lectura, se pueden implementar réplicas de solo lectura que manejen consultas de visualización de galerías y metadatos, mientras que el servidor principal gestiona las operaciones de escritura. Para cargas más intensivas, se puede implementar particionamiento horizontal (sharding) donde los datos se distribuyen entre múltiples instancias según criterios como el ID de usuario o la fecha de creación. Adicionalmente, el uso de técnicas como connection pooling y caché distribuido (Redis/Memcached) reduce la carga en la base de datos y mejora los tiempos de respuesta.
 
-El diseño modular del sistema permite que estas operaciones de escalado se realicen sin impacto en la experiencia del usuario mediante la implementación de estrategias de despliegue avanzadas. El \textit{blue-green deployment} consiste en mantener dos entornos idénticos de producción: mientras el entorno "azul" atiende a los usuarios, el entorno "verde" se actualiza con las nuevas instancias o configuraciones. Una vez verificado que el entorno verde funciona correctamente, se redirige todo el tráfico instantáneamente, eliminando tiempos de inactividad. Alternativamente, los \textit{rolling updates} permiten actualizar gradualmente las instancias del servidor una por una, manteniendo siempre un número mínimo de instancias operativas para atender las peticiones mientras las demás se actualizan secuencialmente.
+El diseño modular del sistema permite que estas operaciones de escalado se realicen sin impacto en la experiencia del usuario mediante la implementación de estrategias de despliegue avanzadas. El \textit{blue-green deployment} consiste en mantener dos entornos idénticos de producción: mientras el entorno ``azul'' atiende a los usuarios, el entorno ``verde'' se actualiza con las nuevas instancias o configuraciones. Una vez verificado que el entorno verde funciona correctamente, se redirige todo el tráfico instantáneamente, eliminando tiempos de inactividad. Alternativamente, los \textit{rolling updates} permiten actualizar gradualmente las instancias del servidor una por una, manteniendo siempre un número mínimo de instancias operativas para atender las peticiones mientras las demás se actualizan secuencialmente. Estas son estrategias que son complementarias y pueden combinarse según las necesidades del sistema.
 
 Para garantizar la resistencia ante fallos temporales durante estos procesos, el cliente móvil implementa mecanismos de \textit{retry automático}, que consiste en reintentar automáticamente las peticiones fallidas después de intervalos exponencialmente crecientes (por ejemplo, 1s, 2s, 4s, 8s), permitiendo que operaciones como la subida de fotos se completen exitosamente incluso si algunos servidores están temporalmente no disponibles.
 
@@ -375,8 +348,7 @@ Para ello, se han estudiado las distintas opciones disponibles, tanto para el se
     \item \textbf{Escalabilidad}: al estar desacopladas las distintas capas del sistema, es más fácil escalar el sistema a medida que crece.
 \end{itemize}
 
-\paragraph{Arquitectura del servidor}
-\subparagraph{}
+\subsubsection{Arquitectura del servidor}
 Para el servidor se ha decidido usar una estructura monolítica modular siguiendo los principios de una arquitectura limpia.
 Este enfoque se acerca a lo que sería una estructura de microservicios, pero sin la complejidad que conlleva el uso de múltiples servicios.
 Siguiendo esta solución la aplicación se compone de un solo binario que contiene todo el código del servidor, pero con una estructura modular donde cada módulo tiene una responsabilidad clara y bien definida.
@@ -395,8 +367,7 @@ De esta manera, en un futuro se podría separar el servidor en microservicios de
 
 En la Figura \ref{fig:modular-monolith-comparison} se muestra que la diferencia entre una arquitectura de microservicios y una monolítica modular es que los módulos comparten el mismo proceso y por ende la comunicación entre ellos cambiará y se hará de manera local mediante llamadas a funciones, mientras que en una arquitectura de microservicios la comunicación entre los distintos servicios se hace mediante peticiones a través de un protocolo de comunicación específico y cada módulo tendría su propia forma de administrar datos, lo que añade una capa de complejidad innecesaria para un proyecto de este alcance.
 
-\paragraph{Arquitectura del cliente}
-\subparagraph{}
+\subsubsection{Arquitectura del cliente}
 La aplicación móvil también seguirá una arquitectura limpia, la cual contará con una capa de presentación, una capa de dominio y una capa de infraestructura.
 La capa de presentación se encargará de la interfaz de usuario y de la interacción con el usuario, la capa de dominio se encargará de la lógica de negocio y la capa de infraestructura se encargará de la comunicación con el servidor y el almacenamiento local.
 
@@ -470,8 +441,6 @@ Invertir en aprender este lenguaje no solo favorecerá el desarrollo de este pro
 
 El trabajo con tecnologías y paradigmas de programación poco familiares para el equipo contribuye al desarrollo de nuevas competencias y a la ampliación del conocimiento en el ámbito del desarrollo de software, lo cual resulta fundamental para el crecimiento profesional.
 
-Para la parte de servidor se va a hacer uso de uno de los lenguajes más venerados en la actualidad en el mundo de la programación: \textbf{Rust}.
-
 Rust es un lenguaje de programación de sistemas que se centra en la seguridad, el rendimiento y la concurrencia. Se ha convertido en una opción popular para el desarrollo de aplicaciones de alto rendimiento y sistemas críticos.
 Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otros lenguajes de programación como C++ o Java, lo que facilita su aprendizaje para los programadores que ya tienen experiencia en estos lenguajes, permitiendo un desarrollo más seguro, rápido y eficiente.
 
@@ -479,7 +448,7 @@ Aunque Rust es un lenguaje de bajo nivel, su sintaxis es muy similar a la de otr
     \item \textbf{Rendimiento}: es conocido por su alto rendimiento, lo que lo convierte en una excelente opción para aplicaciones que requieren un procesamiento intensivo de datos. Aunque es un lenguaje enfocado a sistemas, el rendimiento de sus librerías para desarrollo web es muy bueno, como se puede ver en distintos benchmark \parencite{rust-benchmark}.
     \item \textbf{Seguridad}: tiene un sistema de tipos y un modelo de propiedad que ayudan a prevenir errores comunes de programación, como desbordamientos de búfer y condiciones de carrera.
     \item \textbf{Concurrencia}: soporta de manera nativa y sencilla la escritura de código concurrente y paralelo, lo que es esencial para aplicaciones que manejan múltiples tareas al mismo tiempo.
-        Gracias a su implementación de \gls{fearless-concurrency}, Rust permite a los desarrolladores escribir código concurrente sin preocuparse por errores comunes como condiciones de carrera o deadlocks, lo que facilita la creación de aplicaciones altamente eficientes y escalables.
+        Gracias a su implementación de \gls{fearless-concurrency} (\cite{rustbook2024}, Capítulo 16), Rust permite a los desarrolladores escribir código concurrente sin preocuparse por errores comunes como condiciones de carrera o deadlocks, lo que facilita la creación de aplicaciones altamente eficientes y escalables.
     \item \textbf{Manejo de errores}: tiene un enfoque único para el manejo de errores, utilizando tipos de datos como \texttt{Result} y \texttt{Option} para representar resultados exitosos y fallidos, lo que ayuda a evitar errores en tiempo de ejecución, consiguiendo de esta manera no encontrarnos con errores inesperados a la hora de ejecutar la aplicación.
     \item \textbf{Ecosistema}: cuenta con un ecosistema en crecimiento, con una amplia variedad de bibliotecas y herramientas que facilitan el desarrollo de aplicaciones.
 \end{itemize}
@@ -504,11 +473,10 @@ Trabajar con un framework que aún está en desarrollo y que tiene muchas funcio
 El hecho de que no haya un punto de partida tan avanzado como en otros frameworks hará que el equipo tenga que enfrentarse a retos y problemas que no se han resuelto aún, lo que puede ser una gran oportunidad para aprender y mejorar las habilidades de desarrollo.
 Desarrollar ese tipo de funcionalidades en un framework conseguirá que el equipo tenga un conocimiento más profundo de cómo funciona el framework y cómo se pueden implementar soluciones eficientes y efectivas.
 
-Lynx.js es un framework inspirado en React Native. El desarrollo de la aplicación se hace con React el cual se compila a código nativo de la plataforma. El framework soporta componentes de cualquier framework de desarrollo web, aunque está pensado para usar React con componentes definidos por el framework de desarrollo.
-
+Lynx.js es un framework inspirado en React Native. El desarrollo de la aplicación se hace con React el cual se compila a código nativo de la plataforma.
 Aunque pueda parecer igual que React Native, Lynx añade algunas cosas que le faltan a React Native. Uno de los mayores problemas de React Native es su rendimiento en algunas situaciones, ya que este solamente hace uso de un solo hilo de ejecución, lo cual no permite una buena gestión de las tareas. Por ejemplo, no puede obtener datos de una API mientras que se actualiza lo que se muestra al usuario.
 
-Sin embargo, Lynx tiene se ejecuta sobre dos hilos, un hilo principal y un hilo secundario.
+Sin embargo, Lynx se ejecuta sobre dos hilos, un hilo principal y un hilo secundario.
 Gracias a esto, es posible especificar en qué hilo se va a ejecutar cada función, consiguiendo de esta manera que tareas como mostrar rápidamente la interfaz se hagan lo más rápido posible mientras que en el hilo secundario se obtienen los datos de la API.
 Esto da una experiencia al usuario mucho más fluida y rápida, principalmente gracias a el \gls{ifr} (\acrshort{ifracr}).
 
@@ -553,7 +521,7 @@ En resumen, las ventajas de usar este framework con respecto a otros son:
 \begin{itemize}
     \item \textbf{Flutter}: aunque es un framework muy potente y con una comunidad muy activa, su rendimiento no es tan bueno como el de Lynx.js.
         Flutter renderiza un ``canvas'' que utiliza un motor gráfico que se asemeja a un motor para juegos para renderizar la interfaz de usuario, haciendo que la experiencia de usuario no sea tan fluida como podría ser la de otro framework.
-    \item \textbf{Kotlin Multiplatform}: aunque es una opción interesante, la comunidad y la documentación son mucho más limitadas que las de Lynx.js. La curva de aprendizaje es mucho más pronunciada, ya que se utiliza Kotlin junto con una gran cantidad de librerías las cuales necesitan de un estudio profundo para su uso.
+    \item \textbf{Kotlin Multiplatform}: aunque es una opción interesante, la curva de aprendizaje es mucho más pronunciada, ya que se utiliza Kotlin junto con una gran cantidad de librerías las cuales necesitan de un estudio profundo para su uso. 
 
         Aportaría el mejor rendimiento sin tener que programar la aplicación de forma nativa para todos los dispositivos (los dispositivos comparten código pero hay que implementar la mayoría de forma nativa para las distintas plataformas), pero el desarrollo sería mucho más lento y tedioso, lo cual además complicaría la aportación al proyecto Open Source.
     \item \textbf{React Native}: aunque es un framework muy conocido y utilizado, su rendimiento no es tan bueno como el de Lynx.js.
@@ -565,8 +533,7 @@ Este framework ha sido desarrollado de cero por el equipo de TikTok. Es utilizad
 
 \subsection{Inicialización del entorno de desarrollo}
 En esta sección se va a detallar cómo se ha procedido a la inicialización del entorno de desarrollo tanto para el servidor como para la aplicación móvil.
-\paragraph{Servidor}
-\subparagraph{}
+\subsubsection{Servidor}
 Para la inicialización del entorno de desarrollo del servidor se ha tomado como referencia la estructura de ejemplo que se puede encontrar en el artículo consultado sobre la arquitectura hexagonal en Rust \parencite{rust-hexagonal-architecture}. Éste quedaría de la siguiente manera:
 \dirtree{%
 .1 /.
@@ -682,8 +649,7 @@ Si se adaptara este proyecto de ejemplo a la estructura que se utilizará, la es
 .2 README.md.
 }
 
-\paragraph{Cliente móvil}
-\subparagraph{}
+\subsubsection{Cliente móvil}
 Siguiendo la arquitectura limpia para una aplicación móvil, definida en la Figura \ref{fig:clean-architecture-mobile}, la estructura del cliente móvil es muy similar a la del servidor, pero con algunas diferencias.
 
 En este caso no se utiliza el patrón de código \acrshort{cqrs}, ya que no es necesario en una aplicación móvil, pero sí se sigue una estructura modular similar a la del servidor, donde cada módulo tiene una responsabilidad clara y bien definida.

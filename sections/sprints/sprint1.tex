@@ -19,7 +19,7 @@ Las seleccionadas son las siguientes:
     \item HT03 API REST en Rust - 13 PH
     \item HT05: Autenticación JWT - 5 PH
     \item HT08: Base de datos - 8 PH
-    \item HT18.1: Binario - 2 PH
+    \item HT18: Binario - 2 PH
     \item HT19: Dockerización - 3 PH
     \item HT20.1: Documentación del proyecto en GitHub - 5 PH
     \item HT20.2: Documentación de la API REST con OpenAPI - 5 PH
@@ -38,7 +38,7 @@ El total de horas estimadas para todas las tareas de desarrollo del Sprint 1 es 
     \item HT03 (API REST en Rust): 13 horas
     \item HT05 (Autenticación JWT): 5 horas
     \item HT08 (Base de datos): 7 horas
-    \item HT18.1 (Binario): 2 horas
+    \item HT18 (Binario): 2 horas
     \item HT19 (Dockerización): 3 horas
     \item HT20.1 (Documentación GitHub): 4 horas
     \item HT20.2 (Documentación OpenAPI): 5 horas
@@ -72,15 +72,25 @@ Para finalizar, configuraremos todo lo necesario para poder desplegar el servido
 
 \subsection{Diseño detallado e implementación}
 
-\paragraph{Acceso a datos}
-\subparagraph{}
+\subsubsection{Modelo Entidad-Relación}
+
+El desarrollo de este primer sprint se ha centrado en la implementación de la gestión de usuarios y autenticación, por lo que el modelo entidad-relación se ha diseñado para soportar estas funcionalidades.
+El modelo entidad-relación diseñado para este sprint incluye las siguientes entidades y relaciones:
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{assets/sprint1/users-er-diagram.png}
+    \end{center}
+    \caption{Diagrama entidad relación de los usuarios}\label{fig:users-er-diagram}
+\end{figure}
+
+
+\subsubsection{Acceso a datos}
 Se ha optado por usar el \acrshort{orm} \textbf{Diesel} para el acceso a datos, ya que es uno de los más populares y robustos en el ecosistema de Rust. Diesel proporciona una interfaz segura y eficiente para interactuar con bases de datos SQL, lo que facilita la creación y gestión de esquemas, así como la ejecución de consultas.
 
 Diesel nos proporciona un sistema de migraciones que nos permite versionar y gestionar los cambios en la estructura de la base de datos de manera controlada, generando esquemas que podemos utilizar a la hora de utilizar los métodos que nos proporciona el ORM. De esta manera, tendremos consultas seguras y tipadas.
 Esto nos da una especial seguridad a la hora de hacer un desarrollo ágil, ya que podemos iterar rápidamente sobre el modelo de datos y asegurarnos de que los cambios se reflejan correctamente en la base de datos y en nuestro código, ya que hasta que no se solucionen los problemas de compilación provenientes de los cambios en la infraestructura, no se podrá seguir avanzando.
 
-\paragraph{Implementación de Arquitectura Limpia}
-\subparagraph{}
+\subsubsection{Implementación de Arquitectura Limpia}
 
 Tal y como se ha descrito en apartados anteriores, se ha seguido una arquitectura limpia siguiendo el paradigma de programación \acrshort{cqrs}.
 
@@ -228,8 +238,7 @@ El siguiente diagrama muestra cómo se relacionan las diferentes capas de la arq
 
 Tal como se ha definido en la arquitectura software, la capa de interfaz accede a la capa de aplicación pero no viceversa. Para hacer uso de la capa de infraestructura, la capa de aplicación utiliza una abstracción de dominio que utiliza siempre objetos de dominio, la cual después la infraestructura implementa y se inicializa en el estado global de la aplicación.
 
-\paragraph{Documentación de la API REST}
-\subparagraph{}
+\subsubsection{Documentación de la API REST}
 
 Para documentar todos los endpoints de la API REST, se ha utilizado la especificación OpenAPI. Esta especificación permite describir de manera estructurada los endpoints, parámetros, tipos de datos y respuestas de la API.
 
@@ -239,8 +248,7 @@ Esto asegura que la documentación esté siempre actualizada y refleje fielmente
 Además, se ha configurado otra librería compatible con utoipa \textbf{utoipa-swagger-ui}, que permite servir la documentación generada como una página web interactiva, lo que facilita a los desarrolladores y usuarios explorar y probar los endpoints de la API, mostrando ejemplos de peticiones, respuestas, errores y los esquemas usados en las peticiones y respuestas.
 Además, nos permite probar los endpoints directamente desde la interfaz.
 
-\paragraph{Pruebas unitarias y de integración}
-\subparagraph{}
+\subsubsection{Pruebas unitarias y de integración}
 
 Para garantizar la calidad del código y el correcto funcionamiento de la aplicación, se han implementado pruebas unitarias y de integración utilizando la librería \textbf{tokio} para pruebas asíncronas y un \textbf{servicio oneshot} para simular el servidor HTTP.
 El servicio oneshot no es más que un servidor HTTP con unas rutas definidas al igual que nuestra API, solo que es de un solo uso para realizar pruebas, ya que solamente deja simular una sola petición y respuesta, lo que es suficiente para nuestras pruebas unitarias.
@@ -285,8 +293,7 @@ Se han abarcado todos los casos de uso definidos en las historias de usuario, as
 
 Para ejecutar todos los tests, es tan sencillo como ejecutar el comando $cargo\ test$ en la raíz del proyecto, lo que ejecutará todas las pruebas definidas en la carpeta \texttt{tests} y mostrará los resultados en la consola.
 
-\paragraph{Despliegue}
-\subparagraph{}
+\subsubsection{Despliegue}
 
 Todos los pasos necesarios para el despliegue se han definido en el README del proyecto, donde se explica cómo construir el binario, cómo crear la imagen Docker y cómo ejecutar el servidor en un contenedor Docker, o directamente del binario compilado.
 

@@ -54,6 +54,8 @@ Esta opción utiliza servicios de terceros como \textbf{Amazon S3}, \textbf{Goog
 \end{itemize}
 \end{itemize}
 
+Aunque hablamos de almacenamiento en la nube, existe la opción de utilizar una solución que imite el almacenmaiento en la nube pero de forma local, como puede ser \gls{minio}, que es una solución de almacenamiento de objetos compatible con el protocolo S3 que se puede instalar en un servidor propio. De esta forma, se pueden aprovechar las ventajas del almacenamiento en la nube (escalabilidad, fiabilidad, funcionalidades adicionales) sin depender de un proveedor externo.
+
 \section{Servidor}
 El servidor de sincronización de multimedia es el componente central de la aplicación, encargado de gestionar la comunicación entre el cliente y el almacenamiento de fotos.
 Disponemos de una amplia variedad a la hora de elegir un lenguaje/\gls{framework} para el desarrollo del servidor, cada uno con sus propias ventajas y desventajas.
@@ -75,7 +77,7 @@ A continuación se muestra una comparativa de rendimiento de los lenguajes anter
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{assets/rust-cpu-comparison.png}
-  \caption{Comparativa de uso de CPU entre Rust y otros lenguajes de programación (menos es mejor) \parencite{rust-for-safety-and-performance}}
+  \caption{Comparativa de uso de CPU entre C, C++, Go, Java, Python y Rust (menos es mejor) \parencite{rust-for-safety-and-performance}}
   \label{fig:rust-cpu-comparison}
 \end{figure}
 
@@ -83,7 +85,7 @@ A continuación se muestra una comparativa de rendimiento de los lenguajes anter
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.8\textwidth]{assets/rust-memory-comparison.png}
-  \caption{Comparativa de uso de memoria entre Rust y otros lenguajes de programación (menos es mejor) \parencite{rust-for-safety-and-performance}}
+  \caption{Comparativa de uso de memoria entre C, C++, Go, Java, Python y Rust (menos es mejor) \parencite{rust-for-safety-and-performance}}
   \label{fig:rust-memory-comparison}
 \end{figure}
 
@@ -99,7 +101,7 @@ A partir de las Figuras, podemos definir dos fórmulas para calcular el porcenta
 \end{equation}
 
 
-Obteniendo las siguientes tablas de comparación:
+Cogiendo Rust como referencia, puesto que es el que mejor resultados tiene en ambas métricas, obtenemos las siguientes tablas de comparación:
 
 \begin{table}[H]
 \centering
@@ -143,8 +145,7 @@ Rust y Go son dos lenguajes de programación modernos que han ganado una popular
 \textbf{Go} (también conocido como Golang) es un lenguaje desarrollado por Google, diseñado para ser simple, eficiente y productivo, especialmente para la programación concurrente y de redes. Prioriza la simplicidad en su sintaxis y herramientas, facilitando una curva de aprendizaje suave.
 
 \subsection{Gestión de memoria}
-\paragraph{Rust}
-\subparagraph{}
+\subsubsection{Rust}
 
 Rust implementa un sistema de gestión de memoria único basado en los conceptos de \textit{ownership}, \textit{borrowing} y \textit{\glspl{rust-lifetimes}}. Este sistema garantiza la seguridad de memoria en tiempo de compilación sin necesidad de un \acrfull{gc}.
 
@@ -161,8 +162,7 @@ Gracias a ello, tenemos control preciso sobre la memoria, ausencia de pausas por
 
 Todo este paradigma de programación es totalmente distinto a lo que estamos acostumbrados en otros lenguajes de programación como puede ser Java o c++/c, lo que puede llevar a una curva de aprendizaje más pronunciada, pero a largo plazo nos va a permitir desarrollar aplicaciones más seguras y eficientes.
 
-\paragraph{Go}
-\subparagraph{}
+\subsubsection{Go}
 
 Go utiliza un recolector de basura para la gestión automática de la memoria. Este GC está optimizado para baja latencia, aunque introduce ciertas pausas (\cite{go-documentation}, The Go Memory Model).
 
@@ -173,8 +173,7 @@ Go está diseñado para ser un lenguaje de programación lo más eficiente posib
 \end{itemize}
 
 \subsection{Rendimiento}
-\paragraph{Rust}
-\subparagraph{}
+\subsubsection{Rust}
 Rust está diseñado para ofrecer un rendimiento comparable al de C y C++. Sus abstracciones de ``coste cero'' aseguran que las características de alto nivel no impongan una penalización en tiempo de ejecución. La ausencia de GC también contribuye a un rendimiento predecible.
 
 Rust ofrece varias abstracciones de coste cero como \texttt{iterators}, \texttt{closures} y \texttt{async/await} que permiten escribir código limpio y expresivo sin sacrificar el rendimiento. Además, su sistema de tipos y el modelo de propiedad permiten al compilador realizar optimizaciones agresivas que en otro lenguaje son imposibles.
@@ -185,8 +184,7 @@ En el rendimiento podemos distinguir entre dos aspectos:
     \item \textbf{Ejecución:} Muy alta velocidad de ejecución y uso eficiente de los recursos gracias a su modelo de propiedad.
 \end{itemize}
 
-\paragraph{Go}
-\subparagraph{}
+\subsubsection{Go}
 
 Go ofrece un buen rendimiento, aunque generalmente no alcanza el nivel de Rust o C++ en tareas que requieren máxima optimización a bajo nivel. Su compilador es notablemente rápido en comparación con el de Rust, dado que está enfocado a solucionar errores en ejecución y no en compilación.
 
@@ -198,8 +196,7 @@ Go utiliza un modelo de concurrencia basado en \glspl{goroutine} y canales (\cit
 \end{itemize}
 
 \subsection{Concurrencia}
-\paragraph{Rust}
-\subparagraph{}
+\subsubsection{Rust}
 
 Rust aborda la concurrencia con un enfoque en la seguridad (``\gls{fearless-concurrency}'', \cite{rustbook2024}, Capítulo 16), el cual permite realizar operaciones concurrentes sin preocuparse por problemas usuales de la concurrencia como pueden ser las condiciones de carrera.
 Su sistema de tipos y el modelo de propiedad previenen las carreras de datos en tiempo de compilación.
@@ -211,10 +208,9 @@ Rust permite la creación de hilos seguros y eficientes, y su modelo de propieda
     \item \textbf{Desventajas:} La programación concurrente puede ser más verbosa o compleja de configurar inicialmente en comparación con Go.
 \end{itemize}
 
-\paragraph{Go}
-\subparagraph{}
+\subsubsection{Go}
 
-La concurrencia es una de las características estrella de Go. Se basa en \textit{goroutines} y \textit{canales} (channels) para la comunicación entre goroutines, siguiendo el paradigma de \acrfull{csp}.
+La concurrencia es una de las características estrella de Go. Se basa en \textit{goroutines} y \textit{canales} (channels) para la comunicación entre goroutines, siguiendo el paradigma de \acrfull{csp} \parencite{communicating-sequential-processes}.
 Éste se basa en la idea de que las goroutines se comunican entre sí a través de canales sin acceder a las mismas posiciones de memoria (cada goroutine tiene su propia copia de el mensaje) y reduce el riesgo de condiciones de carrera.
 Si se quiere tener una comunicación bidireccional, se tendría que utilizar un enfoque más tradicional mediante \glspl{mutex} o \glspl{semaforo} junto con \glspl{lock}, lo cual puede ser más complejo y propenso a errores.
 \begin{itemize}
@@ -223,8 +219,7 @@ Si se quiere tener una comunicación bidireccional, se tendría que utilizar un 
 \end{itemize}
 
 \subsection{Sintaxis y curva de aprendizaje}
-\paragraph{Rust}
-\subparagraph{}
+\subsubsection{Rust}
 La sintaxis de Rust es moderna y expresiva, pero su sistema de tipos y el modelo de gestión de memoria (ownership y borrowing) introducen una curva de aprendizaje considerablemente más pronunciada que la de Go.
 Ya se ha trabajado anteriormente con Rust, lo cual facilita el aprendizaje de este lenguaje.
 Además, la documentación oficial de Rust es muy completa y está bien estructurada, contando con el libro oficial de rust \parencite{rustbook2024}, que ayuda a los nuevos usuarios a familiarizarse con el lenguaje.
@@ -233,18 +228,16 @@ Además, la documentación oficial de Rust es muy completa y está bien estructu
     \item \textbf{Desventajas:} Dificultad inicial alta para dominar los conceptos clave.
 \end{itemize}
 
-\paragraph{Go}
-\subparagraph{}
+\subsubsection{Go}
 
 Go fue diseñado con la simplicidad como uno de sus principios fundamentales. Su sintaxis es minimalista y fácil de aprender, especialmente para programadores con experiencia en lenguajes tipo C.
 \begin{itemize}
     \item \textbf{Ventajas:} Curva de aprendizaje suave, alta legibilidad y productividad rápida.
-    \item \textbf{Desventajas:} La simplicidad puede llevar a cierta verbosidad en algunos casos (por ejemplo, el manejo de errores antes de la versión 1.13 con \texttt{wrap error}). Algunos patrones comunes de otros lenguajes no tienen un equivalente directo.
+    \item \textbf{Desventajas:} La simplicidad puede llevar a cierta verbosidad en algunos casos (por ejemplo, el manejo de errores antes de la versión 1.13 con \texttt{wrap error}).
 \end{itemize}
 
 \subsection{Sistema de tipos y abstracciones}
-\paragraph{Rust}
-\subparagraph{}
+\subsubsection{Rust}
 
 Rust posee un sistema de tipos estático, fuerte y muy rico, inspirado en lenguajes como \gls{haskell}. Incluye \textit{\gls{rust-traits}}, genéricos avanzados, \acrlong{adt} \gls{adt-gls} como \texttt{enum} y \texttt{struct} que, gracias a el \gls{pattern-matching} y el coste cero, nos permite un desarrollo muy expresivo y seguro.
 \begin{itemize}
@@ -252,8 +245,7 @@ Rust posee un sistema de tipos estático, fuerte y muy rico, inspirado en lengua
     \item \textbf{Desventajas:} Puede resultar complejo para quienes vienen de lenguajes con sistemas de tipos más simples.
 \end{itemize}
 
-\paragraph{Go}
-\subparagraph{}
+\subsubsection{Go}
 
 Go tiene un sistema de tipos estático y simple. Utiliza interfaces para la polimorfismo de forma implícita (tipado estructural). Los genéricos fueron añadidos en la versión 1.18, lo que ha expandido sus capacidades de abstracción.
 \begin{itemize}
@@ -262,8 +254,7 @@ Go tiene un sistema de tipos estático y simple. Utiliza interfaces para la poli
 \end{itemize}
 
 \subsection{Ecosistema y herramientas}
-\paragraph{Rust}
-\subparagraph{}
+\subsubsection{Rust}
 
 Rust cuenta con \textbf{Cargo}, una herramienta de gestión de dependencias y construcción de proyectos muy elogiada. El repositorio oficial de paquetes es \textbf{crates.io}, que alberga una cantidad creciente de bibliotecas.
 
@@ -273,8 +264,7 @@ Cargo además ofrece herramientas integradas para pruebas, documentación y gest
     \item \textbf{Desventajas:} Aunque el ecosistema está creciendo rápidamente, puede no ser tan maduro como el de Go en ciertas áreas específicas (ej. algunas bibliotecas para servicios web muy específicos).
 \end{itemize}
 
-\paragraph{Go}
-\subparagraph{}
+\subsubsection{Go}
 
 Go posee una excelente librería estándar que cubre muchas necesidades comunes, especialmente en networking y servicios web. Sus herramientas de desarrollo (formateo, testing, profiling) están integradas en la distribución del lenguaje. Utiliza módulos de Go para la gestión de dependencias.
 \begin{itemize}
@@ -283,16 +273,14 @@ Go posee una excelente librería estándar que cubre muchas necesidades comunes,
 \end{itemize}
 
 \subsection{Manejo de errores}
-\paragraph{Rust}
-\subparagraph{}
+\subsubsection{Rust}
 Rust no utiliza excepciones. El manejo de errores se realiza principalmente a través de los tipos \texttt{Result<T, E>} y \texttt{Option<T>} y el pattern matching exhaustivo, que obligan al programador a considerar los casos de éxito y error explícitamente, sin posibilidad de compilar si no se manejan los errores correctamente.
 \begin{itemize}
     \item \textbf{Ventajas:} Manejo de errores robusto y explícito, que previene errores no gestionados.
     \item \textbf{Desventajas:} Puede resultar verboso en comparación con las excepciones, aunque el operador \texttt{?}\footnote{El operador ? devuelve el error si ocurre sin necesidad de introducir un \textit{match}} ayuda a mitigar esto.
 \end{itemize}
 
-\paragraph{Go}
-\subparagraph{}
+\subsubsection{Go}
 Go maneja los errores retornándolos como el último valor de una función. Por convención, un error es un valor que satisface la interfaz \texttt{error}. Esto requiere comprobaciones explícitas \texttt{if err != nil}.
 El manejo de errores en este caso no es exhaustivo.
 \begin{itemize}
@@ -301,7 +289,7 @@ El manejo de errores en este caso no es exhaustivo.
 \end{itemize}
 
 \subsection{Casos de uso principales}
-\paragraph{Rust}
+\subsubsection{Rust}
 
 \begin{itemize}
     \item Programación de sistemas (sistemas operativos, navegadores web).
@@ -312,7 +300,7 @@ El manejo de errores en este caso no es exhaustivo.
     \item Aplicaciones que requieren alto rendimiento y seguridad de memoria.
 \end{itemize}
 
-\paragraph{Go}
+\subsubsection{Go}
 
 \begin{itemize}
     \item Servicios de backend y microservicios.
@@ -324,8 +312,8 @@ El manejo de errores en este caso no es exhaustivo.
 
 \subsection{Resumen de ventajas y desventajas}
 
-\paragraph{Rust}
-\subparagraph{Ventajas:}
+\subsubsection{Rust}
+Ventajas:
 \begin{itemize}
     \item Seguridad de memoria sin recolector de basura.
     \item Alto rendimiento, comparable a C/C++.
@@ -334,15 +322,15 @@ El manejo de errores en este caso no es exhaustivo.
     \item Excelente gestor de paquetes y herramientas (Cargo).
     \item Creciente popularidad en dominios críticos.
 \end{itemize}
-\textbf{Desventajas:}
+Desventajas:
 \begin{itemize}
     \item Curva de aprendizaje pronunciada.
     \item Tiempos de compilación más lentos.
     \item Mayor verbosidad en algunos aspectos debido a la gestión de memoria y errores.
 \end{itemize}
 
-\paragraph{Go}
-\subparagraph{Ventajas:}
+\subsubsection{Go}
+Ventajas:
 
 \begin{itemize}
     \item Simplicidad y facilidad de aprendizaje.
@@ -352,7 +340,7 @@ El manejo de errores en este caso no es exhaustivo.
     \item Buena productividad para el desarrollo de servicios de red.
     \item Respaldo de Google y una comunidad madura.
 \end{itemize}
-\textbf{Desventajas:}
+Desventajas:
 \begin{itemize}
     \item Rendimiento generalmente inferior a Rust en cómputo intensivo.
     \item El recolector de basura puede introducir latencias.
@@ -363,21 +351,21 @@ El manejo de errores en este caso no es exhaustivo.
 
 \section{Aplicación móvil}
 
-Para el desarrollo de aplicaciones móviles en el contexto de bibliotecas de archivos multimedia, existen varias tecnologías que ofrecen diferentes enfoques y características. A continuación se presenta un análisis detallado de las principales opciones disponibles: React Native, Flutter, Progressive Web Apps (PWA) y Lynx.js.
+Para el desarrollo de aplicaciones móviles en el contexto de bibliotecas de archivos multimedia, existen varias tecnologías que ofrecen diferentes enfoques y características. A continuación se presenta un análisis detallado de las principales opciones disponibles: React Native \parencite{danielsson2016reactnative}, Flutter, Progressive Web Apps (PWA) \parencite{tandel2018impact} y Lynx.js \parencite{danielsson2016reactnative} \parencite{lynx-documentation}.
 
 \subsection{Arquitectura y funcionamiento}
 
 \paragraph{React Native}
-(\cite{react-native-documentation}, \href{https://reactnative.dev/architecture/overview}{Arquitectura})Desarrollado por Meta, permite crear aplicaciones nativas usando JavaScript y React. Su arquitectura se basa en un \gls{bridge} que comunica el código JavaScript con los componentes nativos de la plataforma, renderizando una interfaz de usuario verdaderamente nativa. Permite la integración de código nativo si es necesario y ofrece \textit{hot reload} para agilizar el desarrollo.
+(\cite{react-native-documentation}, \href{https://reactnative.dev/architecture/overview}{Arquitectura}) Desarrollado por Meta, permite crear aplicaciones nativas usando JavaScript y React. Su arquitectura se basa en un \gls{bridge} que comunica el código JavaScript con los componentes nativos de la plataforma, renderizando una interfaz de usuario verdaderamente nativa. Permite la integración de código nativo si es necesario y ofrece \textit{hot reload} para agilizar el desarrollo.
 
 \paragraph{Flutter}
-(\cite{flutter-documentation}, \href{https://docs.flutter.dev/resources/architectural-overview}{Arquitectura})Creado por Google, utiliza el lenguaje Dart y renderiza la interfaz de usuario desde cero mediante su propio motor gráfico, \gls{skia}. Esto garantiza una apariencia y comportamiento consistentes en todas las plataformas. Su arquitectura se compone de un \textit{engine} en C++ y un \textit{framework} en Dart que gestiona los widgets. La compilación es \gls{ahead-of-time} (AOT) para producción, lo que optimiza el rendimiento.
+(\cite{flutter-documentation}, \href{https://docs.flutter.dev/resources/architectural-overview}{Arquitectura}) Creado por Google, utiliza el lenguaje Dart y renderiza la interfaz de usuario desde cero mediante su propio motor gráfico, \gls{skia}. Esto garantiza una apariencia y comportamiento consistentes en todas las plataformas. Su arquitectura se compone de un \textit{engine} en C++ y un \textit{framework} en Dart que gestiona los widgets. La compilación es \gls{ahead-of-time} (AOT) para producción, lo que optimiza el rendimiento.
 
 \paragraph{PWA}
-(\cite{pwa-documentation})Las \acrfull{pwa} son aplicaciones web que utilizan tecnologías estándar para ofrecer una experiencia similar a la nativa. Su arquitectura se apoya en \glspl{service-worker} para la funcionalidad offline y el cacheo de recursos, un \textit{Web App Manifest} para la instalación en el dispositivo, y un diseño \textit{responsive} para adaptarse a diferentes tamaños de pantalla.
+(\cite{pwa-documentation}) Las \acrfull{pwa} son aplicaciones web que utilizan tecnologías estándar para ofrecer una experiencia similar a la nativa. Su arquitectura se apoya en \glspl{service-worker} para la funcionalidad offline y el cacheo de recursos, un \textit{Web App Manifest} para la instalación en el dispositivo, y un diseño \textit{responsive} para adaptarse a diferentes tamaños de pantalla.
 
 \paragraph{Lynx.js}
-(\cite{lynx-documentation}, \href{https://lynxjs.org/react/lifecycle.html#dual-thread-architecture-design}{Arquitectura doble hilo})Es una tecnología emergente que ejecuta JavaScript en un \textit{runtime} nativo sin necesidad de un WebView, similar a React Native pero con un enfoque en el rendimiento a través de una arquitectura de doble hilo. Promete una compilación \textit{just-in-time} (JIT) optimizada para móviles y un \textit{bridge} de comunicación más eficiente.
+(\cite{lynx-documentation}, \href{https://lynxjs.org/react/lifecycle.html#dual-thread-architecture-design}{Arquitectura doble hilo}) Es una tecnología emergente que ejecuta JavaScript en un \textit{runtime} nativo sin necesidad de un WebView, similar a React Native pero con un enfoque en el rendimiento a través de una arquitectura de doble hilo. Promete una compilación \textit{just-in-time} (JIT) optimizada para móviles y un \textit{bridge} de comunicación más eficiente.
 
 \subsection{Rendimiento}
 
@@ -423,7 +411,7 @@ Utiliza JavaScript/TypeScript, lo que lo hace familiar para los desarrolladores 
 
 \subsection{Análisis específico para bibliotecas de fotos}
 
-\paragraph{Procesamiento de Imágenes}
+\subsubsection{Procesamiento de Imágenes}
 Para una aplicación de gestión de fotos, el procesamiento eficiente de imágenes es crucial.
 \begin{itemize}
     \item \textbf{Flutter}: Sobresale gracias a su motor gráfico Skia, ideal para la manipulación de imágenes y la creación de interfaces personalizadas.
@@ -432,7 +420,7 @@ Para una aplicación de gestión de fotos, el procesamiento eficiente de imágen
     \item \textbf{Lynx.js}: Promete buen rendimiento, pero carece de pruebas concluyentes.
 \end{itemize}
 
-\paragraph{Gestión de Memoria}
+\subsubsection{Gestión de Memoria}
 La gestión de grandes colecciones de fotos requiere un manejo de memoria eficiente.
 \begin{itemize}
     \item \textbf{Flutter}: Ofrece un control granular sobre la memoria y un \textit{garbage collector} optimizado para Dart.
@@ -441,7 +429,7 @@ La gestión de grandes colecciones de fotos requiere un manejo de memoria eficie
     \item \textbf{Lynx.js}: Promete optimizaciones, pero no están verificadas en la práctica.
 \end{itemize}
 
-\paragraph{Carga y Visualización}
+\subsubsection{Carga y Visualización}
 La carga perezosa (\textit{lazy loading}) y el cacheo son fundamentales para una experiencia de usuario fluida.
 \begin{itemize}
     \item \textbf{Flutter}: Proporciona excelentes herramientas nativas para \textit{lazy loading} y cacheo eficiente.
@@ -463,5 +451,5 @@ Dado que el proyecto busca crear una biblioteca de fotos de código abierto comp
 \textbf{Lynx.js} es una opción demasiado arriesgada en este momento. Su inmadurez, la falta de comunidad y la incertidumbre sobre su futuro lo hacen una opción arriesgada para un proyecto que busca sostenibilidad a largo plazo.
 Se incluye también el factor de que es una tecnología muy nueva y con algunas funcionalidades fundamentales aún en desarrollo (como puede ser el envío de archivos mediante el cliente HTTP incorporado, una implementación de navegación entre pantallas, etc.).
 
-\paragraph{Tecnologías no nombradas}
+\subsubsection{Tecnologías no nombradas}
 Otras opciones como el desarrollo nativo (Kotlin/Swift) o Kotlin Multiplatform fueron consideradas. Se descartaron principalmente por la mayor curva de aprendizaje y, en el caso de KMP, por una madurez del ecosistema aún insuficiente para un proyecto de esta envergadura, a pesar de sus prometedoras capacidades para compartir código de forma nativa.

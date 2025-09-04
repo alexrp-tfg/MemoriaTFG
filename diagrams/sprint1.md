@@ -122,3 +122,15 @@ flowchart TD
     class UserRepositoryError error;
 
 ```
+
+```mermaid
+erDiagram
+    USERS {
+        UUID id PK "default: gen_random_uuid()"
+        VARCHAR username "NOT NULL, UNIQUE"
+        VARCHAR password "NOT NULL"
+        TIMESTAMPTZ created_at "default: CURRENT_TIMESTAMP"
+        TIMESTAMPTZ updated_at "default: CURRENT_TIMESTAMP"
+        ROLE role "ENUM('ADMIN', 'USER') DEFAULT 'USER'"
+    }
+```

@@ -64,8 +64,7 @@ A la hora de realizar las tareas se ha priorizado la visualización de una galer
 
 \subsection{Diseño detallado e implementación}
 
-\paragraph{Arquitectura del Cliente Móvil}
-\subparagraph{}
+\subsubsection{Arquitectura del Cliente Móvil}
 Como se definió en la propuesta, la aplicación móvil seguirá los principios de la \textbf{Arquitectura Limpia}. Durante este sprint se materializará esta estructura creando los siguientes directorios y capas lógicas:
 \begin{itemize}
     \item \textbf{Presentation}: Contendrá todos los componentes de React (Lynx.js), las pantallas (Login, Galería), y los hooks visuales. Es la capa más externa.
@@ -74,8 +73,7 @@ Como se definió en la propuesta, la aplicación móvil seguirá los principios 
     \item \textbf{Infrastructure}: Aquí residirán las implementaciones concretas de las interfaces del dominio. Se creará un `ApiAuthRepository' que use el cliente HTTP (HT24) y un `NativeMediaRepository' que use el módulo nativo implementado (HT23) para acceder a los ficheros del dispositivo.
 \end{itemize}
 
-\paragraph{Implementación de Módulos Nativos en Lynx.js}
-\subparagraph{}
+\subsubsection{Implementación de Módulos Nativos en Lynx.js}
 El reto técnico principal de este sprint es la creación de un módulo nativo para acceder a la galería (HT23). El proceso seguirá la documentación oficial de Lynx.js, que implica:
 \begin{enumerate}
     \item Clonar y configurar el proyecto de `Lynx Explorer' para Android.
@@ -88,8 +86,7 @@ El reto técnico principal de este sprint es la creación de un módulo nativo p
 \end{enumerate}
 Este proceso asegura un rendimiento nativo para una tarea intensiva como es el acceso a ficheros multimedia.
 
-\paragraph{Implementación de botón de retroceso en Android}
-\subparagraph{}
+\subsubsection{Implementación de botón de retroceso en Android}
 Aunque puede ser algo que se da por echo en un framework móvil, es importante destacar que Lynx.js no implementa por defecto el botón de retroceso.
 El comportamiento por defecto es el de salir de la aplicación al pulsar el botón de retroceso, lo cual no es deseable en una aplicación que tiene múltiples pantallas y donde se espera que el usuario pueda navegar hacia atrás sin salir de la app.
 
@@ -126,8 +123,7 @@ getOnBackPressedDispatcher().addCallback(this, backButtonCallback);
 \end{lstlisting}
 El registro del componente se realiza en la actividad principal de la aplicación, asegurando que el evento se envía a la capa de JavaScript cuando el usuario pulsa el botón de retroceso.
 
-\paragraph{Implementación de componente input}
-\subparagraph{}
+\subsubsection{Implementación de componente input}
 
 Aunque Lynx.js proporciona componentes básicos como `view', `text' y `image', no incluye un componente de entrada de texto (`input') por defecto.
 Para implementar un campo de entrada de texto, se ha creado un componente personalizado que encapsula la funcionalidad básica de un campo de texto.

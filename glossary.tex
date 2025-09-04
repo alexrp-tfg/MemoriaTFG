@@ -123,7 +123,7 @@
 \newglossaryentry{rust}{
     name=Rust,
     description={
-        Un lenguaje de programación de sistemas enfocado en la seguridad, el rendimiento y la concurrencia. Es conocido por su sistema de tipos y su enfoque en evitar errores comunes de memoria, lo que lo hace ideal para aplicaciones de alto rendimiento y sistemas críticos
+        Un lenguaje de programación de sistemas enfocado en la seguridad, el rendimiento y la concurrencia. Es conocido por su sistema de tipos y su enfoque en evitar errores comunes de memoria, lo que lo hace ideal para aplicaciones de alto rendimiento y sistemas críticos (\cite{rustbook2024}, Introducción)
     },
 }
 
@@ -169,7 +169,7 @@
     name=Rust Ownership,
     text=ownership,
     description={
-        Un sistema de gestión de memoria en el lenguaje de programación Rust que garantiza la seguridad de memoria sin necesidad de un recolector de basura. Se basa en las reglas de propiedad, préstamos y referencias, lo que permite a los desarrolladores escribir código seguro y eficiente
+        Un sistema de gestión de memoria en el lenguaje de programación Rust que garantiza la seguridad de memoria sin necesidad de un recolector de basura. Se basa en las reglas de propiedad, préstamos y referencias, lo que permite a los desarrolladores escribir código seguro y eficiente (\cite{rustbook2024}, capítulo 4.1)
     },
 }
 
@@ -177,7 +177,7 @@
     name=Rust Borrowing,
     text=borrowing,
     description={
-        Un mecanismo en Rust que permite a los desarrolladores tomar prestados valores sin transferir su propiedad. Esto permite compartir datos entre diferentes partes del código de manera segura, evitando problemas de concurrencia y garantizando la integridad de los datos
+        Un mecanismo en Rust que permite a los desarrolladores tomar prestados valores sin transferir su propiedad. Esto permite compartir datos entre diferentes partes del código de manera segura, evitando problemas de concurrencia y garantizando la integridad de los datos (\cite{rustbook2024}, capítulo 4.2)
     },
 }
 
@@ -185,7 +185,7 @@
     name=Rust Lifetimes,
     text=lifetime,
     description={
-        Un concepto en Rust que permite a los desarrolladores especificar cuánto tiempo viven las referencias a los datos. Esto ayuda a prevenir errores de uso de memoria, como referencias colgantes, y garantiza que las referencias sean válidas durante el tiempo necesario
+        Un concepto en Rust que permite a los desarrolladores especificar cuánto tiempo viven las referencias a los datos. Esto ayuda a prevenir errores de uso de memoria, como referencias colgantes, y garantiza que las referencias sean válidas durante el tiempo necesario (\cite{rustbook2024}, capítulo 10.3)
     },
 }
 
@@ -242,7 +242,7 @@
     text=trait,
     plural=traits,
     description={
-        Un mecanismo en Rust que permite definir comportamientos compartidos entre diferentes tipos. Los traits son similares a las interfaces en otros lenguajes y permiten la implementación de polimorfismo, facilitando la reutilización de código y la abstracción
+        Un mecanismo en Rust que permite definir comportamientos compartidos entre diferentes tipos. Los traits son similares a las interfaces en otros lenguajes y permiten la implementación de polimorfismo, facilitando la reutilización de código y la abstracción (\cite{rustbook2024}, capítulo 10.2)
     },
 }
 
@@ -391,5 +391,14 @@
     plural=DTOs,
     description={
         Un patrón de diseño que se utiliza para transferir datos entre diferentes capas de una aplicación, especialmente entre la capa de presentación y la capa de negocio. Los DTOs encapsulan los datos y reducen el número de llamadas a la red, mejorando la eficiencia en la comunicación entre componentes
+    },
+}
+
+\newglossaryentry{historia-usuario}{
+    name=Historia de usuario,
+    text=historia de usuario,
+    plural=historias de usuario,
+    description={
+        Una descripción breve y sencilla de una funcionalidad o requerimiento desde la perspectiva del usuario final. Las historias de usuario se utilizan en metodologías ágiles para definir qué necesita el usuario y por qué, facilitando la comunicación entre el equipo de desarrollo y los interesados.
     },
 }

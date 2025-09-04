@@ -25,469 +25,23 @@ Las historias seleccionadas son las siguientes:
 
 La suma total de las historias seleccionadas es de \textbf{47 puntos de historia (PH)}. Esta selección se ha ajustado para priorizar el procesado multimedia en el servidor y solo las funcionalidades imprescindibles del cliente móvil, manteniendo una carga realista y coherente con la capacidad demostrada en los sprints anteriores (34–56 PH). Se han dejado fuera historias menos críticas para el objetivo de este sprint, como la cancelación de subida, sincronización manual, galería online avanzada, manejo de errores de red y estadísticas de copia, que se abordarán en sprints posteriores.
 
-\subsection{Descomposición en tareas de desarrollo}
+La descomposición en tareas de desarrollo de las historias de usuario se pueden encontrar en el apéndice \ref{appendix:sprint3-backlog}.
 
-% HU01: Subida de fotos
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HU01} &
-            \textbf{Como usuario, quiero subir varias fotos desde mi móvil para tener una copia de seguridad en mi servidor} &
-            \textbf{Estimación: 5 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 01-1 & Implementar endpoint de subida de fotos (backend) & 2 \\
-                        \hline
-                        Tarea 01-2 & Validar y almacenar archivos recibidos & 1.5 \\
-                        \hline
-                        Tarea 01-3 & Integrar con sistema de almacenamiento (local o cloud) & 1 \\
-                        \hline
-                        Tarea 01-4 & Pruebas unitarias y de integración & 1 \\
-                        \hline
-                        Tarea 01-5 & Documentar endpoint & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item El usuario puede subir una o varias fotos desde el móvil.
-                    \item Los archivos se almacenan correctamente en el servidor.
-                    \item El endpoint rechaza archivos no válidos.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-                \begin{itemize}
-                    \item El endpoint debe ser seguro y validar el tipo de archivo.
-                    \item Es necesario implementar un límite de tamaño máximo de archivo.
-                \end{itemize}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
+El total de horas estimadas para las tareas de desarrollo del Sprint 3 es de \textbf{46 horas}, cifra que se aproxima a la capacidad teórica del sprint. La distribución es la siguiente:
 
-% HU04: Subida de vídeos
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HU04} &
-            \textbf{Como usuario, quiero subir vídeos desde mi móvil para tener una copia de seguridad en mi servidor} &
-            \textbf{Estimación: 5 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 04-1 & Implementar endpoint de subida de vídeos & 2 \\
-                        \hline
-                        Tarea 04-2 & Validar y almacenar vídeos recibidos & 1.5 \\
-                        \hline
-                        Tarea 04-3 & Integrar con sistema de almacenamiento & 1 \\
-                        \hline
-                        Tarea 04-4 & Pruebas unitarias y de integración & 1 \\
-                        \hline
-                        Tarea 04-5 & Documentar endpoint & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item El usuario puede subir uno o varios vídeos desde el móvil.
-                    \item Los archivos se almacenan correctamente en el servidor.
-                    \item El endpoint rechaza archivos no válidos.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-                \begin{itemize}
-                    \item El endpoint debe ser seguro y validar el tipo de archivo.
-                    \item Es necesario implementar un límite de tamaño máximo de archivo.
-                \end{itemize}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
+\begin{itemize}
+    \item HU01 (Subida de fotos): 6 horas
+    \item HU04 (Subida de vídeos): 6 horas
+    \item HT09 (Compresión de imágenes): 5 horas
+    \item HT10 (Subida concurrente): 7.5 horas
+    \item HU09 (Galería visual): 5 horas
+    \item HT17 (Notificaciones de progreso): 2.5 horas
+    \item HU16 (Seleccionar fotos móvil): 3 horas
+    \item HU27 (Subir vídeos móvil): 4.5 horas
+    \item HU18 (Ver progreso de subida móvil): 6.5 horas
+\end{itemize}
 
-% HT09: Compresión de imágenes
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HT09} &
-            \textbf{Comprimir imágenes tras la subida para optimizar almacenamiento y ancho de banda} &
-            \textbf{Estimación: 5 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 09-1T & Investigar y seleccionar librería de compresión & 1 \\
-                        \hline
-                        Tarea 09-2T & Implementar lógica de compresión tras subida & 2 \\
-                        \hline
-                        Tarea 09-3T & Pruebas de compresión y calidad & 1 \\
-                        \hline
-                        Tarea 09-4T & Manejo de errores y logs & 0.5 \\
-                        \hline
-                        Tarea 09-5T & Documentar proceso & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item Las imágenes subidas se comprimen automáticamente.
-                    \item La calidad de las imágenes comprimidas es aceptable.
-                    \item El proceso de compresión no bloquea la subida.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-                \begin{itemize}
-                    \item Seleccionar un balance adecuado entre compresión y calidad.
-                \end{itemize}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
-
-% HT10: Subida concurrente
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HT10} &
-            \textbf{Permitir la subida concurrente de archivos para mejorar la eficiencia} &
-            \textbf{Estimación: 8 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 10-1 & Diseñar arquitectura para subida concurrente & 1.5 \\
-                        \hline
-                        Tarea 10-2 & Implementar manejo de múltiples subidas simultáneas & 2 \\
-                        \hline
-                        Tarea 10-3 & Control de concurrencia y límites & 1.5 \\
-                        \hline
-                        Tarea 10-4 & Pruebas de estrés y concurrencia & 1.5 \\
-                        \hline
-                        Tarea 10-5 & Logs y métricas & 0.5 \\
-                        \hline
-                        Tarea 10-6 & Documentar solución & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item El servidor acepta varias subidas simultáneas sin errores.
-                    \item Se limita el número de subidas concurrentes según configuración.
-                    \item El rendimiento mejora respecto a la subida secuencial.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-                \begin{itemize}
-                    \item Es importante evitar bloqueos y condiciones de carrera.
-                \end{itemize}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
-
-% HU09: Galería visual
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HU09} &
-            \textbf{Como usuario, quiero ver una galería online de mis archivos subidos} &
-            \textbf{Estimación: 5 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 09-1U & Implementar endpoint para listar archivos multimedia & 1.5 \\
-                        \hline
-                        Tarea 09-2U & Generar miniaturas para galería & 1.5 \\
-                        \hline
-                        Tarea 09-3U & Implementar paginación/búsqueda básica & 1 \\
-                        \hline
-                        Tarea 09-4U & Pruebas de visualización & 0.5 \\
-                        \hline
-                        Tarea 09-5U & Documentar endpoint & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item El usuario puede ver una galería online de sus archivos subidos.
-                    \item Las miniaturas se generan correctamente.
-                    \item La galería soporta paginación o búsqueda básica.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-                \begin{itemize}
-                    \item La galería debe ser eficiente y escalable.
-                \end{itemize}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
-
-% HT17: Notificaciones de progreso
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HT17} &
-            \textbf{Notificar al cliente el progreso de la subida de archivos} &
-            \textbf{Estimación: 3 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 17-1 & Implementar sistema de notificaciones de progreso (API) & 1 \\
-                        \hline
-                        Tarea 17-2 & Integrar con endpoints de subida & 0.5 \\
-                        \hline
-                        Tarea 17-3 & Pruebas y logs & 0.5 \\
-                        \hline
-                        Tarea 17-4 & Documentar & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item El cliente recibe notificaciones de progreso durante la subida.
-                    \item El sistema informa correctamente de errores o finalización.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-                \begin{itemize}
-                    \item Puede usarse WebSocket, SSE o polling según la arquitectura.
-                \end{itemize}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
-
-% HU16: Seleccionar fotos (móvil)
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HU16} &
-            \textbf{Como usuario, quiero seleccionar fotos desde la galería del móvil para subirlas al servidor} &
-            \textbf{Estimación: 3 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 16-1 & Implementar selector de fotos en el cliente móvil & 1.5 \\
-                        \hline
-                        Tarea 16-2 & Integrar con permisos del sistema & 1 \\
-                        \hline
-                        Tarea 16-3 & Pruebas en dispositivos reales & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item El usuario puede seleccionar una o varias fotos desde la galería.
-                    \item Se solicitan los permisos necesarios solo cuando es necesario.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
-
-% HU27: Subir vídeos (móvil)
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HU27} &
-            \textbf{Como usuario, quiero seleccionar y subir vídeos desde el móvil al servidor} &
-            \textbf{Estimación: 5 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 27-1 & Implementar selector de vídeos en el cliente móvil & 1 \\
-                        \hline
-                        Tarea 27-2 & Lógica de subida de vídeos (cliente) & 1.5 \\
-                        \hline
-                        Tarea 27-3 & Manejo de errores y reintentos & 1 \\
-                        \hline
-                        Tarea 27-4 & Pruebas en dispositivos reales & 0.5 \\
-                        \hline
-                        Tarea 27-5 & Documentar flujo & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item El usuario puede seleccionar y subir uno o varios vídeos.
-                    \item El sistema maneja correctamente errores de red y reintentos.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-                \begin{itemize}
-                    \item Probar con vídeos de diferentes tamaños y formatos.
-                \end{itemize}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
-
-% HU18: Ver progreso de subida (móvil)
-\begin{table}[H]
-    \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|l|}
-            \hline
-            \textbf{Identificador HU18} &
-            \textbf{Como usuario, quiero ver el progreso de la subida de archivos en la app móvil} &
-            \textbf{Estimación: 8 PH}\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \begin{minipage}{\textwidth}
-                    \centering
-                    \vspace{0.5em}
-                    \begin{tabular}{|l|p{8cm}|r|}
-                        \hline
-                        \textbf{Identificador} & \textbf{Título de la tarea de desarrollo} & \makecell{\textbf{Estimación}\\\textbf{(h)}} \\
-                        \hline
-                        Tarea 18-1 & Implementar barra/indicador de progreso en UI & 1.5 \\
-                        \hline
-                        Tarea 18-2 & Integrar con notificaciones de backend & 1.5 \\
-                        \hline
-                        Tarea 18-3 & Actualización en tiempo real del progreso & 1.5 \\
-                        \hline
-                        Tarea 18-4 & Pruebas de UX & 1 \\
-                        \hline
-                        Tarea 18-5 & Manejo de errores y estados & 1 \\
-                        \hline
-                        Tarea 18-6 & Documentar & 0.5 \\
-                        \hline
-                    \end{tabular}
-                    \vspace{0.5em}
-                \end{minipage}
-            } \\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Pruebas de aceptación:}
-                \begin{itemize}
-                    \item El usuario ve el progreso de cada archivo subido en tiempo real.
-                    \item El sistema informa correctamente de errores o subidas completadas.
-                \end{itemize}
-            }\\
-            \hline
-            \multicolumn{3}{|p{\textwidth}|}{
-                \textbf{Observaciones:}
-                \begin{itemize}
-                    \item Probar en diferentes dispositivos y condiciones de red.
-                \end{itemize}
-            }\\
-            \hline
-        \end{tabularx}
-    \end{center}
-\end{table}
-
+\newpage
 \subsection{Diagrama de Gantt}
 Una vez definidas las tareas para cada historia de usuario, se ha elaborado un diagrama de Gantt para visualizar la planificación del sprint. Este diagrama muestra el orden de las tareas y su duración estimada:
 
@@ -512,8 +66,22 @@ Las tareas relacionadas con la aplicación móvil de este sprint se centran prin
 Se realiza de esta manera para que al finalizar el sprint 3 tengamos un producto con más valor, puesto que el usuario tendrá la posibilidad de subir fotos y vídeos desde su móvil, que serán procesados en el servidor y podrán visualizarse en una galería online.
 
 \subsection{Diseño detallado e implementación}
-\paragraph{Subida de archivos multimedia}
-\subparagraph{}
+\subsubsection{Modelo Entidad-Relación}
+
+Para este sprint se han realizado cambios en el modelo entidad-relación para soportar las nuevas funcionalidades de subida y gestión de archivos multimedia.
+El modelo de entidad-relación actualizado sería el siguiente:
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{assets/sprint3/media-files-er-diagram.png}
+    \end{center}
+    \caption{Diagrama Entidad-Relación actualizado con la entidad MediaFile}\label{fig:media-files-er-diagram}
+\end{figure}
+
+Como se puede ver en la figura, la entidad usuarios se ha mantenido igual y se ha añadido una nueva entidad llamada MEDIA\_FILES, que representa los metadatos de los archivos multimedia subidos por los usuarios.
+
+
+\subsubsection{Subida de archivos multimedia}
 
 Se ha realizado la implementación de la subida de archivos multimedia (fotos y vídeos) desde la aplicación móvil al servidor, así como el procesado de estos archivos en el servidor (compresión de imágenes, generación de miniaturas) y la visualización en una galería online.
 
@@ -529,20 +97,24 @@ Como se muestra en la Figura \ref{fig:diagrama-flujo-subida-archivos}, el usuari
 
 La generación de miniaturas se realiza de manera paralela, por lo que no bloquea la subida de archivos.
 
-\paragraph{Manejo de subidas concurrentes}
-\subparagraph{}
+\subsubsection{Manejo de subidas concurrentes}
 
 Durante el desarrollo se realizaron varias pruebas de estrés de subida de diferentes números de archivos (100, 1000, 20000) para asegurar que el servidor podía manejar múltiples subidas concurrentes sin errores ni bloqueos. Se implementó un sistema de control de concurrencia para limitar el número de subidas simultáneas, evitando así la sobrecarga del servidor.
 Para la gestión de subidas concurrentes se ha definido un número máximo de peticiones que pueden ser atendidas de forma simultánea. Este ajuste es configurable a través de una variable de entorno, permitiendo así adaptar el comportamiento del servidor según la capacidad del entorno de despliegue.
 
-El principal problema que se encontró durante las pruebas de estrés fue la saturación del servidor al recibir demasiadas peticiones simultáneas de subida de archivos. El problema que se encontró fue en la memoria, pues para cada archivo que se quería subir se tenía que alojar una cantidad de memoria para cada petición, bloqueando el servidor para muchas peticiones concurrentes. Para solucionar este problema, se implementó un sistema de semáforos que gestiona las peticiones entrantes y establece un límite de peticiones que pueden ejecutarse en paralelo, asegurando así que el servidor no se sobrecargue.
+El principal problema que se encontró durante las pruebas de estrés fue la saturación de la memoria del servidor al recibir demasiadas peticiones simultáneas de subida de archivos. Para cada archivo que se quería subir se tenía que alojar una cantidad de memoria, bloqueando el servidor para muchas peticiones concurrentes. Aunque el servidor manejara los archivos de manera eficiente, es decir, sin cargar todo el archivo en memoria, tener 200 peticiones en paralelo cada una alojando 8MB se traduce en 1.6GB (sin tener en cuenta el overhead que se produce al crear un thread para cada petición). Para solucionar este problema, se implementó un sistema de semáforos que gestiona las peticiones entrantes y establece un límite de peticiones que pueden ejecutarse en paralelo, asegurando así que el servidor no se sobrecargue.
+
+\subsubsection{Estado de subida de los archivos multimedia}
+En la aplicación móvil se ha implementado una galería que muestra los archivos multimedia locales junto con su estado, de esta manera el usuario sabe qué archivos de su dispositivo ya han sido subidos al servidor y cuáles están pendientes de subir.
+Para ello, no ha sido necesario almacenar el estado de los archivos en una base de datos local, sino que se han utilizado las propiedades de los archivos locales que nos ofrecen los dispositivos. A la hora de subir un archivo, este se sube con un nombre de archivo único que hace referencia a el id del archivo en el dispositivo local. De esta manera, al listar los archivos locales, se puede comprobar, mediante la lista de archivos subidos consultada del servidor, si el archivo ya ha sido subido o no.
+
+Gracias a esta solución, cada archivo en el servidor es único, evitando así subidas duplicadas y manteniendo la integridad de los datos.
 
 \subsection{Extensión del sprint y retos técnicos}
 
 Durante el desarrollo del Sprint 3 se encontraron dificultades técnicas significativas que requirieron una semana adicional para completar las funcionalidades planificadas. Los principales retos surgieron por las limitaciones de la tecnología LynxJS utilizada en el desarrollo de la aplicación móvil, especialmente en el manejo de subidas de archivos.
 
-\paragraph{Limitaciones críticas de LynxJS}
-\subparagraph{}
+\subsubsection{Limitaciones críticas de LynxJS}
 
 La principal limitación técnica encontrada fue la **ausencia de soporte nativo para subidas multipart** en LynxJS. Esta carencia impactó severamente en las siguientes áreas:
 
@@ -554,8 +126,7 @@ La principal limitación técnica encontrada fue la **ausencia de soporte nativo
     \item \textbf{Gestión de archivos grandes}: El manejo de vídeos y archivos multimedia de gran tamaño requiere implementaciones nativas complejas que van más allá del scope actual del framework.
 \end{itemize}
 
-\paragraph{Historia de usuario no completada}
-\subparagraph{}
+\subsubsection{Historia de usuario no completada}
 
 Debido a estas limitaciones técnicas, la historia HU18 (Ver progreso de subida) no pudo ser completada en este sprint. Los motivos específicos son:
 
@@ -567,8 +138,7 @@ Debido a estas limitaciones técnicas, la historia HU18 (Ver progreso de subida)
 
 Esta funcionalidad se ha pospuesto para el Sprint 4, donde se dedicará tiempo específico a desarrollar una arquitectura robusta que permita la comunicación bidireccional entre módulos nativos y LynxJS.
 
-\paragraph{Impacto en el cronograma}
-\subparagraph{}
+\subsubsection{Impacto en el cronograma}
 
 El tiempo adicional de una semana se destinó a:
 \begin{enumerate}
@@ -579,3 +149,7 @@ El tiempo adicional de una semana se destinó a:
 \end{enumerate}
 
 A pesar de la extensión, se ha logrado entregar un incremento funcional que permite la subida de fotos y vídeos, cumpliendo con los objetivos principales del sprint. La funcionalidad de progreso de subida se abordará en el siguiente sprint con una planificación específica para superar las limitaciones arquitectónicas identificadas.
+
+\subsubsection{Historia de usuario parcialmente completada}
+
+La historia de usuario HU27, correspondiente a la subida de vídeos desde el cliente móvil, no se ha podido completar en su totalidad. Aunque la funcionalidad de subida está implementada, la visualización de los vídeos en la aplicación no ha sido posible debido a la complejidad de la implementación del componente de vídeo nativo. Esta tarea ha consumido más tiempo del estimado inicialmente, y se ha decidido posponer la funcionalidad de visualización para un futuro sprint para no comprometer la entrega de otras funcionalidades.
