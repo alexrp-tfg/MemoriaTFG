@@ -130,6 +130,10 @@ Granada, Septiembre 2025                                                        
 <br /><span class='sectionToc'>B.2 <a href='#cliente-movil1' id='QQ2-1-187'>Cliente móvil</a></span>
 <br /><span class='subsectionToc'>B.2.1 <a href='#explorador-de-lynxjs' id='QQ2-1-188'>Explorador de Lynxjs</a></span>
 <br /><span class='subsectionToc'>B.2.2 <a href='#implementacion-en-lynxjs' id='QQ2-1-198'>Implementación en Lynxjs</a></span>
+<br /><span class='appendixToc'>C <a href='#manual-de-usuario' id='QQ2-1-200'>Manual de usuario</a></span>
+<br /><span class='sectionToc'>C.1 <a href='#galeria-local' id='QQ2-1-204'>Galería local</a></span>
+<br /><span class='sectionToc'>C.2 <a href='#galeria-online' id='QQ2-1-208'>Galería online</a></span>
+<br /><span class='sectionToc'>C.3 <a href='#ajustes' id='QQ2-1-210'>Ajustes</a></span>
 </div>
 <!-- l. 105 --><p class='noindent'>
                                                                                  
@@ -158,9 +162,15 @@ sprint 1</a></span><br /><span class='lofToc'>4.9 <a href='#diagrama-entidad-re
 arquitectónico detallado de nuestra implementación.</a></span><br /><span class='lofToc'>4.11 <a href='#diagrama-de-gantt-de-las-tareas-de-la-primera-semana-del-sprint-1'>Diagrama de Gantt
 de las tareas de la primera semana del sprint 2</a></span><br /><span class='lofToc'>4.12 <a href='#diagrama-de-gantt-de-las-tareas-de-la-segunda-semana-del-sprint-1'>Diagrama de Gantt de las
 tareas de la segunda semana del sprint 2</a></span><br /><span class='lofToc'>4.13 <a href='#diagrama-de-gantt-de-las-tareas-de-la-primera-semana-del-sprint-2'>Diagrama de Gantt de las tareas
-de la primera semana del sprint 3</a></span><br /><span class='lofToc'>4.14 <a href='#diagrama-de-gantt-de-las-tareas-de-la-segunda-semana-del-sprint-2'>Diagrama de Gantt de las tareas de la
-segunda semana del sprint 3</a></span><br /><span class='lofToc'>4.15 <a href='#diagrama-entidadrelacion-actualizado-con-la-entidad-mediafile'>Diagrama Entidad-Relación actualizado con
-la entidad MediaFile</a></span><br /><span class='lofToc'>4.16 <a href='#diagrama-de-flujo-de-subida-de-un-archivo-multimedia'>Diagrama de flujo de subida de un archivo multimedia</a></span><br />
+de la primera semana del sprint 3</a></span><br /><span class='lofToc'>4.14 <a href='#diagrama-de-gantt-de-las-tareas-de-la-segunda-semana-del-sprint-2'>Diagrama de Gantt de las tareas de
+la segunda semana del sprint 3</a></span><br /><span class='lofToc'>4.15 <a href='#diagrama-entidadrelacion-actualizado-con-la-entidad-mediafile'>Diagrama Entidad-Relación actualizado
+con la entidad MediaFile</a></span><br /><span class='lofToc'>4.16 <a href='#diagrama-de-flujo-de-subida-de-un-archivo-multimedia'>Diagrama de flujo de subida de un archivo
+multimedia</a></span><br /><span class='lofToc'>C.1 <a href='#pantalla-para-introducir-url-de-la-aplicacion-lynxjs'>Pantalla para introducir URL de la aplicación Lynxjs.</a></span><br /><span class='lofToc'>C.2 <a href='#pantalla-de-configuracion-del-servidor-en-la-aplicacion-movil'>Pantalla
+de configuración del servidor en la aplicación móvil.</a></span><br /><span class='lofToc'>C.3 <a href='#pantalla-de-inicio-de-sesion-en-la-aplicacion-movil'>Pantalla de inicio de
+sesión en la aplicación móvil.</a></span><br /><span class='lofToc'>C.4 <a href='#galeria-local-en-la-aplicacion-movil'>Galería local en la aplicación móvil.</a></span><br /><span class='lofToc'>C.5 <a href='#galeria-local-con-varias-imagenes-seleccionadas'>Galería
+local con varias imágenes seleccionadas.</a></span><br /><span class='lofToc'>C.6 <a href='#galeria-local-con-varias-imagenes-seleccionadas-para-eliminar-del-servidor'>Galería local con varias imágenes
+seleccionadas para eliminar del servidor.</a></span><br /><span class='lofToc'>C.7 <a href='#galeria-online-en-la-aplicacion-movil'>Galería online en la aplicación
+móvil.</a></span><br /><span class='lofToc'>C.8 <a href='#ajustes-en-la-aplicacion-movil-'>Ajustes en la aplicación móvil. (1)</a></span><br /><span class='lofToc'>C.9 <a href='#ajustes-en-la-aplicacion-movil-1'>Ajustes en la aplicación móvil. (2)</a></span><br />
 </div>
 <!-- l. 108 --><p class='noindent'>
                                                                                  
@@ -7600,7 +7610,134 @@ explorador.
 </p><!-- l. 330 --><p class='noindent'>De esta manera, conseguimos ejecutar la aplicación en modo desarrollo, pudiendo ver los cambios
 en tiempo real al modificar el código fuente y pudiendo ejecutar la <a href='github.com/lynx-family/lynx-devtool'>herramienta de desarrollo de
 lynxjs</a>.
+                                                                                 
+                                                                                 
+<a id='x1-166005r168'></a>
 </p>
+<h2 class='appendixHead' id='manual-de-usuario'><span class='titlemark'>Apéndice C</span><br /><a id='x1-167000C'></a>Manual de usuario</h2>
+<!-- l. 4 --><p class='noindent'>La primera vez que iniciemos la aplicación, se nos pedirá permisos para el acceso a archivos del
+móvil. Estos permisos son necesarios para que la aplicación pueda leer los archivos multimedia de
+el dispositivo móvil.
+</p><!-- l. 6 --><p class='noindent'>Una vez aceptados los permisos, introduciremos los datos para acceder a nuestra implementación
+en Lynxjs y se nos pedirá que introduzcamos los datos de conexión al servidor (ip y
+puerto). Estos datos se pueden modificar en cualquier momento desde el menú de
+configuración, pero hasta que no se introduzcan correctamente, no se podrá acceder a la
+aplicación.
+</p><!-- l. 8 --><p class='noindent'>En cuanto introduzcamos los datos de acceso al servidor, podremos iniciar sesión. Para iniciar
+sesión la primera vez, tendremos que utilizar la cuenta con usuario <span class='ectt-1095'>admin </span>y la contraseña <span class='ectt-1095'>admin</span>.
+Una vez iniciada la sesión, se nos pedirá crear una nueva cuenta, eliminando así la cuenta de
+administrador.
+</p>
+<figure class='figure'> 
+
+                                                                                 
+                                                                                 
+                                                                                 
+                                                                                 
+<div class='minipage'><!-- l. 15 --><p class='noindent' id='pantalla-para-introducir-url-de-la-aplicacion-lynxjs'><img alt='PIC' src='assets/lynx-application-url.png' style='width:100%' /> <a id='x1-167001r1'></a>
+</p>
+<figcaption class='caption'><span class='id'>Figura C.1:         </span><span class='content'>Pantalla
+para introducir URL de la
+aplicación Lynxjs.        </span></figcaption><!-- tex4ht:label?: x1-167001r1  --></div>                                 <div class='minipage' id='pantalla-de-configuracion-del-servidor-en-la-aplicacion-movil'><img alt='PIC' src='assets/server-settings-mobile.png' style='width:100%' /> <a id='x1-167002r2'></a>
+<figcaption class='caption'><span class='id'>Figura C.2:   </span><span class='content'>Pantalla   de
+configuración  del  servidor
+en la aplicación móvil.      </span></figcaption><!-- tex4ht:label?: x1-167002r2  --></div>
+<div class='minipage' id='pantalla-de-inicio-de-sesion-en-la-aplicacion-movil'><img alt='PIC' src='assets/login-screen-mobile.png' style='width:100%' /> <a id='x1-167003r3'></a>
+<figcaption class='caption'><span class='id'>Figura C.3:   </span><span class='content'>Pantalla   de
+inicio   de   sesión   en   la
+aplicación móvil.         </span></figcaption><!-- tex4ht:label?: x1-167003r3  --></div>
+                                                                                 
+                                                                                 
+</figure>
+<!-- l. 35 --><p class='noindent'>Al iniciar sesión, accederemos a la pantalla principal de la aplicación, donde podremos ver todos
+nuestros archivos multimedia del dispositivo, ordenados de más recientes a más antiguos. Nos
+encontraremos con un menú de navegación en la parte inferior de la pantalla, donde podremos
+acceder a las diferentes secciones de la aplicación: Galería local, Galería online y
+Ajustes.
+
+</p>
+<h3 class='sectionHead' id='galeria-local'><span class='titlemark'>C.1.   </span> <a id='x1-168000C.1'></a>Galería local</h3>
+<!-- l. 40 --><p class='noindent'>Dentro de la galería local, disponemos de un botón de refresco en la parte superior derecha, que
+nos permitirá actualizar la lista de archivos multimedia en caso de que hayamos añadido o
+eliminado archivos desde fuera de la aplicación o queramos refrescar el estado de las mismas en el
+servidor. Contamos también con un botón que nos permitirá saber el estado del servidor en todo
+momento. Se comprueba si el servidor está activo cada 30 segundos, aunque se puede
+comprobar manualmente en cualquier momento tocando el botón que muestra el estado del
+servidor.
+</p><!-- l. 42 --><p class='noindent'>Desde nuestra galería local, podremos ver los archivos multimedia que tenemos en nuestro
+dispositivo con un distintivo para aquellos que ya han sido subidos al servidor. Si damos un
+toque a alguna imagen, abriremos una vista de detalle de la imagen, donde podremos ver la
+imagen en grande y subirla al servidor si no ha sido subida ya. En caso de que la imagen ya haya
+sido subida, podremos eliminarla del servidor.
+</p><!-- l. 44 --><p class='noindent'>Si mantenemos pulsada una imagen, podremos seleccionar varias imágenes a la vez para subirlas
+o eliminarlas del servidor. En la parte superior de la pantalla, aparecerá un menú contextual con
+las opciones disponibles para las imágenes seleccionadas.
+</p><!-- l. 46 --><p class='noindent'>Si el ajuste de sincronización automática está activado, al entrar en la galería local las imágenes
+se subirán automáticamente al servidor si no han sido subidas ya.
+</p>
+<figure class='figure'> 
+
+                                                                                 
+                                                                                 
+                                                                                 
+                                                                                 
+<div class='minipage'><!-- l. 51 --><p class='noindent' id='galeria-local-en-la-aplicacion-movil'><img alt='PIC' src='assets/local-gallery-mobile.png' style='width:100%' /> <a id='x1-168001r4'></a>
+</p>
+<figcaption class='caption'><span class='id'>Figura C.4:  </span><span class='content'>Galería  local
+en la aplicación móvil.    </span></figcaption><!-- tex4ht:label?: x1-168001r4  --></div>                                 <div class='minipage' id='galeria-local-con-varias-imagenes-seleccionadas'><img alt='PIC' src='assets/local-gallery-selected-mobile.png' style='width:100%' /> <a id='x1-168002r5'></a>
+<figcaption class='caption'><span class='id'>Figura C.5:  </span><span class='content'>Galería  local
+con      varias      imágenes
+seleccionadas.                 </span></figcaption><!-- tex4ht:label?: x1-168002r5  --></div>
+<div class='minipage' id='galeria-local-con-varias-imagenes-seleccionadas-para-eliminar-del-servidor'><img alt='PIC' src='assets/local-gallery-delete-selected.png' style='width:100%' /> <a id='x1-168003r6'></a>
+<figcaption class='caption'><span class='id'>Figura C.6:  </span><span class='content'>Galería  local
+con      varias      imágenes
+seleccionadas para eliminar
+del servidor.             </span></figcaption><!-- tex4ht:label?: x1-168003r6  --></div>
+                                                                                 
+                                                                                 
+</figure>
+
+<h3 class='sectionHead' id='galeria-online'><span class='titlemark'>C.2.   </span> <a id='x1-169000C.2'></a>Galería online</h3>
+<!-- l. 72 --><p class='noindent'>Si navegamos a la galería online, podremos ver todas las imágenes que hemos subido al servidor
+desde cualquier dispositivo a nuestra cuenta. Desde esta galería, podremos eliminar las imágenes
+del servidor si lo deseamos o verlas en detalle.
+</p>
+<figure class='figure'> 
+
+                                                                                 
+                                                                                 
+                                                                                 
+                                                                                 
+<!-- l. 77 --><p class='noindent' id='galeria-online-en-la-aplicacion-movil'><img alt='PIC' src='assets/online-gallery-mobile.png' style='width:30%' /> <a id='x1-169001r7'></a>
+</p>
+<figcaption class='caption'><span class='id'>Figura C.7: </span><span class='content'>Galería online en la aplicación móvil.                                    </span></figcaption><!-- tex4ht:label?: x1-169001r7  -->
+                                                                                 
+                                                                                 
+</figure>
+
+<h3 class='sectionHead' id='ajustes'><span class='titlemark'>C.3.   </span> <a id='x1-170000C.3'></a>Ajustes</h3>
+<!-- l. 83 --><p class='noindent'>En el apartado de ajustes, podremos modificar los datos de conexión al servidor, activar o
+desactivar la sincronización automática, cambiar el número máximo de subidas concurrentes
+(para utilizar más o menos recursos del dispositivo móvil) y cerrar sesión. Los cambios solamente
+se aplicarán al pulsar el botón de guardar cambios. Una vez activada la opción de sincronización
+automática, entrar en la galería local hará que todas las imágenes que no hayan sido subidas al
+servidor se suban automáticamente.
+</p>
+<figure class='figure'> 
+
+                                                                                 
+                                                                                 
+                                                                                 
+                                                                                 
+<div class='minipage'><!-- l. 88 --><p class='noindent' id='ajustes-en-la-aplicacion-movil-'><img alt='PIC' src='assets/settings-mobile1.png' style='width:100%' /> <a id='x1-170001r8'></a>
+</p>
+<figcaption class='caption'><span class='id'>Figura C.8:  </span><span class='content'>Ajustes  en  la
+aplicación móvil. (1)      </span></figcaption><!-- tex4ht:label?: x1-170001r8  --></div>                                 <div class='minipage' id='ajustes-en-la-aplicacion-movil-1'><img alt='PIC' src='assets/settings-mobile2.png' style='width:100%' /> <a id='x1-170002r9'></a>
+<figcaption class='caption'><span class='id'>Figura C.9:  </span><span class='content'>Ajustes  en  la
+aplicación móvil. (2)        </span></figcaption><!-- tex4ht:label?: x1-170002r9  --></div>
+                                                                                 
+                                                                                 
+</figure>
  
 </body> 
 </html>
