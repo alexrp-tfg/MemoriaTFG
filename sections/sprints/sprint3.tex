@@ -105,7 +105,7 @@ El principal problema que se encontró durante las pruebas de estrés fue la sat
 
 \subsubsection{Estado de subida de los archivos multimedia}
 En la aplicación móvil se ha implementado una galería que muestra los archivos multimedia locales junto con su estado, de esta manera el usuario sabe qué archivos de su dispositivo ya han sido subidos al servidor y cuáles están pendientes de subir.
-Para ello, no ha sido necesario almacenar el estado de los archivos en una base de datos local, sino que se han utilizado las propiedades de los archivos locales que nos ofrecen los dispositivos. A la hora de subir un archivo, este se sube con un nombre de archivo único que hace referencia a el id del archivo en el dispositivo local. De esta manera, al listar los archivos locales, se puede comprobar, mediante la lista de archivos subidos consultada del servidor, si el archivo ya ha sido subido o no.
+Para ello, no ha sido necesario almacenar el estado de los archivos en una base de datos local, sino que se han utilizado las propiedades de los archivos locales que nos ofrecen los dispositivos. A la hora de subir un archivo, este se sube con un nombre de archivo único que hace referencia al id del archivo en el dispositivo local. De esta manera, al listar los archivos locales, se puede comprobar, mediante la lista de archivos subidos consultada del servidor, si el archivo ya ha sido subido o no.
 
 Gracias a esta solución, cada archivo en el servidor es único, evitando así subidas duplicadas y manteniendo la integridad de los datos.
 

@@ -35,7 +35,7 @@ Adicionalmente, se ha desarrollado una infraestructura de despliegue completa qu
 
 \section{Problemas encontrados y soluciones implementadas}
 
-Durante el desarrollo se identificaron varios desafíos técnicos significativos que requirieron soluciones innovadoras y adaptaciones en la planificación original. La principal dificultad técnica surgió de las limitaciones del framework LynxJS para el manejo de subidas multipart y seguimiento de progreso. Esta tecnología emergente, aunque prometedora en términos de rendimiento, carece de soporte nativo para funcionalidades básicas como las subidas de archivos multipart, lo que requirió el desarrollo de módulos nativos extensos en Kotlin y Java, áreas en las que el equipo no tenía experiencia previa.
+Durante el desarrollo se identificaron varios desafíos técnicos significativos que requirieron soluciones innovadoras y adaptaciones en la planificación original. La principal dificultad técnica surgió de las limitaciones del framework LynxJS. Esta tecnología emergente, aunque prometedora en términos de rendimiento, carece de soporte nativo para funcionalidades básicas como las subidas de archivos multipart o componentes esenciales como puede ser un componente para introducir texto lo que requirió el desarrollo de módulos nativos extensos en Kotlin y Java, áreas en las que el equipo no tenía experiencia previa. El estudio de la tecnología y las pruebas previas al desarrollo deberían haber sido más exhaustivas para identificar estas limitaciones antes de la fase de implementación.
 
 La solución implementada para superar estas limitaciones involucró el desarrollo de un puente de comunicación personalizado entre la capa nativa de Android y el runtime de LynxJS. Este puente permite que los módulos nativos expongan funcionalidades específicas del sistema operativo móvil al código JavaScript, aunque con una complejidad de implementación significativamente mayor de la esperada inicialmente.
 
@@ -55,16 +55,16 @@ Diversas funcionalidades avanzadas permanecen pendientes de implementación, inc
 
 \section{Valoración personal y aprendizajes}
 
-Este proyecto ha representado una experiencia de aprendizaje integral que ha abarcado múltiples disciplinas de la ingeniería de software moderna. El desarrollo con Rust ha proporcionado conocimientos profundos sobre gestión de memoria, concurrencia segura y diseño de sistemas de alto rendimiento. La curva de aprendizaje inicial fue pronunciada, pero los beneficios en términos de seguridad y rendimiento del código resultante han justificado ampliamente esta inversión de tiempo.
+Este proyecto ha representado una experiencia de aprendizaje integral que ha abarcado múltiples disciplinas de la ingeniería de software moderna. El desarrollo con Rust ha proporcionado conocimientos profundos sobre gestión de memoria, concurrencia segura y diseño de sistemas de alto rendimiento. La curva de aprendizaje inicial fue pronunciada, pero los beneficios en términos de seguridad y rendimiento del código resultante han merecido el esfuerzo.
 
 La implementación de una arquitectura limpia ha reforzado significativamente la comprensión de principios fundamentales de diseño de software y separación de responsabilidades. Este enfoque arquitectónico ha demostrado su valor al facilitar el mantenimiento del código y permitir modificaciones en capas específicas sin afectar el resto del sistema.
 Esta arquitectura ha facilitado en gran medida el desarrollo de tests y la refactorización del código, promoviendo buenas prácticas de desarrollo y asegurando la calidad del software entregado.
 
 El trabajo con LynxJS, a pesar de sus limitaciones técnicas, ha ofrecido una perspectiva valiosa sobre el desarrollo de aplicaciones móviles multiplataforma y la implementación de módulos nativos. La experiencia con tecnologías emergentes ha desarrollado habilidades importantes de adaptación y resolución de problemas en entornos con documentación limitada y comunidades pequeñas donde prácticamente no existen recursos de terceros.
 
-La adopción de metodologías ágiles y la planificación detallada de sprints ha mejorado sustancialmente las habilidades de gestión de proyectos y estimación de tareas. La práctica de documentar retrospectivas y ajustar planificaciones basándose en la velocidad real del equipo ha proporcionado insights valiosos sobre el desarrollo de software en proyectos complejos.
-
 La documentación exhaustiva del proyecto y el enfoque en desarrollo de código abierto han reforzado la importancia de la comunicación técnica clara y la colaboración comunitaria. La generación automática de documentación API y la creación de guías de contribución han demostrado ser herramientas esenciales para proyectos que aspiran a la sostenibilidad a largo plazo.
+
+En definitiva, este proyecto ha sido una oportunidad increíble para aplicar y expandir conocimientos técnicos, desarrollar habilidades de gestión de proyectos y contribuir a la comunidad de software libre con una solución innovadora que prioriza la privacidad y el control del usuario, utilizando tecnologías emergentes como Rust.
 
 \section{Trabajo futuro}
 
@@ -76,7 +76,7 @@ La sincronización automática representa otra mejora inmediata prioritaria, per
 
 La implementación de detección automática de servidor mediante mDNS simplificaría significativamente el proceso de configuración inicial, eliminando la necesidad de introducir manualmente direcciones IP y puertos del servidor. Esta mejora haría el sistema más accesible para usuarios menos técnicos.
 
-El desarrollo de una interfaz de administración completa utilizando Tauri proporcionaría capacidades de gestión visual del servidor, incluyendo monitoreo de recursos, gestión de usuarios, y configuración de parámetros del sistema a través de una interfaz gráfica intuitiva.
+El desarrollo de una interfaz de administración completa para el servidor proporcionaría capacidades de gestión visual del servidor, incluyendo monitoreo de recursos, gestión de usuarios, y configuración de parámetros del sistema a través de una interfaz gráfica intuitiva.
 
 Las extensiones a medio plazo incluyen la expansión del soporte multiplataforma completo extendiendo la aplicación móvil a iOS, aprovechando la base de código común de LynxJS pero requiriendo implementación específica de módulos nativos para la plataforma de Apple.
 

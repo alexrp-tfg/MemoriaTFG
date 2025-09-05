@@ -3,7 +3,7 @@
 Todo el código fuente del proyecto está disponible en los siguientes repositorios de GitHub:
 \begin{itemize}
     \item Servidor: \url{https://github.com/alexrp-tfg/server}
-    \item Explorador de Lynxjs: \url{https://github.com/alexrp-tfg/lynx-tfg}
+    \item Explorador de Lynx.js: \url{https://github.com/alexrp-tfg/lynx-tfg}
     \item Cliente móvil: \url{https://github.com/alexrp-tfg/mobile-client}
 \end{itemize}
 \section{Servidor}
@@ -106,9 +106,9 @@ diesel migration run
 \end{enumerate}
 
 \section{Cliente móvil}
-Para utilizar la aplicación móvil necesitaremos, tanto la aplicación del explorador de Lynxjs como la implementación en Lynxjs.
-\subsection{Explorador de Lynxjs}
-El primer paso es tener instalada la aplicación del explorador de Lynxjs en nuestro dispositivo móvil.
+Para utilizar la aplicación móvil necesitaremos, tanto la aplicación del explorador de Lynx.js como la implementación en Lynx.js.
+\subsection{Explorador de Lynx.js}
+El primer paso es tener instalada la aplicación del explorador de Lynx.js en nuestro dispositivo móvil.
 Para obtener el instalador de la aplicación, tenemos dos opciones: obtener la última versión desde el repositorio de GitHub o compilar la aplicación nosotros mismos.
 
 Para descargar la última versión basta con ir a la \href{https://github.com/alexrp-tfg/lynx-tfg/releases}{Sección de releases del repositorio} y descargar el archivo \texttt{.apk} de la última versión.
@@ -293,7 +293,7 @@ $ANDROID_HOME= [Environment]::GetEnvironmentVariable('ANDROID_HOME', 'User')
 [Environment]::SetEnvironmentVariable('PATH', "$ANDROID_HOME\platform-tools;$EXISTING_PATH ", 'User')
 \end{lstlisting}
 
-\subsection{Implementación en Lynxjs}
+\subsection{Implementación en Lynx.js}
 \subsubsection{Requisitos del sistema}
 \begin{itemize}
     \item Node.js (>=18.19)
@@ -305,7 +305,7 @@ $ANDROID_HOME= [Environment]::GetEnvironmentVariable('ANDROID_HOME', 'User')
             \item bun
         \end{itemize}
 \end{itemize}
-Una vez tenemos la aplicación del explorador de Lynxjs instalada en nuestro dispositivo móvil, necesitamos tener la implementación de Lynxjs para poder cargarla en el explorador.
+Una vez tenemos la aplicación del explorador de Lynx.js instalada en nuestro dispositivo móvil, necesitamos tener la implementación de Lynx.js para poder cargarla en el explorador.
 
 Para ello, tenemos que ejecutar la compilación de la aplicación a partir del código fuente del proyecto. Los pasos a seguir son los siguientes:
 
@@ -325,6 +325,6 @@ Una vez instaladas las dependencias, podemos proceder a compilar la aplicación.
 yarn run dev
 \end{lstlisting}
 
-Una vez tenemos la aplicación ejecutándose, abrimos la aplicación del explorador de Lynxjs en nuestro dispositivo móvil y escaneamos el código QR que aparece en la terminal donde hemos ejecutado el comando anterior o introducimos la url manualmente en el explorador.
+Una vez tenemos la aplicación ejecutándose, abrimos la aplicación del explorador de Lynx.js en nuestro dispositivo móvil y escaneamos el código QR que aparece en la terminal donde hemos ejecutado el comando anterior o introducimos la url manualmente en el explorador.
 
 De esta manera, conseguimos ejecutar la aplicación en modo desarrollo, pudiendo ver los cambios en tiempo real al modificar el código fuente y pudiendo ejecutar la \href{github.com/lynx-family/lynx-devtool}{herramienta de desarrollo de lynxjs}.

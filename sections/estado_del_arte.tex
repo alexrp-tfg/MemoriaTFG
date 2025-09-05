@@ -1,13 +1,11 @@
 \newpage
-~
-\newpage
 \chapter{Estado del Arte}
 \label{ch:estado_del_arte}
 % Qué se ha hecho hasta ahora en este campo, qué tecnologías se han utilizado, qué problemas se han encontrado, qué soluciones se han propuesto.
 
 En este capítulo se presenta un análisis del estado del arte en el ámbito de las bibliotecas de archivos multimedia de código abierto (\acrfull{foss}).
 Se examinan las principales soluciones disponibles, sus características técnicas, fortalezas y limitaciones, así como las tendencias actuales en el sector.
-Dado que uno de los objetivos del proyecto es desarrollar un producto que sea de código abierto, la comparación se centra en soluciones FOSS que ya están en el mercado y que han sido ampliamente adoptadas por la comunidad, lo cual nos va a permitir desarrollar una comparación mas extensa sobre cómo están organizados los proyectos para facilitar su mantenimiento y escalabilidad, así como las tecnologías que utilizan para ofrecer sus servicios.
+Dado que uno de los objetivos del proyecto es desarrollar un producto que sea de código abierto, la comparación se centra en soluciones FOSS que ya están en el mercado y que han sido ampliamente adoptadas por la comunidad, lo cual nos va a permitir desarrollar una comparación más extensa sobre cómo están organizados los proyectos para facilitar su mantenimiento y escalabilidad, así como las tecnologías que utilizan para ofrecer sus servicios.
 
 Además, se realiza un estudio sobre las tecnologías que vamos a utilizar en el proyecto en comparación con las alternativas y las que ya se utilizan en los proyectos existentes que se analizan.
 
@@ -30,7 +28,7 @@ Además de estas capacidades técnicas, estos sistemas suelen incluir mecanismos
 
 Del mismo modo, la compartición de contenidos constituye un aspecto central. La posibilidad de compartir álbumes, carpetas o ficheros con otros usuarios, mediante enlaces públicos o controles de acceso más detallados, amplía las capacidades colaborativas del sistema. Finalmente, muchas de estas plataformas integran funciones de copia de seguridad y recuperación que aseguran la resiliencia frente a fallos, evitando la pérdida de información crítica.
 
-En conjunto, estas propiedades conforman el núcleo de lo que se entiende actualmente por un sistema de almacenamiento y compartición de contenidos multimedia. A partir de esta base conceptual, en las siguientes secciones se examinarán diversas soluciones consolidadas en este ámbito, con el fin de evaluar hasta qué punto responden a estos requisitos y qué innovaciones introducen respecto a los enfoques tradicionales.
+En conjunto, estas propiedades forman lo que se entiende actualmente por un sistema de almacenamiento y compartición de contenidos multimedia. A partir de esta base, en las siguientes secciones se examinarán diversas soluciones que encontramos en este ámbito, con el fin de evaluar hasta qué punto responden a estos requisitos y qué innovaciones introducen respecto a los enfoques tradicionales.
 
 \section{Soluciones propietarias relevantes}
 
@@ -147,7 +145,7 @@ Finalmente, las \textbf{soluciones ligeras} están optimizadas para funcionar ef
 
 \textbf{Arquitectura}
 
-(\cite{immich-documentation}, \href{https://immich.app/docs/developer/architecture/}{Apartado de arquitectura}) Immich utiliza una arquitectura cliente-servidor. Además, implementa una separación de responsabilidades haciendo uso de una arquitectura hexagonal un tanto relajado, puesto que no la siguen al pie de la letra si no que buscan separar la lógica de negocio de la lógica de infraestructura, tanto para el cliente como el servidor:
+(\cite{immich-documentation}, \href{https://immich.app/docs/developer/architecture/}{Apartado de arquitectura}) Immich utiliza una arquitectura cliente-servidor. Además, implementa una separación de responsabilidades haciendo uso de una arquitectura hexagonal un tanto relajado, puesto que no la siguen al pie de la letra sino que buscan separar la lógica de negocio de la lógica de infraestructura, tanto para el cliente como el servidor:
 
 \begin{figure}[H]
   \centering
@@ -423,7 +421,7 @@ En el servicio gestionado, el usuario no se encarga del mantenimiento, actualiza
 
 \textbf{Arquitectura}
 
-(\cite{ente-documentation}, \href{https://ente.io/architecture/}{Apartado de arquitectura}) Ente no incluye una descripción detallada de su arquitectura, aunque explica con detalle los procesos de la aplicación en los distintos casos de uso. Viendo el código fuente, podemos ver que no hay una estructura definida, si no que está todo en archivos sueltos, lo que dificulta la comprensión de la arquitectura general. Sin embargo, se puede deducir que sigue un modelo cliente-servidor, donde el cliente (aplicación web y móvil) interactúa con el servidor a través de una API RESTful.
+(\cite{ente-documentation}, \href{https://ente.io/architecture/}{Apartado de arquitectura}) Ente no incluye una descripción detallada de su arquitectura, aunque explica con detalle los procesos de la aplicación en los distintos casos de uso. Viendo el código fuente, podemos ver que no hay una estructura definida, sino que está todo en archivos sueltos, lo que dificulta la comprensión de la arquitectura general. Sin embargo, se puede deducir que sigue un modelo cliente-servidor, donde el cliente (aplicación web y móvil) interactúa con el servidor a través de una API RESTful.
 
 Ente implementa cifrado de extremo a extremo (E2EE) para garantizar la privacidad de los datos del usuario. Todas las claves criptográficas se generan y gestionan en el dispositivo del usuario, y nunca se almacenan en el servidor en texto claro. El flujo general es el siguiente:
 
@@ -460,4 +458,4 @@ El análisis comparativo de las tres soluciones principales revela patrones dist
 Con el desarrollo de este proyecto buscamos fomentar la interoperabilidad mediante el uso de estándares abiertos y APIs bien documentadas, lo que permitirá a los usuarios migrar fácilmente sus datos y contribuir al proyecto. Esto es esencial para garantizar la sostenibilidad a largo plazo y la adopción por parte de la comunidad.
 Gracias a esto se busca que el proyecto no solo sea una solución de gestión de archivos multimedia, sino también un ecosistema abierto y colaborativo que permita a los usuarios y desarrolladores contribuir y beneficiarse mutuamente, además de poder integrar la aplicación con otros servicios y herramientas existentes.
 
-Antes de abordar las aportaciones específicas de el proyecto, es importante destacar que, tras analizar las soluciones existentes, se identifican una serie de características fundamentales que deben estar presentes en cualquier aplicación moderna de gestión de archivos multimedia. Entre ellas se encuentran: la capacidad de importar y organizar archivos existentes desde el disco, soporte multiplataforma (web, móvil y escritorio), búsqueda avanzada y filtrado, reconocimiento facial y de objetos, opciones de compartición seguras, gestión eficiente de metadatos, protección de la privacidad y seguridad de los datos, así como una experiencia de usuario fluida y personalizable. Estas funcionalidades constituyen la base sobre la que debe construirse cualquier alternativa competitiva en este ámbito y serán consideradas requisitos mínimos en el desarrollo de la aplicación propuesta.
+Antes de abordar las aportaciones específicas del proyecto, es importante destacar que, tras analizar las soluciones existentes, se identifican una serie de características fundamentales que deben estar presentes en cualquier aplicación moderna de gestión de archivos multimedia. Entre ellas se encuentran: la capacidad de importar y organizar archivos existentes desde el disco, soporte multiplataforma (web, móvil y escritorio), búsqueda avanzada y filtrado, reconocimiento facial y de objetos, opciones de compartición seguras, gestión eficiente de metadatos, protección de la privacidad y seguridad de los datos, así como una experiencia de usuario fluida y personalizable. Estas funcionalidades constituyen la base sobre la que debe construirse cualquier alternativa competitiva en este ámbito y serán consideradas requisitos mínimos en el desarrollo de la aplicación propuesta.
