@@ -14,7 +14,7 @@ El segundo factor es el \textbf{coste económico}. La mayoría de estos servicio
 
 En tercer lugar, existe el problema del \textbf{vendor lock-in} o dependencia del proveedor. Migrar una biblioteca de miles de fotos y vídeos de un servicio a otro es un proceso a menudo complejo y tedioso. Las herramientas de exportación pueden ser limitadas, y los metadatos valiosos (como álbumes, etiquetas o datos de reconocimiento facial) rara vez son transferibles, lo que atrapa al usuario en un ecosistema cerrado.
 
-Frente a este panorama, emerge con fuerza el concepto de \textbf{autoalojamiento (self-hosting)}. Esta filosofía defiende devolver al usuario el control total sobre sus datos, alojando los servicios en hardware propio, como un ordenador personal, un servidor doméstico o un NAS (Network Attached Storage). El movimiento del software de código abierto (\acrshort{foss}) ha sido un pilar fundamental para atacar este problema, proveyendo alternativas potentes y transparentes a las soluciones propietarias. Proyectos como Immich, PhotoPrism o Ente, analizados en detalle en el capítulo de \hyperref[sec:estado_del_arte]{Estado del Arte}, demuestran la viabilidad y el creciente interés en soluciones de gestión multimedia que priorizan la soberanía digital del usuario.
+Frente a este panorama, emerge con fuerza el concepto de \textbf{autoalojamiento (self-hosting)}. Esta filosofía defiende devolver al usuario el control total sobre sus datos, alojando los servicios en hardware propio, como un ordenador personal, un servidor doméstico o un NAS (Network Attached Storage). El movimiento del software de código abierto (\acrfull{foss}) ha sido un pilar fundamental para atacar este problema, proveyendo alternativas potentes y transparentes a las soluciones propietarias. Proyectos como Immich, PhotoPrism o Ente, analizados en detalle en el capítulo de \hyperref[sec:estado_del_arte]{Estado del Arte}, demuestran la viabilidad y el creciente interés en soluciones de gestión multimedia que priorizan la soberanía digital del usuario.
 
 Este proyecto se inscribe en esta última tendencia. Busca ofrecer una solución integral que no solo resuelva el problema práctico del almacenamiento limitado, sino que también aborde las preocupaciones fundamentales de privacidad, coste y control.
 \section{Motivación}
@@ -37,7 +37,7 @@ Finalmente, este Trabajo de Fin de Grado es, en sí mismo, un motor de aprendiza
 
 Desarrollar una solución multiplataforma, multiusuario y open-source para la compartición de archivos multimedia. El sistema permitirá a los usuarios almacenar, sincronizar y gestionar sus fotos y vídeos de manera segura y eficiente, utilizando sus propios dispositivos como servidores de almacenamiento. La solución incluirá un cliente ligero para dispositivos móviles y un servidor robusto, ambos diseñados para facilitar la experiencia del usuario, garantizar la privacidad de los datos.
 
-Para ayudar a alcanzar este objetivo general se describen los siguientes objetivos específicos que se considerarán durante el desarrollo del proyecto:
+Para ayudar a alcanzar este objetivo general se describen los siguientes objetivos específicos que se considerarán durante el desarrollo del proyecto.
 
 \textbf{Objetivos específicos}
 
@@ -67,7 +67,7 @@ Para ayudar a alcanzar este objetivo general se describen los siguientes objetiv
 
 
 \section{Planificación}
-El desarrollo de este proyecto se separa en varias fases:
+El desarrollo de este proyecto se separa en varias fases que realmente y de alguna forma se han llevado a cabo de forma iterativa:
 \begin{itemize}
     \item \textbf{Fase de análisis del estado del arte y tecnologías disponibles:} Durante esta fase se investiga y analiza el estado del arte de las tecnologías disponibles para el desarrollo del proyecto. Se realiza un estudio de las tecnologías más adecuadas para el desarrollo del cliente y servidor.
     \item \textbf{Fase de especificación de requisitos:} Durante esta fase se realiza el análisis de las historias de usuario y técnicas y se define la arquitectura del sistema, así como los estilos y patrones arquitectónicos a utilizar. Se definen las historias de usuario y técnicas y se decide qué tecnologías se van a utilizar para el desarrollo del cliente y servidor.
@@ -173,9 +173,9 @@ En primer lugar, el \textbf{Resumen} y los \textbf{Agradecimientos} ofrecen una 
 
 El capítulo de \textbf{Estado del Arte} realiza un análisis exhaustivo de las soluciones existentes, tanto propietarias como de código abierto, identificando sus fortalezas, debilidades y las tecnologías que emplean. Este estudio fundamenta las decisiones tomadas y destaca las aportaciones originales de nuestra propuesta.
 
-La sección de \textbf{Análisis de Tecnologías} profundiza en las herramientas y lenguajes de programación considerados para el desarrollo, justificando la elección de Rust para el servidor y Lynx.js para el cliente móvil en base a criterios de rendimiento, seguridad y escalabilidad.
+El capítulo de \textbf{Análisis de Tecnologías} profundiza en las herramientas y lenguajes de programación considerados para el desarrollo, justificando la elección de Rust para el servidor y Lynx.js para el cliente móvil en base a criterios de rendimiento, seguridad y escalabilidad.
 
-El núcleo de la memoria se encuentra en el capítulo de la \textbf{Propuesta}, donde se detalla la metodología de desarrollo ágil (Scrum) adoptada y se describe la arquitectura del sistema. Este capítulo se complementa con las secciones dedicadas a cada \textbf{Sprint}, en los que se documenta el progreso iterativo del proyecto, detallando las historias de usuario implementadas y las decisiones técnicas tomadas.
+El núcleo de la memoria se encuentra en el capítulo de la \textbf{Propuesta y Desarrollo}, donde se detalla la metodología de desarrollo ágil (Scrum) adoptada y se describe la arquitectura del sistema. Este capítulo se complementa con las secciones dedicadas a cada \textbf{Sprint}, en los que se documenta el progreso iterativo del proyecto, detallando las historias de usuario implementadas y las decisiones técnicas tomadas.
 
 Finalmente, las \textbf{Conclusiones y Trabajo Futuro} recogen una reflexión sobre los resultados alcanzados, el cumplimiento de los objetivos, los problemas encontrados y las futuras líneas de trabajo que se abren a partir de este proyecto.
 

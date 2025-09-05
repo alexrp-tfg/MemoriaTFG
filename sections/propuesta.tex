@@ -1,4 +1,4 @@
-\chapter{Propuesta}
+\chapter{Propuesta y Desarrollo}
 Una vez analizado el estado del arte y las tecnologías disponibles, se propone una propuesta a desarrollar que busca cumplir con los objetivos planteados en la introducción. Para el desarrollo de la propuesta se utilizan metodologías ágiles y tecnologías modernas para garantizar un desarrollo eficiente y que permitirá una fácil adaptación a los cambios que puedan surgir durante el desarrollo del proyecto.
 
 Tal como se ha especificado en los capítulos anteriores, se desarrollará una solución que busca ofrecer:
@@ -8,7 +8,7 @@ Tal como se ha especificado en los capítulos anteriores, se desarrollará una s
     \item Solución escalable y mantenible. Se busca que la solución sea escalable y mantenible a largo plazo, permitiendo añadir nuevas funcionalidades y mejoras de manera sencilla. Para ello se implementará una arquitectura limpia \parencite{uncle-bob-clean-architecture}, lo que proporcionará una estructura del proyecto completamente desacoplada, facilitando la escalabilidad y mantenimiento.
     \item Almacenamiento eficiente. Se busca que el almacenamiento de los archivos sea lo más eficiente posible, tanto en términos de espacio como de velocidad de acceso.
         Para ello, primero se hará uso de un sistema de almacenamiento de objetos compatible con \gls{s3}, lo que permitirá utilizar cualquier servicio de almacenamiento compatible con el mismo protocolo como Google Cloud Storage o usando software libre como podría ser \gls{minio}.
-        Dada la naturaleza de este proyecto, se utilizará MinIO como solución para el almacenamiento, ya que nos va a permitir almacenar nuestros archivos de manera eficiente en nuestro propio servidor.
+        Dada la naturaleza de este proyecto, se utilizará MinIO como solución para el almacenamiento, ya que nos va a permitir almacenar nuestros archivos de manera eficiente en nuestro propio servidor. MinIO ha demostrado ser una solución eficiente y de alto rendimiento para el almacenamiento distribuido, especialmente cuando se compara con sistemas tradicionales como LustreFS en entornos de computación de alto rendimiento \parencite{astsatryan2025performance}.
         En una ampliación futura se valorará la implementación de una solución de almacenamiento nativa que permita un acceso más rápido y eficiente a los archivos, además de una mejor gestión de los mismos.
     \item Desarrollo ágil y flexible. Se busca que el desarrollo sea ágil y flexible, permitiendo adaptarse a los cambios y necesidades del proyecto de manera rápida y eficiente. Para ello se hará uso de la metodología ágil Scrum, lo que facilitará una organización clara del proyecto y una planificación adecuada de las tareas a realizar.
         Seguir esta metodología favorecerá una mejor organización del proyecto y una planificación adecuada de las tareas a realizar, lo que aportará una buena organización en caso de que se incorporen más personas al proyecto en el futuro.
@@ -18,6 +18,9 @@ Tal como se ha especificado en los capítulos anteriores, se desarrollará una s
 Una vez realizado un estudio de las soluciones existentes y posibles tecnologías a utilizar en el capítulo \ref{ch:estado_del_arte}, se han identificado una serie de factores que pueden ser mejorados o que no están presentes en las aplicaciones actuales. Estos factores son fundamentales para ofrecer una solución más completa y eficiente en la gestión de fotos y archivos multimedia.
 
 Nuestro proyecto busca abordar las limitaciones actuales de las aplicaciones de fotos, especialmente en términos de rendimiento, usabilidad, facilidad de aportación al proyecto y características avanzadas.
+
+Los sistemas de gestión de contenido multimedia en la nube han evolucionado significativamente, y las soluciones modernas buscan optimizar tanto el almacenamiento como el procesamiento de archivos multimedia para mejorar la experiencia del usuario \parencite{diaz2011mediacloud}.
+
 \subsection{Rendimiento}
 El rendimiento es un aspecto crítico en las aplicaciones de fotos, especialmente cuando se manejan grandes colecciones. Muchas aplicaciones existentes sufren de lentitud en la carga y visualización de imágenes, lo que afecta negativamente la experiencia del usuario.
 No solo se busca optimizar la carga de imágenes en la aplicación, sino mejorar la velocidad de respuesta que ofrece el servidor a la hora de recibir, procesar y responder a las peticiones de los usuarios.
@@ -303,7 +306,7 @@ Aunque en las primeras iteraciones se utilice MinIO para almacenar los datos mul
 Gracias a la arquitectura limpia (\cite{uncle-bob-clean-architecture}) que se va a utilizar a la hora de implementar el sistema, se consigue un desacople total de la capa de aplicación, dominio e infraestructura, brindando la posibilidad de cambiar la implementación de la capa de infraestructura sin afectar al resto del sistema, proporcionando de esta manera flexibilidad sobre la solución que se desee usar para almacenar los datos/multimedia.
 
 Para el almacenaje de los datos de la aplicación se ha optado por hacer uso de un \acrshort{orm} con PostgreSQL.
-Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo plazo, esta opción proporciona una gran cantidad de ventajas frente a las desventajas que tiene, como pueden ser:
+Aunque puede ser menos escalable comparado con otras soluciones noSQL a largo plazo, esta opción proporciona una gran cantidad de ventajas frente a las desventajas que tiene. Estudios recientes han demostrado que PostgreSQL mantiene un rendimiento competitivo frente a otras bases de datos relacionales como MySQL en aplicaciones con cargas de trabajo intensivas \parencite{salunke2024performance}, como pueden ser:
 \begin{itemize}
     \item \textbf{Integridad de los datos}: PostgreSQL es un sistema de gestión de bases de datos relacional, lo que significa que garantiza la integridad de los datos mediante el uso de transacciones y restricciones.
     \item \textbf{Escalabilidad}: aunque no es tan escalable como otras soluciones noSQL, PostgreSQL es capaz de manejar grandes volúmenes de datos y puede escalar horizontalmente mediante particionamiento.
@@ -345,6 +348,9 @@ En un proyecto de este tipo es muy importante tener una buena estructura a la ho
 Se busca la separación de responsabilidades y una buena organización, lo cual satisface uno de los objetivos específicos (OE5): desarrollar un sistema que sea fácilmente escalable.
 
 Para ello, se han estudiado las distintas opciones disponibles, tanto para el servidor como para la aplicación móvil, y se ha optado por una variación de la arquitectura limpia \parencite{uncle-bob-clean-architecture}, cuyos principios son:
+
+La implementación de arquitecturas limpias en el desarrollo de software ha demostrado ser fundamental para la gestión efectiva de decisiones arquitectónicas en proyectos complejos, facilitando la evolución y mantenimiento a largo plazo \parencite{schellander2025concept}.
+
 \begin{itemize}
     \item \textbf{Separación de responsabilidades}: cada capa del sistema tiene una responsabilidad clara y bien definida, lo que facilita el mantenimiento y la evolución del sistema.
     \item \textbf{Independencia de la infraestructura}: las capas más internas del sistema no dependen de detalles de implementación de la infraestructura, lo que permite cambiar la infraestructura sin afectar al resto del sistema.
